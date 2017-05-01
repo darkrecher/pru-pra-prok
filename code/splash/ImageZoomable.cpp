@@ -2,16 +2,16 @@
 
 
 
-ImageZoomable::ImageZoomable(SDL_Surface *imageSource, SDL_Rect *sourceRect, 
-                             SDL_Rect *_hotPoint, Uint32 _transpColor, int _isKeyTransparent, 
+ImageZoomable::ImageZoomable(SDL_Surface *imageSource, SDL_Rect *sourceRect,
+                             SDL_Rect *_hotPoint, Uint32 _transpColor, int _isKeyTransparent,
                              Uint32 _surfaceTypeOfImage, Uint32 _surfaceTypeOfZoomedImage)
 {
     theImage = NULL;
     isKeyTransparent = 0;
     surfaceTypeOfZoomedImage = _surfaceTypeOfZoomedImage;
-    
-    if (imageSource != NULL) { 
-           
+
+    if (imageSource != NULL) {
+
         Uint16 imgWidth;
         Uint16 imgHeight;
         if (sourceRect == NULL) {
@@ -25,7 +25,7 @@ ImageZoomable::ImageZoomable(SDL_Surface *imageSource, SDL_Rect *sourceRect,
         theImage = SDL_CreateRGBSurface(_surfaceTypeOfImage, imgWidth, imgHeight, 32,0,0,0,0);
         SDL_BlitSurface(imageSource, sourceRect, this->GetImage(), NULL);
         this->SetHotPoint(_hotPoint);
-        if (_isKeyTransparent) { 
+        if (_isKeyTransparent) {
             isKeyTransparent = 1;
             transpColor = _transpColor;
             SDL_SetColorKey(theImage, SDL_SRCCOLORKEY, transpColor);
@@ -57,13 +57,13 @@ Sint16 ImageZoomable::GetHotPointY() { return hotPoint.y; }
 SDL_Surface *ImageZoomable::GetImage() { return theImage; }
 Uint32 ImageZoomable::GetTranspColor() { return transpColor; }
 int ImageZoomable::GetIsKeyTransparent() { return isKeyTransparent; }
-        
-       
+
+
 void ImageZoomable::SetHotPoint(SDL_Rect *_hotPoint)
 {
     if (_hotPoint != NULL) {
-        SetRectXY(&hotPoint, _hotPoint->x, _hotPoint->y); 
-    } else { 
+        SetRectXY(&hotPoint, _hotPoint->x, _hotPoint->y);
+    } else {
         SetRectXY(&hotPoint, 0, 0);
     }
 }
@@ -81,12 +81,12 @@ void ImageZoomable::Blit(SDL_Rect *sourceRect, SDL_Surface *dest, SDL_Rect *dest
 }
 
 
-SDL_Surface *ImageZoomable::GetZoomedImage(SDL_Rect *sourceRect, long int zoomFactor, 
-                                           SDL_Rect *imgResultLimits = NULL) 
+SDL_Surface *ImageZoomable::GetZoomedImage(SDL_Rect *sourceRect, long int zoomFactor,
+                                           SDL_Rect *imgResultLimits = NULL)
 {
 
     SDL_Rect sourceRect2;
-    
+
     if (sourceRect == NULL) {
         SetRect(&sourceRect2, 0, 0, theImage->w, theImage->h);
     } else {
@@ -111,25 +111,25 @@ SDL_Surface *ImageZoomable::GetZoomedImage(SDL_Rect *sourceRect, long int zoomFa
             sourceRect2.h = sourceRect->h;
         }
     }
-    
+
     long int sourceXOffset = 0;  //valeur en virgule pas-flottante (10 bit après la virgule)
     long int sourceYOffset = 0;  //valeur en virgule pas-flottante (10 bit après la virgule)
-    
+
     SDL_Rect imgResultLimits2;
     if (imgResultLimits == NULL) {
-        SetRect(&imgResultLimits2, 0, 0, (Uint16) ((sourceRect2.w*zoomFactor)>>10), 
+        SetRect(&imgResultLimits2, 0, 0, (Uint16) ((sourceRect2.w*zoomFactor)>>10),
                                          (Uint16) ((sourceRect2.h*zoomFactor)>>10));
     } else {
         imgResultLimits2 = *imgResultLimits;
         if (imgResultLimits2.x+imgResultLimits2.w > ((sourceRect2.w*zoomFactor)>>10)) {
             imgResultLimits2.w = (Uint16) (
-                                           ((sourceRect2.w*zoomFactor) >> 10) 
+                                           ((sourceRect2.w*zoomFactor) >> 10)
                                            - imgResultLimits2.x
                                           );
         }
         if (imgResultLimits2.y+imgResultLimits2.h > ((sourceRect2.h*zoomFactor)>>10)) {
             imgResultLimits2.h = (Uint16) (
-                                           ((sourceRect2.h*zoomFactor) >> 10) 
+                                           ((sourceRect2.h*zoomFactor) >> 10)
                                            - imgResultLimits2.y
                                           );
         }
@@ -148,11 +148,11 @@ SDL_Surface *ImageZoomable::GetZoomedImage(SDL_Rect *sourceRect, long int zoomFa
         }
         if (sourceRect2.h == 0) { return NULL; }
     }
-    
-    SDL_Surface* zoomedImage = SDL_CreateRGBSurface(surfaceTypeOfZoomedImage, 
-                                                    imgResultLimits2.w, imgResultLimits2.h, 
+
+    SDL_Surface* zoomedImage = SDL_CreateRGBSurface(surfaceTypeOfZoomedImage,
+                                                    imgResultLimits2.w, imgResultLimits2.h,
                                                     32, 0, 0, 0, 0);
-    
+
     Uint16 sourcePitch = theImage->pitch;
     Uint16 destPitch = zoomedImage->pitch;
     Uint8 *sourceP;
@@ -163,16 +163,16 @@ SDL_Surface *ImageZoomable::GetZoomedImage(SDL_Rect *sourceRect, long int zoomFa
     Uint16 destCursorY;
     long int stepSourceX;                 //valeur en virgule pas-flottante
     long int stepSourceY = sourceYOffset; //valeur en virgule pas-flottante
-    
+
     SDL_LockSurface(theImage);
     SDL_LockSurface(zoomedImage);
 
-    for ( destCursorY=0 ; destCursorY<imgResultLimits2.h ; destCursorY++ ) { 
-    
+    for ( destCursorY=0 ; destCursorY<imgResultLimits2.h ; destCursorY++ ) {
+
         sourceP = (Uint8 *) theImage->pixels + sourceCursorY*sourcePitch + sourceRect2.x*4;
         destP = (Uint8 *) zoomedImage->pixels + destCursorY*destPitch;
         stepSourceX = sourceXOffset;
-        
+
         for ( destCursorX=0 ; destCursorX<imgResultLimits2.w ; destCursorX++ ) {
                 pixelColor = *(Uint32 *)sourceP;
                 *(Uint32 *)destP = pixelColor;
@@ -195,13 +195,13 @@ SDL_Surface *ImageZoomable::GetZoomedImage(SDL_Rect *sourceRect, long int zoomFa
     SDL_UnlockSurface(theImage);
     SDL_UnlockSurface(zoomedImage);
     if (isKeyTransparent) { SDL_SetColorKey(zoomedImage, SDL_SRCCOLORKEY, transpColor); }
-    
+
     return zoomedImage;
 }
 
 
-void ImageZoomable::ZoomAndBlit(SDL_Rect *sourceRect, 
-                                   SDL_Surface *dest, SDL_Rect *destRect, 
+void ImageZoomable::ZoomAndBlit(SDL_Rect *sourceRect,
+                                   SDL_Surface *dest, SDL_Rect *destRect,
                                    long int zoomFactor, SDL_Rect *destLimits = NULL)
 {
     //zoomFactor est en virgule pas flottante, avec 10 bits après la virgule.
@@ -216,15 +216,15 @@ void ImageZoomable::ZoomAndBlit(SDL_Rect *sourceRect,
         SetRect(&sourceRect2, 0, 0, theImage->w, theImage->h);
     } else {
         sourceRect2 = *sourceRect;
-    } 
+    }
 
     SDL_Rect destRect2;
-    if (destRect == NULL) { 
-        SetRectXY(&destRect2, 0, 0); 
-    } else { 
+    if (destRect == NULL) {
+        SetRectXY(&destRect2, 0, 0);
+    } else {
         SetRectXY(&destRect2, destRect->x, destRect->y);
-    } 
-    
+    }
+
     Sint16 destLimitLeft;
     Sint16 destLimitRight;
     Sint16 destLimitUp;
@@ -239,21 +239,21 @@ void ImageZoomable::ZoomAndBlit(SDL_Rect *sourceRect,
         destLimitUp = destLimits->y;
         destLimitRight = destLimits->x + destLimits->w;
         destLimitDown = destLimits->y + destLimits->h;
-    } 
-    
+    }
+
     Sint16 destLeft = (Sint16) (destRect2.x - ((hotPoint.x*zoomFactor)>>10));
     Sint16 destRight = (Sint16) (destRect2.x + (((sourceRect2.w-hotPoint.x)*zoomFactor)>>10));
     Sint16 destUp = (Sint16) (destRect2.y - ((hotPoint.y*zoomFactor)>>10));
     Sint16 destDown = (Sint16) (destRect2.y + (((sourceRect2.h-hotPoint.y)*zoomFactor)>>10));
 
-    if ((destLeft > destLimitRight) || (destRight < destLimitLeft) || 
+    if ((destLeft > destLimitRight) || (destRight < destLimitLeft) ||
     (destUp > destLimitDown) || (destDown < destLimitUp)) {
         return;
     }
-    
+
     SDL_Rect imgResultLimits;
     SDL_Rect cornerUpLeft;
-       
+
     if (destLeft < destLimitLeft) {
         imgResultLimits.x = destLimitLeft - destLeft;
         cornerUpLeft.x = destLimitLeft;
@@ -271,7 +271,7 @@ void ImageZoomable::ZoomAndBlit(SDL_Rect *sourceRect,
             imgResultLimits.w = destRight - destLeft;
         }
     }
-        
+
     if (destUp < destLimitUp) {
         imgResultLimits.y = destLimitUp - destUp;
         cornerUpLeft.y = destLimitUp;

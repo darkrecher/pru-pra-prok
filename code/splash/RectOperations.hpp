@@ -36,5 +36,5 @@ inline void SetRect(SDL_Rect *rect, Sint16 x, Sint16 y, Uint16 width, Uint16 hei
 
 
 #define RECT_OPERATIONS_INCLUDED__
-    
+
 #endif

@@ -2,7 +2,7 @@
 
 
 
-SE_Sprite::SE_Sprite(ListOfImg *_listOfImg) 
+SE_Sprite::SE_Sprite(ListOfImg *_listOfImg)
 {
     listOfImg = _listOfImg;
     SetRectXY(&position, 0, 0);
@@ -18,20 +18,20 @@ SE_Sprite::~SE_Sprite()
 }
 
 
-void SE_Sprite::SetAllInfos(SDL_Rect *_position, long int _curImg, SDL_Rect *_portionToDraw, 
+void SE_Sprite::SetAllInfos(SDL_Rect *_position, long int _curImg, SDL_Rect *_portionToDraw,
                             long int _zoomSprite = 1024)
 {
     SetPosition(_position);
     curImg = _curImg;
     SetPortionToDraw(_portionToDraw);
-    zoomSprite = _zoomSprite;   
+    zoomSprite = _zoomSprite;
 }
 
 
 void SE_Sprite::SetZoomSprite(long int _zoomSprite) { zoomSprite = _zoomSprite; }
 
 
-void SE_Sprite::SetPortionToDraw(SDL_Rect *_portionToDraw) { 
+void SE_Sprite::SetPortionToDraw(SDL_Rect *_portionToDraw) {
     if (_portionToDraw == NULL) {
         if (portionToDraw != NULL) { delete portionToDraw; }
         portionToDraw = NULL;
@@ -60,20 +60,20 @@ void SE_Sprite::Move(SDL_Rect *_dist)
         SetRectXY(&position, position.x + _dist->x, position.y + _dist->y);
     }
 }
-    
-    
+
+
 void SE_Sprite::DrawOnScene(SDL_Surface *SceneSurface)
 {
 
     ImageZoomable *imgToDraw = listOfImg->GetImageZoomable(curImg);
     if (imgToDraw == NULL) { return; }
-    
+
     if (zoomSprite == 1024) {
         imgToDraw->Blit(portionToDraw, SceneSurface, &position);
     } else {
         imgToDraw->ZoomAndBlit(portionToDraw, SceneSurface, &position, zoomSprite);
     }
-        
+
 }
 
 
@@ -94,25 +94,25 @@ SDL_Rect *SE_Sprite::GetOccupiedSpace()
 
     ImageZoomable *imgToDraw = listOfImg->GetImageZoomable(curImg);
     if (imgToDraw == NULL) { return NULL; }
-    
+
     SDL_Rect portionToDraw2;
     if (portionToDraw == NULL) {
         SetRect(&portionToDraw2, 0, 0, imgToDraw->GetImage()->w, imgToDraw->GetImage()->h);
     } else {
         portionToDraw2 = *portionToDraw;
     }
-    
+
     if (zoomSprite == 1) {
         SetRect(&occupiedSpace, position.x - imgToDraw->GetHotPointX() + portionToDraw2.x,
                                 position.y - imgToDraw->GetHotPointY() + portionToDraw2.y,
                                 portionToDraw2.w, portionToDraw2.h);
     } else {
-        SetRect(&occupiedSpace, 
+        SetRect(&occupiedSpace,
                 (Sint16) (position.x-(imgToDraw->GetHotPointX()+portionToDraw2.x)*zoomSprite),
                 (Sint16) (position.y-(imgToDraw->GetHotPointY()+portionToDraw2.y)*zoomSprite),
                 (Sint16) (portionToDraw2.w * zoomSprite),
                 (Sint16) (portionToDraw2.h * zoomSprite));
-    }    
+    }
 
     return &occupiedSpace;
 

@@ -7,7 +7,7 @@
 class ME_PlaySound : public MovieEvent
 {
 
-  
+
 private :
 
     Mix_Chunk *sample;
@@ -29,7 +29,7 @@ public :
 class ME_StopSound : public MovieEvent
 {
 
-  
+
 private :
 
     int whichChannels;

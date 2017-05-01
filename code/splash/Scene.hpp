@@ -12,7 +12,7 @@ class Scene
 private:
 
     ImageZoomable *theScene;
-    SceneElt **sceneEltsSortedList;  
+    SceneElt **sceneEltsSortedList;
     long int sceneEltQty;
     long int zoomScene;  //virgule pas-flottante  (*1024)
     long int nextSceneEltToDraw;
@@ -37,7 +37,7 @@ public:
     ~Scene();
 
     void NewScene(Uint16 sceneSizeX, Uint16 sceneSizeY,
-                  SceneElt **_sceneEltsSortedList, long int _sceneEltQty, 
+                  SceneElt **_sceneEltsSortedList, long int _sceneEltQty,
                   Uint32 surfaceTypeOfScene, Uint32 surfaceTypeOfZoomedScene,
                   SDL_Rect *_hotPoint = NULL, long int _zoomScene = 1024,
                   int _mustBeCleared = 0, Uint32 _clearColor = 0);
@@ -47,7 +47,7 @@ public:
     void SetHotPoint(SDL_Rect *_hotPoint);
     void Swap2Plans(SceneElt *sceneElt1, SceneElt *sceneElt2);
     void SetSceneClearance(int _mustBeCleared, Uint32 _clearColor = 0);
-    
+
     int DrawNextSceneElt();
     int MoreSceneEltToDraw();
     void ClearScene();

@@ -9,11 +9,11 @@ class ME_BreakPoint : public MovieEvent
 {
 
     private :
-    
+
         long int cursorME_Image;
         long int cursorME_Sound;
         int breakPointLevel;
-        
+
 //vide dans ma tête, pas de création pour l'instant.
 //Tout est calme sur le rebord sulfureux intérieur vert de ma folie.
 //J'achète l'attention des gens et la revend à des publicitaires,
@@ -32,18 +32,18 @@ class ME_BreakPoint : public MovieEvent
 
         ME_BreakPoint(long int _actTime, int _breakPointLevel,
                       long int _cursorME_Image = 0, long int _cursorME_Sound = 0);
-                      
+
 		~ME_BreakPoint();
-		
+
 		void Act();
 		MovieEvent *Copy(long int timeToAdd);
 		long int GetActTime();
-		
+
 		void SetCursors(long int _cursorME_Image, long int _cursorME_Sound);
 		long int GetCursorMe_Image();
 		long int GetCursorMe_Sound();
 		int GetLevel();
-		
+
 };
 
 

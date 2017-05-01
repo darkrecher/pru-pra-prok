@@ -42,7 +42,7 @@ SDL_Rect *SE_Square::GetOccupiedSpace()
     return &occupiedSpace;
 }
 
-    
+
 void SE_Square::DrawOnScene(SDL_Surface *SceneSurface)
 {
     SDL_Rect square;

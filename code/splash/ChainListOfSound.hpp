@@ -13,9 +13,9 @@ class ChainListOfSound
             Mix_Chunk *theSound;
             EltSound *next;
         };
-    
+
         EltSound *first;
-        
+
 //pfioouuuuuu!!! c'est quand même super long à faire de programmer et de faire le dessin animé
 //après. Evidemment, je n'arrête pas de me dire que je suis stupide et que je devrais le faire
 //en Flash. Mais maintenant que j'ai commencé avec ça, je vais pas laisser tomber. Enfin
@@ -32,11 +32,11 @@ class ChainListOfSound
 
 		ChainListOfSound();
 		~ChainListOfSound();
-		
+
 		void AddElement(Mix_Chunk *_Sound, string _name);
 		Mix_Chunk *GetElement(string eltName);
 		long int GetQtyOfElement();  //peut être inutile
-		
+
 		void FreeAllSound();
 
 };

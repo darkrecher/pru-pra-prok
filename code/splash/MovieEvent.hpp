@@ -33,5 +33,5 @@ public:
 
 #define MOVIE_EVENT_INCLUDED__
 
-    
+
 #endif

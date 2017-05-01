@@ -49,8 +49,8 @@ long int ChainListOfImg::GetQtyOfElement()
 {
     long int qty = 0;
     EltImgZoomable *p = first;
-    while (p!=NULL) { 
-        p = p->next; 
+    while (p!=NULL) {
+        p = p->next;
         qty++;
     }
     return qty;
@@ -79,7 +79,7 @@ void ChainListOfImg::ExtractListOfImg(ListOfImg *listOfImgToFill, string *listOf
 {
     EltImgZoomable *p = first;
     int index = 0;
-    while (p!=NULL) { 
+    while (p!=NULL) {
         listOfImgToFill->SetImageZoomable(p->theImageZoomable, index);
         listOfImgNamesToFill[index] = p->name;
         index++;

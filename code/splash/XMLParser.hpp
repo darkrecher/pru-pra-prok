@@ -26,7 +26,7 @@ class XMLParser
         long int lineCursor;
         long int qtyOfLineRead;
         char currentChar;
-        
+
 		string errorMessage;
 		int fileEntirelyParsed;
 
@@ -35,20 +35,20 @@ class XMLParser
         long int currentNodeValue_i;
         double currentNodeValue_f;
         int currentNodeType;
-        
+
         int showCommentNodes;
 
 		void AddOpenedBaliz(string _balizName);
 		int RemoveLastBaliz(string _balizName);
-		
+
 		string ConversionIToA(long int value);
 		char GetNextChar();
-		
+
         int AnalyseNode(string Node, int readAsNumber = 0);
         int ConvertNodeToNumeric();
 
 	public:
-	
+
         static const int NODE_TYPE_UNDEFINED = 0;
         static const int NODE_TYPE_INCORRECT = -1;
         static const int NODE_TYPE_TEXT = 1;
@@ -74,7 +74,7 @@ class XMLParser
 
 		XMLParser(int _showCommentNodes = 0);
 		~XMLParser();
-		
+
 		int OpenXMLFile(char *_fileName);
 		void CloseXMLFile();
 
@@ -85,19 +85,19 @@ class XMLParser
         int GetCurrentNodeType();
         long int GetCurrentNodeValueI();
         float GetCurrentNodeValueF();
-		
+
 		string GetErrorMessageHeader();
 		string GetErrorMessage();
 		int IsFileEntirelyParsed();
-		
+
 		int GotAnEndBaliz(string balizName);
         int GotAStartBaliz(string balizName);
         int GotASingleBaliz(string balizName);
-        
+
         int ReadNumericValue(string balizName, Sint32 *numericValue,
                              Sint32 minValue = 0, Sint32 maxValue = 0,
                              int testValue = 0);
-                             
+
         int ReadTextValue(string balizName, string *textValue);
         int ReadNodeOfColor(string balizName, Uint8 *_red, Uint8 *_green, Uint8 *_blue);
 

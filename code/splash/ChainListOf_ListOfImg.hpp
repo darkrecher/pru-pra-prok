@@ -7,14 +7,14 @@ class ChainListOf_ListOfImg
 {
 
     private:
-    
+
       typedef struct EltListOfImg {
             string name;
             ListOfImg *theListOfImg;
             string *listOfImgNames;
             EltListOfImg *next;
         };
-    
+
         EltListOfImg *first;
         EltListOfImg *cursor;
 
@@ -38,7 +38,7 @@ class ChainListOf_ListOfImg
 
 		ChainListOf_ListOfImg();
 		~ChainListOf_ListOfImg();
-		
+
 		void AddElement(ListOfImg *_theListOfImg, string *_listOfImgNames, string _name);
 		int SetCursor(string eltName);
 		ListOfImg *GetCurrentListOfImg();

@@ -59,16 +59,16 @@ string FileLoader::ExtractNextFileAndFillBuffer()
 		sizeOfFileExtracted += (int) (oneByte) * offset;
 		offset *= 256;
 	}
-	
+
 	if (sizeOfFileExtracted > bufferSize) {
 		if (buffer != NULL) { delete buffer; }
 		buffer = new unsigned char[sizeOfFileExtracted];
 		bufferSize = sizeOfFileExtracted;
 	}
-	
+
 	if (!gzread(currentCompressedFile, buffer, sizeOfFileExtracted))
         { return "Le fichier de donnée " + currentCompressedFileName + " est incorrect"; }
-        
+
     return "";
 }
 
@@ -95,7 +95,7 @@ string FileLoader::LoadDataFromACompressedFile()
     SDL_Surface *ImgLoaded;
     Mix_Chunk *SndLoaded;
     SDL_RWops *rw;
-    
+
     if (!XMLparser->ReadNextNode()) { return XMLparser->GetErrorMessage(); }
     if (!XMLparser->GotAStartBaliz("Name"))
         { return "Il faut une balise Name au début de la balise CompressedFile"; }
@@ -106,7 +106,7 @@ string FileLoader::LoadDataFromACompressedFile()
         { return "impossible d'ouvrir le fichier de données " + currentCompressedFileName; }
 
     while (!stop) {
-    
+
         if (XMLparser->GotAStartBaliz("LoadImg")) {
 
             if (!XMLparser->ReadTextValue("LoadImg", &elementName))
@@ -124,7 +124,7 @@ string FileLoader::LoadDataFromACompressedFile()
             AdvanceAndShowProgress();
 
         } else if (XMLparser->GotAStartBaliz("LoadSnd")) {
-        
+
             if (!XMLparser->ReadTextValue("LoadSnd", &elementName))
                 { return XMLparser->GetErrorMessage(); }
             if (chainListOfSound->GetElement(elementName) != NULL)
@@ -163,9 +163,9 @@ string FileLoader::LoadImgSoundFiles()
 
     if (!XMLparser->ReadNextNode()) { return XMLparser->GetErrorMessage(); }
     while (!stop) {
-    
+
         if (XMLparser->GotAStartBaliz("LoadImg")) {
-        
+
             if (!XMLparser->ReadTextValue("LoadImg", &elementName))
                 { return XMLparser->GetErrorMessage(); }
             if (chainListOfSDLSurface->GetElement(elementName) != NULL)
@@ -176,7 +176,7 @@ string FileLoader::LoadImgSoundFiles()
                 { return "impossible de charger le fichier : " + fileName; }
             chainListOfSDLSurface->AddElement(ImgLoaded, elementName);
             AdvanceAndShowProgress();
-            
+
         } else if (XMLparser->GotAStartBaliz("LoadSnd")) {
 
             if (!XMLparser->ReadTextValue("LoadSnd", &elementName))
@@ -189,12 +189,12 @@ string FileLoader::LoadImgSoundFiles()
                 { return "impossible de charger le fichier : " + fileName; }
             chainListOfSound->AddElement(SndLoaded, elementName);
             AdvanceAndShowProgress();
-            
+
         } else if (XMLparser->GotAStartBaliz("CompressedFile")) {
-        
+
             errorMessage = LoadDataFromACompressedFile();
             if (errorMessage != "") { return errorMessage; }
-            
+
         } else {
             stop = 1;
         }

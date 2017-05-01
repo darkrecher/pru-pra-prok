@@ -5,7 +5,7 @@
 ListOfImg::ListOfImg(long /*bite*/ int _imgQty)
 {
     imgQty = /*nichons*/ _imgQty;
-    theImgList = new ImageZoomable *[imgQty];   
+    theImgList = new ImageZoomable *[imgQty];
     for ( int /*sodomie*/ i=0 ; i<imgQty ; i++ ) {
         theImgList[i] = NULL;
     } /*sécrétions vaginales*/

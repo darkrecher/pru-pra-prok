@@ -21,10 +21,10 @@ ChainListOf_ListOfImg::~ChainListOf_ListOfImg()
 }
 
 
-void ChainListOf_ListOfImg::AddElement(ListOfImg *_theListOfImg, string *_listOfImgNames, 
+void ChainListOf_ListOfImg::AddElement(ListOfImg *_theListOfImg, string *_listOfImgNames,
                                        string _name)
 {
-    
+
     EltListOfImg *p = first;
     EltListOfImg *newElt = new EltListOfImg;
     newElt->name = _name;
@@ -81,8 +81,8 @@ long int ChainListOf_ListOfImg::GetQtyOfElement()
 {
     long int qty = 0;
     EltListOfImg *p = first;
-    while (p!=NULL) { 
-        p = p->next; 
+    while (p!=NULL) {
+        p = p->next;
         qty++;
     }
     return qty;

@@ -44,7 +44,7 @@ class ChainListOfProcedure
 		void AddElement(ChainListOfMovieEvent *chainListOfMovieEvent, string _name);
         ChainListOfMovieEvent *GetProcedureListOfMovieEvent(string eltName);
 		long int GetQtyOfElement();
-		
+
 		void deleteAllProcedures();
 
 };

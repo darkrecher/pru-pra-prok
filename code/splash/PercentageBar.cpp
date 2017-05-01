@@ -29,24 +29,24 @@ PercentageBar::PercentageBar(SDL_Surface *_mainScreen)
     mainScreen = _mainScreen;
     mustShowOnScreen = 0;
 
-    borderColor = SDL_MapRGB(mainScreen->format, 
+    borderColor = SDL_MapRGB(mainScreen->format,
                              borderColorRed, borderColorGreen, borderColorBlue);
-    noBarColor = SDL_MapRGB(mainScreen->format, 
+    noBarColor = SDL_MapRGB(mainScreen->format,
                             noBarColorRed, noBarColorGreen, noBarColorBlue);
-    barColor = SDL_MapRGB(mainScreen->format, 
+    barColor = SDL_MapRGB(mainScreen->format,
                             barColorRed, barColorGreen, barColorBlue);
 
     SetRect(&borderLeft, posX, posY, borderWidth, totalHeight);
     SetRect(&borderRight, posX+totalWidth-borderWidth, posY, borderWidth, totalHeight);
     SetRect(&borderUp, posX, posY, totalWidth, borderHeight);
     SetRect(&borderDown, posX, posY+totalHeight-borderHeight, totalWidth, borderHeight);
-    
+
     totalBarWidth = totalWidth - 2*borderWidth;
-    SetRect(&noBarRect, posX+borderWidth, posY+borderHeight, 
+    SetRect(&noBarRect, posX+borderWidth, posY+borderHeight,
                         totalBarWidth, totalHeight-2*borderHeight);
-    SetRect(&barRect, posX+borderWidth, posY+borderHeight, 
+    SetRect(&barRect, posX+borderWidth, posY+borderHeight,
                       totalBarWidth, totalHeight-2*borderHeight);
-    
+
 }
 
 
@@ -64,7 +64,7 @@ void PercentageBar::RefreshValueAndShowOnScreen(long int percentageValue,
     barRect.w = barWidth;
     noBarRect.x = posX + borderWidth + barWidth;
     noBarRect.w = totalBarWidth - barWidth;
-    
+
     ShowOnScreen();
     SDL_UpdateRect(mainScreen, posX, posY, totalWidth, totalHeight);
     mustShowOnScreen = 1;

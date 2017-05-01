@@ -35,7 +35,7 @@ class ConfigInfos
         int mixFrequency;
         int outputSoundChannelsQty;
         int chunkSize;
-        
+
         int showFilmXMLComments;
         int fullScreen;
         int stopIfSoundFail;

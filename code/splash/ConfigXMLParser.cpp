@@ -48,7 +48,7 @@ string ConfigXMLParser::ReadSplashBaliz()
 {
     //si y'a pas de config du tout, on considère pas ça commme une erreur.
     //On garde les valeurs par défaut.
-    if (!XMLparser.GotAStartBaliz("Config")) { return ""; }  
+    if (!XMLparser.GotAStartBaliz("Config")) { return ""; }
     string result = ReadConfigBaliz(); //here is what is important
     if (result != "") { return result; }
     if (!XMLparser.GotAnEndBaliz("SPLASH"))
@@ -182,10 +182,10 @@ string ConfigXMLParser::ReadNodeOfTransparentColor()
     Uint8 blue;
 
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
-    
+
     if (!XMLparser.ReadNodeOfColor("DefaultKeyTransparency", &red, &green, &blue))
         { return XMLparser.GetErrorMessage(); }
-    
+
     theConfigInfos.SetKeyTransparencyColorRGB(red, green, blue);
     return "";
 }

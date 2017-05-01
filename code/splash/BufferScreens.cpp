@@ -12,7 +12,7 @@ BufferScreens::BufferScreens(int _bufferQty, Uint32 _surfaceTypeOfBuffers)
     screens = new SDL_Surface *[bufferQty];
     timesToShowScreens = new long int[bufferQty];
     for (int i=0 ; i<bufferQty ; i++) {
-        screens[i] = SDL_CreateRGBSurface(_surfaceTypeOfBuffers, 
+        screens[i] = SDL_CreateRGBSurface(_surfaceTypeOfBuffers,
                                           SCREEN_SIZE_X, SCREEN_SIZE_Y, 32,0,0,0,0);
     }
 }
@@ -29,13 +29,13 @@ BufferScreens::BufferScreens(int _bufferQty, Uint32 _surfaceTypeOfBuffers)
 //Voulez-vous venir avec moi? et découvrir ensemble ce qu'on peut fabriquer en ne vendant rien?
 
 
-BufferScreens::~BufferScreens() 
+BufferScreens::~BufferScreens()
 {
     for (int i=0 ; i<bufferQty ; i++) { SDL_FreeSurface(screens[i]); }
     delete screens;
     delete timesToShowScreens;
 }
-    
+
 int BufferScreens::CanPutNewScreenInBuffers()
 {
     if (distBetweenCursors < bufferQty) { return 1; }
@@ -51,8 +51,8 @@ int BufferScreens::CanHaveNextScreenToShow()
 
 
 SDL_Surface *BufferScreens::GetNextScreenToShow() {
-    if (distBetweenCursors == 0) { 
-        return NULL; 
+    if (distBetweenCursors == 0) {
+        return NULL;
     } else {
         return screens[cursor_NextScreenToShow];
     }

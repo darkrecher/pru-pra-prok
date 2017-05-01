@@ -70,14 +70,14 @@ class DataLoader
 
     //liste des événements du films.
         ChainListOfMovieEvent *chainListOfMovieEvent;
-        
-        
+
+
     //liste de procédure = liste de liste de MovieEvent, si ça vous plait pas aller vous pendre
         ChainListOfProcedure *chainListOfProcedure;
 
     // une classe qui lit les fichiers XML
         XMLParser XMLparser;
-        
+
     //une classe qui permet de charger les fichiers de sons et d'images
         FileLoader fileLoader;
 
@@ -109,10 +109,10 @@ class DataLoader
         string ReadProcedure();
         string ReadProcedureExecution(ChainListOfMovieEvent *listDest, long int *time,
                                       int complexExecution = 0);
-                                      
+
         string ReadPercentageInfos();
         string ReadMainFilm();
-        
+
     //la barre de pourcentage, et les infos qui vont avec
         PercentageBar percentageBar;
         long int percentageInfoNbrOfFileToExtract;
@@ -120,7 +120,7 @@ class DataLoader
         long int percentageInfoNbrOfProcedureToCreate;
         long int percentageTotal;
         long int percentageProgress;
-        
+
         void AdvanceAndShowProgress();
 
 

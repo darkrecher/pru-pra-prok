@@ -10,8 +10,8 @@ MoviePlayer::MoviePlayer(SDL_Surface *_mainScreen, ConfigInfos *_theConfigInfos)
     soundPlayer = NULL;
     dataLoader = NULL;
     percentageBar = NULL;
- 
-    currentAction = PLAYING_FILM;   
+
+    currentAction = PLAYING_FILM;
     listOfBreakPoint = NULL;
     breakPointQty = 0;
     cursorBreakPointToGo = -1;
@@ -22,10 +22,10 @@ MoviePlayer::~MoviePlayer()
 {
     if (soundPlayer != NULL) { delete soundPlayer; }
     if (imagePlayer != NULL) { delete imagePlayer; }
-    if (dataLoader != NULL) { delete dataLoader; }   
-    
+    if (dataLoader != NULL) { delete dataLoader; }
+
     if (listOfBreakPoint != NULL) { delete listOfBreakPoint; }
-    if (percentageBar != NULL) { delete percentageBar; } 
+    if (percentageBar != NULL) { delete percentageBar; }
 }
 
 
@@ -33,16 +33,16 @@ int MoviePlayer::LoadData(char *scriptFileName)
 {
     percentageBar = new PercentageBar(mainScreen);
     imagePlayer = new ImagePlayer(mainScreen, theConfigInfos, percentageBar);
-    
+
     soundPlayer = new SoundPlayer(theConfigInfos);
     if (!soundPlayer->InitSoundDevice()) {
         cerr << "Impossible d'initialiser le son : " << Mix_GetError() << endl;
         if (theConfigInfos->GetStopIfSoundFail()) { return 0; }
     }
-    
-    dataLoader = new DataLoader(soundPlayer, imagePlayer, 
+
+    dataLoader = new DataLoader(soundPlayer, imagePlayer,
                                 mainScreen, theConfigInfos, imagePlayer->GetScene());
-    
+
     string loadingFilmErrorMessage = dataLoader->OpenFilmXMLFile(scriptFileName);
     if (loadingFilmErrorMessage == "") {
         loadingFilmErrorMessage = dataLoader->ReadFilmXMLFile();
@@ -51,30 +51,30 @@ int MoviePlayer::LoadData(char *scriptFileName)
         cerr << loadingFilmErrorMessage << endl;
         return 0;
     }
-    
+
     dataLoader->CloseFilmXMLFile();
-    
+
     listOfBreakPoint = (ME_BreakPoint **)
                        (dataLoader->ExtractAndDefineListOfBreakPoint(&breakPointQty));
 
     MovieEvent **listOfMovieEvent;
     long int movieEventQty;
-    
+
     listOfMovieEvent = dataLoader->ExtractListOfMovieEvent(
                                   ChainListOfMovieEvent::ME_TYPE_IMAGE,
                                   &movieEventQty);
-                                  
+
     imagePlayer->SetListOfMovieEvent(listOfMovieEvent, movieEventQty);
     long int lastDateOfImageEvent;
     if (movieEventQty > 0)
         { lastDateOfImageEvent = listOfMovieEvent[movieEventQty-1]->GetActTime(); }
     else
         { lastDateOfImageEvent = 0; }
-    
+
     listOfMovieEvent = dataLoader->ExtractListOfMovieEvent(
                                   ChainListOfMovieEvent::ME_TYPE_SOUND,
                                   &movieEventQty);
-                                  
+
     soundPlayer->SetListOfMovieEvent(listOfMovieEvent, movieEventQty);
     long int lastDateOfSoundEvent;
     if (movieEventQty > 0)
@@ -117,7 +117,7 @@ int MoviePlayer::TimeOfFilmIsBeforeFirstBreakPoint()
 void MoviePlayer::CursorBreakPointGoBack(int breakPointLevel)
 {
     if (cursorBreakPointToGo == -1) {
-        
+
         long int timeOfFilm = SDL_GetTicks() - deltaTime;
         long int precedentCursorBreakPoint = breakPointQty-1;
         while ((precedentCursorBreakPoint > 0) &&
@@ -128,12 +128,12 @@ void MoviePlayer::CursorBreakPointGoBack(int breakPointLevel)
         cursorBreakPointToGo = precedentCursorBreakPoint;
 
     } else {
-    
+
         if (cursorBreakPointToGo > 0) { cursorBreakPointToGo--; }
-    
+
     }
-    
-    while ((cursorBreakPointToGo > 0) && 
+
+    while ((cursorBreakPointToGo > 0) &&
            (listOfBreakPoint[cursorBreakPointToGo]->GetLevel() > breakPointLevel))
     {
         cursorBreakPointToGo--;
@@ -144,7 +144,7 @@ void MoviePlayer::CursorBreakPointGoBack(int breakPointLevel)
 void MoviePlayer::CursorBreakPointGoAhead(int breakPointLevel)
 {
     if (cursorBreakPointToGo == -1) {
-        
+
         long int timeOfFilm = SDL_GetTicks() - deltaTime;
         long int nextCursorBreakPoint = 0;
         while ((nextCursorBreakPoint < breakPointQty-1) &&
@@ -153,20 +153,20 @@ void MoviePlayer::CursorBreakPointGoAhead(int breakPointLevel)
             nextCursorBreakPoint++;
         }
         cursorBreakPointToGo = nextCursorBreakPoint;
-        
+
     } else {
-    
+
         if (cursorBreakPointToGo < breakPointQty-1) {
            cursorBreakPointToGo++;
         }
-    
+
     }
-    
-    while ((cursorBreakPointToGo < breakPointQty-1) && 
+
+    while ((cursorBreakPointToGo < breakPointQty-1) &&
            (listOfBreakPoint[cursorBreakPointToGo]->GetLevel() > breakPointLevel))
     {
         cursorBreakPointToGo++;
-    }   
+    }
 }
 
 
@@ -179,33 +179,33 @@ void MoviePlayer::Play()
     imagePlayer->SetDeltaTime(deltaTime);
     soundPlayer->SetDeltaTime(deltaTime);
 
-    while (!quit) 
+    while (!quit)
     {
         if (currentAction == PLAYING_FILM) {
             imagePlayer->DoOneLoop();
             soundPlayer->DoOneLoop();
         }
-        
-        if ((percentageBar->GetMustShowOnScreen()) && 
+
+        if ((percentageBar->GetMustShowOnScreen()) &&
             (SDL_GetTicks() > timeToStopShowPercentage))
         {
             percentageBar->StopShowOnScreen();
         }
-        
+
         if (currentAction == WAITING_USER_COMMAND) {
             if (SDL_GetTicks() > timeToResumeFilm) {
                 currentAction = PLAYING_FILM;
                 if (cursorBreakPointToGo >= 0) {
-                
+
                     imagePlayer->GoToBreakPoint(
                         listOfBreakPoint[cursorBreakPointToGo]->GetCursorMe_Image());
-                        
+
                     soundPlayer->GoToBreakPoint(
                         listOfBreakPoint[cursorBreakPointToGo]->GetCursorMe_Sound());
-                        
+
                     deltaTime = SDL_GetTicks()
                                  - listOfBreakPoint[cursorBreakPointToGo]->GetActTime();
-                                 
+
                     imagePlayer->SetDeltaTime(deltaTime);
                     soundPlayer->SetDeltaTime(deltaTime);
                 }
@@ -217,9 +217,9 @@ void MoviePlayer::Play()
 
         while (SDL_PollEvent (&event)) {
             if (event.type == SDL_KEYDOWN) {
-                if(event.key.state==SDL_PRESSED) { 
+                if(event.key.state==SDL_PRESSED) {
                     switch (event.key.keysym.sym) {
-                    
+
                         case SDLK_ESCAPE :
                             quit = 1;
                             cout << "Fin de la projection." << endl;
@@ -237,7 +237,7 @@ void MoviePlayer::Play()
                                 currentAction = PLAYING_FILM;
                             }
                         break;
-                        
+
                         case SDLK_UP :
                         case SDLK_PAGEUP :
                             if ((cursorBreakPointToGo >= 0) ||
@@ -295,35 +295,35 @@ void MoviePlayer::Play()
                                 timeToStopShowPercentage = SDL_GetTicks() + 500;
                             }
                         break;
-                        
+
                         case SDLK_F1 :
                             SDL_SaveBMP(mainScreen,"screenshot.bmp");
                         break;
-                        
+
                         int currentVolume;
-                        
+
                         case SDLK_KP_MINUS :
                             currentVolume = soundPlayer->SetVolumeRelative(-5);
                             percentageBar->RefreshValueAndShowOnScreen(currentVolume, 100);
                             timeToStopShowPercentage = SDL_GetTicks() + 500;
                         break;
-                        
+
                         case SDLK_KP_PLUS :
                             currentVolume = soundPlayer->SetVolumeRelative(+5);
                             percentageBar->RefreshValueAndShowOnScreen(currentVolume, 100);
                             timeToStopShowPercentage = SDL_GetTicks() + 500;
                         break;
-                        
+
                         case SDLK_KP0 :
                             currentVolume = soundPlayer->ToggleMute();
                             percentageBar->RefreshValueAndShowOnScreen(currentVolume, 100);
                             timeToStopShowPercentage = SDL_GetTicks() + 500;
                         break;
-                        
+
                     }
                 }
             }
         }
-        
+
     }
 }

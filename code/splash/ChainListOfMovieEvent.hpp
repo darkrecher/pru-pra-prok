@@ -17,7 +17,7 @@ class ChainListOfMovieEvent
             MovieEvent *theMovieEvent;
             EltMovieEvent *next;
         };
-    
+
         EltMovieEvent *first;
 
 
@@ -34,7 +34,7 @@ class ChainListOfMovieEvent
 // (à suivre)
 
 	public:
-	
+
 	    static const int ME_TYPE_IMAGE = 0;
 	    static const int ME_TYPE_SOUND = 1;
 	    static const int ME_TYPE_BREAKPOINT = 2;
@@ -42,13 +42,13 @@ class ChainListOfMovieEvent
 
 		ChainListOfMovieEvent();
 		~ChainListOfMovieEvent();
-		
+
 		void AddElement(MovieEvent *_movieEvent, int _ME_type);
 		MovieEvent *GetElement(long int index);  //sera inutile plus tard
 		long int GetQtyOfElement(int ME_typeToCount);
 		MovieEvent **ExtractListOfMovieEvent(int ME_typeToGet, long int *qtyExtracted);
 		MovieEvent **ExtractAndDefineListOfBreakPoint(long int *qtyExtracted);
-		
+
 		void SortList();
 		long int ConcatListOfMovieEvent(ChainListOfMovieEvent *chainListToAdd,
                                         long int timeToAdd,

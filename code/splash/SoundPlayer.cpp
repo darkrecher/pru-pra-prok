@@ -20,7 +20,7 @@ SoundPlayer::~SoundPlayer()
         Mix_HaltChannel(-1);
         Mix_CloseAudio();
     }
-    
+
     delete listOfMovieEvent;
 }
 
@@ -31,8 +31,8 @@ SoundPlayer::~SoundPlayer()
 int SoundPlayer::InitSoundDevice()
 {
     if (Mix_OpenAudio(mixFrequency, MIX_DEFAULT_FORMAT, outputSoundChannelsQty, chunkSize)==-1)
-    { 
-        return 0; 
+    {
+        return 0;
     }
     Mix_AllocateChannels(mixChannelQty);
     SoundDeviceInitiated = 1;
@@ -74,7 +74,7 @@ void SoundPlayer::DoOneLoop()
     }
 }
 
-void SoundPlayer::GoToBreakPoint(long int ME_pos) 
+void SoundPlayer::GoToBreakPoint(long int ME_pos)
 {
     Mix_HaltChannel(-1);
     PlaceCursor_ME(ME_pos);

@@ -28,7 +28,7 @@ int XMLParser::OpenXMLFile(char *_fileName)
     errorMessage == "";
     qtyOfLineRead = 0;
     currentChar = GetNextChar();
-    
+
     if (currentChar != '\0') {
         readingFirstNode = 1;
         fileEntirelyParsed = 0;
@@ -50,7 +50,7 @@ void XMLParser::CloseXMLFile()
         delete p1;
         p1 = p2;
     }
-    
+
     if (XMLfile != NULL) { delete XMLfile; }
     currentChar = '\0';
     firstOpenedBaliz = NULL;
@@ -81,15 +81,15 @@ int XMLParser::RemoveLastBaliz(string _balizName)
                        "encore de balise d'ouverte.";
         return 0;
     }
-    
+
     Baliz *p = firstOpenedBaliz;
     Baliz *precedentOfP = NULL;
-    
+
     while (p->next != NULL) {
         precedentOfP = p;
         p = p->next;
     }
-    
+
     if (p->balizName == _balizName) {
         delete p;
         if (precedentOfP == NULL) {
@@ -111,7 +111,7 @@ string XMLParser::GetListOfOpenedBaliz()
     string listOfBaliz = "";
     while (p!=NULL) {
         listOfBaliz += p->balizName + " ";
-        p = p->next;  
+        p = p->next;
     }
     return listOfBaliz;
 }
@@ -120,7 +120,7 @@ string XMLParser::GetListOfOpenedBaliz()
 char XMLParser::GetNextChar()
 {
     if (currentChar == '\0') { return '\0'; }
-    
+
     if (lineCursor >= fileLine.length()) {
         fileLine = "";
         while (fileLine == "") {
@@ -129,7 +129,7 @@ char XMLParser::GetNextChar()
         }
         lineCursor = 0;
     }
-    
+
     char Result = fileLine[lineCursor];
     lineCursor++;
     return Result;
@@ -197,9 +197,9 @@ int XMLParser::ConvertNodeToNumeric()
     int error = 0;
     int i=0;
     int negativeValue = 0;
-    
+
     if (currentNodeValue == "") {error = 1; }
-    
+
     if (!error) {
         if (currentNodeValue[0] == '-') {
             negativeValue = 1;
@@ -207,7 +207,7 @@ int XMLParser::ConvertNodeToNumeric()
             if (currentNodeValue.length() <= 1) { error = 1; }
         }
     }
-    
+
     while ((!error) && (i < currentNodeValue.length())) {
         if ((currentNodeValue[i] == '.') || (currentNodeValue[i] == ',')) {
             if (!inTheDecimalPart) { inTheDecimalPart = 1; } else { error = 1; }
@@ -225,7 +225,7 @@ int XMLParser::ConvertNodeToNumeric()
         }
         i++;
     }
-    
+
     if (error) {
         errorMessage = currentNodeValue + " ne peut pas être converti en valeur numérique.";
         currentNodeType = NODE_TYPE_INCORRECT;
@@ -256,12 +256,12 @@ int XMLParser::AnalyseNode(string node, int readAsNumber = 0)
         currentNodeType = NODE_TYPE_UNDEFINED;
         return 0;
     }
-    
+
     int balizType;
     int nodeCursorEnd = node.length()-1;
     int nodeCursorBegin = 0;
     while ((node[nodeCursorEnd] == ' ') || (node[nodeCursorEnd] == '\t')) { nodeCursorEnd--; }
-    
+
     if ((node[0] == '<') && (node[nodeCursorEnd] == '>')) {
         balizType = 1;
     } else if ((node[0] == '<') || (node[nodeCursorEnd] == '>')) {
@@ -271,7 +271,7 @@ int XMLParser::AnalyseNode(string node, int readAsNumber = 0)
     } else {
         balizType = 0;
     }
-    
+
     if (balizType) {
         if ((node[1] == '/') || (node[nodeCursorEnd-1] == '/')) {
             if ((node[1] == '/') && (node[nodeCursorEnd-1] == '/')) {
@@ -310,7 +310,7 @@ int XMLParser::AnalyseNode(string node, int readAsNumber = 0)
         }
         currentNodeValue += node[i];
     }
-    
+
     switch (currentNodeType) {
         case NODE_TYPE_TEXT :
             if (readAsNumber) { return ConvertNodeToNumeric(); }
@@ -326,7 +326,7 @@ int XMLParser::AnalyseNode(string node, int readAsNumber = 0)
     }
     return 1;
 }
-		
+
 
 int XMLParser::ReadNextNode(int readAsNumber = 0)
 {
@@ -335,13 +335,13 @@ int XMLParser::ReadNextNode(int readAsNumber = 0)
     int stop;
     int readingComment;
     int FoundANodeWhichIsNotAComment = 0;
-    
+
     while (!FoundANodeWhichIsNotAComment) {
-    
+
         stop = 0;
         readingComment = 0;
         nodeRead = "";
-    
+
         //sautage des caractères de séparation, au début.
         while ((currentChar==' ') || (currentChar=='\t')) {
             currentChar = GetNextChar();
@@ -412,7 +412,7 @@ int XMLParser::ReadNextNode(int readAsNumber = 0)
             FoundANodeWhichIsNotAComment = 1;
         }
     }
-            
+
     if (stopChar == '>') {
         nodeRead += currentChar;
         currentChar = GetNextChar();

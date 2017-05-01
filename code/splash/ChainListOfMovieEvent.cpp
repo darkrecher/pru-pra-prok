@@ -40,8 +40,8 @@ MovieEvent *ChainListOfMovieEvent::GetElement(long int index)
 {
     EltMovieEvent *p = first;
     long int cursor = 0;
-    while ((p!=NULL) && (cursor < index)) { 
-        p=p->next; 
+    while ((p!=NULL) && (cursor < index)) {
+        p=p->next;
         cursor++;
     }
     if (p != NULL) { return p->theMovieEvent; }
@@ -64,7 +64,7 @@ long int ChainListOfMovieEvent::GetQtyOfElement(int ME_typeToCount)
 {
     long int qty = 0;
     EltMovieEvent *p = first;
-    while (p!=NULL) { 
+    while (p!=NULL) {
         if ((p->ME_type == ME_typeToCount) || (ME_typeToCount == ME_TYPE_ALL)) { qty++; }
         p = p->next;
     }
@@ -72,19 +72,19 @@ long int ChainListOfMovieEvent::GetQtyOfElement(int ME_typeToCount)
 }
 
 
-MovieEvent **ChainListOfMovieEvent::ExtractListOfMovieEvent(int ME_typeToGet, 
+MovieEvent **ChainListOfMovieEvent::ExtractListOfMovieEvent(int ME_typeToGet,
                                                             long int *qtyExtracted)
 {
     MovieEvent **ListOfMovieEventExtracted;
     long int qtyToExtract = GetQtyOfElement(ME_typeToGet);
     if (qtyExtracted != NULL) { *qtyExtracted = qtyToExtract; }
-    
+
     if (qtyToExtract != 0)
     {
         ListOfMovieEventExtracted = new MovieEvent *[qtyToExtract];
         EltMovieEvent *p = first;
         int index = 0;
-        while (p!=NULL) { 
+        while (p!=NULL) {
             if ((p->ME_type == ME_typeToGet) || (ME_typeToGet == ME_TYPE_ALL)) {
                 ListOfMovieEventExtracted[index] = p->theMovieEvent;
                 index++;
@@ -165,7 +165,7 @@ void ChainListOfMovieEvent::SortList()
     EltMovieEvent *eltWithMinTime;
     EltMovieEvent *eltPrecedentOfEltWithMinTime;
     long int minTime = 0;
-    
+
     while (lastEltOfSortedList->next != NULL) {
         p = lastEltOfSortedList->next;
         eltWithMinTime = p;
@@ -173,7 +173,7 @@ void ChainListOfMovieEvent::SortList()
         eltPrecedentOfEltWithMinTime = p;
         precedentOfP = p;
         p = p->next;
-        
+
         //trouvage du minimum
         while (p != NULL) {
             if (p->theMovieEvent->GetActTime() < minTime) {
@@ -184,7 +184,7 @@ void ChainListOfMovieEvent::SortList()
             precedentOfP = p;
             p = p->next;
         }
-        
+
         //échangeage entre le minimum et le premier élément de la liste non triée,
         //si nécessaire.
         if (eltWithMinTime != lastEltOfSortedList->next) {
@@ -192,7 +192,7 @@ void ChainListOfMovieEvent::SortList()
             eltWithMinTime->next = lastEltOfSortedList->next;
             lastEltOfSortedList->next = eltWithMinTime;
         }
-        
+
         //avançage d'un cran, et on recommence à trier avec ce qui reste.
         lastEltOfSortedList = lastEltOfSortedList->next;
     }
@@ -207,7 +207,7 @@ long int ChainListOfMovieEvent::ConcatListOfMovieEvent(ChainListOfMovieEvent *ch
     int ME_TypeToAdd;
     EltMovieEvent *p = chainListToAdd->first;
     long int durationAdded = 0;
-    
+
     while ((p != NULL)
            && (
                 (durationOfConcatenation == -1)
@@ -220,7 +220,7 @@ long int ChainListOfMovieEvent::ConcatListOfMovieEvent(ChainListOfMovieEvent *ch
         durationAdded = p->theMovieEvent->GetActTime();
         p = p->next;
     }
-    
+
     if (durationOfConcatenation != -1) { return durationOfConcatenation; }
     return durationAdded;
 }

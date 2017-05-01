@@ -2,7 +2,7 @@
 
 
 
-ME_PlaySound::ME_PlaySound(long int _actTime, Mix_Chunk *_sample, 
+ME_PlaySound::ME_PlaySound(long int _actTime, Mix_Chunk *_sample,
                            int _channel, int _nbrOfTimes)
     : MovieEvent(_actTime)
 {

@@ -7,7 +7,7 @@
 
 class ME_Scene : public MovieEvent
 {
-  
+
 //Si j'ai une idée super géniale, je dois la mettre ici tout de suite, pour le fun?
 //Ou est-ce que je dois la garder pour plus tard?
 //Doit-on économiser ses idées, en vue de pouvoir faire d'autres créations après?
@@ -19,7 +19,7 @@ class ME_Scene : public MovieEvent
 //imaginatif pour me permettre ça? J'en sais rien. Pour l'instant je me suis
 //gardé des idées pour plus tard. Lalalilala
 
-  
+
 protected:
 
     Scene *affectedScene;
@@ -35,6 +35,6 @@ public:
 
 
 #define MOVIE_EVENT_SCENE_INCLUDED__
-    
+
 #endif
 

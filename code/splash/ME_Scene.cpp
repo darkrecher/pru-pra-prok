@@ -6,7 +6,7 @@ ME_Scene::ME_Scene(long int _actTime, Scene *_affectedScene)
 {
     affectedScene = _affectedScene;
 };
-    
+
 ME_Scene::~ME_Scene() {};
 
 

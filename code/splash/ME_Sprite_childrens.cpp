@@ -2,9 +2,9 @@
 
 
 
-ME_Sprite_SetAllInfos::ME_Sprite_SetAllInfos(long int _actTime, SE_Sprite *_affectedSprite, 
-                                             long int _newImg, SDL_Rect *_newPosition, 
-                                             SDL_Rect *_newPortionToDraw, 
+ME_Sprite_SetAllInfos::ME_Sprite_SetAllInfos(long int _actTime, SE_Sprite *_affectedSprite,
+                                             long int _newImg, SDL_Rect *_newPosition,
+                                             SDL_Rect *_newPortionToDraw,
                                              long int _newZoom = 1024)
     : ME_Sprite(_actTime, _affectedSprite)
 {
@@ -25,7 +25,7 @@ ME_Sprite_SetAllInfos::ME_Sprite_SetAllInfos(long int _actTime, SE_Sprite *_affe
     }
 }
 
-ME_Sprite_SetAllInfos::~ME_Sprite_SetAllInfos() 
+ME_Sprite_SetAllInfos::~ME_Sprite_SetAllInfos()
 {
     if (newPortionToDraw != NULL) { delete newPortionToDraw; }
     if (newPosition != NULL) { delete newPosition; }
@@ -33,8 +33,8 @@ ME_Sprite_SetAllInfos::~ME_Sprite_SetAllInfos()
 
 void ME_Sprite_SetAllInfos::Act()
 {
-    if (affectedSprite != NULL) { 
-        affectedSprite->SetAllInfos(newPosition, newImg, newPortionToDraw, newZoom); 
+    if (affectedSprite != NULL) {
+        affectedSprite->SetAllInfos(newPosition, newImg, newPortionToDraw, newZoom);
     }
 }
 
@@ -47,7 +47,7 @@ MovieEvent *ME_Sprite_SetAllInfos::Copy(long int timeToAdd)
 
 //--------------------------------------------------------------------------
 
-ME_Sprite_SetPos::ME_Sprite_SetPos(long int _actTime, SE_Sprite *_affectedSprite, 
+ME_Sprite_SetPos::ME_Sprite_SetPos(long int _actTime, SE_Sprite *_affectedSprite,
                                    SDL_Rect *_newPosition)
     : ME_Sprite(_actTime, _affectedSprite)
 {
@@ -59,9 +59,9 @@ ME_Sprite_SetPos::ME_Sprite_SetPos(long int _actTime, SE_Sprite *_affectedSprite
     }
 }
 
-ME_Sprite_SetPos::~ME_Sprite_SetPos() 
-{ 
-    if (newPosition != NULL) { delete newPosition; } 
+ME_Sprite_SetPos::~ME_Sprite_SetPos()
+{
+    if (newPosition != NULL) { delete newPosition; }
 }
 
 void ME_Sprite_SetPos::Act()
@@ -76,7 +76,7 @@ MovieEvent *ME_Sprite_SetPos::Copy(long int timeToAdd)
 
 //-----------------------------------------
 
-ME_Sprite_Move::ME_Sprite_Move(long int _actTime, SE_Sprite *_affectedSprite, 
+ME_Sprite_Move::ME_Sprite_Move(long int _actTime, SE_Sprite *_affectedSprite,
                                SDL_Rect *_dist)
     : ME_Sprite(_actTime, _affectedSprite)
 {
@@ -103,9 +103,9 @@ ME_Sprite_Move::ME_Sprite_Move(long int _actTime, SE_Sprite *_affectedSprite,
 //
 //Bon, eh bien c'était un essai d'écriture spontanée, mais je sais pas si c'est super réussi.
 
-ME_Sprite_Move::~ME_Sprite_Move() 
-{ 
-    if (dist != NULL) { delete dist; } 
+ME_Sprite_Move::~ME_Sprite_Move()
+{
+    if (dist != NULL) { delete dist; }
 }
 
 void ME_Sprite_Move::Act()
@@ -120,7 +120,7 @@ MovieEvent *ME_Sprite_Move::Copy(long int timeToAdd)
 
 //-----------------------------------------
 
-ME_Sprite_SetCurImg::ME_Sprite_SetCurImg(long int _actTime, SE_Sprite *_affectedSprite, 
+ME_Sprite_SetCurImg::ME_Sprite_SetCurImg(long int _actTime, SE_Sprite *_affectedSprite,
                                          long int _newImg)
     : ME_Sprite(_actTime, _affectedSprite)
 {
@@ -141,8 +141,8 @@ MovieEvent *ME_Sprite_SetCurImg::Copy(long int timeToAdd)
 
 //----------------------------------------------
 
-ME_Sprite_SetPortionToDraw::ME_Sprite_SetPortionToDraw(long int _actTime, 
-                                                     SE_Sprite *_affectedSprite, 
+ME_Sprite_SetPortionToDraw::ME_Sprite_SetPortionToDraw(long int _actTime,
+                                                     SE_Sprite *_affectedSprite,
                                                      SDL_Rect *_newPortionToDraw)
     : ME_Sprite(_actTime, _affectedSprite)
 {
@@ -155,7 +155,7 @@ ME_Sprite_SetPortionToDraw::ME_Sprite_SetPortionToDraw(long int _actTime,
     }
 }
 
-ME_Sprite_SetPortionToDraw::~ME_Sprite_SetPortionToDraw() 
+ME_Sprite_SetPortionToDraw::~ME_Sprite_SetPortionToDraw()
 {
     if (newPortionToDraw != NULL) { delete newPortionToDraw; }
 }
@@ -173,8 +173,8 @@ MovieEvent *ME_Sprite_SetPortionToDraw::Copy(long int timeToAdd)
 
 //-------------------------------------------------
 
-ME_Sprite_SetZoomSprite::ME_Sprite_SetZoomSprite(long int _actTime, 
-                                                 SE_Sprite *_affectedSprite, 
+ME_Sprite_SetZoomSprite::ME_Sprite_SetZoomSprite(long int _actTime,
+                                                 SE_Sprite *_affectedSprite,
                                                  long int _newZoom)
     : ME_Sprite(_actTime, _affectedSprite)
 {

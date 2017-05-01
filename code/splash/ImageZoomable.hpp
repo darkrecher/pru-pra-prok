@@ -9,8 +9,8 @@ class ImageZoomable
 
 
 private:
-           
-    SDL_Rect hotPoint;    
+
+    SDL_Rect hotPoint;
     SDL_Surface *theImage;
     Uint32 transpColor;
     int isKeyTransparent;
@@ -18,16 +18,16 @@ private:
 
 
 public:
-    
+
     ImageZoomable(SDL_Surface *imageSource, SDL_Rect *sourceRect, SDL_Rect *_hotPoint,
-                  Uint32 _transpColor, int _isKeyTransparent, 
+                  Uint32 _transpColor, int _isKeyTransparent,
                   Uint32 _surfaceTypeOfImage, Uint32 _surfaceTypeOfZoomedImage);
-                
+
     ImageZoomable(Uint16 imgWidth, Uint16 imgHeight,
                   Uint32 _surfaceTypeOfImage, Uint32 _surfaceTypeOfZoomedImage);
-                
+
     ~ImageZoomable();
-    
+
 //  trucs qui ressemblent à tout sauf des haïkus. série numéro log(k.k.pi.pi)
 //
 //
@@ -47,7 +47,7 @@ public:
 //qui tue, c'était : "On n'habite pas la ville, c'est la ville qui vous habite"
 //Ca a plus de gueule que ma phrase à moi, mais ça veut pas dire plus grand-chose.
 
-    
+
     Sint16 GetHotPointX();
     Sint16 GetHotPointY();
     SDL_Surface *GetImage();
@@ -55,14 +55,14 @@ public:
     int GetIsKeyTransparent();
 
     void SetHotPoint(SDL_Rect *_hotPoint);
-    
+
     void Blit(SDL_Rect *sourceRect, SDL_Surface *dest, SDL_Rect *destRect);
-    
-    SDL_Surface *GetZoomedImage(SDL_Rect *sourceRect, long int zoomFactor, 
+
+    SDL_Surface *GetZoomedImage(SDL_Rect *sourceRect, long int zoomFactor,
                                 SDL_Rect *imgResultLimits = NULL);
-          
-    void ZoomAndBlit(SDL_Rect *sourceRect, 
-                     SDL_Surface *dest, SDL_Rect *destRect, 
+
+    void ZoomAndBlit(SDL_Rect *sourceRect,
+                     SDL_Surface *dest, SDL_Rect *destRect,
                      long int zoomFactor, SDL_Rect *destLimits = NULL);
 
 };

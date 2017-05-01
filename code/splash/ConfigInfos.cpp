@@ -20,21 +20,21 @@ ConfigInfos::ConfigInfos()
     keyTransparencyBlue = 0;
     keyTransparencyGreen = 0;
     keyTransparencyColor = 0;
-    
+
     mixChannelQty = 3;
     mixFrequency = 22050;
     outputSoundChannelsQty = 2;
     chunkSize = 1024;
-    
+
     showFilmXMLComments = 0;
     fullScreen = 0;
     stopIfSoundFail = 0;
     showDetails = 0;
-    
+
     ModeEditionOfConfig = 1;
 }
 
-                
+
 ConfigInfos::~ConfigInfos()
 {
 }

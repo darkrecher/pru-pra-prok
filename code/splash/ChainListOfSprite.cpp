@@ -20,7 +20,7 @@ ChainListOfSprite::~ChainListOfSprite()
 }
 
 
-void ChainListOfSprite::AddElement(SE_Sprite *_sprite, string *_listOfImgNames, 
+void ChainListOfSprite::AddElement(SE_Sprite *_sprite, string *_listOfImgNames,
                                    long int _imgQty, string _name)
 {
     EltSprite *p = first;
@@ -60,7 +60,7 @@ SE_Sprite *ChainListOfSprite::GetCurrentElement()
 long int ChainListOfSprite::GetIndexOfImgOfCurrentElement(string imgName)
 {
     long int index = 0;
-    
+
     while ((index < cursor->imgQty) && (cursor->listOfImgNames[index] != imgName)) {
         index++;
     }
@@ -89,8 +89,8 @@ long int ChainListOfSprite::GetQtyOfElement()
 {
     long int qty = 0;
     EltSprite *p = first;
-    while (p!=NULL) { 
-        p = p->next; 
+    while (p!=NULL) {
+        p = p->next;
         qty++;
     }
     return qty;

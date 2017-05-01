@@ -55,8 +55,8 @@ long int ChainListOfSound::GetQtyOfElement()
 {
     long int qty = 0;
     EltSound *p = first;
-    while (p!=NULL) { 
-        p = p->next; 
+    while (p!=NULL) {
+        p = p->next;
         qty++;
     }
     return qty;

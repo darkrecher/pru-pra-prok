@@ -79,8 +79,8 @@ long int ChainListOfSDLSurface::GetQtyOfElement()  //peut-être inutile
 {
     long int qty = 0;
     EltSDL_Surface *p = first;
-    while (p!=NULL) { 
-        p = p->next; 
+    while (p!=NULL) {
+        p = p->next;
         qty++;
     }
     return qty;

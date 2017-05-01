@@ -12,33 +12,33 @@ class FileLoader
 
 
     private:
-    
+
     //buffer qui va contenir les fichiers images et sons décompressés
     	unsigned char *buffer;
     	long int bufferSize;
-    	
+
     	gzFile currentCompressedFile;
     	string currentCompressedFileName;
     	long int sizeOfFileExtracted;
 
-    
+
     //liste chainée des fichiers images dans lesquels récupérer les données
         ChainListOfSDLSurface *chainListOfSDLSurface;
     //liste des sons
         ChainListOfSound *chainListOfSound;
     //le même parser XML que le DataLoader
         XMLParser *XMLparser;
-        
+
     //ça, c'est les fonctions pour récupérer des données à partir des fichiers compressés
         string ExtractNextFileAndFillBuffer();
         string LoadDataFromACompressedFile();
 
     //pointeur vers la barre de pourcentage
         PercentageBar *percentageBar;
-        
+
         long int percentageTotal;
         long int percentageProgress;
-        
+
 	public:
 
 ////////////////////////////////////////
@@ -61,8 +61,8 @@ class FileLoader
 		FileLoader(ChainListOfSDLSurface *_chainListOfSDLSurface,
                    ChainListOfSound *_chainListOfSound, XMLParser *_XMLparser,
                    PercentageBar *_percentageBar);
-                   
+
 		~FileLoader();
-		
+
 };
 

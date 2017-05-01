@@ -36,7 +36,7 @@ void ShowErrorOnScreen(SDL_Surface *mainScreen, int errorType = ERROR_WHATEVER)
         cerr << endl << "De plus, il est impossible d'initialiser le mode vidéo." << endl;
         return;
     }
-    
+
     SDL_FillRect(mainScreen, NULL, 0);
     FILE *file;
     SDL_RWops *rw;
@@ -47,7 +47,7 @@ void ShowErrorOnScreen(SDL_Surface *mainScreen, int errorType = ERROR_WHATEVER)
         errorImage = IMG_LoadPNG_RW(rw);
         SDL_FreeRW(rw);
     }
-    
+
     if (errorImage != NULL) {
         SDL_Rect source;
         if (errorType == ERROR_NO_ARGUMENT) {
@@ -67,7 +67,7 @@ void ShowErrorOnScreen(SDL_Surface *mainScreen, int errorType = ERROR_WHATEVER)
         SDL_FillRect(mainScreen, &rect, Red);
     }
     SDL_Flip(mainScreen);
-    
+
     SDL_Event event;
     int quit = 0;
     while (!quit) {
@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 
     ConfigXMLParser configXMLParser(0);
     SDL_Surface *mainScreen = NULL;
-    
+
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_AUDIO) < 0) {
         cerr << "Impossible d'initialiser la SDL : " << SDL_GetError() << endl;
         exit (1);
@@ -99,10 +99,10 @@ int main(int argc, char *argv[])
         ShowErrorOnScreen(mainScreen, ERROR_WHATEVER);
         exit(2);
     }
-    
+
     cout << "La lecture de la configuration a été correctement effectuée." << endl;
     ConfigInfos *theConfigInfos = configXMLParser.GetConfigInfos();
-    
+
     //ça c'est juste pour montrer la config dans le fichier de sortie. On s'en fout.
    // cout << theConfigInfos->GetConfigDescription() << endl;
 
@@ -117,7 +117,7 @@ int main(int argc, char *argv[])
     theConfigInfos->SetKeyTransparencyColor32BitValue(mainScreen->format);
     configXMLParser.CloseConfigXMLFile();
     SDL_ShowCursor(SDL_DISABLE);
-    
+
     if (argc < 2) {
         cerr << "Pour voir la première partie du film, exécutez \"prupraprok1.bat\"" << endl;
         cerr << "Pour voir la deuxième partie, exécutez \"prupraprok2.bat\"" << endl;
@@ -135,7 +135,7 @@ int main(int argc, char *argv[])
     }
 
     moviePlayer.Play();
-    
+
     cout << "Fin du programme. Date : " << SDL_GetTicks() << endl;
     return 0;
 }

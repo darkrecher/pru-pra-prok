@@ -5,7 +5,7 @@
 MovieEvent::MovieEvent(long int _actTime) { actTime = _actTime; }
 
 MovieEvent::~MovieEvent() {};
-    
+
 long int MovieEvent::GetActTime() { return actTime; }
 
 //gnיייhhיייhיייי!! Les aventures de mini-bout-de-code.

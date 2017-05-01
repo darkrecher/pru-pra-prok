@@ -1,8 +1,8 @@
 #include "DataLoader.hpp"
 
 
-         
-DataLoader::DataLoader(SoundPlayer *_soundPlayer, ImagePlayer *_imagePlayer, 
+
+DataLoader::DataLoader(SoundPlayer *_soundPlayer, ImagePlayer *_imagePlayer,
                        SDL_Surface *_mainScreen, ConfigInfos *_theConfigInfos, Scene *_scene)
 {
     imagePlayer = _imagePlayer;
@@ -11,14 +11,14 @@ DataLoader::DataLoader(SoundPlayer *_soundPlayer, ImagePlayer *_imagePlayer,
     theConfigInfos = _theConfigInfos;
     scene = _scene;
     XMLparser = XMLParser(theConfigInfos->GetShowFilmXMLComments());
-    
+
     chainListOf_ListOfImg = new ChainListOf_ListOfImg();
     chainListOfSprite = new ChainListOfSprite();
     chainListOfMovieEvent = new ChainListOfMovieEvent();
     chainListOfSDLSurface = new ChainListOfSDLSurface();
     chainListOfSound = new ChainListOfSound();
     chainListOfProcedure = new ChainListOfProcedure();
-    
+
     percentageBar = PercentageBar(mainScreen);
     percentageTotal = -1;
     fileLoader = FileLoader(chainListOfSDLSurface, chainListOfSound,
@@ -102,11 +102,11 @@ string DataLoader::ReadFilmXMLFile()
 string DataLoader::ReadSplashBaliz()
 {
     string result;
-    
+
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
     if (XMLparser.GotAStartBaliz("ProgressBarInfo")) { result = ReadPercentageInfos(); }
     if (result != "") { return result; }
-    
+
     if (percentageTotal <= 0) {
         percentageBar.RefreshValueAndShowOnScreen(0, 3);
         percentageBar.FlipMainScreen();
@@ -116,26 +116,26 @@ string DataLoader::ReadSplashBaliz()
         { return "Il faut une balise <ImgSoundFiles>, pour indiquer les fichiers à charger."; }
     result = fileLoader.LoadImgSoundFiles();
     if (result != "") { return result; }
-    
+
     if (percentageTotal > 0) {
         percentageProgress = fileLoader.GetPercentageProgress();
     } else {
         percentageBar.RefreshValueAndShowOnScreen(1, 3);
         percentageBar.FlipMainScreen();
     }
-    
+
     if (!XMLparser.GotAStartBaliz("LoadData"))
         { return "Il faut une balise <LoadData>, pour spécifier les images et les sons."; }
     result = ReadImgSoundDatas();
     if (result != "") { return result; }
-    
+
     sceneEltsSortedList = new SceneElt *[chainListOfSprite->GetQtyOfElement()];
-    
+
     if (percentageTotal <= 0) {
         percentageBar.RefreshValueAndShowOnScreen(2, 3);
         percentageBar.FlipMainScreen();
     }
-    
+
     int timeToShowPercentage = 0;
     while (XMLparser.GotAStartBaliz("Procedure")) {
         result = ReadProcedure();
@@ -146,7 +146,7 @@ string DataLoader::ReadSplashBaliz()
             timeToShowPercentage = 0;
         }
     }
-    
+
     //placement du breakpoint initial. C'est obligé que y'en ai un.
     MovieEvent *newMovieEvent = (MovieEvent *) new ME_BreakPoint(0, 0, 0, 0);
     chainListOfMovieEvent->AddElement(newMovieEvent,ChainListOfMovieEvent::ME_TYPE_BREAKPOINT);
@@ -180,7 +180,7 @@ string DataLoader::ReadPercentageInfos()
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
     while (!stop) {
         if (XMLparser.GotAStartBaliz("FileToExtract")) {
-        
+
             if (!XMLparser.ReadNumericValue("FileToExtract", &valueRead))
                 { return XMLparser.GetErrorMessage(); }
             percentageInfoNbrOfFileToExtract = valueRead;
@@ -192,7 +192,7 @@ string DataLoader::ReadPercentageInfos()
             percentageInfoNbrOfImgListToCreate = valueRead;
 
         } else if (XMLparser.GotAStartBaliz("ProcedureToCreate")) {
-        
+
             if (!XMLparser.ReadNumericValue("ProcedureToCreate", &valueRead))
                 { return XMLparser.GetErrorMessage(); }
             percentageInfoNbrOfProcedureToCreate = valueRead;
@@ -210,7 +210,7 @@ string DataLoader::ReadPercentageInfos()
     if (percentageTotal == 0) { percentageTotal = -1; }
     percentageProgress = 0;
     fileLoader.SetPercentageTotal(percentageTotal);
-    
+
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
     return "";
 }
@@ -225,7 +225,7 @@ string DataLoader::ReadCoord(string balizName, SDL_Rect *coord, int readRectCoor
     Sint32 H = 0;
     int whatIsDefined;   // 1 : X    2 : Y    4 : W    8 : H
     int stop = 0;
-    
+
     if (readRectCoord) { whatIsDefined = 0; } else { whatIsDefined = 12; }
 
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
@@ -236,14 +236,14 @@ string DataLoader::ReadCoord(string balizName, SDL_Rect *coord, int readRectCoor
             if (!XMLparser.ReadNumericValue("X", &X))
                 { return XMLparser.GetErrorMessage(); }
             whatIsDefined = whatIsDefined | 1;
-            
+
         } else if (XMLparser.GotAStartBaliz("Y")) {
 
             if (whatIsDefined & 2) { return "L'ordonnée est déjà définie"; }
             if (!XMLparser.ReadNumericValue("Y", &Y))
                 { return XMLparser.GetErrorMessage(); }
             whatIsDefined = whatIsDefined | 2;
-            
+
         } else if (XMLparser.GotAStartBaliz("W")) {
 
             if (whatIsDefined & 4) {
@@ -302,7 +302,7 @@ string DataLoader::ReadCoord(string balizName, SDL_Rect *coord, int readRectCoor
         { return "toutes les coordonnées n'ont pas été définies"; }
 
     SetRect(coord, X, Y, W, H);
-    
+
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
     return "";
 }
@@ -328,11 +328,11 @@ string DataLoader::ReadImage(ChainListOfImg *chainListOfImgDest)
 {
     SDL_Rect hotPoint;
     int hotPointDefined = 0;
-    
+
     SDL_Rect *sourceRectReal = NULL;
     SDL_Rect sourceRectData;
     int sourceRectDefined = 0;
-    
+
     Uint32 transpColor;
     int isKeyTransparent = -1;
 
@@ -342,11 +342,11 @@ string DataLoader::ReadImage(ChainListOfImg *chainListOfImgDest)
     int stop = 0;
     string errorMessage;
     ImageZoomable *img;
-    
+
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
     while (!stop) {
         if (XMLparser.GotAStartBaliz("Name")) {
-        
+
             if (imgName != "") { return "Le nom de l'image est déjà défini"; }
             if (!XMLparser.ReadTextValue("Name", &imgName))
                 { return XMLparser.GetErrorMessage(); }
@@ -358,7 +358,7 @@ string DataLoader::ReadImage(ChainListOfImg *chainListOfImgDest)
             if (imgSourceName != "") { return "Le nom de l'image source est déjà défini"; }
             if (!XMLparser.ReadTextValue("ImageSource", &imgSourceName))
                 { return XMLparser.GetErrorMessage(); }
-                
+
         } else if (XMLparser.GotAStartBaliz("SquareSource")) {
 
             if (sourceRectDefined) { return "la portion d'image à prendre est déjà définie"; }
@@ -372,28 +372,28 @@ string DataLoader::ReadImage(ChainListOfImg *chainListOfImgDest)
             if (sourceRectDefined) { return "la portion d'image à prendre est déjà définie"; }
             sourceRectDefined = 1;
             if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
-            
+
         } else if (XMLparser.GotAStartBaliz("HotPoint")) {
 
             if (hotPointDefined) { return "le hotpoint est déjà définie"; }
             errorMessage = ReadCoord("HotPoint", &hotPoint, 0, 1);
             if (errorMessage != "") { return errorMessage; }
             hotPointDefined = 1;
-            
+
         } else if (XMLparser.GotASingleBaliz("DefaultKeyTransparent")) {
 
             if (isKeyTransparent != -1) { return "la transparence est déjà définie"; }
             isKeyTransparent = 1;
             transpColor = theConfigInfos->GetKeyTransparencyColor();
             if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
-            
+
         } else if (XMLparser.GotASingleBaliz("NotKeyTransparent")) {
 
             if (isKeyTransparent != -1) { return "la transparence est déjà définie"; }
             isKeyTransparent = 0;
             transpColor = 0;
             if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
-            
+
         } else if (XMLparser.GotAStartBaliz("KeyTransparency")) {
 
             if (isKeyTransparent != -1) { return "la transparence est déjà définie"; }
@@ -405,7 +405,7 @@ string DataLoader::ReadImage(ChainListOfImg *chainListOfImgDest)
             stop = 1;
         }
     }
-    
+
     if (!XMLparser.GotAnEndBaliz("Img"))
         { return "erreur pendant la lecture de la balise Img"; }
 
@@ -420,7 +420,7 @@ string DataLoader::ReadImage(ChainListOfImg *chainListOfImgDest)
         isKeyTransparent = 1;
         transpColor = theConfigInfos->GetKeyTransparencyColor();
     }
-    
+
     img = new ImageZoomable(imgSource, sourceRectReal, &hotPoint,
                             transpColor, isKeyTransparent,
                             theConfigInfos->GetSurfaceTypeOfImages(),
@@ -452,7 +452,7 @@ string DataLoader::ReadMakeImgByZoom(ChainListOfImg *chainListOfImgDest)
                 { return XMLparser.GetErrorMessage(); }
             if (chainListOfImgDest->GetElement(imgName) != NULL)
                 { return "une autre image de la même liste a déjà le nom : " + imgName; }
-                
+
         } else if (XMLparser.GotAStartBaliz("Original")) {
 
             if (imgSource != NULL) { return "Le nom de l'image original est déjà défini"; }
@@ -461,9 +461,9 @@ string DataLoader::ReadMakeImgByZoom(ChainListOfImg *chainListOfImgDest)
             imgSource = chainListOfImgDest->GetElement(imgSourceName);
             if (imgSource == NULL)
                 { return "La liste n'a pas d'image de nom " + imgSourceName; }
-            
+
         } else if (XMLparser.GotAStartBaliz("Zoom")) {
-        
+
             if (zoom != -1) { return "Le zoom est déjà défini"; }
             if (!XMLparser.ReadNumericValue("Zoom", &zoom, 0, 100000, 1))
                 { return XMLparser.GetErrorMessage(); }
@@ -516,7 +516,7 @@ string DataLoader::ReadListOfImg()
         { return XMLparser.GetErrorMessage(); }
     if (chainListOf_ListOfImg->SetCursor(imgListName) != 0)
         { return "une autre image de la même liste a déjà le nom : " + imgListName; }
-        
+
     while (!stop) {
         if (XMLparser.GotAStartBaliz("Img")) {
             errorMessage = ReadImage(chainListOfImg);
@@ -538,7 +538,7 @@ string DataLoader::ReadListOfImg()
     string *listOfImgNames = new string[chainListOfImg->GetQtyOfElement()];
     chainListOfImg->ExtractListOfImg(listOfImg, listOfImgNames);
     chainListOf_ListOfImg->AddElement(listOfImg, listOfImgNames, imgListName);
-    
+
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
     AdvanceAndShowProgress();
     return "";
@@ -557,7 +557,7 @@ string DataLoader::ReadSpriteDefinition()
         { return XMLparser.GetErrorMessage(); }
     if (chainListOfSprite->SetCursor(spriteName) != 0)
         { return "un autre sprite porte déjà le nom : " + spriteName; }
-        
+
     if (!XMLparser.GotAStartBaliz("ImgList"))
         { return "erreur dans <SpriteDef> : il faut une balise <ImgList>"; }
     if (!XMLparser.ReadTextValue("ImgList", &listOfImgOfSpriteName))
@@ -584,7 +584,7 @@ string DataLoader::ReadFreeImgFile()
 
     if (!XMLparser.ReadTextValue("FreeImgFile", &imgFileName))
         { return XMLparser.GetErrorMessage(); }
-        
+
     if (chainListOfSDLSurface->FreeElement(imgFileName) == 0)
         { return "impossible de libérer la mémoire du fichier image " + imgFileName; }
 
@@ -626,7 +626,7 @@ string DataLoader::FillPlanOrganization(long int time, long int *_sceneEltQty)
     string spriteName;
     int stop = 0;
     long int spriteQty = chainListOfSprite->GetQtyOfElement();
-    
+
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
     while (!stop) {
         if (XMLparser.GetCurrentNodeType() != XMLParser::NODE_TYPE_TEXT)
@@ -664,7 +664,7 @@ string DataLoader::Read_SpriteSetAll(ChainListOfMovieEvent *listDest, long int t
     int posIsDefined = 0;
     SDL_Rect portion;
     SDL_Rect *realPortion = NULL;  //default accepté (NULL)
-    
+
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
     while (!stop) {
         if (XMLparser.GotAStartBaliz("Img")) {
@@ -691,19 +691,19 @@ string DataLoader::Read_SpriteSetAll(ChainListOfMovieEvent *listDest, long int t
             stop = 1;
         }
     }
-    
+
     if (!XMLparser.GotAnEndBaliz("SetAllSpriteInfos"))
         { return "erreur pendant la lecture de la balise SetAllInfos"; }
-        
+
     if (indexOfImgToShow == -1) { return "l'image du sprite n'est pas définie"; }
     if (zoom == -1) { zoom = 1024; }
     if (!posIsDefined) { return "la position du sprite n'est pas définie"; }
-        
+
     MovieEvent *newMovieEvent = (MovieEvent *) new
                 ME_Sprite_SetAllInfos(time, sprite, indexOfImgToShow, &pos, realPortion, zoom);
-                
+
     listDest->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_IMAGE);
-    
+
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
     return "";
 }
@@ -787,21 +787,21 @@ string DataLoader::Read_SceneSetAll(ChainListOfMovieEvent *listDest, long int ti
     int camPosAndSizeDefined = 0;
 
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
-    
+
     while (!stop) {
         if (XMLparser.GotAStartBaliz("PlanRedef")) {
-        
+
             if (sceneEltQty != -1)
                 { return "l'ordre d'affichage des sprites est déjà défini"; }
             result = FillPlanOrganization(time, &sceneEltQty);
             if (result != "") { return result; }
-            
+
         } else if (XMLparser.GotAStartBaliz("Zoom")) {
-        
+
             if (zoom != -1) { return "la valeur du zoom est déjà définie"; }
             if (!XMLparser.ReadNumericValue("Zoom", &zoom))
                 { return XMLparser.GetErrorMessage(); }
-                
+
         } else if (XMLparser.GotASingleBaliz("ClearWithBlackColor")) {
 
             if (mustBeCleared != -1) { return "le mode de rafraichissement est déjà définie"; }
@@ -821,7 +821,7 @@ string DataLoader::Read_SceneSetAll(ChainListOfMovieEvent *listDest, long int ti
             result = ReadNodeOfColor("ClearWithColor", &clearColor);
             if (result != "") { return result; }
             mustBeCleared = 1;
-            
+
         } else if (XMLparser.GotAStartBaliz("CamPosAndSize")) {
 
             if (camPosAndSizeDefined) { return "infos de taille et de caméra déjà définies"; }
@@ -836,12 +836,12 @@ string DataLoader::Read_SceneSetAll(ChainListOfMovieEvent *listDest, long int ti
 
     if (!XMLparser.GotAnEndBaliz("SetAllSceneInfos"))
         { return "erreur pendant la lecture de la balise <SetAllSceneInfos>"; }
-        
+
     if (sceneEltQty == -1) { return "ordre d'affichage des sprites non défini (PlanRedef)"; }
     if (!camPosAndSizeDefined) { return "infos de taille et de caméra non définies"; }
     if (zoom == -1) { zoom = 1024; }
     if (mustBeCleared == -1) { mustBeCleared = 0; }
-    
+
     MovieEvent *newMovieEvent = (MovieEvent *) new ME_Scene_SetAllInfos(time, scene,
                                           camPosAndSize.w, camPosAndSize.h,
                                           sceneEltsSortedList, sceneEltQty,
@@ -850,7 +850,7 @@ string DataLoader::Read_SceneSetAll(ChainListOfMovieEvent *listDest, long int ti
                                           &camPosAndSize, zoom, mustBeCleared, clearColor);
 
     listDest->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_IMAGE);
-    
+
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
     return "";
 }
@@ -870,11 +870,11 @@ string DataLoader::Read_Swap2Plans(ChainListOfMovieEvent *listDest, long int tim
     if (!chainListOfSprite->SetCursor(spriteName))
         { return "nom de sprite inconnu : " + spriteName; }
     firstPlan = (SceneElt *) chainListOfSprite->GetCurrentElement();
-    
+
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
     if (!XMLparser.GotASingleBaliz("Next"))
         { return "Il faut une balise <Next/> après le nom du premier sprite"; }
-        
+
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
     if (XMLparser.GetCurrentNodeType() != XMLParser::NODE_TYPE_TEXT)
         { return "Indiquez le nom d'un sprite"; }
@@ -886,12 +886,12 @@ string DataLoader::Read_Swap2Plans(ChainListOfMovieEvent *listDest, long int tim
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
     if (!XMLparser.GotAnEndBaliz("Swap2Plans"))
         { return "erreur pendant la lecture de la balise <PlanRedef>"; }
-        
+
     MovieEvent *newMovieEvent = (MovieEvent *) new ME_Scene_Swap2Plans
                                                    (time, scene, firstPlan, secondPlan);
 
     listDest->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_IMAGE);
-        
+
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
     return "";
 }
@@ -907,7 +907,7 @@ string DataLoader::ReadProcedureExecution(ChainListOfMovieEvent *listDest, long 
     Sint32 realProcedureDuration;
     int addTimeOfProcedure = 0;
     int stop = 0;
-    
+
     if (!complexExecution) {
         if (!XMLparser.ReadTextValue("Exec", &textRead))
            { return XMLparser.GetErrorMessage(); }
@@ -915,7 +915,7 @@ string DataLoader::ReadProcedureExecution(ChainListOfMovieEvent *listDest, long 
         if (procToConcat == NULL) { return "nom de procédure inconnue : " + textRead; }
         listDest->ConcatListOfMovieEvent(procToConcat, *time, -1);
     } else {
-    
+
         if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
         while (!stop) {
             if (XMLparser.GotAStartBaliz("Name")) {
@@ -933,7 +933,7 @@ string DataLoader::ReadProcedureExecution(ChainListOfMovieEvent *listDest, long 
                 stop = 1;
             }
         }
-        
+
         if (!XMLparser.GotAnEndBaliz("ExecComplex"))
             { return "erreur pendant la lecture de la balise <ExecComplex>"; }
         if (procToConcat == NULL) { return "il faut spécifier un nom de procédure"; }
@@ -941,7 +941,7 @@ string DataLoader::ReadProcedureExecution(ChainListOfMovieEvent *listDest, long 
                                             procToConcat, *time, procedureDuration);
         if (addTimeOfProcedure) { *time = *time + realProcedureDuration; }
         if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
-    
+
     }
     return "";
 }
@@ -962,75 +962,75 @@ string DataLoader::ReadSequence(ChainListOfMovieEvent *listDest)
     Mix_Chunk *soundToPlay;
 
     while (!stop) {
-    
+
         if (XMLparser.GotAStartBaliz("SetCamPos")) {
-        
+
             result = ReadCoord("SetCamPos", &pos, 0, 1);
             if (result != "") { return result; }
             newMovieEvent = (MovieEvent *) new ME_Scene_SetCameraPos(time, scene, &pos);
             listDest->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_IMAGE);
-            
+
         } else if (XMLparser.GotAStartBaliz("Sprite")) {
-        
+
             result = Read_Sprite(listDest, &time);
             if (result != "") { return result; }
-            
+
         } else if (XMLparser.GotAStartBaliz("SetAllSceneInfos")) {
-        
+
             result = Read_SceneSetAll(listDest, time);
             if (result != "") { return result; }
-            
+
         } else if (XMLparser.GotAStartBaliz("SetZoom")) {
-        
+
             if (!XMLparser.ReadNumericValue("SetZoom", &nValueRead))
                 { return XMLparser.GetErrorMessage(); }
             newMovieEvent = (MovieEvent *) new ME_Scene_SetZoomScene(time, scene, nValueRead);
             listDest->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_IMAGE);
-            
+
         } else if (XMLparser.GotASingleBaliz("ClearWithBlackColor")) {
-        
+
             clearColor = SDL_MapRGB(mainScreen->format, 0, 0, 0);
             newMovieEvent = (MovieEvent *) new ME_Scene_SetSceneClearance
                                                (time, scene, 1, clearColor);
             listDest->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_IMAGE);
             if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
-            
+
         } else if (XMLparser.GotASingleBaliz("NoClear")) {
-        
+
             newMovieEvent = (MovieEvent *) new ME_Scene_SetSceneClearance
                                                (time, scene, 0, 0);
             listDest->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_IMAGE);
             if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
-            
+
         } else if (XMLparser.GotAStartBaliz("ClearWithColor")) {
-        
+
             result = ReadNodeOfColor("ClearWithColor", &clearColor);
             if (result != "") { return result; }
             newMovieEvent = (MovieEvent *) new ME_Scene_SetSceneClearance
                                                (time, scene, 1, clearColor);
             listDest->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_IMAGE);
-            
+
         } else if (XMLparser.GotAStartBaliz("PlanRedef")) {
-        
+
             result = FillPlanOrganization(time, &sceneEltQty);
             if (result != "") { return result; }
             newMovieEvent = (MovieEvent *) new ME_Scene_SetSceneEltToDraw
                                                (time, scene, sceneEltsSortedList, sceneEltQty);
             listDest->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_IMAGE);
-            
+
         } else if (XMLparser.GotAStartBaliz("Swap2Plans")) {
-        
+
             result = Read_Swap2Plans(listDest, time);
             if (result != "") { return result; }
-            
+
         } else if (XMLparser.GotASingleBaliz("StopSound")) {
 
             newMovieEvent = new ME_StopSound(time, -1);
             listDest->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_SOUND);
             if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
-            
+
         } else if (XMLparser.GotAStartBaliz("PlaySound")) {
-        
+
             if (!XMLparser.ReadTextValue("PlaySound", &textRead))
                 { return XMLparser.GetErrorMessage(); }
             soundToPlay = chainListOfSound->GetElement(textRead);
@@ -1038,30 +1038,30 @@ string DataLoader::ReadSequence(ChainListOfMovieEvent *listDest)
                 { return "nom de son inconnu : " + textRead; }
             newMovieEvent = new ME_PlaySound(time, soundToPlay, -1, 1);
             listDest->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_SOUND);
-            
+
         } else if (XMLparser.GotAStartBaliz("BreakPoint")) {
 
             if (!XMLparser.ReadNumericValue("BreakPoint", &nValueRead))
                 { return XMLparser.GetErrorMessage(); }
             newMovieEvent = (MovieEvent *) new ME_BreakPoint(time, nValueRead);
             listDest->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_BREAKPOINT);
-            
+
         } else if (XMLparser.GotAStartBaliz("Exec")) {
 
             result = ReadProcedureExecution(listDest, &time);
             if (result != "") { return result; }
-            
+
         } else if (XMLparser.GotAStartBaliz("ExecComplex")) {
-        
+
             result = ReadProcedureExecution(listDest, &time, 1);
             if (result != "") { return result; }
 
         } else if (XMLparser.GotAStartBaliz("Time")) {
-        
+
             if (!XMLparser.ReadNumericValue("Time", &timeAddition))
                 { return "erreur pendant la lecture de la balise <Time>"; }
                 time += timeAddition;
-                
+
         } else {
             stop = 1;
         }
@@ -1090,7 +1090,7 @@ string DataLoader::ReadProcedure()
     ChainListOfMovieEvent *procedureListOfMovieEvent = new ChainListOfMovieEvent();
     string procName;
     string result;
-    
+
     if (!XMLparser.ReadNextNode()) { return XMLparser.GetErrorMessage(); }
     if (!XMLparser.GotAStartBaliz("Name"))
         { return "erreur dans <Procedure> : il faut commencer par une balise <Name>"; }

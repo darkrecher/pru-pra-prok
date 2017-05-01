@@ -27,5 +27,5 @@ ME_Sprite::ME_Sprite(long int _actTime, SE_Sprite *_affectedSprite)
 
 
 ME_Sprite::~ME_Sprite() {};
-    
+
 

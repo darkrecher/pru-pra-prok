@@ -9,15 +9,15 @@ class BufferScreens
 
 
 private:
-    
+
     SDL_Surface **screens;
     long int *timesToShowScreens;
-    
+
     int bufferQty;
     int cursor_ScreenInWork;
     int cursor_NextScreenToShow;
     int distBetweenCursors;
-    
+
     long int timeOfNextScreenToShow;
 
 //Comprenons-nous bien monsieur l'ingénieur, si nous vous engageons, ce n'est pas du tout
@@ -38,7 +38,7 @@ public:
 
     BufferScreens(int _bufferQty, Uint32 _surfaceTypeOfBuffers);
     ~BufferScreens();
-    
+
     int CanPutNewScreenInBuffers();
     int CanHaveNextScreenToShow();
     SDL_Surface *GetNextScreenToShow();
@@ -47,6 +47,6 @@ public:
     int AdvanceNextScreenToShow();
     int AddScreenInBuffers(Scene *sceneWithBuffer, long int TimeToShow);
     void ResetBuffers();
-    
+
 };
 
