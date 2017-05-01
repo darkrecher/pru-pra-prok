@@ -151,7 +151,9 @@ Log obtenu :
 
 Dans le menu principal de la fenêtre, cliquer sur l'option "Installation / Quit".
 
-### Vérification de l'installation
+### Vérification
+
+#### Présence du compilateur
 
 Ouvrir une console de commande Windows (Options "exécuter" dans le menu démarrer, saisir "cmd" dans la fenêtre).
 
@@ -161,12 +163,62 @@ Aller dans le répertoire d'installation de MinGW (si vous n'avez pas sélection
 
 Aller dans le sous-répertoire "bin" et afficher le numéro de version de g++.
 
-    c:\MinGW>cd bin
+    C:\MinGW>cd bin
 
-    c:\MinGW\bin>g++.exe --version
+    C:\MinGW\bin>g++.exe --version
     g++.exe (GCC) 5.3.0
     Copyright (C) 2015 Free Software Foundation, Inc.
     This is free software; see the source for copying conditions.  There is NO
     warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 Si vous avez une version plus récente que 5.3.0, la suite des actions décrites dans cette documentation devrait fonctionner de la même manière.
+
+#### Compilation d'un code simple
+
+La documentation de l'outil MinGW indique que le répertoire dans lequel il a été installé doit être ajouté dans le PATH de Windows. C'est fort louable, mais vous n'avez peut-être pas envie de modifier la config de votre système juste pour recompiler des trucs. On va donc modifier le PATH, mais temporairement.
+
+Ouvrir une console de commande Windows (ou reprendre celle du chapitre précédent).
+
+Exécuter la commande suivante :
+
+    C:\MinGW>set path=%path%;C:\MinGW\bin
+
+Pour vérifier que le path a bien été modifié, exécuter la commande `echo %path%`. Le texte renvoyé doit se terminer par `;C:\MinGW\bin`.
+
+Si la console de commande est fermée, et que les actions de ce test sont reprises à partir d'une autre console, il faut re-exécuter la commande `set path=%path%;C:\MinGW\bin`.
+
+Aller dans le répertoire du repository. (Pour l'exemple, on suppose que vous avez cloné ce repository sur votre disque, à l'emplacement `C:\repo_git\pru-pra-prok`)
+
+    C:\MinGW>cd C:\repo_git\pru-pra-prok
+
+    C:\repo_git\pru-pra-prok>cd doc\test_mingw32
+
+La commande suivante doit créer un fichier `test_mingw.o` dans le répertoire courant.
+
+    C:\repo_git\pru-pra-prok\doc\test_mingw32>g++.exe -c test_mingw.cpp -o test_mingw.o
+
+La commande suivante doit créer un fichier `test_mingw.exe` dans le répertoire courant.
+
+    C:\repo_git\pru-pra-prok\doc\test_mingw32>g++.exe test_mingw.o -o test_mingw.exe
+
+Dans le répertoire `C:\MinGW\bin` se trouve 2 fichiers : `libgcc_s_dw2-1.dll` et `libstdc++-6.dll`. Copier ces fichiers dans le répertoire contenant `test_mingw.exe`.
+
+    C:\repo_git\pru-pra-prok\doc\test_mingw32>copy C:\MinGW\bin\libgcc_s_dw2-1.dll .
+        1 fichier(s) copié(s).
+
+    C:\repo_git\pru-pra-prok\doc\test_mingw32>copy "C:\MinGW\bin\libstdc++-6.dll" .
+        1 fichier(s) copié(s).
+
+L'exécutable de test peut maintenant être lancé. Mais les informations envoyées sur la sortie standard ne seront pas écrites dans la console (je ne sais pas pourquoi). Il faut donc les rediriger vers un fichier.
+
+Exécuter la commande suivante :
+
+    C:\repo_git\pru-pra-prok\doc\test_mingw32>test_mingw.exe > stdout.txt
+
+Si vous utilisez l'antivirus avast, il est possible que celui-ci émette un message d'avertissement car `test_mingw.exe` est un exécutable qui lui est inconnu. Son lancement prendra simplement quelques secondes de plus que prévu, mais ne devrait pas poser de problème.
+
+Vérifier qu'un fichier `stdout.txt` a été créé dans le répertoire courant, et que ce fichier contient une seule ligne, avec le texte `Test MINGW. OK.` suivi d'un saut de ligne.
+
+
+
+
