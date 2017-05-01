@@ -219,6 +219,28 @@ Si vous utilisez l'antivirus avast, il est possible que celui-ci émette un mess
 
 Vérifier qu'un fichier `stdout.txt` a été créé dans le répertoire courant, et que ce fichier contient une seule ligne, avec le texte `Test MINGW. OK.` suivi d'un saut de ligne.
 
+#### Compilation avec un makefile
+
+Reprendre la même console que le chapitre précédent, ou en ouvrir une nouvelle et exécuter `set path=%path%;C:\MinGW\bin`
+
+Exécuter un `make` sur le fichier `makefile`.
+
+    C:\repo_git\pru-pra-prok\doc\test_mingw32>mingw32-make.exe
+
+Résultat attendu dans la console :
+
+    g++.exe -c test_mingw_2.cpp -o test_mingw_2.o
+    g++.exe test_mingw_2.o -o test_mingw_2.exe
+
+Cette commande doit avoir créé un fichier `test_mingw_2.o` et un fichier `test_mingw_2.exe` dans le répertoire courant.
+
+Si ça n'a pas encore été fait, copier les dll `libgcc_s_dw2-1.dll` et `libstdc++-6.dll` comme décrit dans le chapitre précédent.
+
+Lancer l'exécutable de test :
+
+    C:\repo_git\pru-pra-prok\doc\test_mingw32>test_mingw_2.exe > stdout_2.txt
+
+Vérifier qu'un fichier `stdout_2.txt` a été créé dans le répertoire courant, et que ce fichier contient une seule ligne, avec le texte `Test MINGW. OK. 2.` suivi d'un saut de ligne.
 
 
 
