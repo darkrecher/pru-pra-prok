@@ -5,7 +5,7 @@
 ME_Sprite_SetAllInfos::ME_Sprite_SetAllInfos(long int _actTime, SE_Sprite *_affectedSprite,
                                              long int _newImg, SDL_Rect *_newPosition,
                                              SDL_Rect *_newPortionToDraw,
-                                             long int _newZoom = 1024)
+                                             long int _newZoom/* = 1024*/)
     : ME_Sprite(_actTime, _affectedSprite)
 {
     newImg = _newImg;

@@ -82,7 +82,7 @@ void ImageZoomable::Blit(SDL_Rect *sourceRect, SDL_Surface *dest, SDL_Rect *dest
 
 
 SDL_Surface *ImageZoomable::GetZoomedImage(SDL_Rect *sourceRect, long int zoomFactor,
-                                           SDL_Rect *imgResultLimits = NULL)
+                                           SDL_Rect *imgResultLimits/* = NULL*/)
 {
 
     SDL_Rect sourceRect2;
@@ -202,7 +202,7 @@ SDL_Surface *ImageZoomable::GetZoomedImage(SDL_Rect *sourceRect, long int zoomFa
 
 void ImageZoomable::ZoomAndBlit(SDL_Rect *sourceRect,
                                    SDL_Surface *dest, SDL_Rect *destRect,
-                                   long int zoomFactor, SDL_Rect *destLimits = NULL)
+                                   long int zoomFactor, SDL_Rect *destLimits/* = NULL*/)
 {
     //zoomFactor est en virgule pas flottante, avec 10 bits après la virgule.
     //Et vous aurez pas plus que ça comme commentaire explicatif! Niaar hhaar haaar haaar!!

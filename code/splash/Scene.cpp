@@ -22,8 +22,8 @@ Scene::~Scene()
 void Scene::NewScene(Uint16 sceneSizeX, Uint16 sceneSizeY,
                      SceneElt **_sceneEltsSortedList, long int _sceneEltQty,
                      Uint32 surfaceTypeOfScene, Uint32 surfaceTypeOfZoomedScene,
-                     SDL_Rect *_hotPoint = NULL, long int _zoomScene = 1024,
-                     int _mustBeCleared = 0, Uint32 _clearColor = 0)
+                     SDL_Rect *_hotPoint/* = NULL*/, long int _zoomScene/* = 1024*/,
+                     int _mustBeCleared/* = 0*/, Uint32 _clearColor/* = 0*/)
 {
     if (theScene != NULL) { delete theScene; }
 
@@ -57,7 +57,7 @@ void Scene::SetSceneEltsSortedList(SceneElt **_sceneEltsSortedList, long int _sc
 void Scene::SetZoomScene(long int  _zoomScene) { zoomScene = _zoomScene; }
 
 
-void Scene::SetSceneClearance(int _mustBeCleared, Uint32 _clearColor = 0) {
+void Scene::SetSceneClearance(int _mustBeCleared, Uint32 _clearColor/* = 0*/) {
     mustBeCleared = _mustBeCleared;
     clearColor = _clearColor;
 }

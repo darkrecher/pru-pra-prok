@@ -1,9 +1,11 @@
+#include <iostream>
 #include "SE_Sprite.hpp"
 #include "MovieEvent.hpp"
 #include "ConfigInfos.hpp"
 #include "BufferScreens.hpp"
 #include "PercentageBar.hpp"
 
+using namespace std;
 
 
 class ImagePlayer

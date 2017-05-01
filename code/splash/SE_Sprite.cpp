@@ -19,7 +19,7 @@ SE_Sprite::~SE_Sprite()
 
 
 void SE_Sprite::SetAllInfos(SDL_Rect *_position, long int _curImg, SDL_Rect *_portionToDraw,
-                            long int _zoomSprite = 1024)
+                            long int _zoomSprite/* = 1024*/)
 {
     SetPosition(_position);
     curImg = _curImg;

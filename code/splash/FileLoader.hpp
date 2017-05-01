@@ -5,7 +5,10 @@
 #include <zlib.h>
 #include "PercentageBar.hpp"
 
-#include <iostream.h>  //pour tester et faire du déboguage
+#include <iostream>  //pour tester et faire du déboguage
+
+using namespace std;
+
 
 class FileLoader
 {

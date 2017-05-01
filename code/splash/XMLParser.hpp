@@ -5,8 +5,10 @@
 #include <string>
 #include <fstream>
 #include <stdlib.h>
-#include <iostream.h>
+#include <iostream>
 #include <SDL.h>
+
+using namespace std;
 
 
 class XMLParser

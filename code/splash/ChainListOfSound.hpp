@@ -1,6 +1,7 @@
 #include <SDL_mixer.h>
 #include <string>
 
+using namespace std;
 
 
 class ChainListOfSound

@@ -48,8 +48,8 @@ class ConfigXMLParser
 		ConfigXMLParser(int _showCommentNodes = 0);
 		~ConfigXMLParser();
 
-        string ConfigXMLParser::OpenConfigXMLFile(char *XMLFileName);
-        void ConfigXMLParser::CloseConfigXMLFile();
+        string OpenConfigXMLFile(char *XMLFileName);
+        void CloseConfigXMLFile();
 
         string ReadConfigXMLFile();
 		ConfigInfos *GetConfigInfos();

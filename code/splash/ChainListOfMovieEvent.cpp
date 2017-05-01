@@ -201,7 +201,7 @@ void ChainListOfMovieEvent::SortList()
 
 long int ChainListOfMovieEvent::ConcatListOfMovieEvent(ChainListOfMovieEvent *chainListToAdd,
                                                        long int timeToAdd,
-                                                       long int durationOfConcatenation = -1)
+                                                       long int durationOfConcatenation/* = -1*/)
 {
     MovieEvent *movieEventToAdd;
     int ME_TypeToAdd;

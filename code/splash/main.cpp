@@ -20,9 +20,12 @@
 
 
 #include <stdlib.h>
-#include <iostream.h>
+#include <iostream>
 #include "MoviePlayer.hpp"
 #include "ConfigXMLParser.hpp"
+
+using namespace std;
+
 
 const int ERROR_WHATEVER = 1;
 const int ERROR_NO_ARGUMENT = 2;

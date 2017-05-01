@@ -2,7 +2,7 @@
 
 
 
-ConfigXMLParser::ConfigXMLParser(int _showCommentNodes = 0)
+ConfigXMLParser::ConfigXMLParser(int _showCommentNodes/* = 0*/)
 {
     XMLparser = XMLParser(_showCommentNodes);
     theConfigInfos = ConfigInfos();

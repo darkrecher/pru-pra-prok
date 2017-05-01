@@ -1,9 +1,12 @@
 #include "DataLoader.hpp"
 #include "ME_BreakPoint.hpp"
 #include <string>
-#include <iostream.h>
+#include <iostream>
 
 #include "PercentageBar.hpp"
+
+using namespace std;
+
 
 class MoviePlayer
 {

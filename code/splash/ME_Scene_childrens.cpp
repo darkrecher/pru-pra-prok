@@ -6,8 +6,8 @@ ME_Scene_SetAllInfos::ME_Scene_SetAllInfos(long int _actTime, Scene *_affectedSc
                       Uint16 sceneSizeX, Uint16 sceneSizeY,
                       SceneElt **_sceneEltsSortedList, long int _sceneEltQty,
                       Uint32 _surfaceTypeOfScene, Uint32 _surfaceTypeOfZoomedScene,
-                      SDL_Rect *_newCamPos = NULL, long int _zoomScene = 1024,
-                      int _mustBeCleared = 0, Uint32 _clearColor = 0)
+                      SDL_Rect *_newCamPos/* = NULL*/, long int _zoomScene/* = 1024*/,
+                      int _mustBeCleared/* = 0*/, Uint32 _clearColor/* = 0*/)
     : ME_Scene(_actTime, _affectedScene)
 {
     SizeX = sceneSizeX;
@@ -182,7 +182,7 @@ MovieEvent *ME_Scene_SetZoomScene::Copy(long int timeToAdd)
 ME_Scene_SetSceneClearance::ME_Scene_SetSceneClearance(long int _actTime,
                                                        Scene *_affectedScene,
                                                        int _mustBeCleared,
-                                                       Uint32 _clearColor = 0)
+                                                       Uint32 _clearColor/* = 0*/)
     : ME_Scene(_actTime, _affectedScene)
 {
     mustBeCleared = _mustBeCleared;

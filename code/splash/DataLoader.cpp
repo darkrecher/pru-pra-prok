@@ -216,8 +216,8 @@ string DataLoader::ReadPercentageInfos()
 }
 
 
-string DataLoader::ReadCoord(string balizName, SDL_Rect *coord, int readRectCoord = 0,
-                             int mustDefineAllValues = 0)
+string DataLoader::ReadCoord(string balizName, SDL_Rect *coord, int readRectCoord/* = 0*/,
+                             int mustDefineAllValues/* = 0*/)
 {
     Sint32 X = 0;
     Sint32 Y = 0;
@@ -898,7 +898,7 @@ string DataLoader::Read_Swap2Plans(ChainListOfMovieEvent *listDest, long int tim
 
 
 string DataLoader::ReadProcedureExecution(ChainListOfMovieEvent *listDest, long int *time,
-                                          int complexExecution = 0)
+                                          int complexExecution/* = 0*/)
 {
     ChainListOfMovieEvent *procToConcat = NULL;
     string textRead;

@@ -2,7 +2,7 @@
 
 
 
-XMLParser::XMLParser(int _showCommentNodes = 0)
+XMLParser::XMLParser(int _showCommentNodes/* = 0*/)
 {
     showCommentNodes = _showCommentNodes;
     firstOpenedBaliz = NULL;
@@ -249,7 +249,7 @@ int XMLParser::ConvertNodeToNumeric()
 //
 //(et moi j'arrête avec mes faux haïkus, pasque y'en a marre
 
-int XMLParser::AnalyseNode(string node, int readAsNumber = 0)
+int XMLParser::AnalyseNode(string node, int readAsNumber/* = 0*/)
 {
     if (node == "") {
         errorMessage = "erreur du parseur XML";
@@ -328,7 +328,7 @@ int XMLParser::AnalyseNode(string node, int readAsNumber = 0)
 }
 
 
-int XMLParser::ReadNextNode(int readAsNumber = 0)
+int XMLParser::ReadNextNode(int readAsNumber/* = 0*/)
 {
     string nodeRead;
     char stopChar;
@@ -480,8 +480,8 @@ int XMLParser::ReadTextValue(string balizName, string *textValue)
 
 
 int XMLParser::ReadNumericValue(string balizName, Sint32 *numericValue,
-                                Sint32 minValue = 0, Sint32 maxValue = 0,
-                                int testValue = 0)
+                                Sint32 minValue/* = 0*/, Sint32 maxValue/* = 0*/,
+                                int testValue/* = 0*/)
 {
     if (!ReadNextNode(1)) { return 0; }
     if (currentNodeType != XMLParser::NODE_TYPE_TEXT) {

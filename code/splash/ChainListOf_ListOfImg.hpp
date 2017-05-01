@@ -1,6 +1,7 @@
 #include "ListOfImg.hpp"
 #include <string>
 
+using namespace std;
 
 
 class ChainListOf_ListOfImg

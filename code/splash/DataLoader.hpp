@@ -18,7 +18,9 @@
 #include "PercentageBar.hpp"
 
 
-#include <iostream.h>
+#include <iostream>
+
+using namespace std;
 
 
 //c'est l'histoire de deux cailloux qui se parlent

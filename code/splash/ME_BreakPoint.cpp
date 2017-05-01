@@ -3,7 +3,7 @@
 
 
 ME_BreakPoint::ME_BreakPoint(long int _actTime, int _breakPointLevel,
-                             long int _cursorME_Image = 0, long int _cursorME_Sound = 0)
+                             long int _cursorME_Image/* = 0*/, long int _cursorME_Sound/* = 0*/)
     : MovieEvent(_actTime)
 {
     cursorME_Image = _cursorME_Image;

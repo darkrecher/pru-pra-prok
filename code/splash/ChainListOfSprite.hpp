@@ -1,6 +1,7 @@
 #include "SE_Sprite.hpp"
 #include <string>
 
+using namespace std;
 
 
 class ChainListOfSprite

@@ -5,7 +5,9 @@
 #include <string>
 
 //pour tester
-#include <iostream.h>
+#include <iostream>
+
+using namespace std;
 
 class ChainListOfMovieEvent
 {
