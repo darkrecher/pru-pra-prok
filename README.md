@@ -7,3 +7,8 @@ Pour ceux qui connaissent pas : c'est en cours. Et c'est de très bon goût.
 
 Ce bidule à plus de 10 ans, quand même...
 
+## Recompilation, reconstruction du projet, etc.
+
+En cours.
+
+Voir : [doc/reconstruction_projet.md](doc/reconstruction_projet.md)
