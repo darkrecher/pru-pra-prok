@@ -311,9 +311,24 @@ Lien direct de la version 1.2.x actuelle : [https://www.libsdl.org/projects/SDL_
 
 Ce lien permet de récupérer un fichier `SDL_mixer-devel-1.2.12-VC.zip`.
 
-Décompresser ce fichier dans [repo_git/code/libs_includes/SDL_mixer-devel-1.2.12-VC.zip](../code/libs_includes/SDL_mixer-devel-1.2.12-VC.zip).
+Décompresser ce fichier dans [repo_git/code/libs_includes/SDL_mixer-devel-1.2.12-VC](../code/libs_includes/SDL_mixer-devel-1.2.12-VC).
 
 ### zlib
 
-En cours.
+Site officiel : [http://www.zlib.net/](http://www.zlib.net/).
+
+Cette librairie est utilisée par beaucoup de logiciels, et on peut donc la trouver un peu partout. ce qui nous amène au phénomène qui se produit systématiquement dans ce genre de situation : partout = nul part.
+
+J'ai eu beaucoup de mal à trouver une version de développement de cette librairie, avec les composants qu'on est en droit d'attendre : le fichier de header, la lib et la dll. Le site officiel ne semble pas avoir cela dans sa multitude de lien plus ou moins intéressants et plus ou moins bien rangés.
+
+C'est donc sur ce site [http://xmlsoft.org/sources/win32/](http://xmlsoft.org/sources/win32/) que j'ai trouvé mon bonheur. Pourquoi ici plutôt qu'ailleurs, je n'en sais rien. Toujours est-il qu'on y trouve un lien permettant de récupérer la version 1.2.3 de zlib, avec les composants comme on les connaits.
+
+Lien direct de téléchargement : [http://xmlsoft.org/sources/win32/zlib-1.2.3.win32.zip](http://xmlsoft.org/sources/win32/zlib-1.2.3.win32.zip).
+
+Ce lien permet de récupérer un fichier `zlib-1.2.3.win32.zip`.
+
+Décompresser ce fichier dans [repo_git/code/libs_includes/zlib-1.2.3.win32.zip](../code/libs_includes/zlib-1.2.3.win32.zip).
+
+
+
 
