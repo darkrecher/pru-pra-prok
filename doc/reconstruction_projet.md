@@ -1,8 +1,10 @@
 # Reconstruction du projet
 
-Le but de cette documentation est de décrire les actions à effectuer pour compiler le code source et construire les fichiers du dessin animé pru-pra-prok. Elle permet de reproduire à partir de zéro l'ensemble du contenu du répertoire `git/pru-pra-prok/movies/pru-pra-prok_episode_2`.
+Le but de cette documentation est de décrire les actions à effectuer pour compiler le code source et construire les fichiers du dessin animé pru-pra-prok. Elle permet de reproduire à partir de zéro l'ensemble du contenu du répertoire [repo_git/movies/pru-pra-prok_episode_2](../movies/pru-pra-prok_episode_2).
 
 (Pour l'instant, ce répertoire n'est pas présent dans le repository, mais ça va venir).
+
+Tous les chemins indiquant un fichier ou un répertoire de ce repository sont préfixés par `repo_git/`. Lorsque c'est possible, ces chemins sont sous forme d'une url, permettant d'accéder directement à l'élément concerné.
 
 À l'origine, le moteur de dessin animé avait été codé et compilé avec l'environnement de développement "DEV-CPP". Le code a ensuite été adapté pour qu'il soit recompilable avec MinGW, qui est un outil plus léger.
 
@@ -193,13 +195,17 @@ Aller dans le répertoire du repository. (Pour l'exemple, on suppose que vous av
 
     C:\repo_git\pru-pra-prok>cd doc\test_mingw32
 
-La commande suivante doit créer un fichier `test_mingw.o` dans le répertoire courant.
+Lancer la compilation.
 
     C:\repo_git\pru-pra-prok\doc\test_mingw32>g++.exe -c test_mingw.cpp -o test_mingw.o
 
-La commande suivante doit créer un fichier `test_mingw.exe` dans le répertoire courant.
+Vérifier qu'un fichier `test_mingw.o` a été créé dans le répertoire courant.
+
+Lancer l'édition de lien.
 
     C:\repo_git\pru-pra-prok\doc\test_mingw32>g++.exe test_mingw.o -o test_mingw.exe
+
+Vérifier qu'un fichier `test_mingw.exe` a été créé dans le répertoire courant.
 
 Dans le répertoire `C:\MinGW\bin` se trouve 2 fichiers : `libgcc_s_dw2-1.dll` et `libstdc++-6.dll`. Copier ces fichiers dans le répertoire contenant `test_mingw.exe`.
 
@@ -243,4 +249,71 @@ Lancer l'exécutable de test :
 Vérifier qu'un fichier `stdout_2.txt` a été créé dans le répertoire courant, et que ce fichier contient une seule ligne, avec le texte `Test MINGW. OK. 2.` suivi d'un saut de ligne.
 
 
+## Récupération des librairies
+
+Ce chapitre permet de reconstruire le contenu du répertoire [repo_git/code/libs_includes](../code/libs_includes), qui est nécessaire pour réaliser les actions du chapitre d'après.
+
+Le moteur de dessin animé utilise zlib, la librairie SDL, et des librairies associées à la SDL. La SDL sert à exploiter divers "médias" d'un ordinateur : sons, écran, clavier, souris, ...
+
+Il existe deux versions principales de la SDL : 1.2.x et 2.0.x.
+
+Dans sa version originale, le moteur utilisait les librairies suivantes :
+
+ - SDL-1.2.7
+ - SDL_mixer-1.2.5
+ - SDL_image-1.2.3
+ - zlib121-dll
+
+La version actuelle utilise des librairies plus récentes :
+
+ - SDL-1.2.15
+ - SDL_image-1.2.12
+ - SDL_mixer-1.2.12
+ - zlib-1.2.3
+
+La recompilation avec des librairies SDL 2.0.x n'a pas été testée. À priori, ça ne marchera pas, car ce n'est pas rétro-compatble (Semantic Versioning).
+
+Attention, quel que soit l'endroit où se trouve le repository sur votre disque dur, les librairies doivent être placées dans le répertoire `repo_git/code/libs_includes`. Sinon, le fichier makefile du moteur de dessin animé ne pourra pas les retrouver.
+
+### SDL
+
+Page de téléchargement de la librairie : [https://www.libsdl.org/download-1.2.php](https://www.libsdl.org/download-1.2.php)
+
+Le fichier à télécharger se trouve dans le paragraphe : Development Libraries / Win32 / MingW32.
+
+Lien direct de la version 1.2.x actuelle : [https://www.libsdl.org/release/SDL-devel-1.2.15-mingw32.tar.gz](https://www.libsdl.org/release/SDL-devel-1.2.15-mingw32.tar.gz)
+
+Ce lien permet de récupérer un fichier `SDL-devel-1.2.15-mingw32.tar.gz`.
+
+(Les fichiers .tar.gz sont des fichiers compressés, un peu come des .zip. Ils peuvent être décompressé à l'aide d'utilitaires gratuits comme [7-zip](http://www.7-zip.org/)).
+
+Décompresser ce fichier dans [repo_git\code\libs_includes\SDL-devel-1.2.15-mingw32](..\code\libs_includes\SDL-devel-1.2.15-mingw32).
+
+### SDL_image
+
+Page de téléchargement de la librairie : [https://www.libsdl.org/projects/SDL_image/release-1.2.html](https://www.libsdl.org/projects/SDL_image/release-1.2.html). (Attention, la page est moche, c'est normal).
+
+Le fichier à télécharger se trouve dans le paragraphe : Binary / Windows / SDL_image-devel-xxxxx.
+
+Lien direct de la version 1.2.x actuelle : [https://www.libsdl.org/projects/SDL_image/release/SDL_image-devel-1.2.12-VC.zip](https://www.libsdl.org/projects/SDL_image/release/SDL_image-devel-1.2.12-VC.zip)
+
+Ce lien permet de récupérer un fichier `SDL_image-devel-1.2.12-VC.zip`.
+
+Décompresser ce fichier dans [repo_git\code\libs_includes\SDL_image-devel-1.2.12-VC](..\code\libs_includes\SDL_image-devel-1.2.12-VC).
+
+### SDL_mixer
+
+Page de téléchargement de la librairie : [https://www.libsdl.org/projects/SDL_mixer/release-1.2.html](https://www.libsdl.org/projects/SDL_mixer/release-1.2.html). (Attention, c'est moche pareil que SSL_image).
+
+Le fichier à télécharger se trouve dans le paragraphe : Binary / Windows / SDL_mixer-devel-xxxxx.
+
+Lien direct de la version 1.2.x actuelle : [https://www.libsdl.org/projects/SDL_mixer/release/SDL_mixer-devel-1.2.12-VC.zip](https://www.libsdl.org/projects/SDL_mixer/release/SDL_mixer-devel-1.2.12-VC.zip)
+
+Ce lien permet de récupérer un fichier `SDL_mixer-devel-1.2.12-VC.zip`.
+
+Décompresser ce fichier dans [repo_git\code\libs_includes\SDL_mixer-devel-1.2.12-VC.zip](..\code\libs_includes\SDL_mixer-devel-1.2.12-VC.zip).
+
+### zlib
+
+En cours.
 
