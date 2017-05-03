@@ -287,7 +287,7 @@ Ce lien permet de récupérer un fichier `SDL-devel-1.2.15-mingw32.tar.gz`.
 
 (Les fichiers .tar.gz sont des fichiers compressés, un peu come des .zip. Ils peuvent être décompressé à l'aide d'utilitaires gratuits comme [7-zip](http://www.7-zip.org/)).
 
-Décompresser ce fichier dans [repo_git\code\libs_includes\SDL-devel-1.2.15-mingw32](..\code\libs_includes\SDL-devel-1.2.15-mingw32).
+Décompresser ce fichier dans [repo_git/code/libs_includes/SDL-devel-1.2.15-mingw32](../code/libs_includes/SDL-devel-1.2.15-mingw32).
 
 ### SDL_image
 
@@ -299,7 +299,7 @@ Lien direct de la version 1.2.x actuelle : [https://www.libsdl.org/projects/SDL_
 
 Ce lien permet de récupérer un fichier `SDL_image-devel-1.2.12-VC.zip`.
 
-Décompresser ce fichier dans [repo_git\code\libs_includes\SDL_image-devel-1.2.12-VC](..\code\libs_includes\SDL_image-devel-1.2.12-VC).
+Décompresser ce fichier dans [repo_git/code/libs_includes/SDL_image-devel-1.2.12-VC](../code/libs_includes/SDL_image-devel-1.2.12-VC).
 
 ### SDL_mixer
 
@@ -311,7 +311,7 @@ Lien direct de la version 1.2.x actuelle : [https://www.libsdl.org/projects/SDL_
 
 Ce lien permet de récupérer un fichier `SDL_mixer-devel-1.2.12-VC.zip`.
 
-Décompresser ce fichier dans [repo_git\code\libs_includes\SDL_mixer-devel-1.2.12-VC.zip](..\code\libs_includes\SDL_mixer-devel-1.2.12-VC.zip).
+Décompresser ce fichier dans [repo_git/code/libs_includes/SDL_mixer-devel-1.2.12-VC.zip](../code/libs_includes/SDL_mixer-devel-1.2.12-VC.zip).
 
 ### zlib
 
