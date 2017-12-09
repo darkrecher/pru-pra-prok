@@ -265,7 +265,7 @@ Décompresser ce fichier dans [repo_git/code/libs_includes/SDL_image-devel-1.2.1
 
 ### SDL_mixer
 
-Page de téléchargement de la librairie : [https://www.libsdl.org/projects/SDL_mixer/release-1.2.html](https://www.libsdl.org/projects/SDL_mixer/release-1.2.html). (Attention, c'est moche pareil que SSL_image).
+Page de téléchargement de la librairie : [https://www.libsdl.org/projects/SDL_mixer/release-1.2.html](https://www.libsdl.org/projects/SDL_mixer/release-1.2.html). (Attention, c'est moche pareil que SDL_image).
 
 Le fichier à télécharger se trouve dans le paragraphe : Binary / Windows / SDL_mixer-devel-xxxxx.
 
@@ -296,5 +296,32 @@ Décompresser ce fichier dans [repo_git/code/libs_includes/zlib-1.2.3.win32.zip]
 
 Ce chapitre décrit la méthode pour reconstruire le fichier [repo_git/code/splash](../code/splash.exe). Il s'agit de l'exécutable permettant de visionner les dessins animé. "SPLASH" étant un acronyme de "South Park : L'Abominable Script à Histoire".
 
-(Pour l'instant, ce fichier n'est pas présent dans le repository, mais ça va venir).
+Ouvrir une console de commande Windows (ou reprendre celle du chapitre précédent).
+
+Exécuter les commandes suivantes :
+
+Le path si ça n'a pas déjà été fait :
+
+    C:\>set path=%path%;C:\MinGW\bin
+
+Aller dans le répertoire "code\splash" du repository.
+
+    C:\>cd C:\repo_git\pru-pra-prok\code\splash
+
+Supprimer les binaires précédemment générés (il n'y a pas de "make clean", désolé).
+
+    C:\repo_git\pru-pra-prok\code\splash>del splash.exe
+    C:\repo_git\pru-pra-prok\code\splash>del *.o
+
+Lancer la compilation
+
+    C:\repo_git\pru-pra-prok\code\splash>mingw32-make.exe
+
+[Lien vers le log obtenu.](../code/splash/log_compilation.txt)
+
+Un fichier splash.exe a été créé dans le répertoire courant. Il s'agit de l'exécutable permettant de visionner les dessins animés.
+
+
+
+
 
