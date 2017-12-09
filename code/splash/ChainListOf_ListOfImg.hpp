@@ -9,7 +9,7 @@ class ChainListOf_ListOfImg
 
     private:
 
-      typedef struct EltListOfImg {
+        struct EltListOfImg {
             string name;
             ListOfImg *theListOfImg;
             string *listOfImgNames;

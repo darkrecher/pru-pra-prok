@@ -9,7 +9,7 @@ class ChainListOfSDLSurface
 
     private:
 
-      typedef struct EltSDL_Surface {
+        struct EltSDL_Surface {
             string name;
             SDL_Surface *theSDL_Surface;
             EltSDL_Surface *next;

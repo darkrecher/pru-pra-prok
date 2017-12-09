@@ -14,7 +14,7 @@ class ChainListOfMovieEvent
 
     private:
 
-        typedef struct EltMovieEvent {
+        struct EltMovieEvent {
             int ME_type;
             MovieEvent *theMovieEvent;
             EltMovieEvent *next;

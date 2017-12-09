@@ -9,7 +9,7 @@ class ChainListOfSound
 
     private:
 
-        typedef struct EltSound {
+        struct EltSound {
             string name;
             Mix_Chunk *theSound;
             EltSound *next;

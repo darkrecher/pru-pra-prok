@@ -9,7 +9,7 @@ class ChainListOfSprite
 
     private:
 
-        typedef struct EltSprite {
+        struct EltSprite {
             string name;
 
             //c'est juste un pointeur, pas un tableau

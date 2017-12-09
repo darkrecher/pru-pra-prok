@@ -8,7 +8,7 @@ class ChainListOfProcedure
 
     private:
 
-        typedef struct EltProcedure {
+        struct EltProcedure {
             string name;
             ChainListOfMovieEvent *procedureListOfMovieEvent;
             EltProcedure *next;

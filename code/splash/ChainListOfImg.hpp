@@ -11,7 +11,7 @@ class ChainListOfImg
 
     private:
 
-        typedef struct EltImgZoomable {
+        struct EltImgZoomable {
             string name;
             ImageZoomable *theImageZoomable;
             EltImgZoomable *next;
