@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 
     atexit(SDL_Quit);
 
-    string parsingErrorMessage = configXMLParser.OpenConfigXMLFile("config.txt");
+    string parsingErrorMessage = configXMLParser.OpenConfigXMLFile((char *)"config.txt");
     if (parsingErrorMessage == "") {
         parsingErrorMessage = configXMLParser.ReadConfigXMLFile();
     }
