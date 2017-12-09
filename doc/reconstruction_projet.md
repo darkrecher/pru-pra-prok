@@ -17,7 +17,6 @@ La documentation officielle à ce sujet est ici : [http://mingw.org/wiki/Getting
 
 Télécharger le fichier `mingw-get-setup.exe` à partir de l'url [https://sourceforge.net/projects/mingw/files/latest/download](https://sourceforge.net/projects/mingw/files/latest/download).
 
-La version actuelle de ce fichier date du 2017-03-09.
 La version indiquée lors de l'installation est : 0.6.2-beta-20131004-1
 
 Exécuter le fichier téléchargé.
@@ -62,31 +61,35 @@ Dans le menu principal de la fenêtre, cliquer sur l'option "Installation / Appl
 
 Une nouvelle fenêtre s'ouvre, listant les packages qui seront installés :
 
-    libpthreadgc-2.10-mingw32-pre-20160821-1-dll-3.tar.xz
-    libgmp-5.1.2-1-mingw32-dll-10.tar
-    libmpfr-3.1.2-2-mingw32-dll-4.tar
-    libintl-0.18.3.2-2-mingw32-dll-8.tar.xz
-    mingwrt-5.0-mingw32-dll.tar.xz
-    w32api-5.0-mingw32-dev.tar.xz
-    mingwrt-5.0-mingw32-dev.tar.xz
-    binutils-2.25.1-1-mingw32-bin.tar.xz
-    libmpc-1.0.2-mingw32-dll-3.tar.xz
-    libquadmath-5.3.0-3-mingw32-dll-0.tar.xz
-    libatomic-5.3.0-3-mingw32-dll-1.tar.xz
-    libpthreadgc-2.10-mingw32-pre-20160821-1-dev.tar.xz
-    libgomp-5.3.0-3-mingw32-dll-1.tar.xz
-    libssp-5.3.0-3-mingw32-dll-0.tar.xz
     libiconv-1.14-3-mingw32-dll-2.tar
-    libgcc-5.3.0-3-mingw32-dll-1.tar.xz
+    libpthreadgc-2.10-mingw32-pre-20160821-1-dll-3.tar.xz
+    mingw32-libgomp-deps-5.3.0-mingw32-dll.meta
+    libgcc-6.3.0-1-mingw32-dll-1.tar.xz
+    libintl-0.18.3.2-2-mingw32-dll-8.tar.xz
+    mingwrt-5.0.1-mingw32-dll.tar.xz
+    libgmp-6.1.2-2-mingw32-dll-10.tar.xz
+    libmpfr-3.1.5-1-mingw32-dll-4.tar.xz
+    libmpc-1.0.3-1-mingw32-dll-3.tar.xz
+    libisl-0.18-1-mingw32-dll-15.tar.xz
+    gcc-core-4.8.2-mingw32-dev.tar.meta
+    mingw32-gcc-core-deps-6.3.0-1-mingw32-dll.meta
+    libquadmath-6.3.0-1-mingw32-dll-0.tar.xz
+    libgomp-6.3.0-1-mingw32-dll-1.tar.xz
+    libssp-6.3.0-1-mingw32-dll-0.tar.xz
+    libmingwex-5.0.1-mingw32-dll-0.tar.xz
+    w32api-5.0.1-mingw32-dev.tar.xz
+    mingwrt-5.0.1-mingw32-dev.tar.xz
+    binutils-2.28-1-mingw32-bin.tar.xz
+    libatomic-6.3.0-1-mingw32-dll-1.tar.xz
     libz-1.2.8-1-mingw32-dll-1.tar
     gdb-7.6.1-1-mingw32-bin.tar.lzma
     make-3.82.90-2-mingw32-cvs-20120902-bin.tar.lzma
-    gcc-5.3.0-3-mingw32-lic.tar.xz
-    gcc-core-5.3.0-3-mingw32-bin.tar.xz
+    gcc-6.3.0-1-mingw32-lic.tar.xz
+    libstdc++-6.3.0-1-mingw32-dll-6.tar.xz
+    gcc-core-6.3.0-1-mingw32-bin.tar.xz
     mingw32-base-2013072200-mingw32-bin.meta
-    gcc-c++-5.3.0-3-mingw32-dev.tar.xz
-    libstdc++-5.3.0-3-mingw32-dll-6.tar.xz
-    gcc-c++-5.3.0-3-mingw32-bin.tar.xz
+    gcc-c++-4.8.2-mingw32-dev.tar.meta
+    gcc-c++-6.3.0-1-mingw32-bin.tar.xz
 
 (La fenêtre indique également qu'aucun package ne sera supprimé, ni aucun upgradé)
 
@@ -94,60 +97,21 @@ Une nouvelle fenêtre s'ouvre, listant les packages qui seront installés :
 
 Cliquer sur Apply pour déclencher l'installation des packages.
 
-![screenshot mingw installation packages](install_mingw32/screenshot_005_installation_packages.png)
+Si votre connexion internet est de mauvaise qualité, certains packages ne seront pas téléchargés, et vous aurez un message d'avertissement. Ensuite, l'installeur essaye quand même d'installer ce qu'il a pu télécharger. Mais ça fait des erreurs. Puis quand on refait le bouton "Apply changes", il retélécharge et re-installe, mais écrit des messages d'erreur pour tout ce qui a déjà été téléchargé. C'est contre-intuitif, stupide et anxiogène, mais à priori, à la fin, tout est correctement installé.
 
-Log obtenu :
+La première installation a été effectué le 2017-05-04, avec la version de gcc 5.3.0. Tout s'est bien passé du premier coup.
 
-    install: libpthreadgc-2.10-mingw32-pre-20160821-1-dll-3.tar.xz
-     installing libpthreadgc-2.10-mingw32-pre-20160821-1-dll-3.tar.xz
-    install: libgmp-5.1.2-1-mingw32-dll-10.tar
-     installing libgmp-5.1.2-1-mingw32-dll-10.tar
-    install: libmpfr-3.1.2-2-mingw32-dll-4.tar
-     installing libmpfr-3.1.2-2-mingw32-dll-4.tar
-    install: libintl-0.18.3.2-2-mingw32-dll-8.tar.xz
-     installing libintl-0.18.3.2-2-mingw32-dll-8.tar.xz
-    install: mingwrt-5.0-mingw32-dll.tar.xz
-     installing mingwrt-5.0-mingw32-dll.tar.xz
-    install: w32api-5.0-mingw32-dev.tar.xz
-     installing w32api-5.0-mingw32-dev.tar.xz
-    install: mingwrt-5.0-mingw32-dev.tar.xz
-     installing mingwrt-5.0-mingw32-dev.tar.xz
-    install: binutils-2.25.1-1-mingw32-bin.tar.xz
-     installing binutils-2.25.1-1-mingw32-bin.tar.xz
-    install: libmpc-1.0.2-mingw32-dll-3.tar.xz
-     installing libmpc-1.0.2-mingw32-dll-3.tar.xz
-    install: libquadmath-5.3.0-3-mingw32-dll-0.tar.xz
-     installing libquadmath-5.3.0-3-mingw32-dll-0.tar.xz
-    install: libatomic-5.3.0-3-mingw32-dll-1.tar.xz
-     installing libatomic-5.3.0-3-mingw32-dll-1.tar.xz
-    install: libpthreadgc-2.10-mingw32-pre-20160821-1-dev.tar.xz
-     installing libpthreadgc-2.10-mingw32-pre-20160821-1-dev.tar.xz
-    install: libgomp-5.3.0-3-mingw32-dll-1.tar.xz
-     installing libgomp-5.3.0-3-mingw32-dll-1.tar.xz
-    install: libssp-5.3.0-3-mingw32-dll-0.tar.xz
-     installing libssp-5.3.0-3-mingw32-dll-0.tar.xz
-    install: libiconv-1.14-3-mingw32-dll-2.tar
-     installing libiconv-1.14-3-mingw32-dll-2.tar
-    install: libgcc-5.3.0-3-mingw32-dll-1.tar.xz
-     installing libgcc-5.3.0-3-mingw32-dll-1.tar.xz
-    install: libz-1.2.8-1-mingw32-dll-1.tar
-     installing libz-1.2.8-1-mingw32-dll-1.tar
-    install: gdb-7.6.1-1-mingw32-bin.tar.lzma
-     installing gdb-7.6.1-1-mingw32-bin.tar.lzma
-    install: make-3.82.90-2-mingw32-cvs-20120902-bin.tar.lzma
-     installing make-3.82.90-2-mingw32-cvs-20120902-bin.tar.lzma
-    install: gcc-5.3.0-3-mingw32-lic.tar.xz
-     installing gcc-5.3.0-3-mingw32-lic.tar.xz
-    install: gcc-core-5.3.0-3-mingw32-bin.tar.xz
-     installing gcc-core-5.3.0-3-mingw32-bin.tar.xz
-    install: mingw32-base-2013072200-mingw32-bin.meta
-     installing mingw32-base-2013072200-mingw32-bin.meta
-    install: gcc-c++-5.3.0-3-mingw32-dev.tar.xz
-     installing gcc-c++-5.3.0-3-mingw32-dev.tar.xz
-    install: libstdc++-5.3.0-3-mingw32-dll-6.tar.xz
-     installing libstdc++-5.3.0-3-mingw32-dll-6.tar.xz
-    install: gcc-c++-5.3.0-3-mingw32-bin.tar.xz
-     installing gcc-c++-5.3.0-3-mingw32-bin.tar.xz
+[Lien vers le log obtenu.](install_mingw32/log_install_5.3.0.txt)
+
+[Lien vers le screenshot](install_mingw32/screenshot_005_installation_packages.png)
+
+La seconde installation a été effectué le 2017-12-09, avec la version de gcc 6.3.0. Ça a merdouillé.
+
+[Lien vers le log obtenu.](install_mingw32/log_install_6.3.0.txt)
+
+[Lien vers le screenshot](install_mingw32/screenshot_0055_download_fail.png)
+
+Bref, à la fin, on devrait avoir quelque chose comme ça :
 
 ![screenshot mingw liste packages apres installation](install_mingw32/screenshot_006_liste_packages_apres.png)
 
@@ -168,8 +132,8 @@ Aller dans le sous-répertoire "bin" et afficher le numéro de version de g++.
     C:\MinGW>cd bin
 
     C:\MinGW\bin>g++.exe --version
-    g++.exe (GCC) 5.3.0
-    Copyright (C) 2015 Free Software Foundation, Inc.
+    g++.exe (MinGW.org GCC-6.3.0-1) 6.3.0
+    Copyright (C) 2016 Free Software Foundation, Inc.
     This is free software; see the source for copying conditions.  There is NO
     warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
@@ -227,9 +191,7 @@ Vérifier qu'un fichier `stdout.txt` a été créé dans le répertoire courant,
 
 #### Compilation avec un makefile
 
-Reprendre la même console que le chapitre précédent, ou en ouvrir une nouvelle et exécuter `set path=%path%;C:\MinGW\bin`
-
-Exécuter un `make` sur le fichier `makefile`.
+Toujours dans une console de commande, exécuter un `make` sur le fichier `makefile`.
 
     C:\repo_git\pru-pra-prok\doc\test_mingw32>mingw32-make.exe
 
@@ -242,7 +204,7 @@ Cette commande doit avoir créé un fichier `test_mingw_2.o` et un fichier `test
 
 Si ça n'a pas encore été fait, copier les dll `libgcc_s_dw2-1.dll` et `libstdc++-6.dll` comme décrit dans le chapitre précédent.
 
-Lancer l'exécutable de test :
+Lancer l'exécutable de test (Avast va peut-être râler à nouveau) :
 
     C:\repo_git\pru-pra-prok\doc\test_mingw32>test_mingw_2.exe > stdout_2.txt
 
@@ -251,7 +213,7 @@ Vérifier qu'un fichier `stdout_2.txt` a été créé dans le répertoire couran
 
 ## Récupération des librairies
 
-Ce chapitre permet de reconstruire le contenu du répertoire [repo_git/code/libs_includes](../code/libs_includes), qui est nécessaire pour réaliser les actions du chapitre d'après.
+Ce chapitre permet de reconstruire le contenu du répertoire [repo_git/code/libs_includes](../code/libs_includes).
 
 Le moteur de dessin animé utilise zlib, la librairie SDL, et des librairies associées à la SDL. La SDL sert à exploiter divers "médias" d'un ordinateur : sons, écran, clavier, souris, ...
 
@@ -321,7 +283,7 @@ Cette librairie est utilisée par beaucoup de logiciels, et on peut donc la trou
 
 J'ai eu beaucoup de mal à trouver une version de développement de cette librairie, avec les composants qu'on est en droit d'attendre : le fichier de header, la lib et la dll. Le site officiel ne semble pas avoir cela dans sa multitude de lien plus ou moins intéressants et plus ou moins bien rangés.
 
-C'est donc sur ce site [http://xmlsoft.org/sources/win32/](http://xmlsoft.org/sources/win32/) que j'ai trouvé mon bonheur. Pourquoi ici plutôt qu'ailleurs, je n'en sais rien. Toujours est-il qu'on y trouve un lien permettant de récupérer la version 1.2.3 de zlib, avec les composants comme on les connaits.
+C'est donc sur ce site [http://xmlsoft.org/sources/win32/](http://xmlsoft.org/sources/win32/) que j'ai trouvé mon bonheur. Pourquoi ici plutôt qu'ailleurs, je n'en sais rien. Toujours est-il qu'on y trouve un lien permettant de récupérer la version 1.2.3 de zlib, avec les composants comme on les connait.
 
 Lien direct de téléchargement : [http://xmlsoft.org/sources/win32/zlib-1.2.3.win32.zip](http://xmlsoft.org/sources/win32/zlib-1.2.3.win32.zip).
 
@@ -330,5 +292,9 @@ Ce lien permet de récupérer un fichier `zlib-1.2.3.win32.zip`.
 Décompresser ce fichier dans [repo_git/code/libs_includes/zlib-1.2.3.win32.zip](../code/libs_includes/zlib-1.2.3.win32.zip).
 
 
+## Recompilation du moteur de dessin animé
 
+Ce chapitre décrit la méthode pour reconstruire le fichier [repo_git/code/splash](../code/splash.exe). Il s'agit de l'exécutable permettant de visionner les dessins animé. "SPLASH" étant un acronyme de "South Park : L'Abominable Script à Histoire".
+
+(Pour l'instant, ce fichier n'est pas présent dans le repository, mais ça va venir).
 

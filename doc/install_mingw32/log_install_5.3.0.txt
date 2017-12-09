@@ -1,0 +1,50 @@
+install: libpthreadgc-2.10-mingw32-pre-20160821-1-dll-3.tar.xz
+ installing libpthreadgc-2.10-mingw32-pre-20160821-1-dll-3.tar.xz
+install: libgmp-5.1.2-1-mingw32-dll-10.tar
+ installing libgmp-5.1.2-1-mingw32-dll-10.tar
+install: libmpfr-3.1.2-2-mingw32-dll-4.tar
+ installing libmpfr-3.1.2-2-mingw32-dll-4.tar
+install: libintl-0.18.3.2-2-mingw32-dll-8.tar.xz
+ installing libintl-0.18.3.2-2-mingw32-dll-8.tar.xz
+install: mingwrt-5.0-mingw32-dll.tar.xz
+ installing mingwrt-5.0-mingw32-dll.tar.xz
+install: w32api-5.0-mingw32-dev.tar.xz
+ installing w32api-5.0-mingw32-dev.tar.xz
+install: mingwrt-5.0-mingw32-dev.tar.xz
+ installing mingwrt-5.0-mingw32-dev.tar.xz
+install: binutils-2.25.1-1-mingw32-bin.tar.xz
+ installing binutils-2.25.1-1-mingw32-bin.tar.xz
+install: libmpc-1.0.2-mingw32-dll-3.tar.xz
+ installing libmpc-1.0.2-mingw32-dll-3.tar.xz
+install: libquadmath-5.3.0-3-mingw32-dll-0.tar.xz
+ installing libquadmath-5.3.0-3-mingw32-dll-0.tar.xz
+install: libatomic-5.3.0-3-mingw32-dll-1.tar.xz
+ installing libatomic-5.3.0-3-mingw32-dll-1.tar.xz
+install: libpthreadgc-2.10-mingw32-pre-20160821-1-dev.tar.xz
+ installing libpthreadgc-2.10-mingw32-pre-20160821-1-dev.tar.xz
+install: libgomp-5.3.0-3-mingw32-dll-1.tar.xz
+ installing libgomp-5.3.0-3-mingw32-dll-1.tar.xz
+install: libssp-5.3.0-3-mingw32-dll-0.tar.xz
+ installing libssp-5.3.0-3-mingw32-dll-0.tar.xz
+install: libiconv-1.14-3-mingw32-dll-2.tar
+ installing libiconv-1.14-3-mingw32-dll-2.tar
+install: libgcc-5.3.0-3-mingw32-dll-1.tar.xz
+ installing libgcc-5.3.0-3-mingw32-dll-1.tar.xz
+install: libz-1.2.8-1-mingw32-dll-1.tar
+ installing libz-1.2.8-1-mingw32-dll-1.tar
+install: gdb-7.6.1-1-mingw32-bin.tar.lzma
+ installing gdb-7.6.1-1-mingw32-bin.tar.lzma
+install: make-3.82.90-2-mingw32-cvs-20120902-bin.tar.lzma
+ installing make-3.82.90-2-mingw32-cvs-20120902-bin.tar.lzma
+install: gcc-5.3.0-3-mingw32-lic.tar.xz
+ installing gcc-5.3.0-3-mingw32-lic.tar.xz
+install: gcc-core-5.3.0-3-mingw32-bin.tar.xz
+ installing gcc-core-5.3.0-3-mingw32-bin.tar.xz
+install: mingw32-base-2013072200-mingw32-bin.meta
+ installing mingw32-base-2013072200-mingw32-bin.meta
+install: gcc-c++-5.3.0-3-mingw32-dev.tar.xz
+ installing gcc-c++-5.3.0-3-mingw32-dev.tar.xz
+install: libstdc++-5.3.0-3-mingw32-dll-6.tar.xz
+ installing libstdc++-5.3.0-3-mingw32-dll-6.tar.xz
+install: gcc-c++-5.3.0-3-mingw32-bin.tar.xz
+ installing gcc-c++-5.3.0-3-mingw32-bin.tar.xz

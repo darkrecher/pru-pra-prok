@@ -1,0 +1,400 @@
+---------------------------
+mingw-get
+---------------------------
+Get package: http://prdownloads.sourceforge.net/mingw/libisl-0.18-1-mingw32-dll-15.tar.xz?download: download failed
+
+---------------------------
+OK
+---------------------------
+
+
+
+---------------------------
+mingw-get
+---------------------------
+Get package: http://prdownloads.sourceforge.net/mingw/gcc-c++-6.3.0-1-mingw32-bin.tar.xz?download: download failed
+
+---------------------------
+OK
+---------------------------
+
+
+install: libiconv-1.14-3-mingw32-dll-2.tar
+ installing libiconv-1.14-3-mingw32-dll-2.tar
+install: libpthreadgc-2.10-mingw32-pre-20160821-1-dll-3.tar.xz
+ installing libpthreadgc-2.10-mingw32-pre-20160821-1-dll-3.tar.xz
+install: mingw32-libgomp-deps-5.3.0-mingw32-dll.meta
+ installing mingw32-libgomp-deps-5.3.0-mingw32-dll.meta
+install: libgcc-6.3.0-1-mingw32-dll-1.tar.xz
+ installing libgcc-6.3.0-1-mingw32-dll-1.tar.xz
+install: libintl-0.18.3.2-2-mingw32-dll-8.tar.xz
+ installing libintl-0.18.3.2-2-mingw32-dll-8.tar.xz
+install: mingwrt-5.0.1-mingw32-dll.tar.xz
+ installing mingwrt-5.0.1-mingw32-dll.tar.xz
+install: libgmp-6.1.2-2-mingw32-dll-10.tar.xz
+ installing libgmp-6.1.2-2-mingw32-dll-10.tar.xz
+install: libmpfr-3.1.5-1-mingw32-dll-4.tar.xz
+ installing libmpfr-3.1.5-1-mingw32-dll-4.tar.xz
+install: libmpc-1.0.3-1-mingw32-dll-3.tar.xz
+ installing libmpc-1.0.3-1-mingw32-dll-3.tar.xz
+install: libisl-0.18-1-mingw32-dll-15.tar.xz
+mingw-get: *** ERROR *** required package file is not available
+mingw-get: *** ERROR *** cannot install libisl-0.18-1-mingw32-dll-15.tar.xz
+mingw-get: *** ERROR *** due to previous download failure
+install: gcc-core-4.8.2-mingw32-dev.tar.meta
+ installing gcc-core-4.8.2-mingw32-dev.tar.meta
+install: mingw32-gcc-core-deps-6.3.0-1-mingw32-dll.meta
+ installing mingw32-gcc-core-deps-6.3.0-1-mingw32-dll.meta
+install: libquadmath-6.3.0-1-mingw32-dll-0.tar.xz
+ installing libquadmath-6.3.0-1-mingw32-dll-0.tar.xz
+install: libgomp-6.3.0-1-mingw32-dll-1.tar.xz
+ installing libgomp-6.3.0-1-mingw32-dll-1.tar.xz
+install: libssp-6.3.0-1-mingw32-dll-0.tar.xz
+ installing libssp-6.3.0-1-mingw32-dll-0.tar.xz
+install: libmingwex-5.0.1-mingw32-dll-0.tar.xz
+ installing libmingwex-5.0.1-mingw32-dll-0.tar.xz
+install: w32api-5.0.1-mingw32-dev.tar.xz
+ installing w32api-5.0.1-mingw32-dev.tar.xz
+install: mingwrt-5.0.1-mingw32-dev.tar.xz
+ installing mingwrt-5.0.1-mingw32-dev.tar.xz
+install: binutils-2.28-1-mingw32-bin.tar.xz
+ installing binutils-2.28-1-mingw32-bin.tar.xz
+install: libatomic-6.3.0-1-mingw32-dll-1.tar.xz
+ installing libatomic-6.3.0-1-mingw32-dll-1.tar.xz
+install: libz-1.2.8-1-mingw32-dll-1.tar
+ installing libz-1.2.8-1-mingw32-dll-1.tar
+install: gdb-7.6.1-1-mingw32-bin.tar.lzma
+ installing gdb-7.6.1-1-mingw32-bin.tar.lzma
+install: make-3.82.90-2-mingw32-cvs-20120902-bin.tar.lzma
+ installing make-3.82.90-2-mingw32-cvs-20120902-bin.tar.lzma
+install: gcc-6.3.0-1-mingw32-lic.tar.xz
+ installing gcc-6.3.0-1-mingw32-lic.tar.xz
+install: libstdc++-6.3.0-1-mingw32-dll-6.tar.xz
+ installing libstdc++-6.3.0-1-mingw32-dll-6.tar.xz
+install: gcc-core-6.3.0-1-mingw32-bin.tar.xz
+ installing gcc-core-6.3.0-1-mingw32-bin.tar.xz
+install: mingw32-base-2013072200-mingw32-bin.meta
+ installing mingw32-base-2013072200-mingw32-bin.meta
+install: gcc-c++-4.8.2-mingw32-dev.tar.meta
+ installing gcc-c++-4.8.2-mingw32-dev.tar.meta
+install: gcc-c++-6.3.0-1-mingw32-bin.tar.xz
+mingw-get: *** ERROR *** required package file is not available
+mingw-get: *** ERROR *** cannot install gcc-c++-6.3.0-1-mingw32-bin.tar.xz
+mingw-get: *** ERROR *** due to previous download failure
+
+
+
+
+
+
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/python/gdb/__init__.py: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/python/gdb/__init__.py: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/amd64-linux.xml: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/amd64-linux.xml: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/gdb-syscalls.dtd: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/gdb-syscalls.dtd: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/i386-linux.xml: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/i386-linux.xml: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/mips-n32-linux.xml: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/mips-n32-linux.xml: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/mips-n64-linux.xml: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/mips-n64-linux.xml: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/mips-o32-linux.xml: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/mips-o32-linux.xml: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/ppc-linux.xml: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/ppc-linux.xml: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/ppc64-linux.xml: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/ppc64-linux.xml: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/sparc-linux.xml: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/sparc-linux.xml: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/sparc64-linux.xml: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/gdb/syscalls/sparc64-linux.xml: probable package conflict; existing file not overwritten
+install: make-3.82.90-2-mingw32-cvs-20120902-bin.tar.lzma
+ installing make-3.82.90-2-mingw32-cvs-20120902-bin.tar.lzma
+mingw-get: *** ERROR *** C:\MinGW\/bin/mingw32-make.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/bin/mingw32-make.exe: probable package conflict; existing file not overwritten
+install: gcc-6.3.0-1-mingw32-lic.tar.xz
+ installing gcc-6.3.0-1-mingw32-lic.tar.xz
+mingw-get: *** ERROR *** C:\MinGW\/share/doc/gcc/6.3.0/COPYING.RUNTIME: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/doc/gcc/6.3.0/COPYING.RUNTIME: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/share/doc/gcc/6.3.0/COPYING3: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/doc/gcc/6.3.0/COPYING3: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/share/doc/gcc/6.3.0/COPYING.LIB: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/doc/gcc/6.3.0/COPYING.LIB: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/share/doc/gcc/6.3.0/COPYING: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/doc/gcc/6.3.0/COPYING: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/share/doc/gcc/6.3.0/COPYING3.LIB: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/doc/gcc/6.3.0/COPYING3.LIB: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/share/doc/gcc/6.3.0/zlib/LICENSE_1_0.txt: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/share/doc/gcc/6.3.0/zlib/LICENSE_1_0.txt: probable package conflict; existing file not overwritten
+install: libstdc++-6.3.0-1-mingw32-dll-6.tar.xz
+ installing libstdc++-6.3.0-1-mingw32-dll-6.tar.xz
+mingw-get: *** ERROR *** C:\MinGW\/bin/libstdc++-6.dll: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/bin/libstdc++-6.dll: probable package conflict; existing file not overwritten
+install: gcc-core-6.3.0-1-mingw32-bin.tar.xz
+ installing gcc-core-6.3.0-1-mingw32-bin.tar.xz
+mingw-get: *** ERROR *** C:\MinGW\/bin/cpp.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/bin/cpp.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/bin/gcc-ar.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/bin/gcc-ar.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/bin/gcc-nm.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/bin/gcc-nm.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/bin/gcc-ranlib.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/bin/gcc-ranlib.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/bin/gcc.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/bin/gcc.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/bin/gcov-tool.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/bin/gcov-tool.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/bin/gcov.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/bin/gcov.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/bin/mingw32-gcc-6.3.0.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/bin/mingw32-gcc-6.3.0.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/bin/mingw32-gcc-ar.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/bin/mingw32-gcc-ar.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/bin/mingw32-gcc-nm.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/bin/mingw32-gcc-nm.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/bin/mingw32-gcc-ranlib.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/bin/mingw32-gcc-ranlib.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/bin/mingw32-gcc.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/bin/mingw32-gcc.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/cc1.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/cc1.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/collect2.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/collect2.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/lto-wrapper.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/lto-wrapper.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/lto1.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/lto1.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/install-tools/mkheaders: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/install-tools/mkheaders: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/install-tools/fixincl.exe: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/install-tools/fixincl.exe: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/install-tools/fixinc.sh: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/install-tools/fixinc.sh: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/install-tools/mkinstalldirs: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/install-tools/mkinstalldirs: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/liblto_plugin-0.dll: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/liblto_plugin-0.dll: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/liblto_plugin.dll.a: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/libexec/gcc/mingw32/6.3.0/liblto_plugin.dll.a: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512bwintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512bwintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/rtmintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/rtmintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512ifmavlintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512ifmavlintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/ia32intrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/ia32intrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/mmintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/mmintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/ammintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/ammintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/bmmintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/bmmintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/prfchwintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/prfchwintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/f16cintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/f16cintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdfix.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdfix.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512dqintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512dqintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/quadmath.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/quadmath.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/ssp/ssp.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/ssp/ssp.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/ssp/unistd.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/ssp/unistd.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/ssp/string.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/ssp/string.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/ssp/stdio.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/ssp/stdio.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/immintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/immintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdalign.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdalign.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/mwaitxintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/mwaitxintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/xsaveoptintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/xsaveoptintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512erintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512erintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/bmiintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/bmiintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/quadmath_weak.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/quadmath_weak.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512fintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512fintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/bmi2intrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/bmi2intrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/xmmintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/xmmintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/cross-stdarg.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/cross-stdarg.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/fma4intrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/fma4intrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512cdintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512cdintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512vlintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512vlintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512vldqintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512vldqintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/cpuid.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/cpuid.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/adxintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/adxintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/xsavesintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/xsavesintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/clzerointrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/clzerointrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/xsavecintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/xsavecintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdarg.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdarg.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx2intrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx2intrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/clwbintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/clwbintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/fxsrintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/fxsrintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/smmintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/smmintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512vbmiintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512vbmiintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/omp.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/omp.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/openacc.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/openacc.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/unwind.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/unwind.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdnoreturn.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdnoreturn.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/tmmintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/tmmintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdatomic.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdatomic.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stddef.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stddef.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512vbmivlintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512vbmivlintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/xtestintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/xtestintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/shaintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/shaintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/fmaintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/fmaintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/float.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/float.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/lzcntintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/lzcntintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/xopintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/xopintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/tbmintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/tbmintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/emmintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/emmintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdint.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdint.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/x86intrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/x86intrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdbool.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdbool.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/iso646.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/iso646.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/pkuintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/pkuintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avxintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avxintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/nmmintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/nmmintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/clflushoptintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/clflushoptintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/mm_malloc.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/mm_malloc.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512pfintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512pfintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/wmmintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/wmmintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/rdseedintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/rdseedintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/mm3dnow.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/mm3dnow.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/lwpintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/lwpintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/pmmintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/pmmintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/xsaveintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/xsaveintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/varargs.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/varargs.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/popcntintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/popcntintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512ifmaintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512ifmaintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512vlbwintrin.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/avx512vlbwintrin.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/tgmath.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/tgmath.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdint-gcc.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include/stdint-gcc.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include-fixed/limits.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include-fixed/limits.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include-fixed/README: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include-fixed/README: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include-fixed/syslimits.h: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/include-fixed/syslimits.h: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/crtbegin.o: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/crtbegin.o: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/crtend.o: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/crtend.o: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/crtfastmath.o: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/crtfastmath.o: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libatomic.a: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libatomic.a: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libatomic.dll.a: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libatomic.dll.a: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libgcc.a: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libgcc.a: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libgcc_eh.a: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libgcc_eh.a: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libgcc_s.a: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libgcc_s.a: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libgcov.a: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libgcov.a: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libgomp.a: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libgomp.a: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libgomp.dll.a: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libgomp.dll.a: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libquadmath.a: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libquadmath.a: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libquadmath.dll.a: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libquadmath.dll.a: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libssp.a: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libssp.a: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libssp.dll.a: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libssp.dll.a: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libssp_nonshared.a: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libssp_nonshared.a: probable package conflict; existing file not overwritten
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libgomp.spec: extraction failed
+mingw-get: *** ERROR *** C:\MinGW\/lib/gcc/mingw32/6.3.0/libgomp.spec: probable package conflict; existing file not overwritten
+install: mingw32-base-2013072200-mingw32-bin.meta
+ installing mingw32-base-2013072200-mingw32-bin.meta
+install: gcc-c++-4.8.2-mingw32-dev.tar.meta
+ installing gcc-c++-4.8.2-mingw32-dev.tar.meta
+install: gcc-c++-6.3.0-1-mingw32-bin.tar.xz
+ installing gcc-c++-6.3.0-1-mingw32-bin.tar.xz
+
+
+
+remove: mingw32-base-2013072200-mingw32-bin.meta
+ removing release mingw32-base-2013072200-mingw32-bin.meta
+remove: gcc-c++-6.3.0-1-mingw32-bin.tar.xz
+ removing release gcc-c++-6.3.0-1-mingw32-bin.tar.xz
+
+
+install: mingw32-base-2013072200-mingw32-bin.meta
+ installing mingw32-base-2013072200-mingw32-bin.meta
+install: gcc-c++-6.3.0-1-mingw32-bin.tar.xz
+ installing gcc-c++-6.3.0-1-mingw32-bin.tar.xz
+
+
