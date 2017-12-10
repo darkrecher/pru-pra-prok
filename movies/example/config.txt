@@ -1,0 +1,87 @@
+<? paye ta chatte ?>
+<!-- J'avais juste envie de commencer mes fichiers par quelque chose de ce genre. -->
+
+<SPLASH>
+
+	<Config>
+
+<!--
+	Ne pas toucher à ces options, sinon ça fait n'importe quoi.
+	D'ailleurs je viens de réaliser que j'aurais pas du mettre ce truc dans le fichier de config, mais dans les fichiers de films.
+	Bon c'est pas grave.
+-->
+		<DefaultKeyTransparency>
+			<Red> 255 </Red>
+			<Green> 0 </Green>
+			<Blue> 255 </Blue>
+		</DefaultKeyTransparency>
+
+<!--
+	Ces options indiquent à quel endroit de la mémoire sont stockées les images du film, selon leurs types.
+	On peut mettre HARDWARE (dans la mémoire de la carte graphique), ou SOFTWARE (dans la mémoire de l'ordinateur).
+	Vous pouvez essayer de changer des trucs, mais à priori, là c'est la config optimale.
+-->
+		<MainScreen> HARDWARE </MainScreen>
+		<BufferScreens> SOFTWARE </BufferScreens>
+		<Scene> SOFTWARE </Scene>
+		<ZoomedScene> SOFTWARE </ZoomedScene>
+		<Images> SOFTWARE </Images>
+		<ZoomedImages> SOFTWARE </ZoomedImages>
+
+<!--
+	Le nombre d'images calculées à l'avance. Si, à certains moments du film, ça rame un peu, mettez un chiffre plus grand.
+	Ça prendra plus de mémoire, et ça mettra plus de temps à charger au début,
+	mais les passages où ça saccade seront un peu mieux gérés. (Enfin j'espère).
+-->
+		<BufferScreenQuantity> 10 </BufferScreenQuantity>
+
+<!--
+	La config pour le son. À priori vaut mieux ne pas y toucher.
+	Car soit ça fera des trucs bizarres, soit ça fera rien du tout.
+-->
+		<ChannelQuantity> 6 </ChannelQuantity>
+		<Frequency> 22050 </Frequency>
+		<StereoMono> 1 </StereoMono>
+
+<!--
+	Ça c'est assez important. Ça définit la taille des morceaux de sons envoyés à la carte sonore.
+	Si le son est saccadé, essayez de mettre un chiffre plus grand.
+	Il vaut mieux toujours mettre une puissance de 2. genre 8192, ou 16384.
+-->
+		<SoundPartSize> 4096 </SoundPartSize>
+
+<!-- ***************************************************************************************************** -->
+
+<!--
+	Les options suivantes ne sont pas des valeurs à changer, mais des infos qu'on peut activer/désactiver.
+	Si vous voyez deux espèces de flèches de part et d'autre, c'est que l'option est désactivée. Sinon, elle est activée.
+	(Ces deux flèches indiquent une mise en commentaire, dans le format de données XML).
+-->
+
+<!--
+	Cette option peut être importante.
+	Lorsqu'elle est activée, on voit le film en plein écran.
+	Lorsqu'elle est désactivée, on le voit dans une fenêtre.
+	Ça peut faire marcher le film s'il marche pas. Ça peut l'accélérer si il saccade. Le mieux est de tester les deux modes.
+-->
+<!--		<FullScreen/>  -->
+
+<!--
+	Ça c'est utile que si vous essayez de faire vos propres films, si vraiment vous en avez le courage.
+	Ça permet de recopier en sortie les commentaires XML placés dans le descriptif du film.
+-->
+<!--		<ShowComments/>  -->
+
+<!--
+	Si vous activez cette option, un fichier de plusieurs mégas-octets sera généré pendant l'exécution du film, contenant le détail des performances d'affichage.
+-->
+<!--		<ShowDetails/>   -->
+
+<!--
+	Cette option ne sert complètement à rien, parce que c'est un truc tout mal foutu, et je sais même plus ce que c'était censé faire.
+-->
+ 		<StopIfSoundFail/>
+
+	</Config>
+
+</SPLASH>

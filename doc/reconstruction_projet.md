@@ -176,7 +176,7 @@ Dans le répertoire `C:\MinGW\bin` se trouve 2 fichiers : `libgcc_s_dw2-1.dll` e
     C:\repo_git\pru-pra-prok\doc\test_mingw32>copy C:\MinGW\bin\libgcc_s_dw2-1.dll .
         1 fichier(s) copié(s).
 
-    C:\repo_git\pru-pra-prok\doc\test_mingw32>copy "C:\MinGW\bin\libstdc++-6.dll" .
+    C:\repo_git\pru-pra-prok\doc\test_mingw32>copy C:\MinGW\bin\libstdc++-6.dll .
         1 fichier(s) copié(s).
 
 L'exécutable de test peut maintenant être lancé. Mais les informations envoyées sur la sortie standard ne seront pas écrites dans la console (je ne sais pas pourquoi). Il faut donc les rediriger vers un fichier.
@@ -213,7 +213,7 @@ Vérifier qu'un fichier `stdout_2.txt` a été créé dans le répertoire couran
 
 ## Récupération des librairies
 
-Ce chapitre permet de reconstruire le contenu du répertoire [repo_git/code/libs_includes](../code/libs_includes).
+Ce chapitre permet de reconstruire le contenu du répertoire [repo_git/pru-pra-prok/code/libs_includes](../code/libs_includes).
 
 Le moteur de dessin animé utilise zlib, la librairie SDL, et des librairies associées à la SDL. La SDL sert à exploiter divers "médias" d'un ordinateur : sons, écran, clavier, souris, ...
 
@@ -235,7 +235,7 @@ La version actuelle utilise des librairies plus récentes :
 
 La recompilation avec des librairies SDL 2.0.x n'a pas été testée. À priori, ça ne marchera pas, car ce n'est pas rétro-compatble (Semantic Versioning).
 
-Attention, quel que soit l'endroit où se trouve le repository sur votre disque dur, les librairies doivent être placées dans le répertoire `repo_git/code/libs_includes`. Sinon, le fichier makefile du moteur de dessin animé ne pourra pas les retrouver.
+Attention, quel que soit l'endroit où se trouve le repository sur votre disque dur, les librairies doivent être placées dans le répertoire `repo_git/pru-pra-prok/code/libs_includes`. Sinon, le fichier makefile du moteur de dessin animé ne pourra pas les retrouver.
 
 ### SDL
 
@@ -249,7 +249,7 @@ Ce lien permet de récupérer un fichier `SDL-devel-1.2.15-mingw32.tar.gz`.
 
 (Les fichiers .tar.gz sont des fichiers compressés, un peu come des .zip. Ils peuvent être décompressé à l'aide d'utilitaires gratuits comme [7-zip](http://www.7-zip.org/)).
 
-Décompresser ce fichier dans [repo_git/code/libs_includes/SDL-devel-1.2.15-mingw32](../code/libs_includes/SDL-devel-1.2.15-mingw32).
+Décompresser ce fichier dans [repo_git/pru-pra-prok/code/libs_includes/SDL-devel-1.2.15-mingw32](../code/libs_includes/SDL-devel-1.2.15-mingw32).
 
 ### SDL_image
 
@@ -261,7 +261,7 @@ Lien direct de la version 1.2.x actuelle : [https://www.libsdl.org/projects/SDL_
 
 Ce lien permet de récupérer un fichier `SDL_image-devel-1.2.12-VC.zip`.
 
-Décompresser ce fichier dans [repo_git/code/libs_includes/SDL_image-devel-1.2.12-VC](../code/libs_includes/SDL_image-devel-1.2.12-VC).
+Décompresser ce fichier dans [repo_git/pru-pra-prok/code/libs_includes/SDL_image-devel-1.2.12-VC](../code/libs_includes/SDL_image-devel-1.2.12-VC).
 
 ### SDL_mixer
 
@@ -273,7 +273,7 @@ Lien direct de la version 1.2.x actuelle : [https://www.libsdl.org/projects/SDL_
 
 Ce lien permet de récupérer un fichier `SDL_mixer-devel-1.2.12-VC.zip`.
 
-Décompresser ce fichier dans [repo_git/code/libs_includes/SDL_mixer-devel-1.2.12-VC](../code/libs_includes/SDL_mixer-devel-1.2.12-VC).
+Décompresser ce fichier dans [repo_git/pru-pra-prok/code/libs_includes/SDL_mixer-devel-1.2.12-VC](../code/libs_includes/SDL_mixer-devel-1.2.12-VC).
 
 ### zlib
 
@@ -289,12 +289,12 @@ Lien direct de téléchargement : [http://xmlsoft.org/sources/win32/zlib-1.2.3.
 
 Ce lien permet de récupérer un fichier `zlib-1.2.3.win32.zip`.
 
-Décompresser ce fichier dans [repo_git/code/libs_includes/zlib-1.2.3.win32.zip](../code/libs_includes/zlib-1.2.3.win32.zip).
+Décompresser ce fichier dans [repo_git/pru-pra-prok/code/libs_includes/zlib-1.2.3.win32.zip](../code/libs_includes/zlib-1.2.3.win32.zip).
 
 
 ## Recompilation du moteur de dessin animé
 
-Ce chapitre décrit la méthode pour reconstruire le fichier [repo_git/code/splash](../code/splash.exe). Il s'agit de l'exécutable permettant de visionner les dessins animé. "SPLASH" étant un acronyme de "South Park : L'Abominable Script à Histoire".
+Ce chapitre décrit la méthode pour reconstruire le fichier [repo_git/pru-pra-prok/code/splash](../code/splash.exe). Il s'agit de l'exécutable permettant de visionner les dessins animé. "SPLASH" étant un acronyme de "South Park : L'Abominable Script à Histoire".
 
 Ouvrir une console de commande Windows (ou reprendre celle du chapitre précédent).
 
@@ -319,9 +319,33 @@ Lancer la compilation
 
 [Lien vers le log obtenu.](../code/splash/log_compilation.txt)
 
-Un fichier splash.exe a été créé dans le répertoire courant. Il s'agit de l'exécutable permettant de visionner les dessins animés.
+Beaucoup de fichiers .o ont été créé dans le répertoire courant, ainsi qu'un fichier splash.exe. Il s'agit de l'exécutable permettant de visionner les dessins animés.
 
 
+## Test du film d'exemple
 
+Dans le répertoire `C:\repo_git\pru-pra-prok\movies\example`, copier les fichiers suivants :
 
+ - `C:\MinGW\bin\libgcc_s_dw2-1.dll`
+ - `C:\MinGW\bin\libstdc++-6.dll`
+ - Tout le contenu de `C:\repo_git\pru-pra-prok\code\libs_includes\SDL-devel-1.2.15-mingw32\SDL-1.2.15\bin`
+ - Tout le contenu de `C:\repo_git\pru-pra-prok\code\libs_includes\SDL_mixer-devel-1.2.12-VC\SDL_mixer-1.2.12\lib\x86`
+ - Tout le contenu de `C:\repo_git\pru-pra-prok\code\libs_includes\SDL_image-devel-1.2.12-VC\SDL_image-1.2.12\lib\x86`
+ - Le fichier `C:\repo_git\pru-pra-prok\code\splash\splash.exe` que vous avez reconstruit au chapitre précédent.
+
+Si vous n'êtes pas parvenu à récupérer/reconstruire tous ces fichiers, prenez ceux de `C:\repo_git\pru-pra-prok\movies\pru-pra-prok_episode_2` (mais pour l'instant ce rep n'est pas le repo.)
+
+Dans une console, exécuter les commandes suivantes (Plus besoin d'exécuter la commande `set path=...`)
+
+    cd C:\repo_git\pru-pra-prok\movies\example
+    splash.exe example.xml
+
+Avast risque à nouveau de râler, et vous risquez d'avoir une première fenêtre affichant ce message d'erreur :
+
+> impossible de jouer le film.
+> Consulter le fichier stderr.txt,
+> dans le répertoire du film,
+> pour le détail des messages d'erreur.
+
+Il faut attendre un peu, et le film devrait se lancer dans une fenêtre. Vérifiez que le son fonctionne (on entend le corbeau faire "croaaaa-croaaaa").
 
