@@ -125,19 +125,22 @@ Ouvrir une console de commande Windows (Options "exécuter" dans le menu démarr
 
 Aller dans le répertoire d'installation de MinGW (si vous n'avez pas sélectionné le répertoire par défaut, adaptez la commande suivante).
 
-    C:\Users\Recher>cd C:\MinGW
+    cd C:\MinGW
 
 Aller dans le sous-répertoire "bin" et afficher le numéro de version de g++.
 
-    C:\MinGW>cd bin
+    cd bin
 
-    C:\MinGW\bin>g++.exe --version
+    g++.exe --version
+
+Résultat attendu :
+
     g++.exe (MinGW.org GCC-6.3.0-1) 6.3.0
     Copyright (C) 2016 Free Software Foundation, Inc.
     This is free software; see the source for copying conditions.  There is NO
     warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-Si vous avez une version plus récente que 5.3.0, la suite des actions décrites dans cette documentation devrait fonctionner de la même manière.
+Si vous avez une version plus récente que 6.3.0, la suite des actions décrites dans cette documentation devrait fonctionner de la même manière.
 
 #### Compilation d'un code simple
 
@@ -147,7 +150,7 @@ Ouvrir une console de commande Windows (ou reprendre celle du chapitre précéde
 
 Exécuter la commande suivante :
 
-    C:\MinGW>set path=%path%;C:\MinGW\bin
+    set path=%path%;C:\MinGW\bin
 
 Pour vérifier que le path a bien été modifié, exécuter la commande `echo %path%`. Le texte renvoyé doit se terminer par `;C:\MinGW\bin`.
 
@@ -155,35 +158,34 @@ Si la console de commande est fermée, et que les actions de ce test sont repris
 
 Aller dans le répertoire du repository. (Pour l'exemple, on suppose que vous avez cloné ce repository sur votre disque, à l'emplacement `C:\repo_git\pru-pra-prok`)
 
-    C:\MinGW>cd C:\repo_git\pru-pra-prok
-
-    C:\repo_git\pru-pra-prok>cd doc\test_mingw32
+    cd C:\repo_git\pru-pra-prok
+    cd doc\test_mingw32
 
 Lancer la compilation.
 
-    C:\repo_git\pru-pra-prok\doc\test_mingw32>g++.exe -c test_mingw.cpp -o test_mingw.o
+    g++.exe -c test_mingw.cpp -o test_mingw.o
 
 Vérifier qu'un fichier `test_mingw.o` a été créé dans le répertoire courant.
 
 Lancer l'édition de lien.
 
-    C:\repo_git\pru-pra-prok\doc\test_mingw32>g++.exe test_mingw.o -o test_mingw.exe
+    g++.exe test_mingw.o -o test_mingw.exe
 
 Vérifier qu'un fichier `test_mingw.exe` a été créé dans le répertoire courant.
 
 Dans le répertoire `C:\MinGW\bin` se trouve 2 fichiers : `libgcc_s_dw2-1.dll` et `libstdc++-6.dll`. Copier ces fichiers dans le répertoire contenant `test_mingw.exe`.
 
-    C:\repo_git\pru-pra-prok\doc\test_mingw32>copy C:\MinGW\bin\libgcc_s_dw2-1.dll .
+    copy C:\MinGW\bin\libgcc_s_dw2-1.dll .
         1 fichier(s) copié(s).
 
-    C:\repo_git\pru-pra-prok\doc\test_mingw32>copy C:\MinGW\bin\libstdc++-6.dll .
+    copy C:\MinGW\bin\libstdc++-6.dll .
         1 fichier(s) copié(s).
 
 L'exécutable de test peut maintenant être lancé. Mais les informations envoyées sur la sortie standard ne seront pas écrites dans la console (je ne sais pas pourquoi). Il faut donc les rediriger vers un fichier.
 
 Exécuter la commande suivante :
 
-    C:\repo_git\pru-pra-prok\doc\test_mingw32>test_mingw.exe > stdout.txt
+    test_mingw.exe > stdout.txt
 
 Si vous utilisez l'antivirus avast, il est possible que celui-ci émette un message d'avertissement car `test_mingw.exe` est un exécutable qui lui est inconnu. Son lancement prendra simplement quelques secondes de plus que prévu, mais ne devrait pas poser de problème.
 
@@ -193,9 +195,12 @@ Vérifier qu'un fichier `stdout.txt` a été créé dans le répertoire courant,
 
 Toujours dans une console de commande, exécuter un `make` sur le fichier `makefile`.
 
-    C:\repo_git\pru-pra-prok\doc\test_mingw32>mingw32-make.exe
+    cd C:\repo_git\pru-pra-prok
+    cd doc\test_mingw32
 
-Résultat attendu dans la console :
+    mingw32-make.exe
+
+Résultat attendu :
 
     g++.exe -c test_mingw_2.cpp -o test_mingw_2.o
     g++.exe test_mingw_2.o -o test_mingw_2.exe
@@ -206,7 +211,7 @@ Si ça n'a pas encore été fait, copier les dll `libgcc_s_dw2-1.dll` et `libstd
 
 Lancer l'exécutable de test (Avast va peut-être râler à nouveau) :
 
-    C:\repo_git\pru-pra-prok\doc\test_mingw32>test_mingw_2.exe > stdout_2.txt
+    test_mingw_2.exe > stdout_2.txt
 
 Vérifier qu'un fichier `stdout_2.txt` a été créé dans le répertoire courant, et que ce fichier contient une seule ligne, avec le texte `Test MINGW. OK. 2.` suivi d'un saut de ligne.
 
@@ -302,20 +307,21 @@ Exécuter les commandes suivantes :
 
 Le path si ça n'a pas déjà été fait :
 
-    C:\>set path=%path%;C:\MinGW\bin
+    set path=%path%;C:\MinGW\bin
 
 Aller dans le répertoire "code\splash" du repository.
 
-    C:\>cd C:\repo_git\pru-pra-prok\code\splash
+    cd C:\repo_git\pru-pra-prok
+    cd code\splash
 
 Supprimer les binaires précédemment générés (il n'y a pas de "make clean", désolé).
 
-    C:\repo_git\pru-pra-prok\code\splash>del splash.exe
-    C:\repo_git\pru-pra-prok\code\splash>del *.o
+    del splash.exe
+    del *.o
 
 Lancer la compilation
 
-    C:\repo_git\pru-pra-prok\code\splash>mingw32-make.exe
+    mingw32-make.exe
 
 [Lien vers le log obtenu.](../code/splash/log_compilation.txt)
 
@@ -337,10 +343,12 @@ Si vous n'êtes pas parvenu à récupérer/reconstruire tous ces fichiers, prene
 
 Dans une console, exécuter les commandes suivantes (Plus besoin d'exécuter la commande `set path=...`)
 
-    cd C:\repo_git\pru-pra-prok\movies\example
+    cd C:\repo_git\pru-pra-prok
+    cd movies\example
+
     splash.exe example.xml
 
-Avast risque à nouveau de râler, et vous risquez d'avoir une première fenêtre affichant ce message d'erreur :
+Avast risque à nouveau de râler, et vous risquez d'avoir une première fenêtre affichant un gros point d'exclamation, ou bien ce message d'erreur :
 
 > impossible de jouer le film.
 > Consulter le fichier stderr.txt,
