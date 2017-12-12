@@ -22,7 +22,7 @@
 	Si ces infos sont absentes ou incorrectes, ça fonctionne quand même, mais la barre de progress est imprécise.
 -->
 <ProgressBarInfo>
-	<!-- Nombre de fichiers images et  sons à charger. (Nombre d'élément dans la balise ImgSoundFiles) -->
+	<!-- Nombre de fichiers images et sons à charger. (Nombre d'élément dans la balise ImgSoundFiles) -->
 	<FileToExtract> 3 </FileToExtract>
 	<!-- Nombre de listes d'images (balises ImgListDef) -->
 	<ImgListToCreate> 2 </ImgListToCreate>
@@ -155,31 +155,38 @@
 
 </LoadData>
 
-<!-- après avoir défini tous les sprites avec leurs listes d'images, on peut définir des procédures.
-	une procédure est un bout de séquence de film, qu'on pourra exécuter quand on veut. On peut exécuter
-	plusieurs procédures en même temps. Ce qui permet de faire bouger plusieurs trucs dans le dessin animé,
-	sans trop se prendre la tête.
-	Enfin si on se prend la tête quand même parce que c'est pourri, mais moi je m'en fous, je m'éclate.
-	Si ça vous dérange, eh bien allez sodomiser votre chien Woulfy.
--->
 
 <!-- ****************************************************************************************** -->
 
-<!-- hop, là je définis une procédure -->
+<!--
+	Définition des procédures.
+	Chaque procédure est un morceau de séquence de film.
+	Il est possible de les enchaîner, les répéter, les imbriquer, et en exécuter plusieurs en parallèle.
+	Ça permet de définir les animations de plusieurs éléments indépendants les uns des autres.
+	Tout ceci est un peu prise de tête, si ça vous dérange, allez sodomiser votre chien Woulfy.
+	(Je vais laisser cette remarque d'adolescent, je l'aime bien).
+-->
+
+<!-- Or donc, définition d'une procédure. -->
 <Procedure> <Name> LaNuitTombe </Name>
 
-	<!-- cette balise permet de redéfinir avec quelle couleur on remplit l'écran, avant d'afficher les
-	différents sprites. Ici, le but est de remplir l'écran avec un bleu de plus en plus foncé,
+	<!--
+		Cette balise permet de redéfinir la couleur de remplissage initial de l'écran.
+		Ici, le but est de remplir l'écran avec un bleu de plus en plus foncé,
 	et ça fait genre le ciel qui s'assombrit car la nuit tombe.
 	-->
 	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 150 </Green> </ClearWithColor>
 
-	<!-- une balise toute simple, indiquant qu'il faut attendre
-	400 millisecondes avant de passer à la suite
+	<!--
+		Indique qu'il faut attendre	400 millisecondes avant de passer à l'instruction suivante.
 	-->
 	<Time> 400 </Time>
 
-	<!-- le reste c'est la même chose, mais avec une couleur de plus en plus foncée -->
+	<!--
+		Même chose qu'avant, mais avec une couleur de plus en plus foncée.
+		L'écran sera rempli avec un bleu de plus en plus foncé,
+		pour faire le ciel qui s'assombrit et la nuit qui tombe.
+	-->
 	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 100 </Green> </ClearWithColor>
 	<Time> 400 </Time>
 	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 50 </Green> </ClearWithColor>
@@ -191,17 +198,18 @@
 
 </Procedure>
 
+<!-- On pourrait ajouter d'autres procédures ici, à la suite. -->
 
-<!-- si on veux mettre d'autres procédures, on les mets ici, à la suite. Mais là y'en a qu'une. -->
 
 <!-- ****************************************************************************************** -->
 
-<!-- et là c'est le film.
-     Le film se comporte pareil qu'une procédure. Toutes les balises qu'on peut mettre dans un film peuvent aussi
-     se mettre dans une procédure, et vice-versa. Le film décrit l'ensemble du dessin animé qui va être
-     visionné (c'est un peu la "procédure principale" en fait)
-     On peut exécuter une procédure dans un film (voir plus loin), et on peut aussi exécuter une procédure dans
-     une autre procédure. La seule contrainte est qu'il faut toujours définir une procédure avant de l'exécuter.
+<!--
+	Définition du film.
+	Le film est comme une procédure. C'est la "procédure principale".
+	La balise 'Film' et les balises 'Procedure' acceptent les mêmes sous-balises.
+	Il est possible d'exécuter une procédure dans un film, ainsi que dans une autre procédure.
+	La seule contrainte à respecter est qu'une procédure doit être définie avant de pouvoir être exécutée.
+	Cette contrainte permet, au passage, de ne pas avoir à gérer des cas compliqués de dépendance circulaire.
 -->
 <Film>
 
