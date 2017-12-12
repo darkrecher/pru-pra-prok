@@ -9,81 +9,85 @@
 <!-- Balise initiale obligatoire. Parce que j'avais envie -->
 <? paye ta chatte ?>
 
-
 <!--
-	ça aussi, c'est obligatoire. En fait le nom du langage de description de film est le SPLASH.
-	ce qui signifie : South Park : L'Abominable Script à Histoire.
-	Je sais, ça veut rien dire, mais c'est rigolo de nommer un truc pour que les initiales fassent un truc cool.
+	Balise englobante obligatoire.
+	"SPLASH" signifie : South Park, L'Abominable Script à Histoire.
+	Ça ne veut rien dire, mais l'acronyme est rigolo.
 -->
 <SPLASH>
 
-
-<!-- la balise suivante est facultative. Il faut indiquer le nombre de fichiers image et son à charger, le nombre
-	de listes d'images, et le nombre de procédures utilisés pour le film.
-	Ca sert uniquement pour la barre de progression au moment du chargement. Si ces infos sont absentes ou
-	incorrectes, le film fonctionne quand même. Mais la barre de progression est mal fichue.
+<!--
+	Facultatif.
+	Utile uniquement pour la barre de progression lors du chargement initial.
+	Si ces infos sont absentes ou incorrectes, ça fonctionne quand même, mais la barre de progress est imprécise.
 -->
 <ProgressBarInfo>
+	<!-- Nombre de fichiers images et  sons à charger. (Nombre d'élément dans la balise ImgSoundFiles) -->
 	<FileToExtract> 3 </FileToExtract>
+	<!-- Nombre de listes d'images (balises ImgListDef) -->
 	<ImgListToCreate> 2 </ImgListToCreate>
+	<!-- Nombre de Procédure (balises Procedure) -->
 	<ProcedureToCreate> 1 </ProcedureToCreate>
 </ProgressBarInfo>
 
-
-<!-- là c'est pour dire qu'on va charger les fichiers images et sons -->
+<!-- Déclaration des fichiers images et sons à charger. -->
 <ImgSoundFiles>
-
-
-	<!-- On ne peut charger que des images au format .png, et des sons au format .wav.
-		Il faut que le fichier soit dans le même répertoire que le film.
-		On peut aussi charger des données à partir de fichier compressés dans un format spécial.
-		Voir le readme de l'utilitaire ConcatFile pour plus d'infos.
+	<!--
+		Format d'image : .png uniquement.
+		Format des sons : .wav uniquement.
+		Les fichiers doivent être dans le même répertoire que le film.
+		On peut également utiliser des fichiers compressés dans un format spécifique.
+		Voir le readme de l'utilitaire ConcatFile pour plus d'infos. (TODO : je ne me suis pas encore occupé de ça).
 	-->
 	<LoadImg> Collines </LoadImg>
 	<LoadImg> Piaf </LoadImg>
 	<LoadSnd> Croa </LoadSnd>
-
 </ImgSoundFiles>
 
 
 <!-- ****************************************************************************************** -->
 
-
-<!-- Là c'est pour définir les listes d'images (pour faire les sprites) -->
+<!-- Définition des listes d'images, qui serviront ensuite à faire les sprites. -->
 <LoadData>
 
-	<!-- hop, déclaration d'une liste d'images, qui va contenir toute les images de l'oiseau -->
+	<!-- Une première liste, qui contiendra toutes les images de l'oiseau. -->
 	<ImgListDef> <Name> Piaf_ImgList </Name>
 
-		<!-- là je déclare la première image -->
+		<!-- Déclaration de la première image. -->
 		<Img> <Name> Ailes_plies </Name>
 
-			<!-- indique dans quel fichier .png (préalablement chargé) il faut récupérer l'image -->
+			<!-- Indique le fichier image source (correspond à un nom mentionné dans une balise LoadImg). -->
 			<ImageSource> Piaf </ImageSource>
 
-			<!-- le carré délimitant l'image à récupérer -->
+			<!--
+				Définition du carré délimitant l'image à récupérer, dans le fichier image source.
+				X, Y : coordonnées du coin supérieur gauche.
+				W, H : width (largeur), height (longueur).
+			-->
 			<SquareSource> <X> 0 </X> <Y> 0 </Y> <W> 33 </W> <H> 20 </H> </SquareSource>
 
-			<!-- Coordonnées du hot-point.
-				Quand on placera l'image à l'écran, on donnera les coordonnées du hot-point.
-				C'est plus pratique que de donner les coordonnées du coin supérieur gauche.
-				Pour toutes les images de l'oiseau, j'ai choisi de placer le hot-point entre ses
-				deux yeux. Si on place le hot-point toujours sur le même élément, pour chaque image,
-				cela évite que l'oiseau bouge bizarrement quand on passe d'une image à une autre.
-				Blablabla blablabla qu'est-ce que je peux raconter comme connerie quand je m'y mets.
-				Bon mais j'en ai rien à carrer, c'est pas comme si mes explications devaient être claires.
+			<!--
+				Coordonnées du hot-point.
+				Le placement de l'image à l'écran est effectué par rapport au hot-point.
+				C'est plus pratique que de placer par rapport au coin supérieur gauche.
+				Pour chaque image du sprite, le hot-point doit toujours indiquer le même élément,
+				afin d'éviter des mouvements bizarres lors d'un changement d'image.
+				Pour l'oiseau, j'ai choisi de placer le hot-point entre ses deux yeux.
+				Blablabla blablabla, qu'est-ce que je peux raconter comme conneries quand je m'y mets.
+				J'en ai rien à carrer, c'est pas comme si mes explications devaient être claires.
 			-->
 			<HotPoint> <X> 16 </X> <Y> 6 </Y> </HotPoint>
+
 		</Img>
 
-		<!-- là c'est une autre image de la liste -->
+		<!-- La deuxième image de la liste. -->
 		<Img> <Name> Ailes_haut </Name>
 			<ImageSource> Piaf </ImageSource>
 			<SquareSource> <X> 33 </X> <Y> 0 </Y> <W> 33 </W> <H> 24 </H> </SquareSource>
 			<HotPoint> <X> 16 </X> <Y> 17 </Y> </HotPoint>
 		</Img>
 
-		<!-- et la c'est la dernière -->
+		<!-- La dernière. -->
 		<Img> <Name> Ailes_bas </Name>
 			<ImageSource> Piaf </ImageSource>
 			<SquareSource> <X> 66 </X> <Y> 0 </Y> <W> 21 </W> <H> 29 </H> </SquareSource>
@@ -92,47 +96,61 @@
 
 	</ImgListDef>
 
-	<!-- maintenant que j'ai pris toutes les images d'oiseau, je n'ai plus besoin du fichier Piaf.png
-		Donc je libère sa mémoire. On n'est pas obligé de libérer la mémoire de tout les fichiers images,
-		car ils sont tous libéré après le chargement des données. Mais vaut mieux le faire
-		au fur et à mesure car ça pompe moins de mémoire. (L'appli gère déjà assez mal la mémoire comme ça!!)
+	<!--
+		Facultatif.
+		Maintenant que toutes les images de l'oiseau ont été récupérées, le fichier Piaf.png n'est plus nécessaire.
+		On libère sa mémoire.
+		La mémoire de tous les fichiers image source est systématiquement libérée après la création des listes d'images et des sprites.
+		Mais il vaut mieux la libérer au fur et à mesure, ça optimise un peu son utilisation.
+		(L'application dans son ensemble gère assez mal la mémoire, ça permet de ne pas empirer les choses).
 	-->
 	<FreeImgFile> Piaf </FreeImgFile>
 
-	<!-- définition du sprite de l'oiseau qui utilise la liste d'image des oiseaux. On peut définir plusieurs
-		sprites ayant la même liste d'images. Pour afficher plusieurs oiseaux en même temps par exemple.
+	<!--
+		Définition du sprite de l'oiseau utilisant la liste d'image des oiseaux.
+		On peut définir plusieurs sprites ayant la même liste d'images,
+		pour afficher plusieurs oiseaux en même temps.
 	-->
 	<SpriteDef> <Name> Piaf </Name>
 		<ImgList> Piaf_ImgList </ImgList>
 	</SpriteDef>
 
-
-	<!-- là c'est la création d'une autre liste, qui ne contient qu'une image, les collines du décor -->
+	<!-- Création d'une autre liste, avec une seule image dedans : les collines du décor. -->
 	<ImgListDef> <Name> Collines_ImgList </Name>
-		<Img> <Name> Collines </Name> <ImageSource> Collines </ImageSource>
-			<SquareSource><X>0</X><Y>0</Y><W>640</W><H>97</H></SquareSource>
-			<HotPoint><X>0</X><Y>96</Y></HotPoint></Img>
+		<Img> <Name> Collines </Name>
+			<ImageSource> Collines </ImageSource>
+			<SquareSource> <X> 0 </X> <Y> 0 </Y> <W> 640 </W> <H> 97 </H> </SquareSource>
+			<HotPoint> <X> 0 </X> <Y> 96 </Y> </HotPoint>
+		</Img>
 	</ImgListDef>
-	<FreeImgFile>Collines</FreeImgFile>
-	<SpriteDef><Name>Collines</Name><ImgList>Collines_ImgList</ImgList></SpriteDef>
 
-<!-- par défaut, pour toutes les images, la couleur violette (rouge=255, bleu=255, vert=0) est la couleur
-	de "key transparency". (Ceci est défini dans le fichier de config. D'ailleurs c'est très con
-	j'aurais pas du le mettre là.).
+	<!-- Libération de la mémoire et définition du sprite. -->
+	<FreeImgFile> Collines </FreeImgFile>
+	<SpriteDef> <Name> Collines </Name>
+		<ImgList> Collines_ImgList </ImgList>
+	</SpriteDef>
 
-	en ajoutant la balise <NotKeyTransparent/> dans une balise <Img>, on définit une image qui s'affichera
-	tel quelle. Pour les images n'ayant aucun pixel transparent, il vaut mieux mettre cette balise, car cela
-	s'affichera plus vite. (En particulier les images de décor de fond, qui doivent remplir tout l'écran)
+<!--
+	La couleur de "key transparency" par défaut est le rose (rouge=255, bleu=255, vert=0).
+	C'est à dire que lorsqu'une image est affichée à l'écran, tous les pixels rose de l'image seront considérés
+	comme des pixels transparents, et laisseront apparaître l'image de derrière, ou la couleur de fond.
+	Cette key transparency par défaut est définie dans le fichier config.txt.
+	J'aurais dû mettre cette définition dans le fichier du film, et non dans la config.
+	Car c'est une valeur qui pourrait être différente d'un film à l'autre.
+	Mais je me suis planté. C'est pas grave.
 
-	Et en ajoutant une balise de ce type dans une <Img>:
-	<KeyTransparency> <Red>125</Red> <Blue>200</Blue> <Green>54</Green> </KeyTransparency>
-	on redéfinit la couleur de transparence pour cette image.
+	Il est possible d'ajouter la balise <NotKeyTransparent/> dans une balise <Img>.
+	Ce sera alors une image sans key transparency.
+	L'affichage des images sans key transparency est un peu plus rapide, il est donc conseillé de mettre cette balise
+	pour toutes les images où c'est possible, en particulier les décors de fond, qui ont une taille importante.
 
+	Il est également possible d'ajouter une balise de ce type dans une <Img> :
+	<KeyTransparency> <Red> 125 </Red> <Blue> 200 </Blue> <Green> 54 </Green> </KeyTransparency>
+	Cela permet de redéfinir la key transparency uniquement pour cette image.
 
-	Par ailleurs, au lieu de mettre une balise <SquareSource>, avec des coordonnées dedans,
-	on peut mettre une simple balise <SquareSourceAllImage/>, qui signifie qu'on prend toute l'image du fichier.
-	(Hé j'l'avais oublié ce truc, je m'en suis même pas servi!)
-
+	La balise <SquareSource> et son contenu peut être remplacé par une balise simple <SquareSourceAllImage/>.
+	Dans ce cas, l'image récupérée correspondra à l'image entière du fichier.
+	(Hé j'avais oublié cette balise, je ne m'en suis même pas servi ! ).
 -->
 
 </LoadData>
