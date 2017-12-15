@@ -357,3 +357,18 @@ Avast risque à nouveau de râler, et vous risquez d'avoir une première fenêtr
 
 Il faut attendre un peu, et le film devrait se lancer dans une fenêtre. Vérifiez que le son fonctionne (on entend le corbeau faire "croaaaa-croaaaa").
 
+
+## Reconstruction de l'utilitaire concat_file.exe
+
+WIP.
+
+    Rassemblement de fichiers vers 'data1.cul'
+    ajout de Collines.png   taille : 2551   OK.
+    ajout de Poisson.png   taille : 477   OK.
+    ajout de Piaf.png   taille : 411   OK.
+    ajout de Croa.wav   taille : 11832   OK.
+    Fin du rassemblement des fichiers.
+    Vous devez maintenant compresser le fichier de sortie au format .gz
+
+    Appuyez sur une touche pour continuer...
+

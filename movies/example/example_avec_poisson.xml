@@ -38,10 +38,12 @@
 	     On peut aussi charger des données à partir de fichier compressés dans un format spécial.
 	     Voir le readme de l'utilitaire ConcatFile pour plus d'infos.
 	-->
+<CompressedFile> <Name> data1.cul </Name>
 	<LoadImg> Collines </LoadImg>
 	<LoadImg> Poisson </LoadImg>
 	<LoadImg> Piaf </LoadImg>
 	<LoadSnd> Croa </LoadSnd>
+</CompressedFile>
 
 </ImgSoundFiles>
 
