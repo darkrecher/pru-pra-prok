@@ -1,6 +1,9 @@
 #include <string>
-#include <iostream.h>
 #include <fstream>
+#include <stdlib.h>
+#include <iostream>
+
+using namespace std;
 
 
 
@@ -9,7 +12,7 @@ class FileAppender
 
 private:
 
-	unsigned char *buffer;
+	char *buffer;
 	long int bufferSize;
 
 	long int GetFileSize(ifstream *fichier);
@@ -64,7 +67,7 @@ int FileAppender::AppendOneFile(string sourceFile, ofstream *fichier_out)
 {
 	cout << "ajout de " << sourceFile << "   ";
 	ifstream fichier_in(sourceFile.c_str(), ios::in|ios::binary);
-	if (fichier_in == 0) {
+	if (!fichier_in) {
 		cout << "ERREUR : impossible d'ouvrir le fichier source." << endl;
 		return 0;
 	}
@@ -76,7 +79,7 @@ int FileAppender::AppendOneFile(string sourceFile, ofstream *fichier_out)
 
 	if (fileSize > bufferSize) {
 		if (buffer != NULL) { delete buffer; }
-		buffer = new unsigned char[fileSize];
+		buffer = new char[fileSize];
 		bufferSize = fileSize;
 	}
 	fichier_in.read(buffer, fileSize);
@@ -108,7 +111,7 @@ int FileAppender::AppendAll(string listFileName)
 	}
 
 	ofstream fichier_out(destFileName.c_str(), ios::out|ios::binary|ios::trunc);
-	if (fichier_out == 0) {
+	if (!fichier_out) {
 		cout << "ERREUR : impossible de créer le fichier de sortie" << endl;
 		return 0;
 	}
@@ -132,7 +135,7 @@ int FileAppender::AppendAll(string listFileName)
 int main(int argc, char *argv[])
 {
     int resultValue;
-    
+
     if (argc < 2) {
         cout << "Il faut indiquer le nom d'un fichier texte." << endl;
         cout << "La première ligne de ce fichier indique le nom du fichier de sortie." << endl;
