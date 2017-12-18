@@ -1,10 +1,12 @@
 #include <string>
-#include <iostream.h>
 #include <fstream>
+#include <stdlib.h>
+#include <iostream>
 #include <zlib.h>
 #include <dir.h>
 #include "XMLParserPouillave.hpp"
 
+using namespace std;
 
 
 class FileExtractor
@@ -13,7 +15,7 @@ class FileExtractor
 
 private:
 
-	unsigned char *buffer;
+	char *buffer;
 	long int bufferSize;
 	XMLParser XMLparser;
 
@@ -66,7 +68,7 @@ int FileExtractor::ExtractOneFile(gzFile *fichier_in, string destFileName)
 	cout << "     Extraction de " << destFileName << "   ";
 	string destFilePathName = "FilmData\\" + destFileName;
 	ofstream fichier_out(destFilePathName.c_str(), ios::out|ios::binary|ios::trunc);
-	if (fichier_out == 0) {
+	if (!fichier_out) {
 		cout << "ERREUR : impossible de créer le fichier de sortie" << endl;
 		return 0;
 	}
@@ -80,10 +82,10 @@ int FileExtractor::ExtractOneFile(gzFile *fichier_in, string destFileName)
 
 	if (appendedFileSize > bufferSize) {
 		if (buffer != NULL) { delete buffer; }
-		buffer = new unsigned char[appendedFileSize];
+		buffer = new char[appendedFileSize];
 		bufferSize = appendedFileSize;
 	}
-	
+
     if (!gzread(*fichier_in, buffer, appendedFileSize)) {
         cout << "ERREUR : impossible de lire tout le fichier à extraire" << endl;
 		return 0;
@@ -103,16 +105,16 @@ int FileExtractor::ExtractAllFromOneCompressedFile(string compressedFileName,
     string nameOfFileToExtract;
     gzFile compressedFile;
     int XMLFileOK = 1;
-    
+
     compressedFile = gzopen(compressedFileName.c_str(), "rb");
-	if (compressedFile == 0) {
+	if (!compressedFile) {
 		cout << "ERREUR : impossible d'ouvrir le fichier " << compressedFileName << endl;
 		return 0;
 	}
 	cout << "Extraction depuis le fichier : " << compressedFileName << endl;
-	
+
     while (!stop) {
-    
+
         if (XMLparser.GotAStartBaliz("LoadImg")) {
             if (!XMLparser.ReadTextValue("LoadImg", &nameOfFileToExtract)) {
                 cout << "ERREUR : le fichier de description " << descriptionFileName
@@ -132,11 +134,11 @@ int FileExtractor::ExtractAllFromOneCompressedFile(string compressedFileName,
             }
             nameOfFileToExtract = nameOfFileToExtract + ".wav";
             if (!ExtractOneFile(&compressedFile, nameOfFileToExtract)) { return 0; }
-            
+
         } else {
             stop = 1;
         }
-        
+
     }
     gzclose(compressedFile);
 	return 1;
@@ -166,17 +168,17 @@ int FileExtractor::ExtractAllData(string descriptionFileName) {
     }
     XMLFileOK = XMLFileOK && (XMLparser.GotAStartBaliz("ImgSoundFiles"));
     XMLFileOK = XMLFileOK && (XMLparser.ReadNextNode());
-                
+
     if (!XMLFileOK) {
         cout << "ERREUR : le fichier de description " << descriptionFileName
              << " est incorrect" << endl;
         cout << "Essayez de visionner le film pour trouver le problème" << endl;
         return 0;
     }
-    
+
     while (!stop) {
-        if (XMLparser.GotAStartBaliz("CompressedFile")) { 
-        
+        if (XMLparser.GotAStartBaliz("CompressedFile")) {
+
             XMLFileOK = XMLFileOK && (XMLparser.ReadNextNode());
             XMLFileOK = XMLFileOK && (XMLparser.GotAStartBaliz("Name"));
             XMLFileOK = XMLFileOK
@@ -188,19 +190,19 @@ int FileExtractor::ExtractAllData(string descriptionFileName) {
             }
             XMLFileOK = XMLFileOK && (XMLparser.GotAnEndBaliz("CompressedFile"));
             XMLFileOK = XMLFileOK && (XMLparser.ReadNextNode());
-            
+
         } else if ((XMLparser.GotAStartBaliz("LoadImg"))
                    || (XMLparser.GotAStartBaliz("LoadSnd"))) {
-                   
+
             //rien à foutre des fichiers de données qui sont pas compressés
             XMLFileOK = XMLFileOK && (XMLparser.ReadNextNode());
             XMLFileOK = XMLFileOK && (XMLparser.ReadNextNode());
             XMLFileOK = XMLFileOK && (XMLparser.ReadNextNode());
-            
+
         } else {
             stop = 1;
         }
-        
+
         if (!XMLFileOK) {
             cout << "ERREUR : le fichier de description " << descriptionFileName
                  << " est incorrect" << endl;
@@ -208,7 +210,7 @@ int FileExtractor::ExtractAllData(string descriptionFileName) {
             return 0;
         }
     }
-    
+
     XMLparser.CloseXMLFile();
     if (!XMLparser.GotAnEndBaliz("ImgSoundFiles")) {
         cout << "ERREUR : le fichier de description " << descriptionFileName
@@ -216,7 +218,7 @@ int FileExtractor::ExtractAllData(string descriptionFileName) {
         cout << "Essayez de visionner le film pour trouver le problème" << endl;
         return 0;
     }
-    
+
     return 1;
 }
 
@@ -227,10 +229,9 @@ int main(int argc, char *argv[])
     mkdir("FilmData");
 
 	FileExtractor fileExtractor = FileExtractor();
-//	int returnValue = fileExtractor.ExtractAllData("film1.zob");
 	int returnValue = fileExtractor.ExtractAllData("List_ImgSons.zob");
 	cout << endl;
-	
+
 	if (returnValue) {
         cout << "Extraction correcte de tous les fichiers d'images et et de sons." << endl;
         cout << "Ils sont dans le dossier FilmData" << endl;
