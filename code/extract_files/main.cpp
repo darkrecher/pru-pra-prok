@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <zlib.h>
-#include <dir.h>
+#include <io.h>
 #include "XMLParserPouillave.hpp"
 
 using namespace std;

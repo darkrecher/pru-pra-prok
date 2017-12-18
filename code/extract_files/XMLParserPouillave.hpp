@@ -15,7 +15,7 @@ class XMLParser
 
   private:
 
-        typedef struct Baliz {
+        struct Baliz {
             string balizName;
             Baliz *next;
         };
