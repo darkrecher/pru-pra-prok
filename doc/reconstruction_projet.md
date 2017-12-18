@@ -297,9 +297,11 @@ Ce lien permet de récupérer un fichier `zlib-1.2.3.win32.zip`.
 Décompresser ce fichier dans [repo_git/pru-pra-prok/code/libs_includes/zlib-1.2.3.win32.zip](../code/libs_includes/zlib-1.2.3.win32.zip).
 
 
-## Recompilation du moteur de dessin animé
+## Moteur de dessin animé
 
-Ce chapitre décrit la méthode pour reconstruire le fichier [repo_git/pru-pra-prok/code/splash](../code/splash.exe). Il s'agit de l'exécutable permettant de visionner les dessins animé. "SPLASH" étant un acronyme de "South Park : L'Abominable Script à Histoire".
+### Recompilation splash.exe
+
+Ce chapitre décrit la méthode pour reconstruire le fichier [repo_git/pru-pra-prok/code/splash/splash.exe](../code/splash/splash.exe). Il s'agit de l'exécutable permettant de visionner les dessins animé. "SPLASH" étant un acronyme de "South Park : L'Abominable Script à Histoire".
 
 Ouvrir une console de commande Windows (ou reprendre celle du chapitre précédent).
 
@@ -327,8 +329,7 @@ Lancer la compilation
 
 Beaucoup de fichiers .o ont été créé dans le répertoire courant, ainsi qu'un fichier splash.exe. Il s'agit de l'exécutable permettant de visionner les dessins animés.
 
-
-## Test du film d'exemple
+### Test avec le film d'exemple
 
 Dans le répertoire `C:\repo_git\pru-pra-prok\movies\example`, copier les fichiers suivants :
 
@@ -341,7 +342,7 @@ Dans le répertoire `C:\repo_git\pru-pra-prok\movies\example`, copier les fichie
 
 Si vous n'êtes pas parvenu à récupérer/reconstruire tous ces fichiers, prenez ceux de `C:\repo_git\pru-pra-prok\movies\pru-pra-prok_episode_2` (mais pour l'instant ce rep n'est pas le repo.)
 
-Dans une console, exécuter les commandes suivantes (Plus besoin d'exécuter la commande `set path=...`)
+Dans une console, exécuter les commandes suivantes (pas besoin d'exécuter la commande `set path=...`)
 
     cd C:\repo_git\pru-pra-prok
     cd movies\example
@@ -357,10 +358,63 @@ Avast risque à nouveau de râler, et vous risquez d'avoir une première fenêtr
 
 Il faut attendre un peu, et le film devrait se lancer dans une fenêtre. Vérifiez que le son fonctionne (on entend le corbeau faire "croaaaa-croaaaa").
 
+Vous pouvez également tester le deuxième film d'exemple, avec la commande `splash.exe example_avec_poisson.xml`. Il ressemble beaucoup au premier, mais utilise un fichier d'images et de sons compressés : `C:\repo_git\pru-pra-prok\movies\example\data1.cul`
 
-## Reconstruction de l'utilitaire concat_file.exe
 
-WIP.
+## Utilitaire concat_file.exe
+
+### Recompilation concat_file.exe
+
+Ce chapitre décrit la méthode pour reconstruire le fichier [repo_git/pru-pra-prok/code/concat_files/concat_files.exe](../code/concat_files/concat_files.exe). Il s'agit de l'exécutable permettant de créer des fichiers compressés au format ".cul".
+
+Les actions décrites dans le chapitre "MinGW32" doivent avoir été préalablement effectuées pour pouvoir réaliser cette recompilation.
+
+Ouvrir une console de commande Windows et exécuter les commandes suivantes :
+
+Le path si ça n'a pas déjà été fait :
+
+    set path=%path%;C:\MinGW\bin
+
+Aller dans le répertoire "code\concat_files" du repository.
+
+    cd C:\repo_git\pru-pra-prok
+    cd code\concat_files
+
+Supprimer les binaires précédemment générés (il n'y a pas de "make clean", désolé).
+
+    del concat_files.exe
+    del *.o
+
+Lancer la compilation
+
+    mingw32-make.exe
+
+Un fichier main.o a été créé dans le répertoire courant, ainsi qu'un fichier concat_files.exe. Il s'agit de l'exécutable permettant de créer des fichiers compressés
+
+### Test de compression d'un fichier
+
+Installer un utilitaire permettant de compresser des fichiers au format ".gz". Sous Windows, on pourra par exemple prendre [7-zip](http://www.7-zip.org/).
+
+Dans le répertoire `C:\repo_git\pru-pra-prok\movies\example`, copier les fichiers suivants :
+
+ - `C:\MinGW\bin\libgcc_s_dw2-1.dll`
+ - `C:\MinGW\bin\libstdc++-6.dll`
+ - Le fichier `C:\repo_git\pru-pra-prok\code\concat_files\concat_files.exe` que vous avez reconstruit au chapitre précédent.
+
+Dans une console, exécuter les commandes suivantes (pas besoin d'exécuter la commande `set path=...`)
+
+    cd C:\repo_git\pru-pra-prok
+    cd movies\example
+
+Suppression du fichier compressé existant
+
+    del data1.cul
+
+Recréation du fichier
+
+    concat_files.exe list_concat.txt
+
+Log obtenu sur la sortie standard :
 
     Rassemblement de fichiers vers 'data1.cul'
     ajout de Collines.png   taille : 2551   OK.
@@ -370,5 +424,19 @@ WIP.
     Fin du rassemblement des fichiers.
     Vous devez maintenant compresser le fichier de sortie au format .gz
 
-    Appuyez sur une touche pour continuer...
+Un fichier `data1.cul` a été créé. Compressez-le au format .gz. Supprimer le fichier `data1.cul` existant, et renommer le fichier compressé `data1.cul.gz` en `data1.cul`.
+
+Vous avez recréé le fichier `data1.cul` qui était initialement présent dans le repository.
+
+Pour tester sa validité, exécuter les actions du chapitre "Moteur de dessin animé", puis exécuter la commande `splash.exe example_avec_poisson.xml`. Vous devriez voir le second dessin animé d'exemple.
+
+Vous pouvez retester en supprimant les fichiers .png et .wav de `C:\repo_git\pru-pra-prok\movies\example`, pour vous assurer complètement que la visualisation du dessin animé ne nécessite plus que `data1.cul`.
+
+
+
+
+
+
+
+
 
