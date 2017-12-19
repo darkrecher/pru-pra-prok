@@ -3,7 +3,7 @@
 	Ceci est un exemple de film écrit en SPLASH.
 	Le format de ce fichier est sensible à la casse (les majuscules-minuscules sont importantes).
 
-	C'est du pseudo-XML crados. Je vous aurais prévenus. En plus mes explications sont bordeliques parce que 
+	C'est du pseudo-XML crados. Je vous aurais prévenus. En plus mes explications sont bordeliques parce que
 	j'ai pas que ça à foutre de décrire mon format de POILS BITE VAGIN COUILLES NICHONS MENOPAUSE URÊTRE PHALLUS !!!
 -->
 
@@ -13,8 +13,7 @@
 
 <!--
 	Balise englobante obligatoire.
-	"SPLASH" signifie : South Park, L'Abominable Script à Histoire.
-	Ça ne veut rien dire, mais l'acronyme est rigolo.
+	"SPLASH" est un acronyme de "South Park, L'Abominable Script à Histoire". C'est rigolo.
 -->
 <SPLASH>
 
@@ -24,11 +23,11 @@
 	Si ces infos sont absentes ou incorrectes, ça fonctionne quand même, mais la barre de progress est imprécise.
 -->
 <ProgressBarInfo>
-	<!-- Nombre de fichiers images et sons à charger. (Nombre d'élément dans la balise ImgSoundFiles) -->
+	<!-- Nombre de fichiers images et sons à charger. (Nombre d'éléments dans la balise ImgSoundFiles) -->
 	<FileToExtract> 3 </FileToExtract>
 	<!-- Nombre de listes d'images (balises ImgListDef) -->
 	<ImgListToCreate> 2 </ImgListToCreate>
-	<!-- Nombre de Procédure (balises Procedure) -->
+	<!-- Nombre de procédure (balises Procedure) -->
 	<ProcedureToCreate> 1 </ProcedureToCreate>
 </ProgressBarInfo>
 
@@ -38,8 +37,8 @@
 		Format d'image : .png uniquement.
 		Format des sons : .wav uniquement.
 		Les fichiers doivent être dans le même répertoire que le film.
-		On peut également utiliser des fichiers compressés dans un format spécifique.
-		Voir le readme de l'utilitaire ConcatFile pour plus d'infos. (TODO : je ne me suis pas encore occupé de ça).
+		On peut également utiliser des fichiers compressés dans un format spécifique (fichier .cul).
+		Voir le readme de l'utilitaire concat_files pour plus d'infos. (TODO : je ne me suis pas encore occupé de ça).
 	-->
 	<LoadImg> Collines </LoadImg>
 	<LoadImg> Piaf </LoadImg>
@@ -58,7 +57,7 @@
 		<!-- Déclaration de la première image. -->
 		<Img> <Name> Ailes_plies </Name>
 
-			<!-- Indique le fichier image source (correspond à un nom mentionné dans une balise LoadImg). -->
+			<!-- Indique le fichier image source (correspond à une balise LoadImg). -->
 			<ImageSource> Piaf </ImageSource>
 
 			<!--
@@ -74,7 +73,7 @@
 				C'est plus pratique que de placer par rapport au coin supérieur gauche.
 				Pour chaque image du sprite, le hot-point doit toujours indiquer le même élément,
 				afin d'éviter des mouvements bizarres lors d'un changement d'image.
-				Pour l'oiseau, j'ai choisi de placer le hot-point entre ses deux yeux.
+				Pour l'oiseau, j'ai choisi le point entre ses deux yeux.
 				Blablabla blablabla, qu'est-ce que je peux raconter comme conneries quand je m'y mets.
 				J'en ai rien à carrer, c'est pas comme si mes explications devaient être claires.
 			-->
@@ -102,15 +101,15 @@
 		Facultatif.
 		Maintenant que toutes les images de l'oiseau ont été récupérées, le fichier Piaf.png n'est plus nécessaire.
 		On libère sa mémoire.
-		La mémoire de tous les fichiers image source est systématiquement libérée après la création des listes d'images et des sprites.
-		Mais il vaut mieux la libérer au fur et à mesure, ça optimise un peu son utilisation.
-		(L'application dans son ensemble gère assez mal la mémoire, ça permet de ne pas empirer les choses).
+		La mémoire de tous les fichiers image source est systématiquement libérée après la création
+		des listes d'images et des sprites. Mais il vaut mieux la libérer au fur et à mesure, pour optimiser.
+		(L'application dans son ensemble gère assez mal la mémoire, ça permet donc de ne pas empirer les choses).
 	-->
 	<FreeImgFile> Piaf </FreeImgFile>
 
 	<!--
 		Définition du sprite de l'oiseau utilisant la liste d'image des oiseaux.
-		On peut définir plusieurs sprites ayant la même liste d'images,
+		On aurait pu définir plusieurs sprites avec la même liste d'images,
 		pour afficher plusieurs oiseaux en même temps.
 	-->
 	<SpriteDef> <Name> Piaf </Name>
@@ -135,24 +134,23 @@
 <!--
 	La couleur de "key transparency" par défaut est le rose (rouge=255, bleu=255, vert=0).
 	C'est à dire que lorsqu'une image est affichée à l'écran, tous les pixels rose de l'image seront considérés
-	comme des pixels transparents, et laisseront apparaître l'image de derrière, ou la couleur de fond.
+	comme transparents, et laisseront apparaître les pixels de derrière.
 	Cette key transparency par défaut est définie dans le fichier config.txt.
-	J'aurais dû mettre cette définition dans le fichier du film, et non dans la config.
-	Car c'est une valeur qui pourrait être différente d'un film à l'autre.
-	Mais je me suis planté. C'est pas grave.
+	J'aurais dû mettre cette définition dans le fichier du film, et non dans la config,
+	car c'est une valeur qui pourrait être différente d'un film à l'autre.
+	Je me suis planté. C'est pas grave.
 
-	Il est possible d'ajouter la balise <NotKeyTransparent/> dans une balise <Img>.
-	Ce sera alors une image sans key transparency.
-	L'affichage des images sans key transparency est un peu plus rapide, il est donc conseillé de mettre cette balise
+	Une balise <Img> peut comporter une sous-balise <NotKeyTransparent/>. Ce sera alors une image pas transparente.
+	Leur affichage est un peu plus rapide, il est donc conseillé de mettre cette balise
 	pour toutes les images où c'est possible, en particulier les décors de fond, qui ont une taille importante.
 
 	Il est également possible d'ajouter une balise de ce type dans une <Img> :
 	<KeyTransparency> <Red> 125 </Red> <Blue> 200 </Blue> <Green> 54 </Green> </KeyTransparency>
-	Cela permet de redéfinir la key transparency uniquement pour cette image.
+	Cela permet de redéfinir les pixels transparents uniquement pour cette image.
 
-	La balise <SquareSource> et son contenu peut être remplacé par une balise simple <SquareSourceAllImage/>.
+	La balise <SquareSource> et son contenu peut être remplacée par une balise simple <SquareSourceAllImage/>.
 	Dans ce cas, l'image récupérée correspondra à l'image entière du fichier.
-	(Hé j'avais oublié cette balise, je ne m'en suis même pas servi ! ).
+	(Hé j'avais oublié ça, je ne m'en suis même pas servi ! ).
 -->
 
 </LoadData>
@@ -281,26 +279,26 @@
 			<!-- Placement du Sprite sur la scène (plus exactement, placement de son hotpoint) -->
 			<Pos> <X> 0 </X> <Y> 479 </Y> </Pos>
 
-			<!-- 
+			<!--
 				Définition de l'image du sprite à afficher.
 				Le sprite "Collines" ne possède qu'une seule image, appelée "Collines" elle aussi.
 			-->
 			<Img> Collines </Img>
 
-			<!-- 
+			<!--
 
 				Les autres sous-balises de <SetAllSpriteInfos> :
 
-				<Zoom> (nombre) </Zoom>. 
+				<Zoom> (nombre) </Zoom>.
 				Indique si le sprite est grossi ou rapetici.
-				Je n'ai jamais su comment faire ce participe passé de merde : "rapetici", 
+				Je n'ai jamais su comment faire ce participe passé de merde : "rapetici",
 				Putain, de langue française.
 				C'est comme le zoom de scène, mais appliqué sur un sprite.
 				L'unité est le "1024ème de zoom". La valeur par défaut est 1024.
 
 				<Portion> <X> 0 </X> <Y> 10 </Y> <W> 15 </W> <H> 12 </H> </Portion>
 				Permet d'afficher une partie seulement de l'image.
-				C'est géré un peu bizarrement, mais ça marche. 
+				C'est géré un peu bizarrement, mais ça marche.
 				Par défaut, c'est l'image entière qui est affichée.
 			-->
 
@@ -321,38 +319,38 @@
 
 	<Sprite> <Name> Piaf </Name>
 
-		<!-- 
-			Redéfinition de l'image du sprite à afficher 
+		<!--
+			Redéfinition de l'image du sprite à afficher
 			Même effet que la balise <Img> dans <SetAllSpriteInfos>.
 		-->
 		<SetImg> Ailes_haut </SetImg>
 
-		<!-- 
-			Déplacement du sprite, 
+		<!--
+			Déplacement du sprite,
 			on ajoute les coordonnées indiquées à ses coordonnées actuelles.
 		-->
 		<Move> <X> 15 </X> <Y> -10 </Y> </Move>
 
-		<!-- 
-			Redéfinition du zoom. 
+		<!--
+			Redéfinition du zoom.
 			Même effet que la balise <Zoom> dans <SetAllSpriteInfos>
 			On a l'impression que l'oiseau se rapproche, car on augmente son zoom. Yeah !
 		-->
 		<SetZoom> 1152 </SetZoom>
 
-		<!-- 
+		<!--
 			Les balises <Time> peuvent être intégrées dans les balises <Film> et <Procedure>,
 			mais aussi les balises <Sprite>. Ca peut aider à rendre le script (un peu) moins verbeux.
 		-->
 		<Time> 400 </Time>
 
-		<!-- 
+		<!--
 			Ensuite, c'est la même chose.
-			On déplace l'oiseau, et on définit successivement ses images et son zoom de l'oiseau, 
+			On déplace l'oiseau, et on définit successivement ses images et son zoom de l'oiseau,
 			pour le faire voler.
-			Des fois aussi l'oiseau, il boit de l'alcool, parce que ce sont des gros junky 
+			Des fois aussi l'oiseau, il boit de l'alcool, parce que ce sont des gros junky
 			(comme les pigeons dans Sam et Max). Là dans ce dessin animé il boit pas d'alcool car sinon
-			j'aurais dû dessiné encore plus d'images et c'est déjà assez lourdingue comme ça.			
+			j'aurais dû dessiné encore plus d'images et c'est déjà assez lourdingue comme ça.
 		-->
 		<SetImg> Ailes_bas </SetImg>
 		<Move> <X> 15 </X> <Y> -10 </Y> </Move>
@@ -366,7 +364,7 @@
 
 	</Sprite>
 
-	<!-- 
+	<!--
 		Emission d'un son.
 		Il est possible d'en jouer plusieurs en même temps, en les démarrant ensemble ou en décalé.
 		Le nombre de sons simultanés est limité, et défini dans le fichier de config.
@@ -390,15 +388,15 @@
 
 	</Sprite>
 
-	<!-- 
+	<!--
 		Exécution de la procédure "La Nuit Tombe".
-		Toutes les actions qui sont décrites dedans sont copié-collées dans le film, 
-		mais le fait d'exécuter la procédure ne fait pas avancer le temps global du film. 
+		Toutes les actions qui sont décrites dedans sont copié-collées dans le film,
+		mais le fait d'exécuter la procédure ne fait pas avancer le temps global du film.
 		Les actions décrites juste après vont donc se dérouler en parallèle des actions de la procédure.
 
-		On peut faire des choses un peu plus élaborés avec les procédures, voir plus loin. 
+		On peut faire des choses un peu plus élaborés avec les procédures, voir plus loin.
 
-		J'ai un ami à moi, son prénom c'est "Plus" et son nom de famille c'est "Loin". 
+		J'ai un ami à moi, son prénom c'est "Plus" et son nom de famille c'est "Loin".
 		Alors des fois, on dit : "voir Plus Loin". Hahaha !
 	-->
 	<Exec> LaNuitTombe </Exec>
@@ -451,35 +449,36 @@
 </SPLASH>
 
 
-<!-- 
+<!--
 
 	Autres balises, non présentes dans ce film d'exemple :
 
 	**** Les différente façon de rafraichir l'écran ****
 
-	On a vu la balise <ClearWithColor>, qui peut être placée dans le film, dans une procédure 
+	On a vu la balise <ClearWithColor>, qui peut être placée dans le film, dans une procédure
 	ou dans une balise <SetAllSceneInfos>.
-	Lorsqu'on a une image de fond recouvrant toute la scène, 
-	il n'est pas nécessaire de la pré-recouvrir avec une couleur, 
+	Lorsqu'on a une image de fond recouvrant toute la scène,
+	il n'est pas nécessaire de la pré-recouvrir avec une couleur,
 	dans ce cas, on peut utiliser une balise <NoClear/>.
 
-	D'autre part, il existe aussi la balise <ClearWithBlackColor/>, équivalente à <ClearWithColor> avec une couleur à (0, 0, 0).
+	D'autre part, il existe aussi la balise <ClearWithBlackColor/>,
+	équivalente à <ClearWithColor> avec une couleur à (0, 0, 0).
 
 
 	**** Autres sous-balises de la balise <Sprite> ****
 
 	<SetPortion>
-	Elle fonctionne comme la balise <Portion>. 
+	Elle fonctionne comme la balise <Portion>.
 	<Portion> doit être mise dans une balise <SetAllSpriteInfo>.
 	<SetPortion> doit être directement mise dans une balise <Sprite>.
 
 	<SetZoom>
-	Elle fonctionne comme la balise <Zoom>. 
+	Elle fonctionne comme la balise <Zoom>.
 	<Zoom> doit être mise dans une balise <SetAllSpriteInfo>.
 	<SetZoom> doit être directement mise dans une balise <Sprite>.
 
 	<SetPos>
-	Elle fonctionne comme la balise <Pos>. 
+	Elle fonctionne comme la balise <Pos>.
 	Blablablablabla.
 
 
@@ -487,16 +486,16 @@
 
 	<Swap2Plans> {nom_sprite_1} <Next/> {nom_sprite_2} </Swap2Plans>
 
-	Intégrable dans un film ou dans une procédure. 
-	Elle permet d'échanger l'ordre d'affichage de deux sprites, par exemple, quand l'un passe devant l'autre). 
-	Lorsqu'il y a beaucoup de modifs dans l'ordre d'affichage, il vaut mieux mettre un <PlanRedef> 
+	Intégrable dans un film ou dans une procédure.
+	Elle permet d'échanger l'ordre d'affichage de deux sprites, par exemple, quand l'un passe devant l'autre).
+	Lorsqu'il y a beaucoup de modifs dans l'ordre d'affichage, il vaut mieux mettre un <PlanRedef>
 	pour tout remettre au clair, plutôt que des Swap2Plans.
 
 
 	**** Arrêt de tous les sons en cours. ****
 
-	<StopSound> 
-	Intégrable dans un film ou dans une procédure. 
+	<StopSound>
+	Intégrable dans un film ou dans une procédure.
 
 
 	**** Les breakpoints ****
@@ -507,23 +506,24 @@
 
 	<BreakPoint> 0 <BreakPoint>
 	Définit un point d'arrêt de niveau 0 (niveau "principal").
-	Lorsque l'utilisateur appuie sur sur la touche Page Up, le player se place au précédent breakpoint 
+	Lorsque l'utilisateur appuie sur sur la touche Page Up, le player se place au précédent breakpoint
 	de niveau 0 et rejoue le film à partir de ce moment. Les breakpoints de niveau 1 ne sont pas pris en compte.
 	La touche Page Down place le player au breakpoint suivant de niveau 0.
 
 	<BreakPoint> 1 <BreakPoint>
-	Définit un point d'arrêt de niveau 1 (niveau plus précis).	
+	Définit un point d'arrêt de niveau 1 (niveau plus précis).
 
 	Lorsque l'utilisateur appuie sur sur la flèche du haut, le player se place au précédent breakpoint
 	de niveau 0 ou 1, et rejoue le film à partir de ce moment.
 	La flèche du bas place le player au breakpoint suivant de niveau 0 ou 1.
 
-	Lorsque l'utilisateur se déplace vers un breakpoint (quel que soit son niveau), les actions suivantes sont effectuées :
+	Lorsque l'utilisateur se déplace vers un breakpoint (quel que soit son niveau),
+	les actions suivantes sont effectuées :
 
 	 - <NoClear/> : le rafraichissement est fixé à "pas de rafraîchissement".
 	 - <SetZoom> : Le Zoom de la scène est fixé à 1024.
 	 - <SetCamPos> : La position de la caméra est fixée à 319, 239.
-	 - En revanche, la liste d'affichage des sprites, ainsi que leurs positions, zooms, et portions ne sont pas redéfinis !
+	 - Mais la liste d'affichage des sprites, ainsi que leurs positions, zooms, et portions ne sont pas redéfinis !
 
 	Après une balise BreakPoint, il est donc fortement conseillé de placer les balises suivantes :
 
@@ -538,19 +538,20 @@
 	Exécution d'une procédure de manière simple.
 
 	<ExecComplex> <Name> {nom_procedure} </Name>
-		<Duration> {temps_en_millisecondes} </Duration> 
+		<Duration> {temps_en_millisecondes} </Duration>
 	</ExecComplex>
 	La procédure va s'exécuter pendant le temps indiqué. Si elle est plus longue, sa fin sera coupée.
-	Ca peut être utile pour animer une personne qui parle. On définit une seule grande procédure 
+	Ca peut être utile pour animer une personne qui parle. On définit une seule grande procédure
 	contenant des mouvements de bouche, et on s'en sert à plusieurs endroits du film, en mettant un temps
 	différent à chaque fois, selon que le personnage parle plus ou moins longtemps.
-	Du coup, la synchro entre la forme de la bouche et les paroles est totalement foireuse, mais on ne peut pas tout avoir.
+	Du coup, la synchro entre la forme de la bouche et les paroles est totalement foireuse,
+	mais on ne peut pas tout avoir.
 
 	<ExecComplex> <Name> {nom_procedure} </Name>
 		<AddTime/>
 	</ExecComplex>
 	Exécution "séquentielle" de la procédure, et non pas "parallèle".
-	Pendant que cette procédure s'exécute, les actions décrites après ne le sont pas. 
+	Pendant que cette procédure s'exécute, les actions décrites après ne le sont pas.
 	On attend la fin de la procédure avant de passer à la suite.
 
 	Il est possible de mettre à la fois une balise </Duration> et une balise <AddTime/> dans une balise <ExecComplex>
