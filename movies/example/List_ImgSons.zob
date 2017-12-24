@@ -1,0 +1,19 @@
+
+<? paye ta chatte ?>
+
+<SPLASH>
+
+<ImgSoundFiles>
+
+
+<CompressedFile> <Name> data1.cul </Name>
+    <LoadImg> Collines </LoadImg>
+    <LoadImg> Poisson </LoadImg>
+    <LoadImg> Piaf </LoadImg>
+    <LoadSnd> Croa </LoadSnd>
+</CompressedFile>
+
+
+</ImgSoundFiles>
+
+</SPLASH>
