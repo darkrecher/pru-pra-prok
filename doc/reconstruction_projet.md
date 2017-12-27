@@ -361,9 +361,9 @@ Il faut attendre un peu, et le film devrait se lancer dans une fenêtre. Vérifi
 Vous pouvez également tester le deuxième film d'exemple, avec la commande `splash.exe example_avec_poisson.xml`. Il ressemble beaucoup au premier, mais utilise un fichier d'images et de sons compressés : `C:\repo_git\pru-pra-prok\movies\example\data1.cul`
 
 
-## Utilitaire concat_file.exe
+## Utilitaire concat_files.exe
 
-### Recompilation concat_file.exe
+### Recompilation concat_files.exe
 
 Ce chapitre décrit la méthode pour reconstruire le fichier [repo_git/pru-pra-prok/code/concat_files/concat_files.exe](../code/concat_files/concat_files.exe). Il s'agit de l'exécutable permettant de créer des fichiers compressés au format ".cul".
 
@@ -399,7 +399,7 @@ Dans le répertoire `C:\repo_git\pru-pra-prok\movies\example`, copier les fichie
 
  - `C:\MinGW\bin\libgcc_s_dw2-1.dll`
  - `C:\MinGW\bin\libstdc++-6.dll`
- - Le fichier `C:\repo_git\pru-pra-prok\code\concat_files\concat_files.exe` que vous avez reconstruit au chapitre précédent.
+ - Le fichier `C:\repo_git\pru-pra-prok\code\concat_files\concat_files.exe` reconstruit au chapitre précédent.
 
 Dans une console, exécuter les commandes suivantes (pas besoin d'exécuter la commande `set path=...`)
 
@@ -410,9 +410,11 @@ Suppression du fichier compressé existant
 
     del data1.cul
 
-Recréation du fichier
+Recréation du fichier :
 
     concat_files.exe list_concat.txt
+
+(Avast risque de protester un peu, comme d'habitude).
 
 Log obtenu sur la sortie standard :
 
@@ -433,10 +435,59 @@ Pour tester sa validité, exécuter les actions du chapitre "Moteur de dessin an
 Vous pouvez retester en supprimant les fichiers .png et .wav de `C:\repo_git\pru-pra-prok\movies\example`, pour vous assurer complètement que la visualisation du dessin animé ne nécessite plus que `data1.cul`.
 
 
+## Utilitaire extract_files.exe
 
+### Recompilation extract_files.exe
 
+Ce chapitre décrit la méthode pour reconstruire le fichier [repo_git/pru-pra-prok/code/extract_files/extract_files.exe](../code/extract_files/extract_files.exe). Il s'agit de l'exécutable "inverse" de concat_files. Il permet de récupérer les fichiers images et sons stockés dans les fichiers compressés au format ".cul".
 
+Les actions décrites dans le chapitre "MinGW32" doivent avoir été préalablement effectuées pour pouvoir réaliser cette recompilation.
 
+Ouvrir une console de commande Windows et exécuter les commandes suivantes :
 
+Le path si ça n'a pas déjà été fait :
 
+    set path=%path%;C:\MinGW\bin
+
+Aller dans le répertoire "code\extract_files" du repository.
+
+    cd C:\repo_git\pru-pra-prok
+    cd code\extract_files
+
+Supprimer les binaires précédemment générés.
+
+    del extract_files.exe
+    del *.o
+
+Lancer la compilation
+
+    mingw32-make.exe
+
+Des fichiers *.o ont été créés dans le répertoire courant, ainsi qu'un fichier extract_files.exe. Il s'agit de l'exécutable permettant d'extraire les données des fichiers compressés.
+
+### Test d'extraction
+
+Dans le répertoire `C:\repo_git\pru-pra-prok\movies\example`, copier les fichiers suivants :
+
+ - `C:\MinGW\bin\libgcc_s_dw2-1.dll`
+ - `C:\MinGW\bin\libstdc++-6.dll`
+ - `C:\repo_git\pru-pra-prok\code\libs_includes\zlib-1.2.3.win32\bin\zlib1.dll`
+ - Le fichier `C:\repo_git\pru-pra-prok\code\extract_files\extract_files.exe` reconstruit au chapitre précédent.
+
+Les fichiers `List_ImgSons.zob` et `data1.cul` sont indispensables pour ce test. Tous les autres fichiers de `C:\repo_git\pru-pra-prok\movies\example` peuvent être momentanément déplacés ailleurs, pour vérifier qu'ils ne sont pas nécessaires : *.png, *.wav, *.xml, config.txt, list_concat.txt.
+
+Dans une console, exécuter les commandes suivantes (pas besoin d'exécuter la commande `set path=...`)
+
+    cd C:\repo_git\pru-pra-prok
+    cd movies\example
+
+Extraction des fichiers :
+
+    extract_files.exe
+
+(Avast risque de protester un peu, comme d'habitude).
+
+Une nouvelle fenêtre DOS apparaît, indiquant : "Appuyez sur une touche pour continuer". Après l'avoir fait, la fenêtre se ferme automatiquement.
+
+Un réperotire `FilmData` a été créé, contenant les fichiers images et sons qui ont été extraits de `data1.cul`.
 
