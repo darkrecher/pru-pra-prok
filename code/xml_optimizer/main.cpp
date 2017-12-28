@@ -1,8 +1,11 @@
 #include <string>
-#include <iostream.h>
-#include <stdlib.h>
 #include <fstream>
+#include <stdlib.h>
+#include <iostream>
 #include "XMLParserPouillave.hpp"
+
+using namespace std;
+
 
 const int NUMBER_OF_NODE_PER_LINE = 30;
 const int ALPHABET_SIZE = 26 + 26 + 10; //minuscules + majuscules + nombres
@@ -12,7 +15,7 @@ class StringReplacer
 
     private:
 
-        typedef struct EltStrRep {
+        struct EltStrRep {
             string oldValue;
 			string replacementValue;
             EltStrRep *next;
@@ -152,7 +155,7 @@ int main(int argc, char *argv[])
     }
 
    	ofstream fichier_out(argv[2], ios::out|ios::trunc);
-	if (fichier_out == 0) {
+	if (!fichier_out) {
 		cerr << "ERREUR : impossible de créer le fichier de sortie" << argv[2] << endl;
 		system("PAUSE");
 		return 1;
