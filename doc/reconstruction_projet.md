@@ -489,5 +489,71 @@ Extraction des fichiers :
 
 Une nouvelle fenêtre DOS apparaît, indiquant : "Appuyez sur une touche pour continuer". Après l'avoir fait, la fenêtre se ferme automatiquement.
 
-Un réperotire `FilmData` a été créé, contenant les fichiers images et sons qui ont été extraits de `data1.cul`.
+Un répertoire `FilmData` a été créé, contenant les fichiers images et sons qui ont été extraits de `data1.cul`.
 
+
+## Utilitaire xml_optimizer.exe
+
+### Recompilation xml_optimizer.exe
+
+Ce chapitre décrit la méthode pour reconstruire le fichier [repo_git/pru-pra-prok/code/xml_optimizer/xml_optimizer.exe](../code/xml_optimizer/xml_optimizer.exe). Il s'agit d'un exécutable permettant d'optimiser les fichiers .xml de description de films.
+
+Les actions décrites dans le chapitre "MinGW32" doivent avoir été préalablement effectuées pour pouvoir réaliser cette recompilation.
+
+Ouvrir une console de commande Windows et exécuter les commandes suivantes :
+
+Le path si ça n'a pas déjà été fait :
+
+    set path=%path%;C:\MinGW\bin
+
+Aller dans le répertoire "code\xml_optimizer" du repository.
+
+    cd C:\repo_git\pru-pra-prok
+    cd code\xml_optimizer
+
+Supprimer les binaires précédemment générés.
+
+    del xml_optimizer.exe
+    del *.o
+
+Lancer la compilation
+
+    mingw32-make.exe
+
+Des fichiers *.o ont été créés dans le répertoire courant, ainsi qu'un fichier xml_optimizer.exe. Il s'agit de l'exécutable permettant d'optimiser les XML.
+
+### Test d'optimisation d'un XML.
+
+Dans le répertoire `C:\repo_git\pru-pra-prok\movies\example`, copier les fichiers suivants :
+
+ - `C:\MinGW\bin\libgcc_s_dw2-1.dll`
+ - `C:\MinGW\bin\libstdc++-6.dll`
+ - Le fichier `C:\repo_git\pru-pra-prok\code\xml_optimizer\xml_optimizer.exe` reconstruit au chapitre précédent.
+
+Dans une console, exécuter les commandes suivantes (pas besoin d'exécuter la commande `set path=...`)
+
+    cd C:\repo_git\pru-pra-prok
+    cd movies\example
+
+Suppression du fichier optimisé existant :
+
+    del example_avec_poisson_optim.xml
+
+Optimisation du fichier `example_avec_poisson.xml` :
+
+    xml_optimizer.exe example_avec_poisson.xml example_avec_poisson_optim.xml
+
+(Avast risque de protester un peu, comme d'habitude).
+
+Une nouvelle fenêtre DOS apparaît, indiquant : "Appuyez sur une touche pour continuer". Après l'avoir fait, la fenêtre se ferme automatiquement.
+
+Le fichier `example_avec_poisson_optim.xml` a été recréé.
+
+L'optimisation n'est pas tout à fait au point, il est nécessaire d'effectuer quelques actions manuelles.
+
+Ouvrir `example_avec_poisson_optim.xml` avec un éditeur de texte.
+
+ - Remplacer la chaîne `a<SPLASH>` par `<SPLASH>`. (Il faut enlever le "a")
+ - Remplacer la chaîne `<CompressedFile><Name>b</Name>` par `<CompressedFile><Name>data1.cul</Name>`
+
+Pour tester le fichier optimisé, effectuer les actions du chapitre "Moteur de dessin animé", puis exécuter la commande `splash.exe example_avec_poisson_optim.xml`. Vous devriez à nouveau voir le second dessin animé d'exemple.
