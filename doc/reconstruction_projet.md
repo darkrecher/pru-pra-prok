@@ -557,3 +557,9 @@ Ouvrir `example_avec_poisson_optim.xml` avec un éditeur de texte.
  - Remplacer la chaîne `<CompressedFile><Name>b</Name>` par `<CompressedFile><Name>data1.cul</Name>`
 
 Pour tester le fichier optimisé, effectuer les actions du chapitre "Moteur de dessin animé", puis exécuter la commande `splash.exe example_avec_poisson_optim.xml`. Vous devriez à nouveau voir le second dessin animé d'exemple.
+
+
+## Notes en vrac
+
+Notes prises durant la reconstruction du projet : [notes_en_vrac_reconstruction_projet.md](notes_en_vrac_reconstruction_projet.md)
+
