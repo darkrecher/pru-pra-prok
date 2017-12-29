@@ -2,13 +2,11 @@
 
 <SPLASH>
 
-
 <ProgressBarInfo>
 	<FileToExtract> 278 </FileToExtract>
-	<ImgListToCreate> 78 </ImgListToCreate>  
-	<ProcedureToCreate> 120 </ProcedureToCreate> 
+	<ImgListToCreate> 78 </ImgListToCreate>
+	<ProcedureToCreate> 120 </ProcedureToCreate>
 </ProgressBarInfo>
-
 
 <ImgSoundFiles>
 
@@ -62,8 +60,6 @@
 		<LoadImg>Interrogation</LoadImg>
 		<LoadImg>AlienAndJerry</LoadImg>
 		<LoadImg>AlienTombe</LoadImg>
-<!-- ça il faut l'enlever, car déplacé dans d_img0.cul -->
-<!--		<LoadImg>HopPsyOmbre</LoadImg> -->
 		<LoadImg>DecorHopPsyDevant</LoadImg>
 		<LoadImg>DecorCimetiereTombe</LoadImg>
 		<LoadImg>DecorCimetiereExt</LoadImg>
@@ -101,7 +97,6 @@
 		<LoadImg>HopPsyDocteurTete</LoadImg>
 		<LoadImg>HopPsySeringue</LoadImg>
 		<LoadImg>HopPsyTexte</LoadImg>
-<!-- ça je l'avais oublié au début, alors je le met ici dans film1 -->
 		<LoadImg>HopPsyOmbre</LoadImg>
 		<LoadImg>HopPsyTache</LoadImg>
 		<LoadImg>CristiansenTete</LoadImg>
@@ -226,15 +221,7 @@
 		<LoadSnd>Alien002_HRK</LoadSnd>
 		<LoadSnd>Jerry012_HAAA</LoadSnd>
 		<LoadSnd>Jerry013_HAAA</LoadSnd>
-<!-- ça c'est maintenant placé dans sons0.cul (les trois fichiers suivants) -->
-<!--
-		<LoadSnd>Seringue001_Schlaschlak</LoadSnd>
-		<LoadSnd>Seringue002_pan</LoadSnd>
-		<LoadSnd>Seringue003_fft</LoadSnd>
--->
 		<LoadSnd>Alien003_Arg</LoadSnd>
-<!-- ça c'est maintenant placé dans sons0.cul -->
-<!--		<LoadSnd>Alien004_Boum</LoadSnd> -->
 		<LoadSnd>Jerry014_MarcherADroite</LoadSnd>
 		<LoadSnd>Alttab017_asile</LoadSnd>
 		<LoadSnd>Alttab018_reserveorg</LoadSnd>
@@ -280,8 +267,6 @@
 	<CompressedFile> <Name> d_son5.cul </Name>
 		<LoadSnd>mimoore012_kestion</LoadSnd>
 		<LoadSnd>mimoore013_qui</LoadSnd>
-<!-- ça c'est maintenant placé dans sons0.cul -->
-<!--		<LoadSnd>Alttab019_hhnnggrrr</LoadSnd>  -->
 		<LoadSnd>PierreTombaleTombe</LoadSnd>
 		<LoadSnd>Cole029_papier</LoadSnd>
 		<LoadSnd>Cole030_endroit</LoadSnd>
@@ -309,19 +294,17 @@
 		<LoadSnd>whip2</LoadSnd>
 	</CompressedFile>
 
-<!-- ça, ça va aller dans le fichier sons0.cul -->
-	<CompressedFile> <Name> d_son0.cul </Name> 
+	<CompressedFile> <Name> d_son0.cul </Name>
 		<LoadSnd>Alttab019_hhnnggrrr</LoadSnd>
 		<LoadSnd>Alien004_Boum</LoadSnd>
 		<LoadSnd>LaTeteFaitPokSurLeCiment</LoadSnd>
 		<LoadSnd>Seringue001_Schlaschlak</LoadSnd>
 		<LoadSnd>Seringue002_pan</LoadSnd>
 		<LoadSnd>Seringue003_fft</LoadSnd>
-		<LoadSnd>Vieux_001</LoadSnd> 
-		<LoadSnd>Vieux_003</LoadSnd> 
-		<LoadSnd>Vieux_004</LoadSnd> 
+		<LoadSnd>Vieux_001</LoadSnd>
+		<LoadSnd>Vieux_003</LoadSnd>
+		<LoadSnd>Vieux_004</LoadSnd>
 	</CompressedFile>
-
 
 	<CompressedFile> <Name> d_img2.cul </Name>
 		<LoadImg>DecorBataille</LoadImg>
@@ -351,7 +334,7 @@
 		<LoadImg>DecorDivan</LoadImg>
 		<LoadImg>PsyChefCorps</LoadImg>
 		<LoadImg>PsyChefTete</LoadImg>
-		<LoadImg> DecorAlttabEntree </LoadImg>
+		<LoadImg>DecorAlttabEntree</LoadImg>
 		<LoadImg>VieilleTete</LoadImg>
 		<LoadImg>VieilleCorps</LoadImg>
 		<LoadImg>DecorAlttabChambre</LoadImg>
@@ -429,7 +412,6 @@
 		<LoadImg>EpilogEpilogue</LoadImg>
 	</CompressedFile>
 
-
 	<CompressedFile> <Name> d_son6.cul </Name>
 		<LoadSnd>mimoore014_confront</LoadSnd>
 		<LoadSnd>mimoore015_filmer</LoadSnd>
@@ -452,8 +434,6 @@
 		<LoadSnd>BOUM</LoadSnd>
 		<LoadSnd>tatatata_pasfort</LoadSnd>
 		<LoadSnd>pan_pasfort</LoadSnd>
-	<!-- sera déplacé dans sons0.cul -->
-<!--		<LoadSnd>LaTeteFaitPokSurLeCiment</LoadSnd> -->
 		<LoadSnd>VitreCasse</LoadSnd>
 		<LoadSnd>Roastyyy</LoadSnd>
 		<LoadSnd>pwiing</LoadSnd>
@@ -559,11 +539,7 @@
 		<LoadSnd>VoitureBoum</LoadSnd>
 		<LoadSnd>Psy025_compte</LoadSnd>
 		<LoadSnd>whip</LoadSnd>
-<!-- les fichiers vieux 001, 003 et 004 sont mis dans sons0.cul -->
-<!--		<LoadSnd>Vieux_001</LoadSnd> -->
 		<LoadSnd>Vieux_002</LoadSnd>
-<!--		<LoadSnd>Vieux_003</LoadSnd> -->
-<!--		<LoadSnd>Vieux_004</LoadSnd> -->
 		<LoadSnd>Alttab041_bougezpas</LoadSnd>
 	</CompressedFile>
 
@@ -610,14 +586,6 @@
 		<LoadSnd>ting</LoadSnd>
 	</CompressedFile>
 
-
 </ImgSoundFiles>
 
-<LoadData>
-
-<Film>
-
-</Film>
-
 </SPLASH>
-
