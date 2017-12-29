@@ -1,0 +1,623 @@
+<? paye ta chatte ?>
+
+<SPLASH>
+
+
+<ProgressBarInfo>
+	<FileToExtract> 278 </FileToExtract>
+	<ImgListToCreate> 78 </ImgListToCreate>  
+	<ProcedureToCreate> 120 </ProcedureToCreate> 
+</ProgressBarInfo>
+
+
+<ImgSoundFiles>
+
+	<CompressedFile> <Name> d_img1.cul </Name>
+		<LoadImg>DecorPharmaBar</LoadImg>
+		<LoadImg>MaryTete</LoadImg>
+		<LoadImg>MaryCorps</LoadImg>
+		<LoadImg>DecorMaryRobin</LoadImg>
+		<LoadImg>MaryDentofresh</LoadImg>
+		<LoadImg>PharmaciePorte</LoadImg>
+		<LoadImg>ClydeCorpsTete</LoadImg>
+		<LoadImg>DecorPharmacie</LoadImg>
+		<LoadImg>NeonVertEteint</LoadImg>
+		<LoadImg>DecorBar</LoadImg>
+		<LoadImg>Robinet</LoadImg>
+		<LoadImg>BarwomanTete</LoadImg>
+		<LoadImg>BarwomanCorps</LoadImg>
+		<LoadImg>Biere</LoadImg>
+		<LoadImg>DecorBar2</LoadImg>
+		<LoadImg>BarMobilier</LoadImg>
+		<LoadImg>BarTableGrosPlan</LoadImg>
+		<LoadImg>BarEcranTele</LoadImg>
+		<LoadImg>JetageBiere</LoadImg>
+		<LoadImg>JerryVoiturePorte</LoadImg>
+		<LoadImg>JerryVoiture</LoadImg>
+		<LoadImg>ChauffeurCorps</LoadImg>
+		<LoadImg>ChauffeurTete</LoadImg>
+		<LoadImg>TeleGrosPlan</LoadImg>
+		<LoadImg>TeleGrosPlan2</LoadImg>
+		<LoadImg>TeleImgFond</LoadImg>
+		<LoadImg>TeleOctoFiontosaure</LoadImg>
+		<LoadImg>TeleReporteuseCorps</LoadImg>
+		<LoadImg>TeleReporteuseTete</LoadImg>
+		<LoadImg>VergGrott</LoadImg>
+		<LoadImg>TeleGrosPlan3</LoadImg>
+		<LoadImg>TeleAnomalies</LoadImg>
+		<LoadImg>TeleTexte</LoadImg>
+		<LoadImg>DessinPoupeeOtage</LoadImg>
+		<LoadImg>DessinFuite</LoadImg>
+		<LoadImg>DessinSchizy</LoadImg>
+		<LoadImg>DessinLigote</LoadImg>
+		<LoadImg>DecorHopPsyExterieur</LoadImg>
+		<LoadImg>DecorHopPsyEntree</LoadImg>
+		<LoadImg>HopPsyAccueil</LoadImg>
+		<LoadImg>HopPsyNanaCorps</LoadImg>
+		<LoadImg>HopPsyNanaTete</LoadImg>
+		<LoadImg>AlienBras</LoadImg>
+		<LoadImg>AlienCorps</LoadImg>
+		<LoadImg>AlienTete</LoadImg>
+		<LoadImg>AlienLangue</LoadImg>
+		<LoadImg>Interrogation</LoadImg>
+		<LoadImg>AlienAndJerry</LoadImg>
+		<LoadImg>AlienTombe</LoadImg>
+<!-- ça il faut l'enlever, car déplacé dans d_img0.cul -->
+<!--		<LoadImg>HopPsyOmbre</LoadImg> -->
+		<LoadImg>DecorHopPsyDevant</LoadImg>
+		<LoadImg>DecorCimetiereTombe</LoadImg>
+		<LoadImg>DecorCimetiereExt</LoadImg>
+		<LoadImg>CimetiereTombe</LoadImg>
+		<LoadImg>CimetiereCacheTombe</LoadImg>
+		<LoadImg>CimetierePapier</LoadImg>
+		<LoadImg>GrosPlanPlan</LoadImg>
+		<LoadImg>GrandPere</LoadImg>
+		<LoadImg>DecorCimetiereGrandPere</LoadImg>
+		<LoadImg>Titre</LoadImg>
+		<LoadImg>Textes</LoadImg>
+		<LoadImg>HopPsyCacheTete</LoadImg>
+	</CompressedFile>
+
+	<CompressedFile> <Name> d_img0.cul </Name>
+		<LoadImg>Bouche</LoadImg>
+		<LoadImg>RobinTete</LoadImg>
+		<LoadImg>Yeux</LoadImg>
+		<LoadImg>RobinCorps</LoadImg>
+		<LoadImg>RobinAvecPortable</LoadImg>
+		<LoadImg>Portable</LoadImg>
+		<LoadImg>AlttabCorps</LoadImg>
+		<LoadImg>AlttabTete</LoadImg>
+		<LoadImg>ColeCorps</LoadImg>
+		<LoadImg>ColeTete</LoadImg>
+		<LoadImg>JerryCorps</LoadImg>
+		<LoadImg>JerryTete</LoadImg>
+		<LoadImg>JerryBras</LoadImg>
+		<LoadImg>Cameraman</LoadImg>
+		<LoadImg>MooreCorps</LoadImg>
+		<LoadImg>MooreTete</LoadImg>
+		<LoadImg>HopPsyPrison</LoadImg>
+		<LoadImg>HopPsyGrille</LoadImg>
+		<LoadImg>HopPsyDocteurCorps</LoadImg>
+		<LoadImg>HopPsyDocteurTete</LoadImg>
+		<LoadImg>HopPsySeringue</LoadImg>
+		<LoadImg>HopPsyTexte</LoadImg>
+<!-- ça je l'avais oublié au début, alors je le met ici dans film1 -->
+		<LoadImg>HopPsyOmbre</LoadImg>
+		<LoadImg>HopPsyTache</LoadImg>
+		<LoadImg>CristiansenTete</LoadImg>
+		<LoadImg>CristiansenCorps</LoadImg>
+		<LoadImg>PoupeeGonflab</LoadImg>
+	</CompressedFile>
+
+	<CompressedFile> <Name> d_son1.cul </Name>
+		<LoadSnd>Mary002_dent</LoadSnd>
+		<LoadSnd>Robin001_potes</LoadSnd>
+		<LoadSnd>Mary000_robinou</LoadSnd>
+		<LoadSnd>Mary001_daccord</LoadSnd>
+		<LoadSnd>Robin002_whatisit</LoadSnd>
+		<LoadSnd>Robin003_ahdaccord</LoadSnd>
+		<LoadSnd>Robin004_dentofresh</LoadSnd>
+		<LoadSnd>Clyde001_200dolls</LoadSnd>
+		<LoadSnd>Robin005_aceprix</LoadSnd>
+		<LoadSnd>Clyde002_yeah_debut</LoadSnd>
+		<LoadSnd>Clyde002_yeah_suite</LoadSnd>
+		<LoadSnd>Bip</LoadSnd>
+		<LoadSnd>Sonnerie</LoadSnd>
+		<LoadSnd>Robin006_UneBiere</LoadSnd>
+		<LoadSnd>BierePression</LoadSnd>
+		<LoadSnd>PoserBiere</LoadSnd>
+		<LoadSnd>Barwoman</LoadSnd>
+		<LoadSnd>Robin007_merci</LoadSnd>
+		<LoadSnd>Robin008_salut</LoadSnd>
+		<LoadSnd>Robin009_ouais</LoadSnd>
+		<LoadSnd>Alttab001_mary</LoadSnd>
+		<LoadSnd>Alttab002_vagin</LoadSnd>
+		<LoadSnd>Robin010_tamere</LoadSnd>
+		<LoadSnd>Alttab003_salope</LoadSnd>
+		<LoadSnd>Alttab004_sainte</LoadSnd>
+		<LoadSnd>Alttab005_vischezelle</LoadSnd>
+		<LoadSnd>Alttab006_alzeimer</LoadSnd>
+		<LoadSnd>Robin011_evident</LoadSnd>
+	</CompressedFile>
+
+	<CompressedFile> <Name> d_son2.cul </Name>
+		<LoadSnd>Robin012_Jerryvient</LoadSnd>
+		<LoadSnd>Cole001_retard</LoadSnd>
+		<LoadSnd>ColeAlttab_salutJerry</LoadSnd>
+		<LoadSnd>Jerry001_mphmph</LoadSnd>
+		<LoadSnd>Robin013_chewinggum</LoadSnd>
+		<LoadSnd>Jerry002_rrhkptu</LoadSnd>
+		<LoadSnd>Jerry003_escusezmoi</LoadSnd>
+		<LoadSnd>Alttab007_pauvre</LoadSnd>
+		<LoadSnd>Alttab008_vendufoie</LoadSnd>
+		<LoadSnd>Alttab009_hahaha</LoadSnd>
+		<LoadSnd>Jerry004_invente</LoadSnd>
+		<LoadSnd>Jerry005_hahaha</LoadSnd>
+		<LoadSnd>Robin014_efficace</LoadSnd>
+		<LoadSnd>Robin015_oketcole</LoadSnd>
+		<LoadSnd>Cole002_saviez</LoadSnd>
+		<LoadSnd>Cole003_parentmort</LoadSnd>
+		<LoadSnd>Jerry006_ahouais</LoadSnd>
+		<LoadSnd>Jerry007_acausede</LoadSnd>
+		<LoadSnd>Cole004_acausede</LoadSnd>
+		<LoadSnd>Cole005_evenement</LoadSnd>
+		<LoadSnd>Jerry008_etla</LoadSnd>
+		<LoadSnd>Cole006_tshirt</LoadSnd>
+		<LoadSnd>Cole007_vousvoyez</LoadSnd>
+		<LoadSnd>Cole008_ilmoffre</LoadSnd>
+		<LoadSnd>Cole009_embaucher</LoadSnd>
+		<LoadSnd>Robin016_tele</LoadSnd>
+		<LoadSnd>Robin017_cadavre</LoadSnd>
+		<LoadSnd>whouuww</LoadSnd>
+		<LoadSnd>polish_splash</LoadSnd>
+		<LoadSnd>Cole010_boulain</LoadSnd>
+		<LoadSnd>Cole011_collection</LoadSnd>
+		<LoadSnd>Robin018_merealttab</LoadSnd>
+		<LoadSnd>Cole012_confisqued</LoadSnd>
+		<LoadSnd>Jerry009_branler</LoadSnd>
+		<LoadSnd>Cole013_levoir</LoadSnd>
+		<LoadSnd>Cole014_rendre</LoadSnd>
+		<LoadSnd>Alttab010_pourquoipas</LoadSnd>
+		<LoadSnd>Robin019_homophobe</LoadSnd>
+		<LoadSnd>Robin020_respecter</LoadSnd>
+	</CompressedFile>
+
+	<CompressedFile> <Name> d_son3.cul </Name>
+		<LoadSnd>Cole015_instit</LoadSnd>
+		<LoadSnd>Alttab011_smullyan</LoadSnd>
+		<LoadSnd>Alttab012_huitans</LoadSnd>
+		<LoadSnd>Alttab013_sepulture</LoadSnd>
+		<LoadSnd>Cole016_allonlvoir</LoadSnd>
+		<LoadSnd>FermePorte</LoadSnd>
+		<LoadSnd>TelePres001_violeur</LoadSnd>
+		<LoadSnd>TelePres002_savoirplus</LoadSnd>
+		<LoadSnd>TelePres003_ossements</LoadSnd>
+		<LoadSnd>TelePres004_anus</LoadSnd>
+		<LoadSnd>TelePres005_reporter</LoadSnd>
+		<LoadSnd>TeleRep001_modelis</LoadSnd>
+		<LoadSnd>TeleRep002_diplodo</LoadSnd>
+		<LoadSnd>TeleRep003_anomalies</LoadSnd>
+		<LoadSnd>TeleRep004_boulain</LoadSnd>
+		<LoadSnd>AlttabHist001_poupees</LoadSnd>
+		<LoadSnd>AlttabHist002_schizy</LoadSnd>
+		<LoadSnd>AlttabHist003_senfuir</LoadSnd>
+		<LoadSnd>AlttabHist004_balle</LoadSnd>
+		<LoadSnd>AlttabHist005_dingue</LoadSnd>
+		<LoadSnd>AlttabHist006_battu</LoadSnd>
+		<LoadSnd>AlttabHist007_termine</LoadSnd>
+		<LoadSnd>AlttabHist008_ligote</LoadSnd>
+		<LoadSnd>AlttabHist009_smullyan</LoadSnd>
+		<LoadSnd>AlttabHist010_remis</LoadSnd>
+		<LoadSnd>Cole017_terrorist</LoadSnd>
+		<LoadSnd>Cole018_bizarre</LoadSnd>
+		<LoadSnd>Cole019_psypolice</LoadSnd>
+		<LoadSnd>Alttab014_grosnichons</LoadSnd>
+		<LoadSnd>Alttab015_branle</LoadSnd>
+		<LoadSnd>Alttab016_boulot</LoadSnd>
+		<LoadSnd>Robin021_mikemoore</LoadSnd>
+		<LoadSnd>Robin022_pourquoi</LoadSnd>
+		<LoadSnd>Mimoore001_verite</LoadSnd>
+		<LoadSnd>Mimoore002_prez</LoadSnd>
+	</CompressedFile>
+
+	<CompressedFile> <Name> d_son4.cul </Name>
+		<LoadSnd>Jerry011_HAAA</LoadSnd>
+		<LoadSnd>Alien001_HHHHAAA</LoadSnd>
+		<LoadSnd>Alien002_HRK</LoadSnd>
+		<LoadSnd>Jerry012_HAAA</LoadSnd>
+		<LoadSnd>Jerry013_HAAA</LoadSnd>
+<!-- ça c'est maintenant placé dans sons0.cul (les trois fichiers suivants) -->
+<!--
+		<LoadSnd>Seringue001_Schlaschlak</LoadSnd>
+		<LoadSnd>Seringue002_pan</LoadSnd>
+		<LoadSnd>Seringue003_fft</LoadSnd>
+-->
+		<LoadSnd>Alien003_Arg</LoadSnd>
+<!-- ça c'est maintenant placé dans sons0.cul -->
+<!--		<LoadSnd>Alien004_Boum</LoadSnd> -->
+		<LoadSnd>Jerry014_MarcherADroite</LoadSnd>
+		<LoadSnd>Alttab017_asile</LoadSnd>
+		<LoadSnd>Alttab018_reserveorg</LoadSnd>
+		<LoadSnd>Cole021_hopitalproduits</LoadSnd>
+		<LoadSnd>Cole022_jtemmerdealtab</LoadSnd>
+		<LoadSnd>Robin024_drogued</LoadSnd>
+		<LoadSnd>Robin025_voilacellule</LoadSnd>
+		<LoadSnd>Cole023_ouais</LoadSnd>
+		<LoadSnd>Cole024_images</LoadSnd>
+		<LoadSnd>Cole025_cekoi</LoadSnd>
+		<LoadSnd>Cole026_perduSchizy</LoadSnd>
+		<LoadSnd>Cole027_leretrouver</LoadSnd>
+		<LoadSnd>Cole028_cimetiere</LoadSnd>
+		<LoadSnd>Cris001_devoirs</LoadSnd>
+		<LoadSnd>Cris002_rende</LoadSnd>
+		<LoadSnd>Cris003_plusbesoin</LoadSnd>
+		<LoadSnd>Cris004_occuper</LoadSnd>
+		<LoadSnd>Cris005_service</LoadSnd>
+		<LoadSnd>Cris006_ramenez</LoadSnd>
+		<LoadSnd>Cris007_vide</LoadSnd>
+		<LoadSnd>Cris008_mort</LoadSnd>
+		<LoadSnd>Cris009_lieusur</LoadSnd>
+		<LoadSnd>Cris010_tombe</LoadSnd>
+		<LoadSnd>Cris011_indice</LoadSnd>
+		<LoadSnd>Cris012_ramenez</LoadSnd>
+		<LoadSnd>Jerry010_lesputes</LoadSnd>
+		<LoadSnd>Robin023_patrons</LoadSnd>
+		<LoadSnd>Mimoore003_pasdutout</LoadSnd>
+		<LoadSnd>Mimoore004_psykiatr</LoadSnd>
+		<LoadSnd>Mimoore005_insecu</LoadSnd>
+		<LoadSnd>Mimoore006_lobby</LoadSnd>
+		<LoadSnd>Mimoore007_peur</LoadSnd>
+		<LoadSnd>Mimoore008_manipuler</LoadSnd>
+		<LoadSnd>Mimoore009_therapie</LoadSnd>
+		<LoadSnd>Mimoore010_bizarre</LoadSnd>
+		<LoadSnd>Mimoore011_kelkun</LoadSnd>
+		<LoadSnd>Cole020_voirchri</LoadSnd>
+		<LoadSnd>HopPsyNana001_couloir</LoadSnd>
+		<LoadSnd>HopPsyNana002_gauche</LoadSnd>
+		<LoadSnd>HopPsyNana003_droite</LoadSnd>
+	</CompressedFile>
+
+	<CompressedFile> <Name> d_son5.cul </Name>
+		<LoadSnd>mimoore012_kestion</LoadSnd>
+		<LoadSnd>mimoore013_qui</LoadSnd>
+<!-- ça c'est maintenant placé dans sons0.cul -->
+<!--		<LoadSnd>Alttab019_hhnnggrrr</LoadSnd>  -->
+		<LoadSnd>PierreTombaleTombe</LoadSnd>
+		<LoadSnd>Cole029_papier</LoadSnd>
+		<LoadSnd>Cole030_endroit</LoadSnd>
+		<LoadSnd>Robin026_grandpere</LoadSnd>
+		<LoadSnd>Robin027_faisici</LoadSnd>
+		<LoadSnd>GranPere001_visite</LoadSnd>
+		<LoadSnd>GranPere002_etvous</LoadSnd>
+		<LoadSnd>GranPere003_profaner</LoadSnd>
+		<LoadSnd>Robin028_cadavre</LoadSnd>
+		<LoadSnd>GranPere004_tresbien</LoadSnd>
+		<LoadSnd>GranPere005_moinonplus</LoadSnd>
+		<LoadSnd>GranPere006_corps</LoadSnd>
+		<LoadSnd>GranPere007_etpuis</LoadSnd>
+		<LoadSnd>GranPere008_necroph</LoadSnd>
+		<LoadSnd>GranPere009_moorts</LoadSnd>
+		<LoadSnd>Cole031_lelieu</LoadSnd>
+		<LoadSnd>GranPere010_haaoui</LoadSnd>
+		<LoadSnd>GranPere011_parc</LoadSnd>
+		<LoadSnd>GranPere012_pourrezpas</LoadSnd>
+		<LoadSnd>GranPere013_70ans</LoadSnd>
+		<LoadSnd>GranPere014_plustard</LoadSnd>
+		<LoadSnd>Vieux_101</LoadSnd>
+		<LoadSnd>Vieux_102</LoadSnd>
+		<LoadSnd>Vieux_103</LoadSnd>
+		<LoadSnd>whip2</LoadSnd>
+	</CompressedFile>
+
+<!-- ça, ça va aller dans le fichier sons0.cul -->
+	<CompressedFile> <Name> d_son0.cul </Name> 
+		<LoadSnd>Alttab019_hhnnggrrr</LoadSnd>
+		<LoadSnd>Alien004_Boum</LoadSnd>
+		<LoadSnd>LaTeteFaitPokSurLeCiment</LoadSnd>
+		<LoadSnd>Seringue001_Schlaschlak</LoadSnd>
+		<LoadSnd>Seringue002_pan</LoadSnd>
+		<LoadSnd>Seringue003_fft</LoadSnd>
+		<LoadSnd>Vieux_001</LoadSnd> 
+		<LoadSnd>Vieux_003</LoadSnd> 
+		<LoadSnd>Vieux_004</LoadSnd> 
+	</CompressedFile>
+
+
+	<CompressedFile> <Name> d_img2.cul </Name>
+		<LoadImg>DecorBataille</LoadImg>
+		<LoadImg>BatailleFeu</LoadImg>
+		<LoadImg>BataillePolCorps</LoadImg>
+		<LoadImg>BataillePolTete</LoadImg>
+		<LoadImg>BataillePsyCorps</LoadImg>
+		<LoadImg>BataillePsyTete</LoadImg>
+		<LoadImg>BatailleSang</LoadImg>
+		<LoadImg>BatailleHelico</LoadImg>
+		<LoadImg>BataillePolVoiture</LoadImg>
+		<LoadImg>BataillePolVoitureSup</LoadImg>
+		<LoadImg>BataillePsyMitrailleur</LoadImg>
+		<LoadImg>BatailleGensFond</LoadImg>
+		<LoadImg>VitreCommeLeDistributeur</LoadImg>
+		<LoadImg>CacheSang</LoadImg>
+		<LoadImg>Roastyyy</LoadImg>
+		<LoadImg>BalleDeFlingue</LoadImg>
+		<LoadImg>BataillePsyGrosPlan</LoadImg>
+		<LoadImg>Mysterious</LoadImg>
+		<LoadImg>BatailleDecapite</LoadImg>
+		<LoadImg>BatailleBoum</LoadImg>
+		<LoadImg>BatailleDukePol</LoadImg>
+		<LoadImg>DecorSoleil</LoadImg>
+		<LoadImg>Soleil</LoadImg>
+		<LoadImg>MooreCorps2</LoadImg>
+		<LoadImg>DecorDivan</LoadImg>
+		<LoadImg>PsyChefCorps</LoadImg>
+		<LoadImg>PsyChefTete</LoadImg>
+		<LoadImg> DecorAlttabEntree </LoadImg>
+		<LoadImg>VieilleTete</LoadImg>
+		<LoadImg>VieilleCorps</LoadImg>
+		<LoadImg>DecorAlttabChambre</LoadImg>
+		<LoadImg>AlttabBiblio</LoadImg>
+		<LoadImg>AlttabLivre</LoadImg>
+		<LoadImg>AlttabPeluche</LoadImg>
+		<LoadImg>AlttabLunettes</LoadImg>
+		<LoadImg>AlttabCorpsSup</LoadImg>
+		<LoadImg>PsyReunionNerv_1</LoadImg>
+		<LoadImg>PsyReunionNerv_2</LoadImg>
+		<LoadImg>PsyReunionCalme</LoadImg>
+		<LoadImg>DecorPsyReunionChef</LoadImg>
+		<LoadImg>AlttabNoir</LoadImg>
+		<LoadImg>AlttabNoirSup</LoadImg>
+		<LoadImg>AlttabLunettes2</LoadImg>
+		<LoadImg>DecorGerAccueil</LoadImg>
+		<LoadImg>GerPetitTrucs</LoadImg>
+		<LoadImg>GerEntreeFumee</LoadImg>
+		<LoadImg>GerGrille</LoadImg>
+		<LoadImg>GerBalleDeFlingue</LoadImg>
+		<LoadImg>GerAlarme</LoadImg>
+		<LoadImg>AlarmeRouge</LoadImg>
+		<LoadImg>DecorPolice</LoadImg>
+		<LoadImg>PolTeteFace</LoadImg>
+		<LoadImg>DecorPoliceSortie</LoadImg>
+		<LoadImg>PoliceGyro</LoadImg>
+		<LoadImg>AnotherWorld</LoadImg>
+		<LoadImg>GerCorps4Pattes</LoadImg>
+		<LoadImg>GerCorpsTombe</LoadImg>
+		<LoadImg>GerOuf</LoadImg>
+		<LoadImg>GerVapeur</LoadImg>
+		<LoadImg>StupidBlackSquare</LoadImg>
+		<LoadImg>ScrollPolice_Vert</LoadImg>
+		<LoadImg>ScrollPolice_Rouge</LoadImg>
+		<LoadImg>ScrollPolice_Mur</LoadImg>
+		<LoadImg>ScrollPolice_Bleu</LoadImg>
+		<LoadImg>PsyCorpsSup</LoadImg>
+		<LoadImg>PsyTeteSup</LoadImg>
+		<LoadImg>DecorPsyDansLaRue</LoadImg>
+		<LoadImg>GerVieux</LoadImg>
+		<LoadImg>DecorGerSchizy</LoadImg>
+		<LoadImg>GerVieuxBras</LoadImg>
+		<LoadImg>YeuxBoucheSup</LoadImg>
+		<LoadImg>GerVieille</LoadImg>
+		<LoadImg>GerVieilleBras</LoadImg>
+		<LoadImg>GerRonnie</LoadImg>
+		<LoadImg>SchizySup</LoadImg>
+		<LoadImg>ColeCorpsSup</LoadImg>
+		<LoadImg>StupidGraySquare</LoadImg>
+		<LoadImg>CristiansenCorpsSup</LoadImg>
+		<LoadImg>HopPsyGrilleTordue</LoadImg>
+		<LoadImg>CristiansenTeteSup</LoadImg>
+		<LoadImg>CristiansenMains</LoadImg>
+		<LoadImg>HopPsyBordel</LoadImg>
+		<LoadImg>HopPsyDocteurCorpsSup</LoadImg>
+		<LoadImg>HopPsyDocteurTeteSup</LoadImg>
+		<LoadImg>StupidSourcilator</LoadImg>
+		<LoadImg>DecorPoupee</LoadImg>
+		<LoadImg>EpilogBlessure</LoadImg>
+		<LoadImg>EpilogMain</LoadImg>
+		<LoadImg>EpilogSlorg</LoadImg>
+		<LoadImg>EpilogCouteau</LoadImg>
+		<LoadImg>EpilogChaises</LoadImg>
+		<LoadImg>DecorPoupee2</LoadImg>
+		<LoadImg>ColeMainALarrache</LoadImg>
+		<LoadImg>ColeBras</LoadImg>
+		<LoadImg>EpilogStupid</LoadImg>
+		<LoadImg>EpilogLogo</LoadImg>
+		<LoadImg>EpilogTexteCpLeft</LoadImg>
+		<LoadImg>EpilogTexteMerci</LoadImg>
+		<LoadImg>EpilogTexteRecher</LoadImg>
+		<LoadImg>EpilogCartes</LoadImg>
+		<LoadImg>DecorCartes</LoadImg>
+		<LoadImg>EpilogLogoFinal</LoadImg>
+		<LoadImg>EpilogEpilogue</LoadImg>
+	</CompressedFile>
+
+
+	<CompressedFile> <Name> d_son6.cul </Name>
+		<LoadSnd>mimoore014_confront</LoadSnd>
+		<LoadSnd>mimoore015_filmer</LoadSnd>
+		<LoadSnd>Robin028_entretuent</LoadSnd>
+		<LoadSnd>Robin029_tele</LoadSnd>
+		<LoadSnd>Robin030_personne</LoadSnd>
+		<LoadSnd>mimoore016_irak</LoadSnd>
+		<LoadSnd>mimoore017_pleurent</LoadSnd>
+		<LoadSnd>mimoore018_gens</LoadSnd>
+		<LoadSnd>Robin031_savoir</LoadSnd>
+		<LoadSnd>mimoore019_truc</LoadSnd>
+		<LoadSnd>mimoore020_bonne</LoadSnd>
+		<LoadSnd>mimoore021_blessures</LoadSnd>
+		<LoadSnd>pan_1</LoadSnd>
+		<LoadSnd>pan_2</LoadSnd>
+		<LoadSnd>Bataille_HAAA1</LoadSnd>
+		<LoadSnd>tatatata</LoadSnd>
+		<LoadSnd>Bataille_hrrrgggkkk</LoadSnd>
+		<LoadSnd>crash</LoadSnd>
+		<LoadSnd>BOUM</LoadSnd>
+		<LoadSnd>tatatata_pasfort</LoadSnd>
+		<LoadSnd>pan_pasfort</LoadSnd>
+	<!-- sera déplacé dans sons0.cul -->
+<!--		<LoadSnd>LaTeteFaitPokSurLeCiment</LoadSnd> -->
+		<LoadSnd>VitreCasse</LoadSnd>
+		<LoadSnd>Roastyyy</LoadSnd>
+		<LoadSnd>pwiing</LoadSnd>
+		<LoadSnd>gruuuiiik</LoadSnd>
+		<LoadSnd>Psy001_monsieur</LoadSnd>
+		<LoadSnd>Psy002_expose</LoadSnd>
+		<LoadSnd>Psy003_eprouviez</LoadSnd>
+		<LoadSnd>Psy004_peur</LoadSnd>
+		<LoadSnd>Psy005_fierte</LoadSnd>
+		<LoadSnd>Psy006_souffert</LoadSnd>
+		<LoadSnd>Psy007_syndrome</LoadSnd>
+		<LoadSnd>mimoore022_probleme</LoadSnd>
+		<LoadSnd>mimoore023_oedipe</LoadSnd>
+		<LoadSnd>mimoore024_voyage</LoadSnd>
+		<LoadSnd>mimoore025_mere</LoadSnd>
+		<LoadSnd>mimoore026_amour</LoadSnd>
+		<LoadSnd>mimoore027_9mois</LoadSnd>
+		<LoadSnd>Psy008_rire</LoadSnd>
+		<LoadSnd>Psy009_donc</LoadSnd>
+		<LoadSnd>Psy010_voyage</LoadSnd>
+		<LoadSnd>Psy011_enceinte</LoadSnd>
+		<LoadSnd>Psy012_accouche</LoadSnd>
+		<LoadSnd>Psy013_rires2</LoadSnd>
+		<LoadSnd>Psy014_dites</LoadSnd>
+		<LoadSnd>mimoore028_plaisante</LoadSnd>
+		<LoadSnd>mimoore029_bien</LoadSnd>
+		<LoadSnd>mimoore030_contrav</LoadSnd>
+		<LoadSnd>mimoore031_avertir</LoadSnd>
+		<LoadSnd>mimoore032_aurevoir</LoadSnd>
+		<LoadSnd>Psy015_contravention</LoadSnd>
+		<LoadSnd>Psy016_policiers</LoadSnd>
+		<LoadSnd>Psy017_bordel</LoadSnd>
+		<LoadSnd>Cole032_allerparc</LoadSnd>
+		<LoadSnd>Alttab020_infiltrer</LoadSnd>
+		<LoadSnd>Alttab021_agentsecret</LoadSnd>
+		<LoadSnd>Alttab022_venezchezmoi</LoadSnd>
+		<LoadSnd>Alttab023_alzheimer</LoadSnd>
+		<LoadSnd>Alttab024_satete</LoadSnd>
+		<LoadSnd>Alttab025_coucou</LoadSnd>
+		<LoadSnd>Alttab026_amis</LoadSnd>
+	</CompressedFile>
+
+	<CompressedFile> <Name> d_son7.cul </Name>
+		<LoadSnd>Mere001_cochon_huileux</LoadSnd>
+		<LoadSnd>Mere002_rienfoutu</LoadSnd>
+		<LoadSnd>Mere003_avenir</LoadSnd>
+		<LoadSnd>Mere004_sers</LoadSnd>
+		<LoadSnd>Mere005_poidsmort</LoadSnd>
+		<LoadSnd>Mere006_charmant</LoadSnd>
+		<LoadSnd>Mere007_gateaux</LoadSnd>
+		<LoadSnd>Alttab027_choco</LoadSnd>
+		<LoadSnd>Mere008_aca</LoadSnd>
+		<LoadSnd>Mere009_otarie</LoadSnd>
+		<LoadSnd>Clac</LoadSnd>
+		<LoadSnd>Brm</LoadSnd>
+		<LoadSnd>Jerry015_armes</LoadSnd>
+		<LoadSnd>Alttab028_amendement</LoadSnd>
+		<LoadSnd>Cole033_euuuhh</LoadSnd>
+		<LoadSnd>Cole034_lumiere</LoadSnd>
+		<LoadSnd>Alttab029_futur</LoadSnd>
+		<LoadSnd>Alttab030_noir</LoadSnd>
+		<LoadSnd>Alttab031_voyez</LoadSnd>
+	</CompressedFile>
+
+	<CompressedFile> <Name> d_son8.cul </Name>
+		<LoadSnd>Psy018_reunis</LoadSnd>
+		<LoadSnd>Psy019_decisif</LoadSnd>
+		<LoadSnd>Psy020_PV</LoadSnd>
+		<LoadSnd>Psy021_independant</LoadSnd>
+		<LoadSnd>Psy022_population</LoadSnd>
+		<LoadSnd>Psy023_nnggrr</LoadSnd>
+		<LoadSnd>Psy024_vengeons</LoadSnd>
+		<LoadSnd>PsyHoo</LoadSnd>
+		<LoadSnd>PsyWaa</LoadSnd>
+		<LoadSnd>BamTable</LoadSnd>
+		<LoadSnd>mimoore033_interessant</LoadSnd>
+		<LoadSnd>ronflement</LoadSnd>
+		<LoadSnd>Alttab032_gardien</LoadSnd>
+		<LoadSnd>Schlaschlak</LoadSnd>
+		<LoadSnd>Cole035_silencieux</LoadSnd>
+		<LoadSnd>Alttab033_tagueule</LoadSnd>
+		<LoadSnd>pan_silencieux</LoadSnd>
+		<LoadSnd>Alttab035_chier</LoadSnd>
+		<LoadSnd>Alttab034_putain</LoadSnd>
+		<LoadSnd>Alttab036_bordel</LoadSnd>
+		<LoadSnd>Cole036_aeration</LoadSnd>
+		<LoadSnd>Alttab037_jefaiscomment</LoadSnd>
+		<LoadSnd>Alttab038_ahoui</LoadSnd>
+		<LoadSnd>Alttab039_HAAaa</LoadSnd>
+		<LoadSnd>AlttabBoum</LoadSnd>
+		<LoadSnd>TUUT</LoadSnd>
+		<LoadSnd>Police001_lavie</LoadSnd>
+		<LoadSnd>Police002_rien</LoadSnd>
+		<LoadSnd>Police_HAAAA_mix</LoadSnd>
+		<LoadSnd>SirenePolice</LoadSnd>
+		<LoadSnd>Cole037_ouais</LoadSnd>
+		<LoadSnd>Alttab040_aie</LoadSnd>
+		<LoadSnd>Jerry016_arg</LoadSnd>
+		<LoadSnd>pschh</LoadSnd>
+		<LoadSnd>Robin032_fesses</LoadSnd>
+		<LoadSnd>Robin033_jerry</LoadSnd>
+		<LoadSnd>voiture_frein_merde</LoadSnd>
+		<LoadSnd>VoitureBoum</LoadSnd>
+		<LoadSnd>Psy025_compte</LoadSnd>
+		<LoadSnd>whip</LoadSnd>
+<!-- les fichiers vieux 001, 003 et 004 sont mis dans sons0.cul -->
+<!--		<LoadSnd>Vieux_001</LoadSnd> -->
+		<LoadSnd>Vieux_002</LoadSnd>
+<!--		<LoadSnd>Vieux_003</LoadSnd> -->
+<!--		<LoadSnd>Vieux_004</LoadSnd> -->
+		<LoadSnd>Alttab041_bougezpas</LoadSnd>
+	</CompressedFile>
+
+	<CompressedFile> <Name> d_son9.cul </Name>
+		<LoadSnd>Cris013_merci</LoadSnd>
+		<LoadSnd>Cris014_joie</LoadSnd>
+		<LoadSnd>Cris015_retrouvailles</LoadSnd>
+		<LoadSnd>Cris016_calme</LoadSnd>
+		<LoadSnd>Cris017_chezmoi</LoadSnd>
+		<LoadSnd>Cris018_poupee</LoadSnd>
+		<LoadSnd>Cole038_poupee</LoadSnd>
+		<LoadSnd>Cris019_bleu</LoadSnd>
+		<LoadSnd>Cris020_facilement</LoadSnd>
+		<LoadSnd>Cris021_partir</LoadSnd>
+		<LoadSnd>Cris022_lalala</LoadSnd>
+		<LoadSnd>Cole039_foufou</LoadSnd>
+		<LoadSnd>Robin034_voilavoila</LoadSnd>
+		<LoadSnd>Cris022_enfants</LoadSnd>
+		<LoadSnd>Crispunch</LoadSnd>
+		<LoadSnd>Crisslap</LoadSnd>
+		<LoadSnd>swing</LoadSnd>
+		<LoadSnd>axe_throw</LoadSnd>
+		<LoadSnd>Genou</LoadSnd>
+		<LoadSnd>Alttab043_connard</LoadSnd>
+		<LoadSnd>Alttab042_cassetoi</LoadSnd>
+		<LoadSnd>Alttab015_branle</LoadSnd>
+		<LoadSnd>Cole040_mort</LoadSnd>
+		<LoadSnd>Cole041_clonage</LoadSnd>
+		<LoadSnd>Cole042_futur</LoadSnd>
+		<LoadSnd>Cole043_danger</LoadSnd>
+		<LoadSnd>Cole044_meteorite</LoadSnd>
+		<LoadSnd>Cole045_espoir</LoadSnd>
+		<LoadSnd>Cole046_etmerde</LoadSnd>
+		<LoadSnd>EpilogTchac</LoadSnd>
+		<LoadSnd>EpilogDechirage</LoadSnd>
+		<LoadSnd>EpilogFouillage1</LoadSnd>
+		<LoadSnd>EpilogFouillage2</LoadSnd>
+		<LoadSnd>EpilogFouillage3</LoadSnd>
+		<LoadSnd>Cole047_enfin</LoadSnd>
+		<LoadSnd>Cole048_regardez</LoadSnd>
+		<LoadSnd>Cole049_mouton</LoadSnd>
+		<LoadSnd>Cole050_mere</LoadSnd>
+		<LoadSnd>Cole051_cartes_mysteres</LoadSnd>
+		<LoadSnd>ting</LoadSnd>
+	</CompressedFile>
+
+
+</ImgSoundFiles>
+
+<LoadData>
+
+<Film>
+
+</Film>
+
+</SPLASH>
+
