@@ -487,7 +487,19 @@ Extraction des fichiers :
 
 (Avast risque de protester un peu, comme d'habitude).
 
-Une nouvelle fenêtre DOS apparaît, indiquant : "Appuyez sur une touche pour continuer". Après l'avoir fait, la fenêtre se ferme automatiquement.
+Log obtenu sur la sortie standard :
+
+    ajout du dossier FilmData
+    Extraction depuis le fichier : data1.cul
+         Extraction de Collines.png   taille : 2551   OK.
+         Extraction de Poisson.png   taille : 477   OK.
+         Extraction de Piaf.png   taille : 411   OK.
+         Extraction de Croa.wav   taille : 11832   OK.
+
+    Extraction correcte de tous les fichiers d'images et et de sons.
+    Ils sont dans le dossier FilmData
+
+    Appuyez sur une touche pour continuer...
 
 Un répertoire `FilmData` a été créé, contenant les fichiers images et sons qui ont été extraits de `data1.cul`.
 
@@ -545,7 +557,10 @@ Optimisation du fichier `example_avec_poisson.xml` :
 
 (Avast risque de protester un peu, comme d'habitude).
 
-Une nouvelle fenêtre DOS apparaît, indiquant : "Appuyez sur une touche pour continuer". Après l'avoir fait, la fenêtre se ferme automatiquement.
+Log obtenu sur la sortie standard :
+
+    Fin de la conversion. Fichier source OK.
+    Appuyez sur une touche pour continuer...
 
 Le fichier `example_avec_poisson_optim.xml` a été recréé.
 
