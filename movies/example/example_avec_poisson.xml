@@ -1,27 +1,15 @@
-<!-- ceci est un fichier d'exemple de film, le langage est du pseudo-XML crados.
-     Si vous avez envie de faire vos propres films, téléchargez Flash ou Shockwave,
-     et vous prenez pas la tête avec ma merde, parce que c'est vraiment pas pratique à utiliser.
-     J'vous aurais prévenus. En plus mes explications sont bordelique parce que j'ai pas que ça à foutre
-     de décrire mon POILS BITE VAGIN COUILLES NICHONS MENOPAUSE URETRE PHALLUS!!!
+<!--
+	Ceci est un autre fichier de film.
+	Il ressemble fortement à "example.xml", les différences sont les suivantes :
+	 - utilisation des images et des sons à partir d'un fichier compressé (data1.cul),
+	 - un sprite en plus (le poisson),
+	 - quelques actions supplémentaires (mouvements d'oiseau et du poisson),
+	 - tous les commentaires supprimés
 -->
 
-
-<!-- faut toujours mettre une balise comme ça au début. Parce que j'avais envie -->
 <? paye ta chatte ?>
-
-
-<!-- ça aussi, c'est obligatoire. En fait le nom du langage de description de film est le SPLASH.
-     ce qui signifie : South Park : L'Abominable Script à Histoire.
-     Je sais, ça veut rien dire, mais c'est rigolo de nommer un truc pour que les initiales fassent un truc cool.
--->
 <SPLASH>
 
-
-<!-- la balise suivante est facultative. Il faut indiquer le nombre de fichiers image et son à charger, le nombre
-     de listes d'images, et le nombre de procédures utilisés pour le film.
-     Ca sert uniquement pour la barre de progression au moment du chargement. Si ces infos sont absentes ou
-     incorrectes, le film fonctionne quand même. Mais la barre de progression est mal fichue.
--->
 <ProgressBarInfo>
 	<FileToExtract> 3 </FileToExtract>
 	<ImgListToCreate> 2 </ImgListToCreate>
@@ -29,179 +17,99 @@
 </ProgressBarInfo>
 
 
-<!-- là c'est pour dire qu'on va charger les fichiers images et sons -->
+<!-- Chargement des images et des sons. -->
 <ImgSoundFiles>
-
-
-	<!-- On ne peut charger que des images au format .png, et des sons au format .wav.
-	     Il faut que le fichier soit dans le même répertoire que le film.
-	     On peut aussi charger des données à partir de fichier compressés dans un format spécial.
-	     Voir le readme de l'utilitaire ConcatFile pour plus d'infos.
+	<!--
+		On utilise un fichier compressé.
+		La valeur dans la balise <Name> indique le nom du fichier compressé.
+		Les sous-balises suivantes listent les images et les sons présents dans ce fichier
+		L'ordre doit être le même qu'au moment de la compression.
 	-->
-<CompressedFile> <Name> data1.cul </Name>
-	<LoadImg> Collines </LoadImg>
-	<LoadImg> Poisson </LoadImg>
-	<LoadImg> Piaf </LoadImg>
-	<LoadSnd> Croa </LoadSnd>
-</CompressedFile>
-
+	<CompressedFile> <Name> data1.cul </Name>
+		<LoadImg> Collines </LoadImg>
+		<LoadImg> Poisson </LoadImg>
+		<LoadImg> Piaf </LoadImg>
+		<LoadSnd> Croa </LoadSnd>
+	</CompressedFile>
 </ImgSoundFiles>
 
-
-<!-- ****************************************************************************************** -->
-
-
-<!-- Là c'est pour définir les listes d'images (pour faire les sprites) -->
 <LoadData>
 
-	<!-- hop, déclaration d'une liste d'images, qui va contenir toute les images de l'oiseau -->
 	<ImgListDef> <Name> Piaf_ImgList </Name>
-
-		<!-- là je déclare la première image -->
 		<Img> <Name> Ailes_plies </Name>
-
-			<!-- indique dans quel fichier .png (préalablement chargé) il faut récupérer l'image -->
 			<ImageSource> Piaf </ImageSource>
-
-			<!-- le carré délimitant l'image à récupérer -->
 			<SquareSource> <X> 0 </X> <Y> 0 </Y> <W> 33 </W> <H> 20 </H> </SquareSource>
-
-			<!-- Coordonnées du hot-point.
-			    Quand on placera l'image à l'écran, on donnera les coordonnées du hot-point.
-			    C'est plus pratique que de donner les coordonnées du coin supérieur gauche.
-			    Pour toutes les images de l'oiseau, j'ai choisi de placer le hot-point entre ses
-			    deux yeux. Si on place le hot-point toujours sur le même élément, pour chaque image,
-			    cela évite que l'oiseau bouge bizarrement quand on passe d'une image à une autre.
-			    Blablabla blablabla qu'est-ce que je peux raconter comme connerie quand je m'y mets.
-			    Bon mais j'en ai rien à carrer, c'est pas comme si mes explications devaient être claires.
-			-->
 			<HotPoint> <X> 16 </X> <Y> 6 </Y> </HotPoint>
 		</Img>
-
-		<!-- là c'est une autre image de la liste -->
 		<Img> <Name> Ailes_haut </Name>
 			<ImageSource> Piaf </ImageSource>
 			<SquareSource> <X> 33 </X> <Y> 0 </Y> <W> 33 </W> <H> 24 </H> </SquareSource>
 			<HotPoint> <X> 16 </X> <Y> 17 </Y> </HotPoint>
 		</Img>
-
-		<!-- et la c'est la dernière -->
 		<Img> <Name> Ailes_bas </Name>
 			<ImageSource> Piaf </ImageSource>
 			<SquareSource> <X> 66 </X> <Y> 0 </Y> <W> 21 </W> <H> 29 </H> </SquareSource>
 			<HotPoint> <X> 10 </X> <Y> 2 </Y> </HotPoint>
 		</Img>
-
 	</ImgListDef>
 
-	<!-- maintenant que j'ai pris toutes les images d'oiseau, je n'ai plus besoin du fichier Piaf.png
-	     Donc je libère sa mémoire. On n'est pas obligé de libérer la mémoire de tout les fichiers images,
-	     car ils sont tous libéré après le chargement des données. Mais vaut mieux le faire
-	     au fur et à mesure car ça pompe moins de mémoire. (L'appli gère déjà assez mal la mémoire comme ça!!)
-	-->
 	<FreeImgFile> Piaf </FreeImgFile>
 
-	<!-- définition du sprite de l'oiseau qui utilise la liste d'image des oiseaux. On peut définir plusieurs
-	     sprites ayant la même liste d'images. Pour afficher plusieurs oiseaux en même temps par exemple.
-	-->
 	<SpriteDef> <Name> Piaf </Name>
 		<ImgList> Piaf_ImgList </ImgList>
 	</SpriteDef>
 
-
-	<!-- là c'est la création d'une autre liste, qui ne contient qu'une image, les collines du décor -->
 	<ImgListDef> <Name> Collines_ImgList </Name>
 		<Img> <Name> Collines </Name> <ImageSource> Collines </ImageSource>
 			<SquareSource><X>0</X><Y>0</Y><W>640</W><H>97</H></SquareSource>
 			<HotPoint><X>0</X><Y>96</Y></HotPoint></Img>
 	</ImgListDef>
-	<FreeImgFile>Collines</FreeImgFile>
-	<SpriteDef><Name>Collines</Name><ImgList>Collines_ImgList</ImgList></SpriteDef>
 
+	<FreeImgFile>Collines</FreeImgFile>
+
+	<SpriteDef><Name>Collines</Name><ImgList>Collines_ImgList</ImgList></SpriteDef>
 
 	<ImgListDef> <Name> Poisson_ImgList </Name>
 		<Img> <Name> Poisson </Name> <ImageSource> Poisson </ImageSource>
 			<SquareSource><X>0</X><Y>0</Y><W>35</W><H>32</H></SquareSource>
 			<HotPoint><X>16</X><Y>16</Y></HotPoint></Img>
 	</ImgListDef>
+
 	<SpriteDef><Name>Poisson</Name><ImgList>Poisson_ImgList</ImgList></SpriteDef>
-
-
-<!-- par défaut, pour toutes les images, la couleur violette (rouge=255, bleu=255, vert=0) est la couleur
-     de "key transparency". (Ceci est défini dans le fichier de config. D'ailleurs c'est très con
-     j'aurais pas du le mettre là.).
-
-     en ajoutant la balise <NotKeyTransparent/> dans une balise <Img>, on définit une image qui s'affichera
-     tel quelle. Pour les images n'ayant aucun pixel transparent, il vaut mieux mettre cette balise, car cela
-     s'affichera plus vite. (En particulier les images de décor de fond, qui doivent remplir tout l'écran)
-
-     Et en ajoutant une balise de ce type dans une <Img>:
-     <KeyTransparency> <Red>125</Red> <Blue>200</Blue> <Green>54</Green> </KeyTransparency>
-     on redéfinit la couleur de transparence pour cette image.
-
-
-     Par ailleurs, au lieu de mettre une balise <SquareSource>, avec des coordonnées dedans,
-     on peut mettre une simple balise <SquareSourceAllImage/>, qui signifie qu'on prend toute l'image du fichier.
-     (Hé j'l'avais oublié ce truc, je m'en suis même pas servi!)
-
--->
 
 </LoadData>
 
-<!-- après avoir défini tous les sprites avec leurs listes d'images, on peut définir des procédures.
-     une procédure est un bout de séquence de film, qu'on pourra exécuter quand on veut. On peut exécuter
-     plusieurs procédures en même temps. Ce qui permet de faire bouger plusieurs trucs dans le dessin animé,
-     sans trop se prendre la tête.
-     Enfin si on se prend la tête quand même parce que c'est pourri, mais moi je m'en fous, je m'éclate.
-     Si ça vous dérange, eh bien allez sodomiser votre chien Woulfy.
--->
-
-<!-- ****************************************************************************************** -->
-
-<!-- hop, là je définis une procédure -->
 <Procedure> <Name> LaNuitTombe </Name>
-
-	<!-- cette balise permet de redéfinir avec quelle couleur on remplit l'écran, avant d'afficher les
-             différents sprites. Ici, le but est de remplir l'écran avec un bleu de plus en plus foncé,
-             et ça fait genre le ciel qui s'assombrit car la nuit tombe.
-        -->
 	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 150 </Green> </ClearWithColor>
-
-	<!-- une balise toute simple, indiquant qu'il faut attendre
-             400 millisecondes avant de passer à la suite
-        -->
 	<Time> 400 </Time>
-
-
-<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 140 </Green> </ClearWithColor>
-<Time> 400 </Time>
-<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 130 </Green> </ClearWithColor>
-<Time> 400 </Time>
-<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 120 </Green> </ClearWithColor>
-<Time> 400 </Time>
-<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 100 </Green> </ClearWithColor>
-<Time> 400 </Time>
-<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 90  </Green> </ClearWithColor>
-<Time> 400 </Time>
-<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 80  </Green> </ClearWithColor>
-<Time> 400 </Time>
-<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 70  </Green> </ClearWithColor>
-<Time> 400 </Time>
-<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 60  </Green> </ClearWithColor>
-<Time> 400 </Time>
-<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 50  </Green> </ClearWithColor>
-<Time> 400 </Time>
-<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 40  </Green> </ClearWithColor>
-<Time> 400 </Time>
-<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 30  </Green> </ClearWithColor>
-<Time> 400 </Time>
-<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 20  </Green> </ClearWithColor>
-<Time> 400 </Time>
-<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 10  </Green> </ClearWithColor>
-<Time> 400 </Time>
-<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 0   </Green> </ClearWithColor>
-<Time> 400 </Time>
-	<!-- le reste c'est la même chose, mais avec une couleur de plus en plus foncée -->
+	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 140 </Green> </ClearWithColor>
+	<Time> 400 </Time>
+	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 130 </Green> </ClearWithColor>
+	<Time> 400 </Time>
+	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 120 </Green> </ClearWithColor>
+	<Time> 400 </Time>
+	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 100 </Green> </ClearWithColor>
+	<Time> 400 </Time>
+	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 90  </Green> </ClearWithColor>
+	<Time> 400 </Time>
+	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 80  </Green> </ClearWithColor>
+	<Time> 400 </Time>
+	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 70  </Green> </ClearWithColor>
+	<Time> 400 </Time>
+	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 60  </Green> </ClearWithColor>
+	<Time> 400 </Time>
+	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 50  </Green> </ClearWithColor>
+	<Time> 400 </Time>
+	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 40  </Green> </ClearWithColor>
+	<Time> 400 </Time>
+	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 30  </Green> </ClearWithColor>
+	<Time> 400 </Time>
+	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 20  </Green> </ClearWithColor>
+	<Time> 400 </Time>
+	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 10  </Green> </ClearWithColor>
+	<Time> 400 </Time>
+	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 0   </Green> </ClearWithColor>
+	<Time> 400 </Time>
 	<ClearWithColor> <Red> 0 </Red> <Blue> 245 </Blue> <Green> 0 </Green> </ClearWithColor>
 	<Time> 400 </Time>
 	<ClearWithColor> <Red> 0 </Red> <Blue> 235 </Blue> <Green> 0 </Green> </ClearWithColor>
@@ -210,102 +118,24 @@
 	<Time> 400 </Time>
 	<ClearWithColor> <Red> 0 </Red> <Blue> 215 </Blue> <Green> 0 </Green> </ClearWithColor>
 	<Time> 400 </Time>
-
-
 </Procedure>
 
-
-<!-- si on veux mettre d'autres procédures, on les mets ici, à la suite. Mais là y'en a qu'une. -->
-
-<!-- ****************************************************************************************** -->
-
-<!-- et là c'est le film.
-     Le film se comporte pareil qu'une procédure. Toutes les balises qu'on peut mettre dans un film peuvent aussi
-     se mettre dans une procédure, et vice-versa. Le film décrit l'ensemble du dessin animé qui va être
-     visionné (c'est un peu la "procédure principale" en fait)
-     On peut exécuter une procédure dans un film (voir plus loin), et on peut aussi exécuter une procédure dans
-     une autre procédure. La seule contrainte est qu'il faut toujours définir une procédure avant de l'exécuter.
--->
 <Film>
 
-	<!-- cette balise là permet de définir plein de trucs d'un coup. C'est obligé de la mettre au tout début,
-	     sinon ça plante. Par contre, il est déconseillé de la remettre le long du film, car euh... elle
-	     fait des trucs à la con avec la mémoire et ça ralentit tout. Enfin c'est un peu fait à l'arrache,
-	     mais vous vous en doutiez déjà au moment où je vous ai parlé de Woulfy.
-	-->
 	<SetAllSceneInfos>
-
-		<!-- permet de dire quels sprites on veut afficher, et dans quel ordre. Attention, les noms donnés
-		     ici ne sont pas les noms des fichiers images (collines.png et piaf.png), ce sont les noms
-		     des sprites (définis au préalable par la balise <SpriteDef>. Je les ai nommés pareil pour pas
- 		     me prendre la tête. Le premier sprite de la liste est affiché en premier, et ainsi de suite
- 		     jusqu'au dernier. Donc le premier sprite apparait derrière, puis le suivant par-dessus, et etc.
-		     Il n'y a pas de limites au nombre de sprite à afficher. Si vous en avez créé 10000 vous pouvez
-		     les afficher tous en même temps. Ce sera juste très lent!!
-		     Si vous ne voulez pas qu'un sprite soit affiché, il suffit de pas le mettre dans la liste.
-		     Il faut séparer chaque nom de sprite par une balise <Next/>
-		     La balise <PlanRedef> peut être mise directement dans le film ou dans une procédure, sans la
-		     mettre dans une balise <SetAllSceneInfos>.
-		-->
 		<PlanRedef>
 			Collines <Next/> Poisson <Next/> Piaf
 		</PlanRedef>
-
-		<!-- Le zoom global de la scène. 1024 signifie que c'est en zoom x1. Si on met 2048, ça signifie
-		     que l'image sera zoomé x2. On peut mettre la valeur qu'on veut, mais que des nombres entiers.
-		     Le long de l'exécution du film, on peut changer le zoom avec une balise de ce genre :
-		     <SetZoom> (nombre) </SetZoom>
-		-->
 		<Zoom> 1024 </Zoom>
-
-		<!-- ça c'est pareil que la balise placée dans la procédure décrite plus haut.-->
 		<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 200 </Green> </ClearWithColor>
-
-		<!-- définit où est le point central de la caméra, et la taille de la scène. Bon euh ça c'est un peu
-		     le bordel à gérer. Faut savoir qu'on ne peut pas changer la taille de la scène par la suite,
-		     à moins de remettre une balise </SetAllSceneInfos>, ce qui est déconseillé. Bon et de toute
-		     façon, quel que soit la taille qu'on met, le film s'affiche dans une résolution de 640*480
-		     (que ce soit en plein écran ou dans une fenêtre.) Alors la taille,
-		     on laisse comme ça et c'est tout.
-		     Par contre, ça peut être utile de déplacer la caméra pendant le film. (Genre pour faire un gros
-		     plan sur un truc en particulier). Pour ça, on peut utiliser une balise
-		     <SetCamPos> <X> (nombre entier) </X> <Y> (nombre entier) </Y> </SetCamPos> qui se met directement
-		     dans un film ou une procédure.
-		-->
 		<CamPosAndSize> <X> 319 </X> <Y> 239 </Y> <W> 640 </W> <H> 480 </H> </CamPosAndSize>
-
 	</SetAllSceneInfos>
 
-	<!-- là c'est pour dire que je vais faire des trucs avec le sprite du piaf -->
 	<Sprite> <Name> Collines </Name>
-
-		<!-- ça c'est la balise pour définir, en une fois, plein de trucs du sprite -->
 		<SetAllSpriteInfos>
-
-			<!-- là on dit où placer le sprite (plus exactement, ou placer le hotpoint du sprite) -->
 			<Pos> <X> 0 </X> <Y> 479 </Y> </Pos>
-
-			<!-- là on dit quel image du sprite afficher -->
 			<Img> Collines </Img>
-
-			<!-- autre chose qu'on peut ajouter dans une balise <SetAllSpriteInfos> :
-
-			     <Zoom> (nombre) </Zoom>. Permet de définir si le sprite est grossi ou rapetici
-			     (je'ai jamais su comment écrire ce mot de merde "rapetici", si ça se trouve c'est
-			     même pas comme ça qu'on dit. Putain, c'est pourri des fois la langue française)
-			     En fait c'est comme le zoom de scène, sauf que ça s'applique que au sprite.
-			     Et pareil, c'est donné en "1024ème de zoom". Si on ne précise rien, la valeur par
-			     défaut est, justement, 1024.
-
-			     <Portion> <X> 0 </X> <Y> 10 </Y> <W> 15 </W> <H> 12 </H> </Portion>
-			     Permet de dire qu'on veut afficher juste un bout de l'image. Euh cest géré un peu
-			     bizarrement, mais ça marche. Si on ne précise pas cette balise, c'est l'image entière
-			     qui est affichée.
-			-->
-
 		</SetAllSpriteInfos>
-
-	<!-- là je dis que j'ai fini de faire des trucs avec le sprite "Collines", et je passe à autre chose -->
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
@@ -315,8 +145,6 @@
 		</SetAllSpriteInfos>
 	</Sprite>
 
-
-	<!-- Bon là c'est pareil, mais pour le piaf -->
 	<Sprite> <Name> Piaf </Name>
 		<SetAllSpriteInfos>
 			<Pos> <X> 300 </X> <Y> 200 </Y> </Pos>
@@ -326,33 +154,13 @@
 
 	<Time> 500 </Time>
 
-	<!-- hop, on reprend le sprite du piaf -->
 	<Sprite> <Name> Piaf </Name>
 
-		<!-- ça c'est pour redéfinir l'image du sprite à afficher (pareil que <Img>
-		     dans la balise <SetAllSpriteInfos>)
-		-->
 		<SetImg> Ailes_haut </SetImg>
-
-		<!-- là ben c'est pour bouger le sprite -->
 		<Move> <X> 15 </X> <Y> -10 </Y> </Move>
-
-		<!-- là c'est pour redéfinir son zoom. Comme la balise <Zoom> dans <SetAllSpriteInfos>
-		     Ca fait genre comme si l'oiseau se rapproche. Car on augmente la valeur du zoom. Ouahou!
-		-->
 		<SetZoom> 1152 </SetZoom>
-
-		<!-- Là c'est cool, parce qu'on peut mettre une balise <Time> dans une balise sprite,
-		     et aussi directement dans les balises <Film> et <Procedure> (comme on a vu précédemment)
-		-->
 		<Time> 400 </Time>
 
-		<!-- bon la suite c'est pas compliqué, on connait déjà, c'est pour faire que
-		     l'oiseau il bouge en volant. Et puis des fois aussi l'oiseau il boit de l'alcool, pasque les
-		     oiseaux c'est des gros junky (comme les pigeons dans Sam et Max), mais là il boit pas d'alcool
-		     parce que sinon il aurait fallu que je dessine encore plus d'images et c'est déjà assez lourdingue
-		     comme ça.
-		-->
 		<SetImg> Ailes_bas </SetImg>
 		<Move> <X> 15 </X> <Y> -10 </Y> </Move>
 		<SetZoom> 1280 </SetZoom>
@@ -363,21 +171,10 @@
 		<SetZoom> 1408 </SetZoom>
 		<Time> 400 </Time>
 
-	<!-- là je laisse tomber le sprite du piaf, car il faut jouer un son -->
 	</Sprite>
 
-	<!-- Hop! Là on joue un son. Il est possible de jouer plusieurs sons en même temps (ça additionne)
-	     Mais c'est limité à un certain nombre, défini dans le fichier de config, à je sais plus quel endroit.
-	     Je crois que c'est une balise <ChannelQuantity>
-	     On ne peut pas mettre de balise PlaySound dans une balise <Sprite>. (C'est pour ça que j'ai fermé
-	     celle du piaf juste avant, et que je la rouvre juste après.
-	 -->
 	<PlaySound> Croa </PlaySound>
 
-	<!-- Bon là on continue de faire voler l'oiseau (j'aurais pu mettre des bouts de ces trucs dans une procédure,
-	     Pour diminuer la longueur du code, mais j'ai pas envie de me prendre la tête, c'est juste un film
-	     d'exemple.
-	-->
 	<Sprite> <Name> Piaf </Name>
 
 		<SetImg> Ailes_haut </SetImg>
@@ -392,26 +189,13 @@
 
 	</Sprite>
 
-	<!-- Là c'est pour exécuter la procédure de la nuit qui tombe. Toutes les actions décrites par cette
-	     procédure sont copiées collées dans le film, mais le fait d'exécuter la procédure ne fait pas avancer
-	     le temps global du film. En gros, les actions décrites juste après vont se dérouler en même temps que les
-	     actions de la procédure.
-	     On peut faire des trucs un peu plus élaborés avec les procédures, voir plus loin. J'ai un ami à moi, son
-	     prénom c'est "Plus" et son nom de famille c'est "Loin". Alors des fois on dit comme ça : "voir Plus Loin".
-	     Hahahaa! c'est drôle. Enfin c'est pas ça le plus drôle avec cet ami. Le plus drôle c'est de se moquer de
-	     lui parce qu'il a un prénom ridicule. Ca va, ça vous embête pas trop que je raconte ma vie dans ce fichier?
-	     Nan pasque moi je trouve ça cool.
-	-->
 	<Exec> LaNuitTombe </Exec>
 
-	<!-- hop, on continue de faire des trucs avec le piaf et de jouer du son. -->
 	<Sprite> <Name> Piaf </Name>
-
 		<SetImg> Ailes_plies </SetImg>
 		<Move> <X> 20 </X> <Y> -10 </Y> </Move>
 		<SetZoom> 1792 </SetZoom>
 		<Time> 400 </Time>
-
 	</Sprite>
 
 	<PlaySound> Croa </PlaySound>
@@ -548,231 +332,149 @@
 	<!-- L'oiseau emporte le poisson -->
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -5 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -5 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_plies </SetImg>
-	<SetPos> <X> 301 </X> <Y> 425 </Y> </SetPos>
-	<Time> 400 </Time>
+		<SetImg> Ailes_plies </SetImg>
+		<SetPos> <X> 301 </X> <Y> 425 </Y> </SetPos>
+		<Time> 400 </Time>
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -10 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -10 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_haut </SetImg>
-	<Move> <X> -2 </X> <Y> -10 </Y> </Move>
-	<Time> 400 </Time>
+		<SetImg> Ailes_haut </SetImg>
+		<Move> <X> -2 </X> <Y> -10 </Y> </Move>
+		<Time> 400 </Time>
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -10 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -10 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_bas </SetImg>
-	<Move> <X> -2 </X> <Y> -10 </Y> </Move>
-	<Time> 400 </Time>
+		<SetImg> Ailes_bas </SetImg>
+		<Move> <X> -2 </X> <Y> -10 </Y> </Move>
+		<Time> 400 </Time>
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -10 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -10 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_plies </SetImg>
-	<Move> <X> -2 </X> <Y> -10 </Y> </Move>
-	<Time> 400 </Time>
+		<SetImg> Ailes_plies </SetImg>
+		<Move> <X> -2 </X> <Y> -10 </Y> </Move>
+		<Time> 400 </Time>
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_haut </SetImg>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
-	<Time> 400 </Time>
+		<SetImg> Ailes_haut </SetImg>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Time> 400 </Time>
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_bas </SetImg>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
-	<Time> 400 </Time>
+		<SetImg> Ailes_bas </SetImg>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Time> 400 </Time>
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_plies </SetImg>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
-	<Time> 400 </Time>
+		<SetImg> Ailes_plies </SetImg>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Time> 400 </Time>
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_haut </SetImg>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
-	<Time> 400 </Time>
+		<SetImg> Ailes_haut </SetImg>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Time> 400 </Time>
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_bas </SetImg>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
-	<Time> 400 </Time>
+		<SetImg> Ailes_bas </SetImg>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Time> 400 </Time>
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_plies </SetImg>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
-	<Time> 400 </Time>
+		<SetImg> Ailes_plies </SetImg>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Time> 400 </Time>
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_haut </SetImg>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
-	<Time> 400 </Time>
+		<SetImg> Ailes_haut </SetImg>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Time> 400 </Time>
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_bas </SetImg>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
-	<Time> 400 </Time>
+		<SetImg> Ailes_bas </SetImg>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Time> 400 </Time>
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_plies </SetImg>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
-	<Time> 400 </Time>
+		<SetImg> Ailes_plies </SetImg>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Time> 400 </Time>
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_haut </SetImg>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
-	<Time> 400 </Time>
+		<SetImg> Ailes_haut </SetImg>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Time> 400 </Time>
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_bas </SetImg>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
-	<Time> 400 </Time>
+		<SetImg> Ailes_bas </SetImg>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Time> 400 </Time>
 	</Sprite>
 
 	<Sprite> <Name> Poisson </Name>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
 	</Sprite>
 	<Sprite> <Name> Piaf </Name>
-	<SetImg> Ailes_plies </SetImg>
-	<Move> <X> -2 </X> <Y> -15 </Y> </Move>
-	<Time> 400 </Time>
+		<SetImg> Ailes_plies </SetImg>
+		<Move> <X> -2 </X> <Y> -15 </Y> </Move>
+		<Time> 400 </Time>
 	</Sprite>
 
-<!-- et voilà, c'est fini!!! -->
 </Film>
 
-<!-- et là je ferme ma balise SPLASH pour clore le tout. Youplaboum!! -->
 </SPLASH>
-
-
-<!-- autres balises qu'on peut mettre mais que j'ai pas utilisées dans cet exemple :
-
-	**** Les différente façon de rafraichir l'écran ****
-
-	Il y a la balise <ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 200 </Green> </ClearWithColor>
-	Qu'on peut mettre soit directement dans le film ou dans une procédure, soit dans une balise <SetAllSceneInfos>
-	Mais si on a une image de fond qui prend tout l'écran, c'est pas la peine de tout recouvrir avec une couleur
-	Dans ce cas, on peut mettre une balise <NoClear/> à la place.
-	On peut aussi mettre : <ClearWithBlackColor/>, c'est l'équivalent d'un <ClearWithColor> avec des 0 partout.
-
-
-	**** balises à mettre dans une balise <sprite> ****
-
-		La balise <SetPortion>, fonctionne pareil que la balise <Portion>. La seule différence c'est que
-		<Portion> on doit la mettre dans une balise <SetAllSpriteInfo>, alors que <SetPortion> se met
-		directement dans une balise <Sprite>
-
-		<SetZoom>, fonctionne pareil que <Zoom>. <Zoom> doit être mis dans une balise <SetAllSpriteInfo>,
-		<SetZoom> peut être mis directement dans une balise <Sprite>
-
-		<SetPos>, pour définir la position d'un sprite. Fonctionne pareil que <Pos>, blablablablabla.
-
-
-	**** échange de deux sprites ****
-
-	<Swap2Plans> (un nom de sprite) <Next/> (un autre nom de sprite) </Swap2Plans>
-	Cette balise doit être mise dans un film ou dans une procédure. Elle permet d'échanger l'ordre d'affichage
-	de deux sprites. (Genre quand y'en a un qui passe devant l'autre). C'est pas super pratique, en fait la plupart
-	du temps, vaut mieux faire un <PlanRedef> pour tout remettre au clair, plutôt que des Swap.
-
-
-	**** <StopSound> ****
-
-	A mettre dans un film ou une procédure, ça arrête de jouer tous les sons en cours.
-
-
-	**** Les breakpoint ****
-
-	Ca c'est cool.
-	Dans le film ou une procédure (mais c'est conseillé d'en mettre uniquement dans le film), on peut mettre ça :
-	<BreakPoint> (0 ou 1) <BreakPoint>
-	Ca indique un point d'arrêt, quand l'utilisateur fait avance rapide ou retour arrière.
-	Si l'utilisateur appuie sur page up/page down, le film va jusqu'au prochain/précédent breakpoint de niveau 0.
-	Les breakpoint de niveau 1 ne sont pas pris en compte, car page up/page down c'est pour aller vite.
-	Quand l'utilisateur appuie sur les flèches haut/bas, le film va jusqu'au prochain/précédent breakpoint, quel que
-	soit son niveau. Ca fait aller moins vite, mais plus précis.
-	Il est conseillé de mettre des breakpoint au moment d'une nouvelle scène, et de mettre juste après une balise
-	PlanRedef, puis, pour chaque sprite affiché, de mettre une balise <SetAllSpriteInfos>.
-	Comme ça, tout est bien redéfini. Sinon ça peut faire des surprise quand l'utilisateur va sur un
-	breakpoint alors que la partie de film située avant n'a pas été exécutée.
-	Par ailleurs, quand l'utilisateur se déplace vers un breakpoint avec avance rapide ou retour arrière,
-	quelques trucs sont redéfinis : le rafraichissement est fixé à <NoClear/>, le Zoom de la scène à 1024, et la
-	position de la caméra à 319, 239. (Il s'agit des valeurs les plus courantes).
-	Donc pour les cas particuliers, il faudra peut être rajouter, juste après le breakpoint,
-	une balise de Clear, une balise de Zoom ou une balise SetCamPos.
-
-
-	**** Exécutions de procédures avec un peu plus de possiblités (duration et addtime) ****
-
-	On a vu la balise <Exec> pour exécuter une procédure.
-	On peut aussi utiliser la balise suivante :
-	<ExecComplex> <Name> (le nom d'une procédure) </Name> </ExecComplex>
-	Là, comme ça, ça ne fait rien de plus. Mais ensuite, on peut ajouter la balise
-	<Duration> (un nombre) </Duration> dans la balise <ExecComplex>. Ca fait que la procédure va s'exécuter
-	pendant le temps indiqué. (Si on n'indique pas de temps, la procédure est exécutée en entier).
-	On peut aussi mettre une balise <AddTime/> Cela signifie que pendant que la procédure va s'exécuter, les
-	actions qui viennent après ne le seront pas. On attend la fin de la procédure avant de passer à la suite.
-	On peut bien sur mettre une balise <Duration> et une balise <AddTime/> dans une même balise <ExecComplex>,
-	ça se cumule.
-
-	Voilà c'est tout. Ah au fait, les majuscules-minuscules ont une importance.
-	Tchô!!!
-
-	Là c'est le moment où je rajoute une dernière bêtise pour faire rigoler les gens.
-	Mais en fait j'ai pas envie, parce qu'il est 4h30 du matin, on est dimanche (enfin je veux dire lundi),
-	et demain (enfin je veux dire aujourd'hui) je bosse.
-
--->
