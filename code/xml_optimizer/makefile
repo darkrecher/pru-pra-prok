@@ -2,7 +2,7 @@
 
 CPP  = g++.exe
 OBJ  = main.o XMLParserPouillave.o
-LIBS = -mwindows -lmingw32
+LIBS = -lmingw32
 INCS =
 BIN  = xml_optimizer.exe
 CXXFLAGS = $(INCS)

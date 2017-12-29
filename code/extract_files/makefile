@@ -2,7 +2,7 @@
 
 CPP  = g++.exe
 OBJ  = main.o XMLParserPouillave.o
-LIBS = -L"../libs_includes/zlib-1.2.3.win32/lib" -mwindows -lmingw32 -lzdll
+LIBS = -L"../libs_includes/zlib-1.2.3.win32/lib" -lmingw32 -lzdll
 INCS = -I"../libs_includes/zlib-1.2.3.win32/include"
 BIN  = extract_files.exe
 CXXFLAGS = $(INCS)
