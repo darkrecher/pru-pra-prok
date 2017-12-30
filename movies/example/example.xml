@@ -101,9 +101,10 @@
 		Facultatif.
 		Maintenant que toutes les images de l'oiseau ont été récupérées, le fichier Piaf.png n'est plus nécessaire.
 		On libère sa mémoire.
-		La mémoire de tous les fichiers image source est systématiquement libérée après la création
-		des listes d'images et des sprites. Mais il vaut mieux la libérer au fur et à mesure, pour optimiser.
-		(L'application dans son ensemble gère assez mal la mémoire, ça permet donc de ne pas empirer les choses).
+		Dans tous les cas, la mémoire des fichiers image source est libérée
+		après la création des listes d'images et des sprites.
+		Mais il vaut mieux libérer au fur et à mesure, pour optimiser.
+		L'application dans son ensemble gère assez mal la mémoire, ça permet donc de ne pas empirer les choses.
 	-->
 	<FreeImgFile> Piaf </FreeImgFile>
 
@@ -136,20 +137,20 @@
 	C'est à dire que lorsqu'une image est affichée à l'écran, tous les pixels rose de l'image seront considérés
 	comme transparents, et laisseront apparaître les pixels de derrière.
 	Cette key transparency par défaut est définie dans le fichier config.txt.
-	J'aurais dû mettre cette définition dans le fichier du film, et non dans la config,
+	J'aurais dû la mettre dans le fichier du film, et non dans la config,
 	car c'est une valeur qui pourrait être différente d'un film à l'autre.
 	Je me suis planté. C'est pas grave.
 
 	Une balise <Img> peut comporter une sous-balise <NotKeyTransparent/>. Ce sera alors une image pas transparente.
-	Leur affichage est un peu plus rapide, il est donc conseillé de mettre cette balise
-	pour toutes les images où c'est possible, en particulier les décors de fond, qui ont une taille importante.
+	Ces images s'affichent un peu plus rapidement. Il est donc conseillé de mettre du NotKeyTransparent
+	chaque fois que c'est possible, en particulier pour les décors de fond, qui peuvent être assez grands.
 
 	Il est également possible d'ajouter une balise de ce type dans une <Img> :
 	<KeyTransparency> <Red> 125 </Red> <Blue> 200 </Blue> <Green> 54 </Green> </KeyTransparency>
-	Cela permet de redéfinir les pixels transparents uniquement pour cette image.
+	pour redéfinir la transparence uniquement pour cette image.
 
 	La balise <SquareSource> et son contenu peut être remplacée par une balise simple <SquareSourceAllImage/>.
-	Dans ce cas, l'image récupérée correspondra à l'image entière du fichier.
+	Dans ce cas, l'image récupérée correspond à tout le fichier image source.
 	(Hé j'avais oublié ça, je ne m'en suis même pas servi ! ).
 -->
 
@@ -161,8 +162,8 @@
 <!--
 	Définition des procédures.
 	Chaque procédure est un morceau de séquence de film.
-	Il est possible de les enchaîner, les répéter, les imbriquer, et en exécuter plusieurs en parallèle.
-	Ça permet de définir les animations de plusieurs éléments indépendants les uns des autres.
+	Il est possible de les enchaîner, les répéter, les imbriquer et en exécuter plusieurs en parallèle.
+	Elles permettent de définir les animations d'éléments indépendants les uns des autres.
 	Tout ceci est un peu prise de tête, si ça vous dérange, allez sodomiser votre chien Woulfy.
 	(Je vais laisser cette remarque d'adolescent, je l'aime bien).
 -->
@@ -171,9 +172,9 @@
 <Procedure> <Name> LaNuitTombe </Name>
 
 	<!--
-		Cette balise permet de redéfinir la couleur de remplissage initial de l'écran.
-		Ici, le but est de remplir l'écran avec un bleu de plus en plus foncé,
-	et ça fait genre le ciel qui s'assombrit car la nuit tombe.
+		Redéfinition de la couleur de remplissage initial de l'écran.
+		Ici, le but est d'utiliser un bleu de plus en plus foncé,
+		pour faire genre le ciel qui s'assombrit progressivement car la nuit tombe.
 	-->
 	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 150 </Green> </ClearWithColor>
 
@@ -183,9 +184,7 @@
 	<Time> 400 </Time>
 
 	<!--
-		Même chose qu'avant, mais avec une couleur de plus en plus foncée.
-		L'écran sera rempli avec un bleu de plus en plus foncé,
-		pour faire le ciel qui s'assombrit et la nuit qui tombe.
+		Même chose qu'avant, mais avec une couleur de remplissage de plus en plus foncée.
 	-->
 	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 100 </Green> </ClearWithColor>
 	<Time> 400 </Time>
@@ -207,9 +206,9 @@
 	Définition du film.
 	Le film peut être considéré comme la "procédure principale".
 	La balise <Film> et les balises <Procedure> acceptent les mêmes sous-balises.
-	Il est possible d'exécuter une procédure dans le film, ainsi que dans une autre procédure.
+	Une procédure peut être exécutée dans le film, mais également dans une autre procédure.
 	La seule contrainte à respecter est qu'une procédure doit être définie avant de pouvoir être exécutée.
-	Cette contrainte permet, au passage, de ne pas avoir à gérer des cas compliqués de dépendance circulaire.
+	Cela permet de ne pas avoir à gérer des cas compliqués de dépendance circulaire.
 -->
 <Film>
 
@@ -224,8 +223,8 @@
 		<!--
 			Définit les sprites à afficher.
 			Le contenu de cette balise est constitué d'une suite de noms de Sprites
-			(définis préalablement par des <SpriteDef>), et séparés par des balises <Next/>.
-			Le premier sprite de la liste est affiché en premier, et ainsi de suite.
+			(définis préalablement par des <SpriteDef>), séparés par des balises <Next/>.
+			Le premier sprite de la liste est affiché en premier, ainsi de suite.
 			Donc le premier sprite apparaitra derrière, le suivant par-dessus, etc.
 			Il n'y a pas de limite théorique à la quantité de sprite affiché, mais s'il y en a beaucoup,
 			ça risque d'être lent.
@@ -254,15 +253,14 @@
 
 		<!--
 			Définit le point central de la caméra et la taille de la scène.
-			C'est pas forcément très bien géré.
-			On ne peut pas redéfinir la taille de la scène, à moins de mettre plus loin
+			Ce n'est pas forcément très bien géré.
+			On ne peut pas redéfinir la taille, à moins de mettre plus loin
 			une autre balise </SetAllSceneInfos>, ce qui est déconseillé.
-			De plus, quel que soit la taille de la scène, le film s'affiche avec une résolution de 640*480 pixels.
-			(aussi bien en plein écran qu'en fenêtré).
+			De plus, quel que soit la taille de la scène, et aussi bien en plein écran qu'en fenêtré,
+			le film s'affiche avec une résolution de 640*480 pixels.
 
-			Si le zoom actuel est supérieur à 1024, on n'affiche qu'une partie de la scène.
-			Dans ce cas, on peut se permettre de déplacer la caméra, pour afficher une autre partie.
-			Pour cela, utiliser une balise :
+			Si le zoom actuel est supérieur à 1024, seule une partie de la scène est visible.
+			Dans ce cas, on peut se permettre de déplacer la caméra. Pour cela, utiliser une balise :
 			<SetCamPos> <X> {nombre entier} </X> <Y> {nombre entier} </Y> </SetCamPos>
 			La balise <SetCamPos> peut être incluse directement dans le film ou dans une procédure.
 		-->
