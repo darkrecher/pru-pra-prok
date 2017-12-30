@@ -4,7 +4,7 @@
 	Le format de ce fichier est sensible à la casse (les majuscules-minuscules sont importantes).
 
 	C'est du pseudo-XML crados. Je vous aurais prévenus. En plus mes explications sont bordeliques parce que
-	j'ai pas que ça à foutre de décrire mon format de POILS BITE VAGIN COUILLES NICHONS MENOPAUSE URÊTRE PHALLUS !!!
+	j'ai pas que ça à foutre de décrire mon format de fichier.
 -->
 
 
@@ -271,10 +271,10 @@
 	<!-- Définition d'info pour le sprite "Collines" -->
 	<Sprite> <Name> Collines </Name>
 
-		<!-- Cette balise permet de définir pleins d'infos d'un sprite. -->
+		<!-- Cette balise permet de définir plusieurs infos en une seule fois. -->
 		<SetAllSpriteInfos>
 
-			<!-- Placement du Sprite sur la scène (plus exactement, placement de son hotpoint) -->
+			<!-- Placement du Sprite sur la scène (plus exactement, placement de son hotpoint). -->
 			<Pos> <X> 0 </X> <Y> 479 </Y> </Pos>
 
 			<!--
@@ -284,28 +284,30 @@
 			<Img> Collines </Img>
 
 			<!--
-
-				Les autres sous-balises de <SetAllSpriteInfos> :
+				Les autres sous-balises de SetAllSpriteInfos :
 
 				<Zoom> (nombre) </Zoom>.
 				Indique si le sprite est grossi ou rapetici.
 				Je n'ai jamais su comment faire ce participe passé de merde : "rapetici",
 				Putain, de langue française.
-				C'est comme le zoom de scène, mais appliqué sur un sprite.
+				Ça fonctionne comme le zoom de scène, mais appliqué sur un sprite.
 				L'unité est le "1024ème de zoom". La valeur par défaut est 1024.
 
 				<Portion> <X> 0 </X> <Y> 10 </Y> <W> 15 </W> <H> 12 </H> </Portion>
 				Permet d'afficher une partie seulement de l'image.
 				C'est géré un peu bizarrement, mais ça marche.
 				Par défaut, c'est l'image entière qui est affichée.
+
+				Il n'y a pas d'instruction "hide", "show" dans la balise Sprite.
+				Pour enlever/ajouter un sprite de la scène, utiliser l'instruction "PlanRedef".
 			-->
 
 		</SetAllSpriteInfos>
 
-	<!-- Fin des actions avec le sprite "Collines". On je passe à autre chose -->
+	<!-- Fin des actions pour le sprite "Collines". -->
 	</Sprite>
 
-	<!-- Même chose, mais avec le sprite du piaf -->
+	<!-- Même chose, mais avec le sprite du piaf. -->
 	<Sprite> <Name> Piaf </Name>
 		<SetAllSpriteInfos>
 			<Pos> <X> 500 </X> <Y> 200 </Y> </Pos>
@@ -319,36 +321,35 @@
 
 		<!--
 			Redéfinition de l'image du sprite à afficher
-			Même effet que la balise <Img> dans <SetAllSpriteInfos>.
+			Même effet que la balise Img dans SetAllSpriteInfos.
 		-->
 		<SetImg> Ailes_haut </SetImg>
 
 		<!--
-			Déplacement du sprite,
-			on ajoute les coordonnées indiquées à ses coordonnées actuelles.
+			Déplacement du sprite.
+			Les coordonnées indiquées s'ajoutent aux coordonnées actuelles.
 		-->
 		<Move> <X> 15 </X> <Y> -10 </Y> </Move>
 
 		<!--
 			Redéfinition du zoom.
-			Même effet que la balise <Zoom> dans <SetAllSpriteInfos>
+			Même effet que la balise Zoom dans SetAllSpriteInfos.
 			On a l'impression que l'oiseau se rapproche, car on augmente son zoom. Yeah !
 		-->
 		<SetZoom> 1152 </SetZoom>
 
 		<!--
-			Les balises <Time> peuvent être intégrées dans les balises <Film> et <Procedure>,
-			mais aussi les balises <Sprite>. Ca peut aider à rendre le script (un peu) moins verbeux.
+			Les balises Time peuvent être intégrées dans les balises Film et Procedure,
+			mais aussi dans les balises Sprite. Ça permet de rendre le script (un peu) moins verbeux.
 		-->
 		<Time> 400 </Time>
 
 		<!--
-			Ensuite, c'est la même chose.
-			On déplace l'oiseau, et on définit successivement ses images et son zoom de l'oiseau,
-			pour le faire voler.
-			Des fois aussi l'oiseau, il boit de l'alcool, parce que ce sont des gros junky
-			(comme les pigeons dans Sam et Max). Là dans ce dessin animé il boit pas d'alcool car sinon
-			j'aurais dû dessiné encore plus d'images et c'est déjà assez lourdingue comme ça.
+			Même chose que précédemment.
+			On fait voler l'oiseau, en déplaçant le sprite et en définissant ses images et son zoom.
+			Des fois aussi les oiseaux, ils boivent de l'alcool. Ce sont des gros junky,
+			comme les pigeons dans Sam et Max. Dans ce dessin animé, celui-ci ne boit pas d'alcool
+			car sinon j'aurais dû dessiner encore plus d'images et c'est déjà assez lourdingue comme ça.
 		-->
 		<SetImg> Ailes_bas </SetImg>
 		<Move> <X> 15 </X> <Y> -10 </Y> </Move>
@@ -365,9 +366,9 @@
 	<!--
 		Emission d'un son.
 		Il est possible d'en jouer plusieurs en même temps, en les démarrant ensemble ou en décalé.
-		Le nombre de sons simultanés est limité, et défini dans le fichier de config.
-		A priori, c'est la balise <ChannelQuantity>, mais je ne suis plus très sûr.
-		On ne peut pas mettre de balise PlaySound dans une balise <Sprite>.
+		Le nombre de sons simultanés est limité, défini dans le fichier de config,
+		par la balise ChannelQuantity. (À revérifier, je n'en suis plus très sûr).
+		On ne peut pas mettre de balise PlaySound dans une balise Sprite.
 	-->
 	<PlaySound> Croa </PlaySound>
 
@@ -388,11 +389,11 @@
 
 	<!--
 		Exécution de la procédure "La Nuit Tombe".
-		Toutes les actions qui sont décrites dedans sont copié-collées dans le film,
-		mais le fait d'exécuter la procédure ne fait pas avancer le temps global du film.
-		Les actions décrites juste après vont donc se dérouler en parallèle des actions de la procédure.
+		Toutes les actions décrites dans cette procédure sont copié-collées dans le film.
+		Le fait d'exécuter la procédure ne fait pas avancer le temps global du film.
+		Les actions décrites après vont donc se dérouler en parallèle des actions de la procédure.
 
-		On peut faire des choses un peu plus élaborés avec les procédures, voir plus loin.
+		Une procédure peut s'exécuter avec quelques options spécifiques, voir plus loin.
 
 		J'ai un ami à moi, son prénom c'est "Plus" et son nom de famille c'est "Loin".
 		Alors des fois, on dit : "voir Plus Loin". Hahaha !
@@ -448,35 +449,35 @@
 
 
 <!--
-
 	Autres balises, non présentes dans ce film d'exemple :
 
 	**** Les différente façon de rafraichir l'écran ****
 
-	On a vu la balise <ClearWithColor>, qui peut être placée dans le film, dans une procédure
-	ou dans une balise <SetAllSceneInfos>.
+	On a vu la balise ClearWithColor, qui peut être placée dans le film, dans une procédure
+	ou dans une balise SetAllSceneInfos.
+
 	Lorsqu'on a une image de fond recouvrant toute la scène,
 	il n'est pas nécessaire de la pré-recouvrir avec une couleur,
-	dans ce cas, on peut utiliser une balise <NoClear/>.
+	dans ce cas, on peut utiliser une balise simple NoClear.
 
-	D'autre part, il existe aussi la balise <ClearWithBlackColor/>,
-	équivalente à <ClearWithColor> avec une couleur à (0, 0, 0).
+	D'autre part, il existe aussi la balise simple ClearWithBlackColor,
+	équivalente à ClearWithColor avec une couleur RGB = (0, 0, 0).
 
 
-	**** Autres sous-balises de la balise <Sprite> ****
+	**** Autres sous-balises de la balise Sprite ****
 
-	<SetPortion>
-	Elle fonctionne comme la balise <Portion>.
-	<Portion> doit être mise dans une balise <SetAllSpriteInfo>.
-	<SetPortion> doit être directement mise dans une balise <Sprite>.
+	SetPortion
+	Elle fonctionne comme la balise Portion.
+	Portion doit être mise dans une balise SetAllSpriteInfo.
+	SetPortion doit être directement mise dans une balise Sprite.
 
-	<SetZoom>
-	Elle fonctionne comme la balise <Zoom>.
-	<Zoom> doit être mise dans une balise <SetAllSpriteInfo>.
-	<SetZoom> doit être directement mise dans une balise <Sprite>.
+	SetZoom
+	Elle fonctionne comme la balise Zoom.
+	Zoom doit être mise dans une balise SetAllSpriteInfo.
+	SetZoom doit être directement mise dans une balise Sprite.
 
-	<SetPos>
-	Elle fonctionne comme la balise <Pos>.
+	SetPos
+	Elle fonctionne comme la balise Pos.
 	Blablablablabla.
 
 
@@ -484,36 +485,36 @@
 
 	<Swap2Plans> {nom_sprite_1} <Next/> {nom_sprite_2} </Swap2Plans>
 
-	Intégrable dans un film ou dans une procédure.
-	Elle permet d'échanger l'ordre d'affichage de deux sprites, par exemple, quand l'un passe devant l'autre).
-	Lorsqu'il y a beaucoup de modifs dans l'ordre d'affichage, il vaut mieux mettre un <PlanRedef>
-	pour tout remettre au clair, plutôt que des Swap2Plans.
+	À placer dans un film ou dans une procédure.
+	Elle permet d'échanger l'ordre d'affichage de deux sprites, par exemple, quand l'un passe devant l'autre.
+	Lorsqu'il y a beaucoup de modifs, il vaut mieux tout remettre au clair avec un PlanRedef
+	plutôt que des Swap2Plans.
 
 
 	**** Arrêt de tous les sons en cours. ****
 
-	<StopSound>
-	Intégrable dans un film ou dans une procédure.
+	<StopSound/>
+	À placer dans un film ou dans une procédure.
 
 
 	**** Les breakpoints ****
 
 	Ces balises sont intégrables dans un film ou dans une procédure, mais il est conseillé d'en mettre
-	uniquement dans le film, au moment d'une nouvelle scène ou d'une nouvelle séquence.
+	uniquement dans le film, lors d'une nouvelle scène ou d'une nouvelle séquence.
 	Elles permettent à l'utilisateur de faire des avances rapides / retour arrière.
 
 	<BreakPoint> 0 <BreakPoint>
 	Définit un point d'arrêt de niveau 0 (niveau "principal").
-	Lorsque l'utilisateur appuie sur sur la touche Page Up, le player se place au précédent breakpoint
-	de niveau 0 et rejoue le film à partir de ce moment. Les breakpoints de niveau 1 ne sont pas pris en compte.
-	La touche Page Down place le player au breakpoint suivant de niveau 0.
+	Lorsque l'utilisateur appuie sur sur la touche Page Up, le visionneur de film se place au
+	précédent breakpoint de niveau 0 et reprend à partir de là.
+	Les breakpoints de niveau 1 ne sont pas pris en compte.
+	La touche Page Down permet d'aller au prochain breakpoint de niveau 0.
 
 	<BreakPoint> 1 <BreakPoint>
 	Définit un point d'arrêt de niveau 1 (niveau plus précis).
-
-	Lorsque l'utilisateur appuie sur sur la flèche du haut, le player se place au précédent breakpoint
-	de niveau 0 ou 1, et rejoue le film à partir de ce moment.
-	La flèche du bas place le player au breakpoint suivant de niveau 0 ou 1.
+	Lorsque l'utilisateur appuie sur la flèche du haut, le visionneur se place au précédent breakpoint
+	de niveau 0 ou 1, et rejoue le film à partir de là.
+	La flèche du bas permet d'aller au prochain breakpoint de niveau 0 ou 1.
 
 	Lorsque l'utilisateur se déplace vers un breakpoint (quel que soit son niveau),
 	les actions suivantes sont effectuées :
@@ -525,9 +526,9 @@
 
 	Après une balise BreakPoint, il est donc fortement conseillé de placer les balises suivantes :
 
-	 - <ClearWithColor>, <SetZoom>, <SetCamPos> : si les valeurs par défaut ne conviennent pas.
-	 - <PlanRedef> : pour redéfinir la liste d'affichage des sprites
-	 - une balise <SetAllSpriteInfos> pour chaque sprite affiché, avec redéfinition de la position, du zoom, etc.
+	 - ClearWithColor, SetZoom, SetCamPos : si les valeurs par défaut ne conviennent pas.
+	 - PlanRedef : pour redéfinir la liste d'affichage des sprites
+	 - une balise SetAllSpriteInfos pour chaque sprite affiché, avec redéfinition de la position, du zoom, etc.
 
 
 	**** Exécution avancée de procédures ****
@@ -539,9 +540,9 @@
 		<Duration> {temps_en_millisecondes} </Duration>
 	</ExecComplex>
 	La procédure va s'exécuter pendant le temps indiqué. Si elle est plus longue, sa fin sera coupée.
-	Ca peut être utile pour animer une personne qui parle. On définit une seule grande procédure
-	contenant des mouvements de bouche, et on s'en sert à plusieurs endroits du film, en mettant un temps
-	différent à chaque fois, selon que le personnage parle plus ou moins longtemps.
+	Ça peut être utile pour animer une personne qui parle. On définit une seule grande procédure
+	contenant des mouvements de bouche, et on s'en sert à plusieurs endroits du film,
+	en adaptant à chaque fois la durée.
 	Du coup, la synchro entre la forme de la bouche et les paroles est totalement foireuse,
 	mais on ne peut pas tout avoir.
 
@@ -555,12 +556,11 @@
 	Il est possible de mettre à la fois une balise </Duration> et une balise <AddTime/> dans une balise <ExecComplex>
 
 
-	**** Voilà c'est tout ****
+	**** Le mot de la fin ****
 
 	Là c'est le moment où je rajoute une dernière bêtise pour faire rigoler les gens.
 	Mais en fait j'ai pas envie, parce qu'il est 4h30 du matin, on est dimanche (enfin je veux dire lundi),
 	et demain (enfin je veux dire aujourd'hui) je bosse.
 
 	Tchô !!!
-
 -->
