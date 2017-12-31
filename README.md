@@ -47,9 +47,16 @@ Une fenêtre de commande DOS s'ouvre, affichant quelques informations de log.
 Lorsque l'exécution est terminée, un répertoire `movies/pru-pra-prok_episode_2/FilmData` a été créé, contenant les images .png et les sons .wav du dessin animé.
 
 
-## Recompilation, reconstruction du projet, etc.
+## Création d'autres dessins animés
 
 En cours.
+
+Voir : [doc/creation_dessins_animes.md](doc/creation_dessins_animes.md)
+
+
+## Recompilation, reconstruction du projet, etc.
+
+Presque fini. À relire.
 
 Voir : [doc/reconstruction_projet.md](doc/reconstruction_projet.md)
 
