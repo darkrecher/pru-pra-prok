@@ -47,9 +47,9 @@ Une fenêtre de commande DOS s'ouvre, affichant quelques informations de log.
 Lorsque l'exécution est terminée, un répertoire `movies/pru-pra-prok_episode_2/FilmData` a été créé, contenant les images .png et les sons .wav du dessin animé.
 
 
-## Création d'autres dessins animés
+## Création de vos propres dessins animés
 
-En cours.
+Presque fini. À relire.
 
 Voir : [doc/creation_dessins_animes.md](doc/creation_dessins_animes.md)
 
@@ -58,6 +58,8 @@ Voir : [doc/creation_dessins_animes.md](doc/creation_dessins_animes.md)
 
 Presque fini. À relire.
 
+TODO : expliquer à quoi sert basicimg.zob. Et que ça fait un message s'il n'est pas présent.
+
 Voir : [doc/reconstruction_projet.md](doc/reconstruction_projet.md)
 
 
@@ -65,10 +67,10 @@ Voir : [doc/reconstruction_projet.md](doc/reconstruction_projet.md)
 
  X comment jouer le film, les touches du player, ajouter les .bat
  X comment extraire les images et les sons
- - doc rapide pour expliquer comment créer ses propres dessins animés
+ X doc rapide pour expliquer comment créer ses propres dessins animés
  - fichier de référence des XML
  - doc un peu plus détaillé pour `concat_files`, `extract_files`, `xml_optimizer`
- - relire `reconstruction_projet.md`
+ - relire `reconstruction_projet.md` et les autres docs.
  - gif animé du film d'exemple
  - ajouter les bonus, avec mini-texte d'explications (Gerontalia, les dessins)
  - le film pru-pra-prok au format lisible
