@@ -1,0 +1,165 @@
+<? paye ta chatte ?>
+<SPLASH> 1
+
+	ProgressBarInfo 0..1
+
+		FileToExtract num 1
+		ImgListToCreate num 1
+		ProcedureToCreate num 1
+
+	ImgSoundFiles 1
+
+		LoadImg text
+		LoadSnd text
+		CompressedFile
+			Name text 1
+			LoadImg text
+			LoadSnd text
+
+	LoadData 1
+
+		ImgListDef
+			Name text 1
+			Img
+				Name text 1
+				ImageSource text 1
+				HotPoint coord 1
+				SquareSource rect 0..1 or
+				SquareSourceAllImage/ 0..1
+				DefaultKeyTransparent/ 0..1 or
+				NotKeyTransparent/ 0..1 or
+				KeyTransparency color 0..1
+			MakeImgByZoom
+				Name text 1
+				Original text 1
+				Zoom num 1
+
+		SpriteDef
+			Name text 1
+			ImgList text 1
+
+		FreeImgFile text
+
+	Procedure
+
+		Name text 1
+
+		SetCamPos coord 1
+
+		Sprite
+			Name text 1
+			SetImg text
+			SetZoom num
+			SetPos coord
+			Move coord
+			SetPortion rect
+			SetAllSpriteInfos
+				Img text 1
+				Pos coord 1
+				Portion rect 0..1
+				Zoom num 0..1
+			Time num
+
+		SetAllSceneInfos
+			PlanRedef 1
+				text 1
+				Next/ text
+			CamPosAndSize rect 1
+			Zoom num 0..1
+			ClearWithBlackColor/ 0..1 or
+			NoClear/ 0..1 or
+			ClearWithColor color 0..1
+
+		SetZoom num
+
+		ClearWithBlackColor/
+
+		NoClear/
+
+		ClearWithColor color
+
+		PlanRedef
+			text 1
+			Next/ text
+
+		Swap2Plans
+			text 1
+			Next/ 1
+			text 1
+
+		StopSound/
+
+		PlaySound text
+
+		BreakPoint num
+
+		Exec text
+
+		ExecComplex
+			Name text 1
+			Duration num 0..1
+			AddTime/ 0..1
+
+		Time num
+
+	Film 1
+
+		SetCamPos coord
+
+		Sprite
+			Name text 1
+			SetImg text
+			SetZoom num
+			SetPos coord
+			Move coord
+			SetPortion rect
+			SetAllSpriteInfos
+				Img text 1
+				Pos coord 1
+				Portion rect 0..1
+				Zoom num 0..1
+			Time num
+
+		SetAllSceneInfos
+			PlanRedef 1
+				text 1
+				Next/ text
+			CamPosAndSize rect 1
+			Zoom num 0..1
+			ClearWithBlackColor/ 0..1 or
+			NoClear/ 0..1 or
+			ClearWithColor color 0..1
+
+		SetZoom num
+
+		ClearWithBlackColor/
+
+		NoClear/
+
+		ClearWithColor color
+
+		PlanRedef
+			text 1
+			Next/ text
+
+		Swap2Plans
+			text 1
+			Next/ 1
+			text 1
+
+		StopSound/
+
+		PlaySound text
+
+		BreakPoint num
+
+		Exec text
+
+		ExecComplex
+			Name text 1
+			Duration num 0..1
+			AddTime/ 0..1
+
+		Time num
+
+</SPLASH>
