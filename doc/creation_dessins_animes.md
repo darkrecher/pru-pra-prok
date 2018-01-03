@@ -18,9 +18,9 @@ Dans `C:\autre_splash` :
 
 ## Syntaxe du fichier de description
 
-Voir les commentaires du fichier d'exemple : [movies/example/example.xml](movies/example/example.xml)
+Voir les commentaires du fichier d'exemple : [movies/example/example.xml](movies/example/example.xml).
 
-Puis, voir le fichier XML de référence. (TODO : il n'est pas encore fait).
+Puis, voir le fichier XML de référence : [reference_fichier_splash.md](reference_fichier_splash.md).
 
 
 ## Visionnage du dessin animé

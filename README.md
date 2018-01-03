@@ -68,7 +68,7 @@ Voir : [doc/reconstruction_projet.md](doc/reconstruction_projet.md)
  X comment jouer le film, les touches du player, ajouter les .bat
  X comment extraire les images et les sons
  X doc rapide pour expliquer comment créer ses propres dessins animés
- - fichier de référence des XML
+ X fichier de référence des XML
  - doc un peu plus détaillé pour `concat_files`, `extract_files`, `xml_optimizer`
  - relire `reconstruction_projet.md` et les autres docs.
  - gif animé du film d'exemple
