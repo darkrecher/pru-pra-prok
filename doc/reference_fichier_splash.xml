@@ -1,165 +1,194 @@
 <? paye ta chatte ?>
-<SPLASH> 1
+<SPLASH> {qt_un_seul}
 
-	ProgressBarInfo 0..1
+	<ProgressBarInfo> {qt_zero_ou_un}
 
-		FileToExtract num 1
-		ImgListToCreate num 1
-		ProcedureToCreate num 1
+		<FileToExtract> {qt_un_seul} {numerique_entier} </FileToExtract>
+		<ImgListToCreate> {qt_un_seul} {numerique_entier} </ImgListToCreate>
+		<ProcedureToCreate> {qt_un_seul} {numerique_entier} </ProcedureToCreate>
 
-	ImgSoundFiles 1
+	<ProgressBarInfo/>
 
-		LoadImg text
-		LoadSnd text
-		CompressedFile
-			Name text 1
-			LoadImg text
-			LoadSnd text
+	<ImgSoundFiles> {qt_un_seul}
 
-	LoadData 1
+		<LoadImg> {texte} </LoadImg>
+		<LoadSnd> {texte} </LoadSnd>
+		<CompressedFile>
+			<Name> {qt_un_seul} {texte} </Name>
+			<LoadImg> {texte} </LoadImg>
+			<LoadSnd> {texte} </LoadSnd>
+		<CompressedFile/>
 
-		ImgListDef
-			Name text 1
-			Img
-				Name text 1
-				ImageSource text 1
-				HotPoint coord 1
-				SquareSource rect 0..1 or
-				SquareSourceAllImage/ 0..1
-				DefaultKeyTransparent/ 0..1 or
-				NotKeyTransparent/ 0..1 or
-				KeyTransparency color 0..1
-			MakeImgByZoom
-				Name text 1
-				Original text 1
-				Zoom num 1
+	<ImgSoundFiles/>
 
-		SpriteDef
-			Name text 1
-			ImgList text 1
+	<LoadData> {qt_un_seul}
 
-		FreeImgFile text
+		<ImgListDef>
+			<Name> {qt_un_seul} {texte} </Name>
+			<Img>
+				<Name> {qt_un_seul} {texte} </Name>
+				<ImageSource> {qt_un_seul} {texte} </ImageSource>
+				<HotPoint> coord {qt_un_seul} </HotPoint>
+				<SquareSource> rect {qt_zero_ou_un} or </SquareSource>
+				<SquareSourceAllImage/> {qt_zero_ou_un}
+				<DefaultKeyTransparent/> {qt_zero_ou_un} or
+				<NotKeyTransparent/> {qt_zero_ou_un} or
+				<KeyTransparency> color {qt_zero_ou_un} </KeyTransparency>
+			<Img/>
+			<MakeImgByZoom>
+				<Name> {qt_un_seul} {texte} </Name>
+				<Original> {qt_un_seul} {texte} </Original>
+				<Zoom> {qt_un_seul} {numerique_entier} </Zoom>
+			<MakeImgByZoom/>
+		<ImgListDef/>
 
-	Procedure
+		<SpriteDef>
+			<Name> {qt_un_seul} {texte} </Name>
+			<ImgList> {qt_un_seul} {texte} </ImgList>
+		<SpriteDef/>
 
-		Name text 1
+		<FreeImgFile> {texte} </FreeImgFile>
 
-		SetCamPos coord 1
+	<LoadData/>
 
-		Sprite
-			Name text 1
-			SetImg text
-			SetZoom num
-			SetPos coord
-			Move coord
-			SetPortion rect
-			SetAllSpriteInfos
-				Img text 1
-				Pos coord 1
-				Portion rect 0..1
-				Zoom num 0..1
-			Time num
+	<Procedure>
 
-		SetAllSceneInfos
-			PlanRedef 1
-				text 1
-				Next/ text
-			CamPosAndSize rect 1
-			Zoom num 0..1
-			ClearWithBlackColor/ 0..1 or
-			NoClear/ 0..1 or
-			ClearWithColor color 0..1
+		<Name> {qt_un_seul} {texte} </Name>
 
-		SetZoom num
+		<SetCamPos> coord {qt_un_seul} </SetCamPos>
 
-		ClearWithBlackColor/
+		<Sprite>
+			<Name> {qt_un_seul} {texte} </Name>
+			<SetImg> {texte} </SetImg>
+			<SetZoom> {numerique_entier} </SetZoom>
+			<SetPos> coord </SetPos>
+			<Move> coord </Move>
+			<SetPortion> rect </SetPortion>
+			<SetAllSpriteInfos>
+				<Img> {qt_un_seul} {texte} </Img>
+				<Pos> coord {qt_un_seul} </Pos>
+				<Portion> rect {qt_zero_ou_un} </Portion>
+				<Zoom> {qt_zero_ou_un} {numerique_entier} </Zoom>
+			<SetAllSpriteInfos/>
+			<Time> {numerique_entier} </Time>
+		<Sprite/>
 
-		NoClear/
+		<SetAllSceneInfos>
+			<PlanRedef> {qt_un_seul}
+				{qt_un_seul} {texte}
+				<Next/> {texte}
+			<PlanRedef/>
+			<CamPosAndSize> rect {qt_un_seul} </CamPosAndSize>
+			<Zoom> {qt_zero_ou_un} {numerique_entier} </Zoom>
+			<ClearWithBlackColor/> {qt_zero_ou_un} or
+			<NoClear/> {qt_zero_ou_un} or
+			<ClearWithColor> color {qt_zero_ou_un} </ClearWithColor>
+		<SetAllSceneInfos/>
 
-		ClearWithColor color
+		<SetZoom> {numerique_entier} </SetZoom>
 
-		PlanRedef
-			text 1
-			Next/ text
+		<ClearWithBlackColor/>
 
-		Swap2Plans
-			text 1
-			Next/ 1
-			text 1
+		<NoClear/>
 
-		StopSound/
+		<ClearWithColor> color </ClearWithColor>
 
-		PlaySound text
+		<PlanRedef>
+			{qt_un_seul} {texte}
+			<Next/> {texte}
+		<PlanRedef/>
 
-		BreakPoint num
+		<Swap2Plans>
+			{qt_un_seul} {texte}
+			<Next/> {qt_un_seul}
+			{qt_un_seul} {texte}
+		<Swap2Plans/>
 
-		Exec text
+		<StopSound/>
 
-		ExecComplex
-			Name text 1
-			Duration num 0..1
-			AddTime/ 0..1
+		<PlaySound> {texte} </PlaySound>
 
-		Time num
+		<BreakPoint> {numerique_entier} </BreakPoint>
 
-	Film 1
+		<Exec> {texte} </Exec>
 
-		SetCamPos coord
+		<ExecComplex>
+			<Name> {qt_un_seul} {texte} </Name>
+			<Duration> {qt_zero_ou_un} {numerique_entier} </Duration>
+			<AddTime/> {qt_zero_ou_un}
+		<ExecComplex/>
 
-		Sprite
-			Name text 1
-			SetImg text
-			SetZoom num
-			SetPos coord
-			Move coord
-			SetPortion rect
-			SetAllSpriteInfos
-				Img text 1
-				Pos coord 1
-				Portion rect 0..1
-				Zoom num 0..1
-			Time num
+		<Time> {numerique_entier} </Time>
 
-		SetAllSceneInfos
-			PlanRedef 1
-				text 1
-				Next/ text
-			CamPosAndSize rect 1
-			Zoom num 0..1
-			ClearWithBlackColor/ 0..1 or
-			NoClear/ 0..1 or
-			ClearWithColor color 0..1
+	<Procedure/>
 
-		SetZoom num
+	<Film> {qt_un_seul}
 
-		ClearWithBlackColor/
+		<SetCamPos> coord </SetCamPos>
 
-		NoClear/
+		<Sprite>
+			<Name> {qt_un_seul} {texte} </Name>
+			<SetImg> {texte} </SetImg>
+			<SetZoom> {numerique_entier} </SetZoom>
+			<SetPos> coord </SetPos>
+			<Move> coord </Move>
+			<SetPortion> rect </SetPortion>
+			<SetAllSpriteInfos>
+				<Img> {qt_un_seul} {texte} </Img>
+				<Pos> coord {qt_un_seul} </Pos>
+				<Portion> rect {qt_zero_ou_un} </Portion>
+				<Zoom> {qt_zero_ou_un} {numerique_entier} </Zoom>
+			</SetAllSpriteInfos>
+			<Time> {numerique_entier} </Time>
+		</Sprite>
 
-		ClearWithColor color
+		<SetAllSceneInfos>
+			<PlanRedef> {qt_un_seul}
+				{qt_un_seul} {texte}
+				<Next/> {texte}
+			<PlanRedef/>
+			<CamPosAndSize> rect {qt_un_seul} </CamPosAndSize>
+			<Zoom> {qt_zero_ou_un} {numerique_entier} </Zoom>
 
-		PlanRedef
-			text 1
-			Next/ text
+			<ClearWithBlackColor/> {qt_zero_ou_un} or
+			<NoClear/> {qt_zero_ou_un} or
+			<ClearWithColor> color {qt_zero_ou_un} </ClearWithColor>
 
-		Swap2Plans
-			text 1
-			Next/ 1
-			text 1
+		<SetZoom> {numerique_entier} </SetZoom>
 
-		StopSound/
+		<ClearWithBlackColor/>
 
-		PlaySound text
+		<NoClear/>
 
-		BreakPoint num
+		<ClearWithColor> color </ClearWithColor>
 
-		Exec text
+		<PlanRedef>
+			{qt_un_seul} {texte}
+			<Next/> {texte}
+		<PlanRedef/>
 
-		ExecComplex
-			Name text 1
-			Duration num 0..1
-			AddTime/ 0..1
+		<Swap2Plans>
+			{qt_un_seul} {texte}
+			<Next/> {qt_un_seul}
+			{qt_un_seul} {texte}
+		<Swap2Plans/>
 
-		Time num
+		<StopSound/>
+
+		<PlaySound> {texte} </PlaySound>
+
+		<BreakPoint> {numerique_entier} </BreakPoint>
+
+		<Exec> {texte} </Exec>
+
+		<ExecComplex>
+			<Name> {qt_un_seul} {texte} </Name>
+			<Duration> {qt_zero_ou_un} {numerique_entier} </Duration>
+			<AddTime/> {qt_zero_ou_un}
+		<ExecComplex/>
+
+		<Time> {numerique_entier} </Time>
+
+	<Film/>
 
 </SPLASH>
