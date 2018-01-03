@@ -1,3 +1,71 @@
+<!--
+
+Référence des fichiers de description de dessin animé au format SPLASH.
+
+C'est du XML.
+
+Description des mots-clés spécifiques à cette référence :
+
+	{qt_un_seul} : l'élément (balise XML ou donnée) placé juste avant doit obligatoirement apparaître une seule fois.
+
+	{qt_zero_ou_un} : l'élément (balise XML ou donnée) placé juste avant peut apparaître zéro ou une seule fois.
+
+	Lorsqu'il n'y a pas d'indication {qt_xxx} : l'élément peut apparaître 0, 1 ou plusieurs fois.
+
+	{numerique_entier} : ce mot-clé doit être remplacé par une donnée numérique entière.
+
+	{texte} : ce mot-clé doit être remplacé par une donnée texte.
+
+	{file} : ce mot-clé doit être remplacé par un nom de fichier présent dans le même répertoire que le fichier XML.
+
+	{coord} : à remplacer par le bloc XML suivant :
+		<X> {qt_un_seul} {numerique_entier} </X>
+		<Y> {qt_un_seul} {numerique_entier} </Y>
+
+	{rect} : à remplacer par le bloc XML suivant :
+		<X> {qt_un_seul} {numerique_entier} </X>
+		<Y> {qt_un_seul} {numerique_entier} </Y>
+		<W> {qt_un_seul} {numerique_entier} </W>
+		<H> {qt_un_seul} {numerique_entier} </H>
+
+	{color} : à remplacer par le bloc XML suivant :
+		<Red> {qt_un_seul} {numerique_entier} </Red>
+		<Green> {qt_un_seul} {numerique_entier} </Green>
+		<Blue> {qt_un_seul} {numerique_entier} </Blue>
+
+	{or} : ce mot-clé est placé entre deux blocs XML.
+		Il indique que seul l'un des deux blocs XML doit être présent.
+		Il peut y avoir plusieurs mot-clé {or} entre plusieurs blocs, le tout situé sur une même ligne.
+		Dans ce cas, un seul de tous les blocs XML doit être présent.
+		De plus, le bloc XML choisi est systématiquement en {qt_zero_ou_un}
+
+	{texte_def_xxx} : mot-clé à remplacer par du texte.
+		Ce texte définit un objet de type "xxx", qui pourra être mentionné à d'autres endroits du fichier de description.
+
+	{file_def_xxx} : Même chose que {texte_def_xxx},
+		mais en plus le texte doit correspondre à un nom de fichier présent dans le même répertoire que le fichier XML.
+
+	{texte_ref_xxx} : mot-clé à remplacer par du texte.
+		Ce texte fait référence à un objet de type "xxx", définit précédemment.
+		Un {texte_ref_xxx} peut faire référence à un mot-clé {texte_def_xxx} ou {file_def_xxx}.
+		C'est le "xxx" qui compte.
+
+	Contrainte sur l'ordre des balise XML :
+
+		Les sous-balises de <SPLASH> doivent être présentes dans l'ordre indiqué.
+
+		L'ordre des sous-balises de <Procedure> et de <Film> est significatif,
+		puisqu'elles indiquent une suite d'instruction à exécuter chronologiquement.
+
+		L'ordre des données et des sous-balises de <PlanRedef> est également significatif,
+		puisqu'elles indiquent une liste de sprite à afficher. (Le premier au fond, le dernier au-dessus).
+
+		Lorsqu'une balise contient, entre autres, une sous-balise <Name>, celle-ci doit apparaître en premier.
+
+	Tout cela aurait pu être exliqué avec un bon vieux fichier XSD, mais ça me semblait plus simple à comprendre avec ces mots-clés.
+
+-->
+
 <? paye ta chatte ?>
 <SPLASH> {qt_un_seul}
 
@@ -11,12 +79,12 @@
 
 	<ImgSoundFiles> {qt_un_seul}
 
-		<LoadImg> {texte} </LoadImg>
-		<LoadSnd> {texte} </LoadSnd>
+		<LoadImg> {file_def_image_source} </LoadImg>
+		<LoadSnd> {file_def_sound} </LoadSnd>
 		<CompressedFile>
-			<Name> {qt_un_seul} {texte} </Name>
-			<LoadImg> {texte} </LoadImg>
-			<LoadSnd> {texte} </LoadSnd>
+			<Name> {qt_un_seul} {file} </Name>
+			<LoadImg> {texte_def_image_source} </LoadImg>
+			<LoadSnd> {texte_def_sound} </LoadSnd>
 		<CompressedFile/>
 
 	<ImgSoundFiles/>
@@ -24,50 +92,47 @@
 	<LoadData> {qt_un_seul}
 
 		<ImgListDef>
-			<Name> {qt_un_seul} {texte} </Name>
+			<Name> {qt_un_seul} {texte_def_image_list} </Name>
 			<Img>
-				<Name> {qt_un_seul} {texte} </Name>
-				<ImageSource> {qt_un_seul} {texte} </ImageSource>
-				<HotPoint> coord {qt_un_seul} </HotPoint>
-				<SquareSource> rect {qt_zero_ou_un} or </SquareSource>
-				<SquareSourceAllImage/> {qt_zero_ou_un}
-				<DefaultKeyTransparent/> {qt_zero_ou_un} or
-				<NotKeyTransparent/> {qt_zero_ou_un} or
-				<KeyTransparency> color {qt_zero_ou_un} </KeyTransparency>
+				<Name> {qt_un_seul} {texte_def_image} </Name>
+				<ImageSource> {qt_un_seul} {texte_ref_image_source} </ImageSource>
+				<HotPoint> {qt_un_seul} {coord} </HotPoint>
+				<SquareSourceAllImage/> {or} <SquareSource> {rect} </SquareSource>
+				<DefaultKeyTransparent/> {or} <NotKeyTransparent/> {or} <KeyTransparency> {color} </KeyTransparency>
 			<Img/>
 			<MakeImgByZoom>
-				<Name> {qt_un_seul} {texte} </Name>
-				<Original> {qt_un_seul} {texte} </Original>
+				<Name> {qt_un_seul} {texte_def_image} </Name>
+				<Original> {qt_un_seul} {texte_ref_image} </Original>
 				<Zoom> {qt_un_seul} {numerique_entier} </Zoom>
 			<MakeImgByZoom/>
 		<ImgListDef/>
 
 		<SpriteDef>
-			<Name> {qt_un_seul} {texte} </Name>
-			<ImgList> {qt_un_seul} {texte} </ImgList>
+			<Name> {qt_un_seul} {texte_def_sprite} </Name>
+			<ImgList> {qt_un_seul} {texte_ref_image_list} </ImgList>
 		<SpriteDef/>
 
-		<FreeImgFile> {texte} </FreeImgFile>
+		<FreeImgFile> {texte_def_image_source} </FreeImgFile>
 
 	<LoadData/>
 
 	<Procedure>
 
-		<Name> {qt_un_seul} {texte} </Name>
+		<Name> {qt_un_seul} {texte_def_procedure} </Name>
 
-		<SetCamPos> coord {qt_un_seul} </SetCamPos>
+		<SetCamPos> {coord} </SetCamPos>
 
 		<Sprite>
-			<Name> {qt_un_seul} {texte} </Name>
-			<SetImg> {texte} </SetImg>
+			<Name> {qt_un_seul} {texte_ref_sprite} </Name>
+			<SetImg> {texte_ref_image} </SetImg>
 			<SetZoom> {numerique_entier} </SetZoom>
-			<SetPos> coord </SetPos>
-			<Move> coord </Move>
-			<SetPortion> rect </SetPortion>
+			<SetPos> {coord} </SetPos>
+			<Move> {coord} </Move>
+			<SetPortion> {rect} </SetPortion>
 			<SetAllSpriteInfos>
-				<Img> {qt_un_seul} {texte} </Img>
-				<Pos> coord {qt_un_seul} </Pos>
-				<Portion> rect {qt_zero_ou_un} </Portion>
+				<Img> {qt_un_seul} {texte_ref_image} </Img>
+				<Pos> {qt_un_seul} {coord} </Pos>
+				<Portion> {qt_zero_ou_un} {rect} </Portion>
 				<Zoom> {qt_zero_ou_un} {numerique_entier} </Zoom>
 			<SetAllSpriteInfos/>
 			<Time> {numerique_entier} </Time>
@@ -75,14 +140,12 @@
 
 		<SetAllSceneInfos>
 			<PlanRedef> {qt_un_seul}
-				{qt_un_seul} {texte}
-				<Next/> {texte}
+				{texte_ref_sprite} {qt_un_seul}
+				<Next/> {texte_ref_sprite}
 			<PlanRedef/>
-			<CamPosAndSize> rect {qt_un_seul} </CamPosAndSize>
+			<CamPosAndSize> {qt_un_seul} {rect} </CamPosAndSize>
 			<Zoom> {qt_zero_ou_un} {numerique_entier} </Zoom>
-			<ClearWithBlackColor/> {qt_zero_ou_un} or
-			<NoClear/> {qt_zero_ou_un} or
-			<ClearWithColor> color {qt_zero_ou_un} </ClearWithColor>
+			<ClearWithBlackColor/> {or} <NoClear/> {or} <ClearWithColor> {color} </ClearWithColor>
 		<SetAllSceneInfos/>
 
 		<SetZoom> {numerique_entier} </SetZoom>
@@ -91,29 +154,29 @@
 
 		<NoClear/>
 
-		<ClearWithColor> color </ClearWithColor>
+		<ClearWithColor> {color} </ClearWithColor>
 
 		<PlanRedef>
-			{qt_un_seul} {texte}
-			<Next/> {texte}
+			{texte_ref_sprite} {qt_un_seul}
+			<Next/> {texte_ref_sprite}
 		<PlanRedef/>
 
 		<Swap2Plans>
-			{qt_un_seul} {texte}
+			{texte_ref_sprite} {qt_un_seul}
 			<Next/> {qt_un_seul}
-			{qt_un_seul} {texte}
+			{texte_ref_sprite} {qt_un_seul}
 		<Swap2Plans/>
 
 		<StopSound/>
 
-		<PlaySound> {texte} </PlaySound>
+		<PlaySound> {texte_ref_sound} </PlaySound>
 
 		<BreakPoint> {numerique_entier} </BreakPoint>
 
-		<Exec> {texte} </Exec>
+		<Exec> {texte_ref_procedure} </Exec>
 
 		<ExecComplex>
-			<Name> {qt_un_seul} {texte} </Name>
+			<Name> {qt_un_seul} {texte_ref_procedure} </Name>
 			<Duration> {qt_zero_ou_un} {numerique_entier} </Duration>
 			<AddTime/> {qt_zero_ou_un}
 		<ExecComplex/>
@@ -124,35 +187,33 @@
 
 	<Film> {qt_un_seul}
 
-		<SetCamPos> coord </SetCamPos>
+		<SetCamPos> {coord} </SetCamPos>
 
 		<Sprite>
-			<Name> {qt_un_seul} {texte} </Name>
-			<SetImg> {texte} </SetImg>
+			<Name> {qt_un_seul} {texte_ref_sprite} </Name>
+			<SetImg> {texte_ref_image} </SetImg>
 			<SetZoom> {numerique_entier} </SetZoom>
-			<SetPos> coord </SetPos>
-			<Move> coord </Move>
-			<SetPortion> rect </SetPortion>
+			<SetPos> {coord} </SetPos>
+			<Move> {coord} </Move>
+			<SetPortion> {rect} </SetPortion>
 			<SetAllSpriteInfos>
-				<Img> {qt_un_seul} {texte} </Img>
-				<Pos> coord {qt_un_seul} </Pos>
-				<Portion> rect {qt_zero_ou_un} </Portion>
+				<Img> {qt_un_seul} {texte_ref_image} </Img>
+				<Pos> {qt_un_seul} {coord} </Pos>
+				<Portion> {qt_zero_ou_un} {rect} </Portion>
 				<Zoom> {qt_zero_ou_un} {numerique_entier} </Zoom>
-			</SetAllSpriteInfos>
+			<SetAllSpriteInfos/>
 			<Time> {numerique_entier} </Time>
-		</Sprite>
+		<Sprite/>
 
 		<SetAllSceneInfos>
 			<PlanRedef> {qt_un_seul}
-				{qt_un_seul} {texte}
-				<Next/> {texte}
+				{texte_ref_sprite} {qt_un_seul}
+				<Next/> {texte_ref_sprite}
 			<PlanRedef/>
-			<CamPosAndSize> rect {qt_un_seul} </CamPosAndSize>
+			<CamPosAndSize> {qt_un_seul} {rect} </CamPosAndSize>
 			<Zoom> {qt_zero_ou_un} {numerique_entier} </Zoom>
-
-			<ClearWithBlackColor/> {qt_zero_ou_un} or
-			<NoClear/> {qt_zero_ou_un} or
-			<ClearWithColor> color {qt_zero_ou_un} </ClearWithColor>
+			<ClearWithBlackColor/> {or} <NoClear/> {or} <ClearWithColor> {color} </ClearWithColor>
+		<SetAllSceneInfos/>
 
 		<SetZoom> {numerique_entier} </SetZoom>
 
@@ -160,29 +221,29 @@
 
 		<NoClear/>
 
-		<ClearWithColor> color </ClearWithColor>
+		<ClearWithColor> {color} </ClearWithColor>
 
 		<PlanRedef>
-			{qt_un_seul} {texte}
-			<Next/> {texte}
+			{texte_ref_sprite} {qt_un_seul}
+			<Next/> {texte_ref_sprite}
 		<PlanRedef/>
 
 		<Swap2Plans>
-			{qt_un_seul} {texte}
+			{texte_ref_sprite} {qt_un_seul}
 			<Next/> {qt_un_seul}
-			{qt_un_seul} {texte}
+			{texte_ref_sprite} {qt_un_seul}
 		<Swap2Plans/>
 
 		<StopSound/>
 
-		<PlaySound> {texte} </PlaySound>
+		<PlaySound> {texte_ref_sound} </PlaySound>
 
 		<BreakPoint> {numerique_entier} </BreakPoint>
 
-		<Exec> {texte} </Exec>
+		<Exec> {texte_ref_procedure} </Exec>
 
 		<ExecComplex>
-			<Name> {qt_un_seul} {texte} </Name>
+			<Name> {qt_un_seul} {texte_ref_procedure} </Name>
 			<Duration> {qt_zero_ou_un} {numerique_entier} </Duration>
 			<AddTime/> {qt_zero_ou_un}
 		<ExecComplex/>
