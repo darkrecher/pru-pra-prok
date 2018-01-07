@@ -53,6 +53,8 @@ Presque fini. À relire.
 
 Voir : [doc/creation_dessins_animes.md](doc/creation_dessins_animes.md)
 
+Puis, voir [doc/outils_annexes.md](doc/outils_annexes.md), pour les utilitaires de compression/décompression/optimisation. (Ils ne sont pas indispensables).
+
 
 ## Recompilation, reconstruction du projet, etc.
 
@@ -69,7 +71,7 @@ Voir : [doc/reconstruction_projet.md](doc/reconstruction_projet.md)
  X comment extraire les images et les sons
  X doc rapide pour expliquer comment créer ses propres dessins animés
  X fichier de référence des XML
- - doc un peu plus détaillé pour `concat_files`, `extract_files`, `xml_optimizer`
+ X doc un peu plus détaillé pour `concat_files`, `extract_files`, `xml_optimizer`
  - relire `reconstruction_projet.md` et les autres docs.
  - gif animé du film d'exemple
  - ajouter les bonus, avec mini-texte d'explications (Gerontalia, les dessins)
