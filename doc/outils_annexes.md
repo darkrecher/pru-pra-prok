@@ -2,6 +2,8 @@
 
 L'utilisation de ces outils n'est pas nécessaire pour créer ses propres dessins animés. Mais ils facilitent leur distribution et leur transmission.
 
+Si vous utilisez l'antivirus Avast, leur exécution risque d'émettre un message d'avertissement au premier lancement, car ce ne sont pas des fichiers .exe très répandus. Il faut juste attendre un peu que l'analyse du fichier par Avast se termine.
+
 
 ## concat_file
 
@@ -115,7 +117,47 @@ Dans le répertoire du dessin animé, copier le fichier `code/extract_files/extr
 
 Double-cliquer sur le fichier `extract_files.exe` précédemment copié.
 
-Si vous utilisez l'antivirus Avast, il risque d'émettre un message d'avertissement au premier lancement, car ce n'est pas un .exe très répandu. Dans ce cas, il faut attendre un peu que l'analyse du fichier se termine.
-
 À la fin de l'exécution, un sous-répertoire `FilmData` a été créé dans le répertoire du desin animé, contenant les fichiers images et sons qui ont été extraits de tous les fichiers .cul.
+
+
+## xml_optimizer
+
+Cet outil permet de diminuer la taille des fichiers XML de description de dessin animé, et de permettre un chargement initial plus rapide. Attention, cette optimisation rend le fichier très difficilement lisible pour des humains. Si vous effectuez cette optimisation, il est conseillé de distribuer les deux versions du fichier XML : l'optimisée et la normale.
+
+À noter qu'avec les performances des ordinateurs actuels, cette optimisation n'a plus vraiment de raison d'être.
+
+De plus, l'optimisation nécessite une opération manuelle pour corriger le fichier.
+
+## Situation initiale
+
+Un dessin animé qui fonctionne, avec des fichiers images et sons qui peuvent être compressés ou pas. Pour l'exemple, on dira que le fichier de description s'appelle `example.xml`
+
+### Étape 1 : Copie de l'utilitaire
+
+Dans le répertoire du dessin animé, copier le fichier `code/xml_optimizer/xml_optimizer.exe` qui se trouve dans ce repository.
+
+### Étape 2 : Exécution de l'optimisation
+
+Ouvrir une console de commande DOS, et exécuter les instructions suivantes
+
+    cd {le_repertoire_du_dessin_anime}
+    xml_optimizer.exe example.xml example_optim.xml
+
+Un nouveau fichier a été créé `example_optim.xml`. Il s'agit du fichier de description du film, optimisé.
+
+Le seul problème étant que ce fichier n'est pas immédiatement fonctionnel.
+
+### Étape 3 : Correction du fichier optimisé
+
+Ouvrir `example_optim.xml` avec un éditeur de texte, et effectuer les modifications suivantes :
+
+1) Remplacer la chaîne `a<SPLASH>` par `<SPLASH>`. (Il faut enlever le "a")
+
+2) Pour tous les fichiers compressés .cul mentionnés, remplacer les chaînes `<CompressedFile><Name>{identifiant_bidon}</Name>` par `<CompressedFile><Name>{nom_original_du_fichier_cul}</Name>`. `{identifiant_bidon}` est une suite quelconque de lettres/chiffres, et `{nom_original_du_fichier_cul}` est le nom du fichier compressés tel qu'il était écrit au départ.
+
+3) Pour tous les fichiers images non compressées, remplacer les chaînes `<LoadImg>{identifiant_bidon}</LoadImg>` par `<LoadImg>{nom_original_du_fichier_png}</LoadImg>`. Attention, il faut reporter ce remplacement dans toutes les balises `<ImageSource>{identifiant_bidon}</ImageSource>`. Chaque "identifiant bidon" correspond à un "nom original de .png", il faut refaire les correspondances.
+
+4) Pour tous les fichiers sons non compressée, remplacer les chaînes `<LoadSnd>{identifiant_bidon}</LoadSnd>` par `<LoadSnd>{nom_original_du_fichier_wav}</LoadSnd>`. Attention, il faut reporter ce remplacement dans toutes les balises `<PlaySound>{identifiant_bidon}</PlaySound>`. Chaque "identifiant bidon" correspond à un "nom original de .wav", il faut refaire les correspondances.
+
+Lorsque ces opérations sont terminés, le dessin animé peut être visionné avec le fichier `example_optim.xml`.
 
