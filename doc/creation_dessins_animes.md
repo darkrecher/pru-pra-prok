@@ -10,15 +10,14 @@ Dans `C:\autre_splash` :
  - Supprimer tous les fichiers *.cul, ainsi que `film1.zob` et `film2.zob`.
  - Au choix :
      + Créer un nouveau fichier texte, qui contiendra la description de votre dessin animé. L'extension du fichier n'a pas d'importance, mais par convention, on utilise .xml ou .zob.
-     + Copier `movies/example/example.xml`, ainsi que les images `movies/example/*.png` et les sons `movies/example/*.wav`. Cela permet de partir d'un dessin animé existant, et de modifier progressivement son contenu.
- - Facultatif : copier le fichier `movies/example/config.txt` (en écrasant le fichier `config.txt` existant). Cela permet de lancer le visionneur en mode fenêtré, plutôt qu'en plein écran, ce qui est plus pratique durant les créations.
-
-Éditer/modifier le fichier de description du dessin animé. Il permet de définir la liste des fichiers images et sons utilisés, la création des sprites et de leurs images, les instructions de placement des sprites, de la caméra, du zoom, de l'émission des sons, etc.
+     + Ou bien copier `movies/example/example.xml`, ainsi que les images `movies/example/*.png` et les sons `movies/example/*.wav`. Cela permet de partir d'un dessin animé existant, et de modifier progressivement son contenu.
+ - Facultatif : copier le fichier `movies/example/config.txt` (en écrasant le fichier `config.txt` existant). Cela permet de lancer le visionneur en mode fenêtré, plutôt qu'en plein écran, ce qui est plus pratique durant une création.
+ - Éditer/modifier le fichier de description du dessin animé. Il permet de définir la liste des fichiers images et sons utilisés ; la création des sprites et de leurs images ; les instructions de placement des sprites, de la caméra, du zoom, de l'émission des sons, etc.
 
 
 ## Syntaxe du fichier de description
 
-Voir les commentaires du fichier d'exemple : [movies/example/example.xml](movies/example/example.xml).
+Voir les commentaires du fichier d'exemple : [../movies/example/example.xml](../movies/example/example.xml).
 
 Puis, voir le fichier XML de référence : [reference_fichier_splash.md](reference_fichier_splash.md).
 
@@ -29,7 +28,7 @@ Il est fortement conseillé de tester le visionnage de votre dessin animé au fu
 
 Pour le visionner, prenez le fichier de description (par exemple, `C:\autre_splash\example.xml`), et glisser-le sur le fichier `C:\autre_splash\splash.exe`.
 
-Vous pouvez également lancer le visionnage via des commandes DOS :
+Ou sinon, vous pouvez utiliser les commandes DOS suivantes :
 
     cd C:\autre_splash
     splash.exe example.xml
@@ -46,19 +45,19 @@ Si le fichier de description est incorrect, le visionneur affichera un gros poin
 
 Dans ce cas, ouvrir le fichier `C:\autre_splash\stderr.txt` pour savoir où est l'erreur.
 
-Exemple de contenu du fichier :
+Exemple de contenu de stderr :
 
 > erreur à la ligne numéro 84 du fichier C:\autre_splash\example.xml :
 > Image source inconnu, ou libéré précédemment : Piafz
 
-Attention, le numéro de ligne indiqué est approximatif. Il faut parfois regarder les lignes au-dessus.
+Attention, le numéro de ligne indiqué est approximatif. L'erreur se situe parfois plusieurs lignes avant.
 
 
 ## Infos de log
 
-Lorsque le fichier de description est correct, le visionneur indique quelques informations dans le fichier `C:\autre_splash\stdout.txt`.
+Après avoir visionné un fichier de description correct, quelques informations de logs sont indiquées dans le fichier `C:\autre_splash\stdout.txt`.
 
-Exemple de log :
+Exemple :
 
 > La lecture de la configuration a été correctement effectuée.
 > La lecture du film a été effectuée. Durée totale : 4100 ms
@@ -69,9 +68,8 @@ Exemple de log :
 > Glanditude cumulée : 0 ms
 > Fin du programme. Date : 7449
 
-Le terme "Alarrachitude" désigne les ralentissements durant le visionnage du film. Certaines séquences peuvent être un peu longue à calculer (s'il y a beaucoup de grandes images à afficher, des zooms, etc). Le visionneur précalcule quelques images à l'avance, mais parfois cela ne suffit pas.
+Le terme "alarrachitude" désigne les ralentissements durant le visionnage. Certaines séquences peuvent être un peu longue à calculer (s'il y a beaucoup de grandes images à afficher, des zooms, etc). Un précalcul est effectué sur un buffer d'une dizaine d'images, mais parfois cela ne suffit pas.
 
 Si vous observez des ralentissements, vérifier les valeurs "Alarrachitude cumulée" et "Nombre d'images alarrachée". Si elles sont trop grandes, essayez de simplifier votre dessin animé, de pré-zoomer des images, etc. Cela dépend également des performances de votre ordinateur.
 
-Le terme "Glanditude" indique le temps durant lequel le visionneur a précalculé le maximum d'images, et il attend que l'image suivante soit affichée pour avoir un peu de mémoire disponible et refaire des précalculs. Si cette valeur est haute, ce n'est pas grave du tout, au contraire.
-
+Le terme "Glanditude" indique le temps durant lequel le visionneur a précalculé le maximum d'images, et attend que l'image suivante soit affichée pour avoir un peu de mémoire disponible et refaire des précalculs. Si cette valeur est haute, c'est plutôt bon signe.
