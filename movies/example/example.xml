@@ -31,14 +31,15 @@
 	<ProcedureToCreate> 1 </ProcedureToCreate>
 </ProgressBarInfo>
 
-<!-- Déclaration des fichiers images et sons à charger. -->
+<!-- Déclaration des fichiers images et sons. -->
 <ImgSoundFiles>
 	<!--
 		Format d'image : .png uniquement.
 		Format des sons : .wav uniquement.
 		Les fichiers doivent être dans le même répertoire que le film.
 		On peut également utiliser des fichiers compressés dans un format spécifique (fichier .cul).
-		Voir le readme de l'utilitaire concat_files pour plus d'infos. (TODO : je ne me suis pas encore occupé de ça).
+		Voir le manuel des utilitaires concat_files et extract_files :
+		https://github.com/darkrecher/pru-pra-prok/blob/master/doc/outils_annexes.md.
 	-->
 	<LoadImg> Collines </LoadImg>
 	<LoadImg> Piaf </LoadImg>
@@ -48,16 +49,16 @@
 
 <!-- ****************************************************************************************** -->
 
-<!-- Définition des listes d'images, qui serviront ensuite à faire les sprites. -->
+<!-- Définition des listes d'images, qui serviront ensuite pour les sprites. -->
 <LoadData>
 
-	<!-- Une première liste, qui contiendra toutes les images de l'oiseau. -->
+	<!-- Une première liste, avec les images de l'oiseau. -->
 	<ImgListDef> <Name> Piaf_ImgList </Name>
 
 		<!-- Déclaration de la première image. -->
 		<Img> <Name> Ailes_plies </Name>
 
-			<!-- Indique le fichier image source (correspond à une balise LoadImg). -->
+			<!-- Le fichier image source (correspond à un nom déclaré dans une balise LoadImg). -->
 			<ImageSource> Piaf </ImageSource>
 
 			<!--
@@ -69,8 +70,7 @@
 
 			<!--
 				Coordonnées du hot-point.
-				Le placement de l'image à l'écran est effectué par rapport au hot-point.
-				C'est plus pratique que de placer par rapport au coin supérieur gauche.
+				Le placement de l'image sur la scène est effectué par rapport à ce point.
 				Pour chaque image du sprite, le hot-point doit toujours indiquer le même élément,
 				afin d'éviter des mouvements bizarres lors d'un changement d'image.
 				Pour l'oiseau, j'ai choisi le point entre ses deux yeux.
@@ -81,7 +81,7 @@
 
 		</Img>
 
-		<!-- La deuxième image de la liste. -->
+		<!-- La deuxième image. -->
 		<Img> <Name> Ailes_haut </Name>
 			<ImageSource> Piaf </ImageSource>
 			<SquareSource> <X> 33 </X> <Y> 0 </Y> <W> 33 </W> <H> 24 </H> </SquareSource>
@@ -101,15 +101,14 @@
 		Facultatif.
 		Maintenant que toutes les images de l'oiseau ont été récupérées, le fichier Piaf.png n'est plus nécessaire.
 		On libère sa mémoire.
-		Dans tous les cas, la mémoire des fichiers image source est libérée
-		après la création des listes d'images et des sprites.
-		Mais il vaut mieux libérer au fur et à mesure, pour optimiser.
+		Dans tous les cas, la mémoire des fichiers image source est libérée lorsque tous les sprites
+		ont été créés, mais il vaut mieux libérer au fur et à mesure, pour optimiser.
 		L'application dans son ensemble gère assez mal la mémoire, ça permet donc de ne pas empirer les choses.
 	-->
 	<FreeImgFile> Piaf </FreeImgFile>
 
 	<!--
-		Définition du sprite de l'oiseau utilisant la liste d'image des oiseaux.
+		Définition du sprite utilisant la liste d'image des oiseaux.
 		On aurait pu définir plusieurs sprites avec la même liste d'images,
 		pour afficher plusieurs oiseaux en même temps.
 	-->
@@ -141,13 +140,13 @@
 	car c'est une valeur qui pourrait être différente d'un film à l'autre.
 	Je me suis planté. C'est pas grave.
 
-	Une balise <Img> peut comporter une sous-balise <NotKeyTransparent/>. Ce sera alors une image pas transparente.
-	Ces images s'affichent un peu plus rapidement. Il est donc conseillé de mettre du NotKeyTransparent
-	chaque fois que c'est possible, en particulier pour les décors de fond, qui peuvent être assez grands.
+	Une balise <Img> peut comporter une sous-balise <NotKeyTransparent/>. Ce sera alors une image non transparente.
+	Il est conseillé de mettre du NotKeyTransparent chaque fois que c'est possible, en particulier pour les grands
+	décors de fond, ça optimise la vitesse d'affichage.
 
-	Il est également possible d'ajouter une balise de ce type dans une <Img> :
+	Il est également possible de définir une couleur de transparence spécifique pour une image,
+	en ajoutant dans la balise <Img> une sous-balise de ce type :
 	<KeyTransparency> <Red> 125 </Red> <Blue> 200 </Blue> <Green> 54 </Green> </KeyTransparency>
-	pour redéfinir la transparence uniquement pour cette image.
 
 	La balise <SquareSource> et son contenu peut être remplacée par une balise simple <SquareSourceAllImage/>.
 	Dans ce cas, l'image récupérée correspond à tout le fichier image source.
@@ -161,18 +160,17 @@
 
 <!--
 	Définition des procédures.
-	Chaque procédure est un morceau de séquence de film.
+	Une procédure est une partie d'une séquence du film.
 	Il est possible de les enchaîner, les répéter, les imbriquer et en exécuter plusieurs en parallèle.
 	Elles permettent de définir les animations d'éléments indépendants les uns des autres.
 	Tout ceci est un peu prise de tête, si ça vous dérange, allez sodomiser votre chien Woulfy.
 	(Je vais laisser cette remarque d'adolescent, je l'aime bien).
 -->
 
-<!-- Or donc, définition d'une procédure. -->
 <Procedure> <Name> LaNuitTombe </Name>
 
 	<!--
-		Redéfinition de la couleur de remplissage initial de l'écran.
+		Redéfinition de la couleur de remplissage de l'écran.
 		Ici, le but est d'utiliser un bleu de plus en plus foncé,
 		pour faire genre le ciel qui s'assombrit progressivement car la nuit tombe.
 	-->
@@ -197,7 +195,7 @@
 
 </Procedure>
 
-<!-- On pourrait ajouter d'autres procédures ici, à la suite. -->
+<!-- On pourrait ajouter d'autres balises <Procedure> ici. -->
 
 
 <!-- ****************************************************************************************** -->
