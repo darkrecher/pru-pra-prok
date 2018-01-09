@@ -172,7 +172,7 @@
 	<!--
 		Redéfinition de la couleur de remplissage de l'écran.
 		Ici, le but est d'utiliser un bleu de plus en plus foncé,
-		pour faire genre le ciel qui s'assombrit progressivement car la nuit tombe.
+		pour faire  le ciel qui s'assombrit progressivement car la nuit tombe.
 	-->
 	<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 150 </Green> </ClearWithColor>
 
@@ -204,7 +204,7 @@
 	Définition du film.
 	Le film peut être considéré comme la "procédure principale".
 	La balise <Film> et les balises <Procedure> acceptent les mêmes sous-balises.
-	Une procédure peut être exécutée dans le film, mais également dans une autre procédure.
+	Une procédure peut être exécutée dans le film, et également dans une autre procédure.
 	La seule contrainte à respecter est qu'une procédure doit être définie avant de pouvoir être exécutée.
 	Cela permet de ne pas avoir à gérer des cas compliqués de dépendance circulaire.
 -->
@@ -220,11 +220,10 @@
 
 		<!--
 			Définit les sprites à afficher.
-			Le contenu de cette balise est constitué d'une suite de noms de Sprites
-			(définis préalablement par des <SpriteDef>), séparés par des balises <Next/>.
-			Le premier sprite de la liste est affiché en premier, ainsi de suite.
-			Donc le premier sprite apparaitra derrière, le suivant par-dessus, etc.
-			Il n'y a pas de limite théorique à la quantité de sprite affiché, mais s'il y en a beaucoup,
+			Le contenu de cette balise est constitué d'une suite de noms de sprites,
+			séparés par des balises <Next/>. Le premier sprite de la liste est affiché en premier,
+			donc il apparaitra tout derrière. Le suivant sera par-dessus, etc.
+			Il n'y a pas de limite théorique à la quantité de sprites affichés, mais s'il y en a beaucoup,
 			ça risque d'être lent.
 			Cette balise peut être incluse directement dans le film ou dans une procédure, sans la
 			mettre dans une balise <SetAllSceneInfos>.
@@ -235,7 +234,7 @@
 
 		<!--
 			Zoom global de la scène, à indiquer en "1024ème de zoom".
-			1024 : zoom x1. 2048 : zoom x2. Etc.
+			1024 : zoom x1, 2048 : zoom x2, etc.
 			On ne peut mettre que des nombres entiers.
 			Pour effectuer la même action directement dans le film ou dans une procédure, utiliser la balise :
 			<SetZoom> {nombre} </SetZoom>
@@ -243,18 +242,18 @@
 		<Zoom> 1024 </Zoom>
 
 		<!--
-			Définit la couleur de remplissage initial de l'écran.
+			Définit la couleur de remplissage de l'écran.
 			Cette balise peut être incluse directement dans le film ou dans une procédure.
-			Pour plus de détail, voir la procédure définit plus haut.
+			Pour plus de détail, voir la procédure "LaNuitTombe" définie plus haut.
 		-->
 		<ClearWithColor> <Red> 0 </Red> <Blue> 255 </Blue> <Green> 200 </Green> </ClearWithColor>
 
 		<!--
 			Définit le point central de la caméra et la taille de la scène.
 			Ce n'est pas forcément très bien géré.
-			On ne peut pas redéfinir la taille, à moins de mettre plus loin
+			La taille de la scène ne doit plus changer après, à moins de mettre
 			une autre balise </SetAllSceneInfos>, ce qui est déconseillé.
-			De plus, quel que soit la taille de la scène, et aussi bien en plein écran qu'en fenêtré,
+			De plus, quelle que soit cette taille, et aussi bien en plein écran qu'en fenêtré,
 			le film s'affiche avec une résolution de 640*480 pixels.
 
 			Si le zoom actuel est supérieur à 1024, seule une partie de la scène est visible.
@@ -266,7 +265,7 @@
 
 	</SetAllSceneInfos>
 
-	<!-- Définition d'info pour le sprite "Collines" -->
+	<!-- Définition d'infos pour le sprite "Collines" -->
 	<Sprite> <Name> Collines </Name>
 
 		<!-- Cette balise permet de définir plusieurs infos en une seule fois. -->
@@ -282,7 +281,7 @@
 			<Img> Collines </Img>
 
 			<!--
-				Les autres sous-balises de SetAllSpriteInfos :
+				Les autres sous-balises possibles de SetAllSpriteInfos :
 
 				<Zoom> (nombre) </Zoom>.
 				Indique si le sprite est grossi ou rapetici.
@@ -345,7 +344,7 @@
 		<!--
 			Même chose que précédemment.
 			On fait voler l'oiseau, en déplaçant le sprite et en définissant ses images et son zoom.
-			Des fois aussi les oiseaux, ils boivent de l'alcool. Ce sont des gros junky,
+			Des fois aussi les oiseaux, ils boivent de l'alcool. Ce sont des gros junkys,
 			comme les pigeons dans Sam et Max. Dans ce dessin animé, celui-ci ne boit pas d'alcool
 			car sinon j'aurais dû dessiner encore plus d'images et c'est déjà assez lourdingue comme ça.
 		-->
@@ -362,7 +361,7 @@
 	</Sprite>
 
 	<!--
-		Emission d'un son.
+		Émission d'un son.
 		Il est possible d'en jouer plusieurs en même temps, en les démarrant ensemble ou en décalé.
 		Le nombre de sons simultanés est limité, défini dans le fichier de config,
 		par la balise ChannelQuantity. (À revérifier, je n'en suis plus très sûr).
@@ -466,13 +465,13 @@
 
 	SetPortion
 	Elle fonctionne comme la balise Portion.
-	Portion doit être mise dans une balise SetAllSpriteInfo.
-	SetPortion doit être directement mise dans une balise Sprite.
+	"Portion" doit être placée dans une balise SetAllSpriteInfo.
+	"SetPortion" doit être directement placée dans une balise Sprite.
 
 	SetZoom
 	Elle fonctionne comme la balise Zoom.
-	Zoom doit être mise dans une balise SetAllSpriteInfo.
-	SetZoom doit être directement mise dans une balise Sprite.
+	"Zoom" doit être placée dans une balise SetAllSpriteInfo.
+	"SetZoom" doit être directement placée dans une balise Sprite.
 
 	SetPos
 	Elle fonctionne comme la balise Pos.
@@ -504,14 +503,14 @@
 	<BreakPoint> 0 <BreakPoint>
 	Définit un point d'arrêt de niveau 0 (niveau "principal").
 	Lorsque l'utilisateur appuie sur sur la touche Page Up, le visionneur de film se place au
-	précédent breakpoint de niveau 0 et reprend à partir de là.
+	précédent breakpoint de niveau 0 et reprend à partir de cet endroit.
 	Les breakpoints de niveau 1 ne sont pas pris en compte.
 	La touche Page Down permet d'aller au prochain breakpoint de niveau 0.
 
 	<BreakPoint> 1 <BreakPoint>
 	Définit un point d'arrêt de niveau 1 (niveau plus précis).
 	Lorsque l'utilisateur appuie sur la flèche du haut, le visionneur se place au précédent breakpoint
-	de niveau 0 ou 1, et rejoue le film à partir de là.
+	de niveau 0 ou 1, et reprend le film à partir de cet endroit.
 	La flèche du bas permet d'aller au prochain breakpoint de niveau 0 ou 1.
 
 	Lorsque l'utilisateur se déplace vers un breakpoint (quel que soit son niveau),
@@ -520,7 +519,7 @@
 	 - <NoClear/> : le rafraichissement est fixé à "pas de rafraîchissement".
 	 - <SetZoom> : Le Zoom de la scène est fixé à 1024.
 	 - <SetCamPos> : La position de la caméra est fixée à 319, 239.
-	 - Mais la liste d'affichage des sprites, ainsi que leurs positions, zooms, et portions ne sont pas redéfinis !
+	 - Mais la liste d'affichage des sprites, ainsi que leurs positions, zooms, et portions, ne sont pas redéfinis !
 
 	Après une balise BreakPoint, il est donc fortement conseillé de placer les balises suivantes :
 
@@ -548,8 +547,7 @@
 		<AddTime/>
 	</ExecComplex>
 	Exécution "séquentielle" de la procédure, et non pas "parallèle".
-	Pendant que cette procédure s'exécute, les actions décrites après ne le sont pas.
-	On attend la fin de la procédure avant de passer à la suite.
+	On attend la fin de la procédure avant de passer aux actions suivantes.
 
 	Il est possible de mettre à la fois une balise </Duration> et une balise <AddTime/> dans une balise <ExecComplex>
 

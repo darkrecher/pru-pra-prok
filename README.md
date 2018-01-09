@@ -31,7 +31,7 @@ Touches de fonction :
  - Echap : quitter
  - F1 : copie d'écran dans un fichier "screenshot.bmp" (on ne peut en faire qu'une seule à la fois).
 
-Si ça ne fonctionne pas bien, essayej de modifier le fichier [movies/pru-pra-prok_episode_2/config.txt](movies/pru-pra-prok_episode_2/config.txt). Les explications sont directement dedans, sous forme de commentaires. Résultat non garanti, si ça ne fonctionne pas, il est fort possible qu'il n'y ait pas de solution.
+Si ça ne fonctionne pas bien, essayez de modifier le fichier [movies/pru-pra-prok_episode_2/config.txt](movies/pru-pra-prok_episode_2/config.txt). Les explications sont directement dedans, sous forme de commentaires. Résultat non garanti, si ça ne fonctionne pas, il est fort possible qu'il n'y ait pas de solution.
 
 
 ## Récupération des images et des sons
