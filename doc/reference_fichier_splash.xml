@@ -6,11 +6,11 @@ C'est du XML.
 
 Description des mots-clés spécifiques à cette référence :
 
-	{qt_un_seul} : l'élément (balise XML ou donnée) placé juste avant doit obligatoirement apparaître une seule fois.
+	{qt_un_seul} : l'élément (une balise XML ou une donnée) placé juste avant doit apparaître obligatoirement une seule fois.
 
-	{qt_zero_ou_un} : l'élément (balise XML ou donnée) placé juste avant peut apparaître zéro ou une seule fois.
+	{qt_zero_ou_un} : l'élément placé juste avant peut apparaître zéro ou une seule fois.
 
-	Lorsqu'il n'y a pas d'indication {qt_xxx} : l'élément peut apparaître 0, 1 ou plusieurs fois.
+	Lorsqu'il n'y a pas d'indication "qt" : l'élément peut apparaître 0, 1 ou plusieurs fois.
 
 	{numerique_entier} : ce mot-clé doit être remplacé par une donnée numérique entière.
 
@@ -29,18 +29,18 @@ Description des mots-clés spécifiques à cette référence :
 		<H> {qt_un_seul} {numerique_entier} </H>
 
 	{color} : à remplacer par le bloc XML suivant :
-		<Red> {qt_un_seul} {numerique_entier} </Red>
+		<Red>   {qt_un_seul} {numerique_entier} </Red>
 		<Green> {qt_un_seul} {numerique_entier} </Green>
-		<Blue> {qt_un_seul} {numerique_entier} </Blue>
+		<Blue>  {qt_un_seul} {numerique_entier} </Blue>
 
 	{or} : ce mot-clé est placé entre deux blocs XML.
-		Il indique que seul l'un des deux blocs XML doit être présent.
+		Il indique que seul l'un des deux blocs doit être présent.
 		Il peut y avoir plusieurs mot-clé {or} entre plusieurs blocs, le tout situé sur une même ligne.
 		Dans ce cas, un seul de tous les blocs XML doit être présent.
 		De plus, le bloc XML choisi est systématiquement en {qt_zero_ou_un}
 
 	{texte_def_xxx} : mot-clé à remplacer par du texte.
-		Ce texte définit un objet de type "xxx", qui pourra être mentionné à d'autres endroits du fichier de description.
+		Ce texte définit un objet de type "xxx", qui pourra être mentionné à d'autres endroits de ce fichier.
 
 	{file_def_xxx} : Même chose que {texte_def_xxx},
 		mais en plus le texte doit correspondre à un nom de fichier présent dans le même répertoire que le fichier XML.
@@ -62,7 +62,7 @@ Description des mots-clés spécifiques à cette référence :
 
 		Lorsqu'une balise contient, entre autres, une sous-balise <Name>, celle-ci doit apparaître en premier.
 
-	Tout cela aurait pu être exliqué avec un bon vieux fichier XSD, mais ça me semblait plus simple à comprendre avec ces mots-clés.
+	Tout cela aurait pu être exliqué avec un bon vieux fichier XSD, mais ça me semblait plus simple à comprendre avec cette syntaxe.
 
 -->
 
