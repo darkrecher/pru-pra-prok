@@ -2,9 +2,9 @@
 
 Le but de cette documentation est de décrire les actions à effectuer pour compiler le code source et construire les fichiers du dessin animé pru-pra-prok. Elle permet de reproduire à partir de zéro l'ensemble du contenu du répertoire [repo_git/movies/pru-pra-prok_episode_2](../movies/pru-pra-prok_episode_2).
 
-(Pour l'instant, ce répertoire n'est pas présent dans le repository, mais ça va venir).
-
 Tous les chemins indiquant un fichier ou un répertoire de ce repository sont préfixés par `repo_git/`. Lorsque c'est possible, ces chemins sont sous forme d'une url, permettant d'accéder directement à l'élément concerné.
+
+Dans l'ensemble de ce document, on suppose que vous avez cloné ce repository sur votre disque, à l'emplacement `C:\repo_git\pru-pra-prok`. S'il est à un autre endroit, pensez à adapter les lignes de commande.
 
 À l'origine, le moteur de dessin animé avait été codé et compilé avec l'environnement de développement "DEV-CPP". Le code a ensuite été adapté pour qu'il soit recompilable avec MinGW, qui est un outil plus léger.
 
@@ -25,11 +25,11 @@ Cliquer sur Install
 
 ![screenshot mingw installation preferences](install_mingw32/screenshot_001_install_preferences.png)
 
-Il est fortement conseillé de laisser le répertoire d'installation par défaut : `C:\MinGW`. La doc déconseille fortement de choisir un nom de répertoire avec des espaces.
+Il vaut mieux laisser le répertoire d'installation par défaut : `C:\MinGW`. La doc déconseille fortement de choisir un nom de répertoire avec des espaces.
 
-Cocher "also install support for the graphical user interface". (c'est peut-être pas nécessaire, mais tant qu'à faire...)
+Cocher "also install support for the graphical user interface". (ce n'est peut-être pas nécessaire, mais tant qu'à faire...)
 
-Concernant les autres cases à cocher et les radios-boutons (just for me / all users, shortcut in start menu, shortcut on the desktop), on peut laisser comme on veut.
+Les autres options (just for me / all users, shortcut in start menu, shortcut on the desktop) peuvent être définies comme vous le souhaitez.
 
 Cliquer sur Continue
 
@@ -48,11 +48,11 @@ Log obtenu :
     mingw-get: *** INFO *** setup: register mingw-get-0.6.2-mingw32-beta-20131004-1-lic.tar.xz
     mingw-get: *** INFO *** setup: installation database updated
 
-Une nouvelle fenêtre s'ouvre, permettant de sélectionner les package à installer.
+Une nouvelle fenêtre s'ouvre, permettant de sélectionner les packages à installer.
 
-Dans la partie gauche de la fenêtre, sélectionner "Basic Setup" (C'est le choix par défaut).
+Dans la partie gauche de la fenêtre, sélectionner "Basic Setup" (choix par défaut).
 
-Cocher le package `mingw32-base`. Un menu contextuel s'ouvre. Sélectionner l'option "mark for installation"
+Cocher le package `mingw32-base`. Un menu contextuel s'ouvre. Sélectionner l'option "mark for installation".
 Même opération avec le package `mingw32-gcc-g++`.
 
 ![screenshot mingw selection packages](install_mingw32/screenshot_003_selection_packages.png)
@@ -91,7 +91,7 @@ Une nouvelle fenêtre s'ouvre, listant les packages qui seront installés :
     gcc-c++-4.8.2-mingw32-dev.tar.meta
     gcc-c++-6.3.0-1-mingw32-bin.tar.xz
 
-(La fenêtre indique également qu'aucun package ne sera supprimé, ni aucun upgradé)
+(La fenêtre indique également qu'aucun package ne sera supprimé, et aucun upgradé)
 
 ![screenshot mingw liste packages](install_mingw32/screenshot_004_liste_packages.png)
 
@@ -154,9 +154,9 @@ Exécuter la commande suivante :
 
 Pour vérifier que le path a bien été modifié, exécuter la commande `echo %path%`. Le texte renvoyé doit se terminer par `;C:\MinGW\bin`.
 
-Si la console de commande est fermée, et que les actions de ce test sont reprises à partir d'une autre console, il faut re-exécuter la commande `set path=%path%;C:\MinGW\bin`.
+Attention, si la console de commande est fermée, et que les actions de ce test sont reprises à partir d'une autre console, il faut re-exécuter la commande `set path=%path%;C:\MinGW\bin`.
 
-Aller dans le répertoire du repository. (Pour l'exemple, on suppose que vous avez cloné ce repository sur votre disque, à l'emplacement `C:\repo_git\pru-pra-prok`)
+Aller dans le répertoire du repository.
 
     cd C:\repo_git\pru-pra-prok
     cd doc\test_mingw32
@@ -187,7 +187,7 @@ Exécuter la commande suivante :
 
     test_mingw.exe > stdout.txt
 
-Si vous utilisez l'antivirus avast, il est possible que celui-ci émette un message d'avertissement car `test_mingw.exe` est un exécutable qui lui est inconnu. Son lancement prendra simplement quelques secondes de plus que prévu, mais ne devrait pas poser de problème.
+Si vous utilisez l'antivirus Avast, il est possible que celui-ci émette un message d'avertissement car `test_mingw.exe` est un exécutable qui lui est inconnu. Son lancement prendra simplement quelques secondes de plus.
 
 Vérifier qu'un fichier `stdout.txt` a été créé dans le répertoire courant, et que ce fichier contient une seule ligne, avec le texte `Test MINGW. OK.` suivi d'un saut de ligne.
 
@@ -220,7 +220,7 @@ Vérifier qu'un fichier `stdout_2.txt` a été créé dans le répertoire couran
 
 Ce chapitre permet de reconstruire le contenu du répertoire [repo_git/pru-pra-prok/code/libs_includes](../code/libs_includes).
 
-Le moteur de dessin animé utilise zlib, la librairie SDL, et des librairies associées à la SDL. La SDL sert à exploiter divers "médias" d'un ordinateur : sons, écran, clavier, souris, ...
+Le moteur de dessin animé utilise zlib, la librairie SDL et des librairies associées. SDL sert à exploiter les médias d'un ordinateur : sons, écran, clavier, souris, ...
 
 Il existe deux versions principales de la SDL : 1.2.x et 2.0.x.
 
@@ -231,16 +231,16 @@ Dans sa version originale, le moteur utilisait les librairies suivantes :
  - SDL_image-1.2.3
  - zlib121-dll
 
-La version actuelle utilise des librairies plus récentes :
+La version actuelle en utilise des plus récentes :
 
  - SDL-1.2.15
  - SDL_image-1.2.12
  - SDL_mixer-1.2.12
  - zlib-1.2.3
 
-La recompilation avec des librairies SDL 2.0.x n'a pas été testée. À priori, ça ne marchera pas, car ce n'est pas rétro-compatble (Semantic Versioning).
+La recompilation avec des librairies SDL 2.0.x n'a pas été testée. À priori, ça ne marchera pas, car ce n'est pas rétro-compatible (Semantic Versioning).
 
-Attention, quel que soit l'endroit où se trouve le repository sur votre disque dur, les librairies doivent être placées dans le répertoire `repo_git/pru-pra-prok/code/libs_includes`. Sinon, le fichier makefile du moteur de dessin animé ne pourra pas les retrouver.
+Attention, sur votre disque dur, les librairies doivent être placées dans le répertoire `C:\repo_git\pru-pra-prok\code\libs_includes` (adaptez le début de ce chemin à l'endroit où vous avez cloné le repository). Sinon, le fichier makefile ne pourra pas les retrouver.
 
 ### SDL
 
@@ -258,7 +258,7 @@ Décompresser ce fichier dans [repo_git/pru-pra-prok/code/libs_includes/SDL-deve
 
 ### SDL_image
 
-Page de téléchargement de la librairie : [https://www.libsdl.org/projects/SDL_image/release-1.2.html](https://www.libsdl.org/projects/SDL_image/release-1.2.html). (Attention, la page est moche, c'est normal).
+Page de téléchargement de la librairie : [https://www.libsdl.org/projects/SDL_image/release-1.2.html](https://www.libsdl.org/projects/SDL_image/release-1.2.html) (elle est moche, c'est normal).
 
 Le fichier à télécharger se trouve dans le paragraphe : Binary / Windows / SDL_image-devel-xxxxx.
 
@@ -270,7 +270,7 @@ Décompresser ce fichier dans [repo_git/pru-pra-prok/code/libs_includes/SDL_imag
 
 ### SDL_mixer
 
-Page de téléchargement de la librairie : [https://www.libsdl.org/projects/SDL_mixer/release-1.2.html](https://www.libsdl.org/projects/SDL_mixer/release-1.2.html). (Attention, c'est moche pareil que SDL_image).
+Page de téléchargement de la librairie : [https://www.libsdl.org/projects/SDL_mixer/release-1.2.html](https://www.libsdl.org/projects/SDL_mixer/release-1.2.html) (moche pareil que SDL_image).
 
 Le fichier à télécharger se trouve dans le paragraphe : Binary / Windows / SDL_mixer-devel-xxxxx.
 
@@ -284,7 +284,7 @@ Décompresser ce fichier dans [repo_git/pru-pra-prok/code/libs_includes/SDL_mixe
 
 Site officiel : [http://www.zlib.net/](http://www.zlib.net/).
 
-Cette librairie est utilisée par beaucoup de logiciels, et on peut donc la trouver un peu partout. ce qui nous amène au phénomène qui se produit systématiquement dans ce genre de situation : partout = nul part.
+Cette librairie est utilisée par beaucoup de logiciels, on peut donc la trouver un peu partout. Ce qui nous amène au phénomène se produisant systématiquement dans ce genre de situation : partout = nul part.
 
 J'ai eu beaucoup de mal à trouver une version de développement de cette librairie, avec les composants qu'on est en droit d'attendre : le fichier de header, la lib et la dll. Le site officiel ne semble pas avoir cela dans sa multitude de lien plus ou moins intéressants et plus ou moins bien rangés.
 
@@ -301,7 +301,7 @@ Décompresser ce fichier dans [repo_git/pru-pra-prok/code/libs_includes/zlib-1.2
 
 ### Recompilation splash.exe
 
-Ce chapitre décrit la méthode pour reconstruire le fichier [repo_git/pru-pra-prok/code/splash/splash.exe](../code/splash/splash.exe). Il s'agit de l'exécutable permettant de visionner les dessins animé. "SPLASH" étant un acronyme de "South Park : L'Abominable Script à Histoire".
+Ce chapitre décrit la méthode pour reconstruire le fichier [repo_git/pru-pra-prok/code/splash/splash.exe](../code/splash/splash.exe). Il s'agit de l'exécutable permettant de visionner les dessins animés. "SPLASH" étant un acronyme de "South Park : L'Abominable Script à Histoire".
 
 Ouvrir une console de commande Windows (ou reprendre celle du chapitre précédent).
 
@@ -340,9 +340,9 @@ Dans le répertoire `C:\repo_git\pru-pra-prok\movies\example`, copier les fichie
  - Tout le contenu de `C:\repo_git\pru-pra-prok\code\libs_includes\SDL_image-devel-1.2.12-VC\SDL_image-1.2.12\lib\x86`
  - Le fichier `C:\repo_git\pru-pra-prok\code\splash\splash.exe` que vous avez reconstruit au chapitre précédent.
 
-Si vous n'êtes pas parvenu à récupérer/reconstruire tous ces fichiers, prenez ceux de `C:\repo_git\pru-pra-prok\movies\pru-pra-prok_episode_2` (mais pour l'instant ce rep n'est pas le repo.)
+Si vous n'êtes pas parvenu à récupérer/reconstruire tous ces fichiers, prenez ceux de `C:\repo_git\pru-pra-prok\movies\pru-pra-prok_episode_2`.
 
-Dans une console, exécuter les commandes suivantes (pas besoin d'exécuter la commande `set path=...`)
+Dans une console, exécuter les commandes suivantes (pas besoin du `set path=...`)
 
     cd C:\repo_git\pru-pra-prok
     cd movies\example

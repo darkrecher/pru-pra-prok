@@ -49,8 +49,6 @@ Lorsque l'exécution est terminée, un répertoire `movies/pru-pra-prok_episode_
 
 ## Création de vos propres dessins animés
 
-Presque fini. À relire.
-
 Voir : [doc/creation_dessins_animes.md](doc/creation_dessins_animes.md)
 
 Puis, voir [doc/outils_annexes.md](doc/outils_annexes.md), pour les utilitaires de compression/décompression/optimisation. (Ils ne sont pas indispensables).
@@ -73,6 +71,7 @@ Voir : [doc/reconstruction_projet.md](doc/reconstruction_projet.md)
  X fichier de référence des XML
  X doc un peu plus détaillé pour `concat_files`, `extract_files`, `xml_optimizer`
  - relire `reconstruction_projet.md` et les autres docs.
+ - les sommaires.
  - gif animé du film d'exemple
  - ajouter les bonus, avec mini-texte d'explications (Gerontalia, les dessins)
  - le film pru-pra-prok au format lisible
