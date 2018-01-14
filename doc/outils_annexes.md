@@ -130,19 +130,19 @@ Double-cliquer sur le fichier `extract_files.exe`.
 
 ## xml_optimizer
 
-Cet outil permet de diminuer la taille des fichiers XML de description de dessin animé, et de permettre un chargement initial plus rapide. Attention, cette optimisation rend le fichier très difficilement lisible pour des humains. Si vous effectuez cette optimisation, il est conseillé de distribuer les deux versions du fichier XML : l'optimisée et la normale.
+Cet outil permet de diminuer la taille des fichiers XML de description de dessin animé, et de permettre un chargement initial plus rapide. Attention, cette optimisation rend le fichier très difficilement lisible pour des humains. Si vous l'effectuez, il est conseillé de distribuer les deux versions du fichier XML : l'optimisée et la normale.
 
 À noter qu'avec les performances des ordinateurs actuels, cette optimisation n'a plus vraiment de raison d'être.
 
-De plus, l'optimisation nécessite une opération manuelle pour corriger le fichier.
+De plus, elle nécessite des opérations manuelles pour corriger le fichier.
 
 ## Situation initiale
 
-Un dessin animé qui fonctionne, avec des fichiers images et sons qui peuvent être compressés ou pas. Pour l'exemple, on dira que le fichier de description s'appelle `example.xml`
+Un dessin animé qui fonctionne, avec des fichiers images et sons qui peuvent être compressés ou pas. Supposons que le fichier de description s'appelle `example.xml`
 
 ### Étape 1 : Copie de l'utilitaire
 
-Dans le répertoire du dessin animé, copier le fichier `code/xml_optimizer/xml_optimizer.exe` qui se trouve dans ce repository.
+Le fichier `code/xml_optimizer/xml_optimizer.exe` qui se trouve dans ce repository doit être copié dans le répertoire du dessin animé à optimiser.
 
 ### Étape 2 : Exécution de l'optimisation
 
@@ -151,9 +151,9 @@ Ouvrir une console de commande DOS, et exécuter les instructions suivantes
     cd {le_repertoire_du_dessin_anime}
     xml_optimizer.exe example.xml example_optim.xml
 
-Un nouveau fichier a été créé `example_optim.xml`. Il s'agit du fichier de description du film, optimisé.
+Un nouveau fichier a été créé : `example_optim.xml`. Il s'agit du fichier de description du film, optimisé.
 
-Le seul problème étant que ce fichier n'est pas immédiatement fonctionnel.
+Malheureusement, l'optimiseur n'est pas tout à fait au point, et ce fichier n'est pas immédiatement fonctionnel.
 
 ### Étape 3 : Correction du fichier optimisé
 
@@ -161,11 +161,11 @@ Ouvrir `example_optim.xml` avec un éditeur de texte, et effectuer les modificat
 
 1) Remplacer la chaîne `a<SPLASH>` par `<SPLASH>`. (Il faut enlever le "a")
 
-2) Pour tous les fichiers compressés .cul mentionnés, remplacer les chaînes `<CompressedFile><Name>{identifiant_bidon}</Name>` par `<CompressedFile><Name>{nom_original_du_fichier_cul}</Name>`. `{identifiant_bidon}` est une suite quelconque de lettres/chiffres, et `{nom_original_du_fichier_cul}` est le nom du fichier compressés tel qu'il était écrit au départ.
+2) Pour tous les fichiers compressés .cul, remplacer les chaînes `<CompressedFile><Name>{identifiant_bidon}</Name>` par `<CompressedFile><Name>{nom_original_du_fichier_cul}</Name>`. `{identifiant_bidon}` est une suite quelconque de lettres/chiffres, et `{nom_original_du_fichier_cul}` est le nom du fichier compressés tel qu'il était écrit au départ, avec l'extension ".cul".
 
-3) Pour tous les fichiers images non compressées, remplacer les chaînes `<LoadImg>{identifiant_bidon}</LoadImg>` par `<LoadImg>{nom_original_du_fichier_png}</LoadImg>`. Attention, il faut reporter ce remplacement dans toutes les balises `<ImageSource>{identifiant_bidon}</ImageSource>`. Chaque "identifiant bidon" correspond à un "nom original de .png", il faut refaire les correspondances.
+3) Pour tous les fichiers images non compressées, remplacer les chaînes `<LoadImg>{identifiant_bidon}</LoadImg>` par `<LoadImg>{nom_original_du_fichier_png}</LoadImg>`. Attention, il faut reporter ce remplacement dans toutes les balises `<ImageSource>{identifiant_bidon}</ImageSource>`. Chaque "identifiant bidon" correspond à un "nom original de .png", il faut refaire les correspondances. L'extension ".png" ne doit pas être écrite.
 
-4) Pour tous les fichiers sons non compressée, remplacer les chaînes `<LoadSnd>{identifiant_bidon}</LoadSnd>` par `<LoadSnd>{nom_original_du_fichier_wav}</LoadSnd>`. Attention, il faut reporter ce remplacement dans toutes les balises `<PlaySound>{identifiant_bidon}</PlaySound>`. Chaque "identifiant bidon" correspond à un "nom original de .wav", il faut refaire les correspondances.
+4) Pour tous les fichiers sons non compressée, remplacer les chaînes `<LoadSnd>{identifiant_bidon}</LoadSnd>` par `<LoadSnd>{nom_original_du_fichier_wav}</LoadSnd>`. Attention, il faut reporter ce remplacement dans toutes les balises `<PlaySound>{identifiant_bidon}</PlaySound>`. Chaque "identifiant bidon" correspond à un "nom original de .wav", il faut refaire les correspondances. L'extension ".wav" ne doit pas être écrite.
 
-Lorsque ces opérations sont terminés, le dessin animé peut être visionné avec le fichier `example_optim.xml`.
+Lorsque ces opérations sont terminées, le dessin animé peut être visionné avec le fichier `example_optim.xml`.
 
