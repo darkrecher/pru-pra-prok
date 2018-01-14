@@ -2,7 +2,7 @@
 
 L'utilisation de ces outils n'est pas nécessaire pour créer ses propres dessins animés. Mais ils facilitent leur distribution et leur transmission.
 
-Si vous utilisez l'antivirus Avast, leur exécution risque d'émettre un message d'avertissement au premier lancement, car ce ne sont pas des fichiers .exe très répandus. Il faut juste attendre un peu que l'analyse du fichier par Avast se termine.
+Si vous utilisez l'antivirus Avast, le premier lancement de chacun de ces outils risque d'émettre un message d'avertissement, car ce ne sont pas des .exe très répandus. Il faut juste attendre un peu que l'analyse de l'exécutable par Avast se termine.
 
 
 ## concat_file
@@ -33,11 +33,11 @@ Ce fichier aura le contenu suivant :
     Piaf.png
     Croa.wav
 
-La première ligne indique le nom du fichier compressé qui sera créé. Les lignes suivantes indiquent les noms des fichiers à compresser (l'ordre est important).
+La première ligne indique le nom du fichier compressé à créer. Les lignes suivantes indiquent les noms des fichiers à compresser, l'ordre est important.
 
 ### Étape 2 : Copie de l'utilitaire
 
-Dans le répertoire du dessin animé, copier le fichier `code/concat_files/concat_files.exe` qui se trouve dans ce repository.
+Le fichier `code/concat_files/concat_files.exe` qui se trouve dans ce repository doit être copié dans le répertoire du dessin animé à compresser.
 
 ### Étape 3 : Création du fichier .cul
 
@@ -49,9 +49,9 @@ Un fichier `data1.cul` a été créé dans le répertoire du dessin animé.
 
 ### Étape 4 : Compression du fichier
 
-Compresser `data1.cul` au format gz, à l'aide d'un logiciel de compression (par exemple 7-zip).
+Compresser `data1.cul` au format gz, à l'aide de 7-zip (ou d'un autre logiciel).
 
-Le fichier compressé doit avoir le même nom : `data1.cul`. On perd donc l'ancien fichier. Éventuellement, une sauvegarde peut être faite, mais ce n'est pas nécessaire.
+Le fichier compressé doit avoir le même nom : `data1.cul`. On perd donc l'ancien fichier. Une sauvegarde peut être faite, mais ce n'est pas nécessaire.
 
 ### Étape 5 : Modification de la description du dessin animé
 
@@ -69,30 +69,36 @@ L'ordre des fichiers dans `<CompressedFile>` est devenu important (il ne l'étai
 
 ### Étape 6 : Vérification
 
-Supprimer les 2 fichiers images et le fichier sons (mais pas `data1.cul`). Lancer le visionnage du dessin animé. Cela devrait fonctionner de la même manière qu'au départ.
+Supprimer les 2 fichiers images et le fichier sons, mais pas `data1.cul`. Lancer le visionnage du dessin animé. Cela devrait fonctionner de la même manière qu'initialement.
 
 ### Ajout d'autres fichiers
 
-Il est ensuite possible d'ajouter dans le dessin animé d'autres fichiers images et sons non compressés. Il faut ajouter les balises `<LoadImg>` et `<LoadSnd>` dans `</ImgSoundFiles>`, au début ou à la fin, mais pas dans la balise `</CompressedFile>`.
+Un dessin animé peut comporter à la fois des images/sons compressés et non compressés. Les balises `<LoadImg>` et `<LoadSnd>` des fichiers non compressés peuvent être placés n'importe où dans `</ImgSoundFiles>`, mais pas dans une balise `</CompressedFile>`.
 
 Le fichier `data1.cul` peut être recréé, en y ajoutant/modifiant/supprimant d'autres fichiers. Pour cela, reprendre les étapes précédentes.
 
-Il est également possible d'ajouter un autre fichier compressé au dessin animé, avec d'autres images et sons. Pour cela, reprendre les étapes précédentes, mais avec un autre fichier de définition, qui pourrait s'appeler `concat_2.txt`. La balise `<ImgSoundFiles>` aura alors un contenu de ce genre :
+Il est également possible d'ajouter d'autres fichiers compressés. La balise `<ImgSoundFiles>` pourrait alors ressembler à ceci :
 
     <ImgSoundFiles>
+
         <CompressedFile> <Name> data1.cul </Name>
             <LoadImg> Collines </LoadImg>
             <LoadImg> Piaf </LoadImg>
             <LoadSnd> Croa </LoadSnd>
         </CompressedFile>
+
+        <LoadImg> Image_pas_compresse </LoadImg>
+        <LoadSnd> Son_pas_compresse </LoadSnd>
+
         <CompressedFile> <Name> data2.cul </Name>
-            <LoadImg> AutreImage </LoadImg>
-            <LoadSnd> AutreSonA </LoadSnd>
-            <LoadSnd> AutreSonB </LoadSnd>
+            <LoadImg> Autre_Image </LoadImg>
+            <LoadSnd> Autre_Son_A </LoadSnd>
+            <LoadSnd> Autre_Son_B </LoadSnd>
         </CompressedFile>
+
     </ImgSoundFiles>
 
-Une fois les fichiers .cul créés, les fichiers `concat_1.txt` et `concat_2.txt` ne sont pas nécessaire pour jouer le dessin animé.
+Une fois les fichiers .cul créés, les fichiers de définition de compression (`concat_1.txt` et autres) ne sont pas nécessaire pour jouer le dessin animé.
 
 
 ## extract_files
@@ -101,23 +107,25 @@ Cet outil permet de reprendre les fichiers sons et images à partir des fichiers
 
 ### Situation initiale
 
-Un dessin animé qui fonctionne, avec un ou plusieurs fichiers .cul, ainsi qu'un fichier de description. Les fichiers originaux d'images et de sons ne sont pas présents.
+Un dessin animé qui fonctionne, avec un ou plusieurs fichiers .cul. Les fichiers originaux d'images et de sons ne sont pas présents.
 
 ### Étape 1 : Création du fichier de définition d'extraction
 
-Dans le répertoire du dessin animé, copier le fichier de description, en lui donnant le nom : `List_ImgSons.zob`. Il faut que ce soit obligatoirement ce nom là, désolé.
+Copier le fichier de description du dessin animé, en lui donnant le nom : `List_ImgSons.zob`. Il doit être dans le même répertoire, et doit avoir obligatoirement ce nom, désolé.
 
 Éventuellement, supprimer dans ce fichier les balises `<LoadData>`, `<Procedure>`, `<Film>` et leur contenu. Elles ne sont pas nécessaires pour l'extraction.
 
 ### Étape 2 : Copie de l'utilitaire
 
-Dans le répertoire du dessin animé, copier le fichier `code/extract_files/extract_files.exe` qui se trouve dans ce repository. Le fichier `zlib1.dll` est également nécessaire. Mais si le dessin animé fonctionne, il est déjà présent dans le répertoire.
+Le fichier `code/extract_files/extract_files.exe` qui se trouve dans ce repository doit être copié dans le répertoire du dessin animé.
+
+Le fichier `zlib1.dll` est également nécessaire. Mais si le dessin animé fonctionne, il est déjà présent.
 
 ### Étape 3 : Exécution de l'extraction
 
-Double-cliquer sur le fichier `extract_files.exe` précédemment copié.
+Double-cliquer sur le fichier `extract_files.exe`.
 
-À la fin de l'exécution, un sous-répertoire `FilmData` a été créé dans le répertoire du desin animé, contenant les fichiers images et sons qui ont été extraits de tous les fichiers .cul.
+À la fin de l'exécution, un sous-répertoire `FilmData` a été créé dans le répertoire du desin animé, contenant les fichiers images et sons extraits à partir de tous les fichiers .cul.
 
 
 ## xml_optimizer
