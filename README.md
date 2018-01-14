@@ -56,10 +56,6 @@ Puis, voir [doc/outils_annexes.md](doc/outils_annexes.md), pour les utilitaires 
 
 ## Recompilation, reconstruction du projet, etc.
 
-Presque fini. À relire.
-
-TODO : expliquer à quoi sert basicimg.zob. Et que ça fait un message s'il n'est pas présent.
-
 Voir : [doc/reconstruction_projet.md](doc/reconstruction_projet.md)
 
 
@@ -70,7 +66,7 @@ Voir : [doc/reconstruction_projet.md](doc/reconstruction_projet.md)
  X doc rapide pour expliquer comment créer ses propres dessins animés
  X fichier de référence des XML
  X doc un peu plus détaillé pour `concat_files`, `extract_files`, `xml_optimizer`
- - relire `reconstruction_projet.md` et les autres docs.
+ X relire `reconstruction_projet.md` et les autres docs.
  - les sommaires.
  - gif animé du film d'exemple
  - ajouter les bonus, avec mini-texte d'explications (Gerontalia, les dessins)

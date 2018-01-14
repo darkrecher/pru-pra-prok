@@ -360,6 +360,16 @@ Il faut attendre un peu, et le film devrait se lancer dans une fenêtre. Vérifi
 
 Vous pouvez également tester le deuxième film d'exemple, avec la commande `splash.exe example_avec_poisson.xml`. Il ressemble beaucoup au premier, mais utilise un fichier d'images et de sons compressés : `C:\repo_git\pru-pra-prok\movies\example\data1.cul`
 
+### Remarque concernant le fichier `basicimg.zob`
+
+Ce fichier contient quelques images indispensables pour le moteur de dessin animé, en particulier l'image affichant le message d'erreur.
+
+Lorsque le fichier de description du dessin animé est erroné (syntaxe XML incorrecte, nom d'objet inexistant, ...), le message s'affiche.
+
+Si `basicimg.zob` n'est pas présent, le message est remplacé par un gros point d'exclamation rouge. Et le texte stderr.txt indique, en plus du message d'erreur prévu, que le fichier est manquant.
+
+Pour savoir exactement ce qu'il y a dans `basicimg.zob`, utiliser `extract_file`, ou consulter le code source.
+
 
 ## Utilitaire concat_files.exe
 
@@ -367,7 +377,7 @@ Vous pouvez également tester le deuxième film d'exemple, avec la commande `spl
 
 Ce chapitre décrit la méthode pour reconstruire le fichier [repo_git/pru-pra-prok/code/concat_files/concat_files.exe](../code/concat_files/concat_files.exe). Il s'agit de l'exécutable permettant de créer des fichiers compressés au format ".cul".
 
-Les actions décrites dans le chapitre "MinGW32" doivent avoir été préalablement effectuées pour pouvoir réaliser cette recompilation.
+Les actions décrites dans le chapitre "MinGW32" doivent avoir été préalablement effectuées.
 
 Ouvrir une console de commande Windows et exécuter les commandes suivantes :
 
@@ -432,7 +442,7 @@ Vous avez recréé le fichier `data1.cul` qui était initialement présent dans 
 
 Pour tester sa validité, exécuter les actions du chapitre "Moteur de dessin animé", puis exécuter la commande `splash.exe example_avec_poisson.xml`. Vous devriez voir le second dessin animé d'exemple.
 
-Vous pouvez retester en supprimant les fichiers .png et .wav de `C:\repo_git\pru-pra-prok\movies\example`, pour vous assurer complètement que la visualisation du dessin animé ne nécessite plus que `data1.cul`.
+Pour vous assurer que la visualisation du dessin animé ne nécessite plus que `data1.cul`, vous pouvez retester en supprimant les fichiers .png et .wav de `C:\repo_git\pru-pra-prok\movies\example`.
 
 
 ## Utilitaire extract_files.exe
@@ -441,7 +451,7 @@ Vous pouvez retester en supprimant les fichiers .png et .wav de `C:\repo_git\pru
 
 Ce chapitre décrit la méthode pour reconstruire le fichier [repo_git/pru-pra-prok/code/extract_files/extract_files.exe](../code/extract_files/extract_files.exe). Il s'agit de l'exécutable "inverse" de concat_files. Il permet de récupérer les fichiers images et sons stockés dans les fichiers compressés au format ".cul".
 
-Les actions décrites dans le chapitre "MinGW32" doivent avoir été préalablement effectuées pour pouvoir réaliser cette recompilation.
+Les actions décrites dans le chapitre "MinGW32" doivent avoir été préalablement effectuées.
 
 Ouvrir une console de commande Windows et exécuter les commandes suivantes :
 
@@ -510,7 +520,7 @@ Un répertoire `FilmData` a été créé, contenant les fichiers images et sons 
 
 Ce chapitre décrit la méthode pour reconstruire le fichier [repo_git/pru-pra-prok/code/xml_optimizer/xml_optimizer.exe](../code/xml_optimizer/xml_optimizer.exe). Il s'agit d'un exécutable permettant d'optimiser les fichiers .xml de description de films.
 
-Les actions décrites dans le chapitre "MinGW32" doivent avoir été préalablement effectuées pour pouvoir réaliser cette recompilation.
+Les actions décrites dans le chapitre "MinGW32" doivent avoir été préalablement effectuées.
 
 Ouvrir une console de commande Windows et exécuter les commandes suivantes :
 

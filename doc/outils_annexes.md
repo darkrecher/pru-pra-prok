@@ -161,7 +161,7 @@ Ouvrir `example_optim.xml` avec un éditeur de texte, et effectuer les modificat
 
 1) Remplacer la chaîne `a<SPLASH>` par `<SPLASH>`. (Il faut enlever le "a")
 
-2) Pour tous les fichiers compressés .cul, remplacer les chaînes `<CompressedFile><Name>{identifiant_bidon}</Name>` par `<CompressedFile><Name>{nom_original_du_fichier_cul}</Name>`. `{identifiant_bidon}` est une suite quelconque de lettres/chiffres, et `{nom_original_du_fichier_cul}` est le nom du fichier compressés tel qu'il était écrit au départ, avec l'extension ".cul".
+2) Pour tous les fichiers compressés .cul, remplacer les chaînes `<CompressedFile><Name>{identifiant_bidon}</Name>` par `<CompressedFile><Name>{nom_original_du_fichier_cul}</Name>`. `{identifiant_bidon}` est une suite quelconque de lettres/chiffres, et `{nom_original_du_fichier_cul}` est le nom du fichier compressé tel qu'il était écrit au départ, avec l'extension ".cul".
 
 3) Pour tous les fichiers images non compressées, remplacer les chaînes `<LoadImg>{identifiant_bidon}</LoadImg>` par `<LoadImg>{nom_original_du_fichier_png}</LoadImg>`. Attention, il faut reporter ce remplacement dans toutes les balises `<ImageSource>{identifiant_bidon}</ImageSource>`. Chaque "identifiant bidon" correspond à un "nom original de .png", il faut refaire les correspondances. L'extension ".png" ne doit pas être écrite.
 
