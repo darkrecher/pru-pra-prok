@@ -356,7 +356,9 @@ Avast risque à nouveau de râler, et vous risquez d'avoir une première fenêtr
 > dans le répertoire du film,
 > pour le détail des messages d'erreur.
 
-Il faut attendre un peu, et le film devrait se lancer dans une fenêtre. Vérifiez que le son fonctionne (on entend le corbeau faire "croaaaa-croaaaa").
+Il faut attendre un peu, et le film devrait se lancer dans une fenêtre. Ça ressemble à l'image ci-dessous, et il y a du son (le corbeau faire "croaaaa-croaaaa").
+
+![screenshot gif anime oiseau qui vole](doc/anim_example.gif)
 
 Vous pouvez également tester le deuxième film d'exemple, avec la commande `splash.exe example_avec_poisson.xml`. Il ressemble beaucoup au premier, mais utilise un fichier d'images et de sons compressés : `C:\repo_git\pru-pra-prok\movies\example\data1.cul`
 
