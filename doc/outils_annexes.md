@@ -5,6 +5,29 @@ L'utilisation de ces outils n'est pas nécessaire pour créer ses propres dessin
 Si vous utilisez l'antivirus Avast, le premier lancement de chacun de ces outils risque d'émettre un message d'avertissement, car ce ne sont pas des .exe très répandus. Il faut juste attendre un peu que l'analyse de l'exécutable par Avast se termine.
 
 
+## Sommaire
+
+ - [**concat_file**](#concat_file)
+     + [Situation initiale](#situation-initiale)
+     + [Étape 1 : définition des fichiers à compresser](#%C3%89tape-1--d%C3%A9finition-des-fichiers-%C3%A0-compresser)
+     + [Étape 2 : Copie de l'utilitaire](#%C3%89tape-2--copie-de-lutilitaire)
+     + [Étape 3 : Création du fichier .cul](#%C3%89tape-3--cr%C3%A9ation-du-fichier-cul)
+     + [Étape 4 : Compression du fichier](#%C3%89tape-4--compression-du-fichier)
+     + [Étape 5 : Modification de la description du dessin animé](#%C3%89tape-5--modification-de-la-description-du-dessin-anim%C3%A9)
+     + [Étape 6 : Vérification](#%C3%89tape-6--v%C3%A9rification)
+     + [Ajout d'autres fichiers](#ajout-dautres-fichiers)
+ - [**extract_files**](#extract_files)
+     + [Situation initiale](#situation-initiale-1)
+     + [Étape 1 : Création du fichier de définition d'extraction](#%C3%89tape-1--cr%C3%A9ation-du-fichier-de-d%C3%A9finition-dextraction)
+     + [Étape 2 : Copie de l'utilitaire](#%C3%89tape-2--copie-de-lutilitaire-1)
+     + [Étape 3 : Exécution de l'extraction](#%C3%89tape-3--ex%C3%A9cution-de-lextraction)
+ - [**xml_optimizer**](#xml_optimizer)
+     + [Situation initiale](#situation-initiale-2)
+     + [Étape 1 : Copie de l'utilitaire](#%C3%89tape-1--copie-de-lutilitaire)
+     + [Étape 2 : Exécution de l'optimisation](#%C3%89tape-2--ex%C3%A9cution-de-loptimisation)
+     + [Étape 3 : Correction du fichier optimisé](#%C3%89tape-3--correction-du-fichier-optimis%C3%A9)
+
+
 ## concat_file
 
 Les dessins animés avec beaucoup de contenu risquent d'avoir beaucoup de fichiers d'images et de sons, placés en désordre dans le même répertoire. L'utilitaire `concat_file` permet de régler (plus ou moins) ce problème.
@@ -136,7 +159,7 @@ Cet outil permet de diminuer la taille des fichiers XML de description de dessin
 
 De plus, elle nécessite des opérations manuelles pour corriger le fichier.
 
-## Situation initiale
+### Situation initiale
 
 Un dessin animé qui fonctionne, avec des fichiers images et sons qui peuvent être compressés ou pas. Supposons que le fichier de description s'appelle `example.xml`
 
