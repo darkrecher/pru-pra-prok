@@ -1,5 +1,13 @@
 # Comment créer ses dessins animés
 
+## Sommaire
+
+ - [Préparation de l'environnement](#pr%C3%A9paration-de-lenvironnement)
+ - [Syntaxe du fichier de description](#syntaxe-du-fichier-de-description)
+ - [Visionnage du dessin animé](#visionnage-du-dessin-anim%C3%A9)
+ - [Correction des erreurs](#correction-des-erreurs)
+ - [Infos de log](#infos-de-log)
+
 
 ## Préparation de l'environnement
 
