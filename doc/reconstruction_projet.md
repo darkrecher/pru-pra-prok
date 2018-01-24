@@ -9,6 +9,35 @@ Dans l'ensemble de ce document, on suppose que vous avez cloné ce repository su
 À l'origine, le moteur de dessin animé avait été codé et compilé avec l'environnement de développement "DEV-CPP". Le code a ensuite été adapté pour qu'il soit recompilable avec MinGW, qui est un outil plus léger.
 
 
+## Sommaire
+
+ - [**MinGW32**](#mingw32)
+     + [Installation](#installation)
+     + [Vérification](#vérification)
+     + [Présence du compilateur](#présence-du-compilateur)
+     + [Compilation d'un code simple](#compilation-dun-code-simple)
+     + [Compilation avec un makefile](#compilation-avec-un-makefile)
+ - [**Récupération des librairies**](#récupération-des-librairies)
+     + [SDL](#sdl)
+     + [SDL_image](#sdl_image)
+     + [SDL_mixer](#sdl_mixer)
+     + [zlib](#zlib)
+ - [**Moteur de dessin animé**](#moteur-de-dessin-animé)
+     + [Recompilation splash.exe](#recompilation-splashexe)
+     + [Test avec le film d'exemple](#test-avec-le-film-dexemple)
+     + [Remarque concernant le fichier `basicimg.zob`](#remarque-concernant-le-fichier-basicimgzob)
+ - [**Utilitaire concat_files.exe**](#utilitaire-concat_filesexe)
+     + [Recompilation concat_files.exe](#recompilation-concat_filesexe)
+     + [Test de compression d'un fichier](#test-de-compression-dun-fichier)
+ - [**Utilitaire extract_files.exe**](#utilitaire-extract_filesexe)
+     + [Recompilation extract_files.exe](#recompilation-extract_filesexe)
+     + [Test d'extraction](#test-dextraction)
+ - [**Utilitaire xml_optimizer.exe**](#utilitaire-xml_optimizerexe)
+     + [Recompilation xml_optimizer.exe](#recompilation-xml_optimizerexe)
+     + [Test d'optimisation d'un XML.](#test-doptimisation-dun-xml)
+ - [**Notes en vrac**](#notes-en-vrac)
+
+
 ## MinGW32
 
 La documentation officielle à ce sujet est ici : [http://mingw.org/wiki/Getting_Started](http://mingw.org/wiki/Getting_Started).

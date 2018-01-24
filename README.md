@@ -67,9 +67,7 @@ Voir : [doc/reconstruction_projet.md](doc/reconstruction_projet.md)
  X fichier de référence des XML
  X doc un peu plus détaillé pour `concat_files`, `extract_files`, `xml_optimizer`
  X relire `reconstruction_projet.md` et les autres docs.
-
- - les sommaires.
-
+ X les sommaires.
  X gif animé du film d'exemple
 
  - ajouter les bonus, avec mini-texte d'explications (Gerontalia, les dessins)
