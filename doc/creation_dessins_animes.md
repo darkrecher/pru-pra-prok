@@ -81,3 +81,14 @@ Le terme "alarrachitude" désigne les ralentissements durant le visionnage. Cert
 Si vous observez des ralentissements, vérifier les valeurs "Alarrachitude cumulée" et "Nombre d'images alarrachée". Si elles sont trop grandes, essayez de simplifier votre dessin animé, de pré-zoomer des images, etc. Cela dépend également des performances de votre ordinateur.
 
 Le terme "Glanditude" indique le temps durant lequel le visionneur a précalculé le maximum d'images, et attend que l'image suivante soit affichée pour avoir un peu de mémoire disponible et refaire des précalculs. Si cette valeur est haute, c'est plutôt bon signe.
+
+
+## Fichiers de description de Pru-Pra-Prok
+
+Les fichiers définissant ce dessin animé ont été optimisés. Ils sont difficilement lisible par un humain.
+
+Une version "human-readable" (avant optimisation) est disponible dans ce repository.
+
+[Partie 1](../movies/version_human_readable/film1_lisible.zob)
+
+[Partie 2](../movies/version_human_readable/film2_lisible.zob)
