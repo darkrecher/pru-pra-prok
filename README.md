@@ -59,6 +59,13 @@ Puis, voir [doc/outils_annexes.md](doc/outils_annexes.md), pour les utilitaires 
 Voir : [doc/reconstruction_projet.md](doc/reconstruction_projet.md)
 
 
+## Dessins bonus
+
+La cavale de Monsieur Christiansen et de Monsieur Schizy. Images : [1](dessin_bonus/histoire_1.jpg) [2](dessin_bonus/histoire_2.jpg) [3](dessin_bonus/histoire_3.jpg) [4](dessin_bonus/histoire_4.jpg).
+
+Le dépliant promotionnel de "Gerontalia", un parc d'attractions pour personnes âgés. Images : [1](dessin_bonus/depliant_1.jpg) [2](dessin_bonus/depliant_2.jpg).
+
+
 ## TODO :
 
  X comment jouer le film, les touches du player, ajouter les .bat
@@ -69,10 +76,8 @@ Voir : [doc/reconstruction_projet.md](doc/reconstruction_projet.md)
  X relire `reconstruction_projet.md` et les autres docs.
  X les sommaires.
  X gif animé du film d'exemple
-
- - ajouter les bonus, avec mini-texte d'explications (Gerontalia, les dessins)
- - le film pru-pra-prok au format lisible
-
+ X ajouter les bonus, avec mini-texte d'explications (Gerontalia, les dessins)
+ X le film pru-pra-prok au format lisible
  X chercher et terminer les TODO dans le code et la doc
 
  - vérifier si je n'ai pas oublié des choses sur mon disque et sur la version SourceForge.
