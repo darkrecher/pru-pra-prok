@@ -72,7 +72,9 @@ Voir : [doc/reconstruction_projet.md](doc/reconstruction_projet.md)
 
  - ajouter les bonus, avec mini-texte d'explications (Gerontalia, les dessins)
  - le film pru-pra-prok au format lisible
- - chercher et terminer les TODO dans le code et la doc
+
+ X chercher et terminer les TODO dans le code et la doc
+
  - vérifier si je n'ai pas oublié des choses sur mon disque et sur la version SourceForge.
  - finir le README avec tous les liens.
 
