@@ -1,0 +1,59 @@
+Tous les fichiers mentionnés sont normalement inclus dans le .zip de SourceForge.
+
+A savoir, ici :
+
+http://sourceforge.net/project/showfiles.php?group_id=137474&package_id=293873
+
+
+
+
+Ze patch Linux :
+http://www.haypocalc.com/tmp/prupraprok/prupraprok.patch
+
+Avec le Makefile qui va bien :
+http://www.haypocalc.com/tmp/prupraprok/Makefile
+
+Ce qui donne genre :
+Code:
+unzip prupraprok-1.zip -d prupraprok
+cd prupraprok
+patch -p1 < ~/prupraprok.patch
+cd code_source/splash
+make
+cd ../../prupraprok
+cp ../../code_source/splash/splash .
+./splash film1.zob
+
+
+Par contre, le parseur XML est bogué : pb retour à la ligne Windows/Linux !? J'ai viré tous les retours à la ligne dans les fichiers .zob et ça passe :
+Code:
+tr -d $(echo -ne "\r") < film1.zob | tr -d $(echo -ne "\r") > film1-linux.zob
+tr -d $(echo -ne "\r") < film2.zob | tr -d $(echo -ne "\r") > film2-linux.zob
+
+
+Pour la compilation, il faut les bibliothèques + les entêtes de développement pour SDL, SDL_image, SDL_mixer et zlib.
+
+C'est laborieux, mais ça permet de voir le film.
+
+[EDIT] : J'ai aussi du virer les retours à la ligne dans le fichier config.txt (juste avant la balise SPLASH), faut changer le début pour avoir :
+Code:
+<? paye ta chatte ?><SPLASH>
+
+Des extensions ZOB et CUL, je trouve ça magnifique. Et le format XML paye ta chatte est aussi sympa
+
+[RE-Edit] : Voici le binaire :
+http://www.haypocalc.com/tmp/prupraprok/prupraprok.patch
+
+Syma les commentaires dans le code.
+
+---
+
+L'affichage est pas mal bogué : y'a des images qui disparaissent pas de temps à autre. Des yeux pas dans leur orbite. Et souvent la couleur rose qui est pas transparente  C'est surtout arrivé durant le 2e épisode.
+
+---
+
+Sinon le film est sympa, j'ai bien aimé cette parodie. Mise à part les silences qui tirent en longueur, c'est du grand art.
+
+Haypo
+
+Dernière édition par haypo le Sam 05 Nov 2005 02:11; édité 1 fois
