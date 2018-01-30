@@ -1,0 +1,40 @@
+la barre de pourcentage est pas très bien gérée. Faudrait pouvoir allouer plusieurs tâches les unes à la suite des autres. Et tout ça. Enfin bref c'est le bordel.
+
+
+
+Quand on fait jouer des sons et qu'on les arrête, on peut pas dire sur quelle channel on le joue, et on peut pas dire quelle channel on arrête le son. (On ne peut que tout arrêter en même temps). Eh bien il faudrait améliorer ça. Mais pour l'instant, on s'en branle total.
+
+
+le jour où j'en serais à faire une nouvelle version :
+
+quand on définit quelle portion d'image d'un sprite on veut afficher. (SE_Sprite.SetPortionToDraw), il faut donner les positions par rapport au hotpoint de l'image, et pas par rapport au coin supérieur gauche.
+Faudrait faire cette modif de code au niveau de la classe ImageZoomable.
+
+Mais pour l'instant ça me lourde, donc ça se fera plus tard.
+
+(euh, ça me semble pas faisable en fait)
+(oh, on verra bien, rien à foutre)
+
+
+
+
+
+
+la classe bufferscreen donne un pointeur vers le prochain écran à afficher, et le prochain emplacement d'écran où on peut en stocker un nouveau.
+Eh ben faut pas faire comme ça. Faut donner un pointeur vers l'écran affiché actuellement. (du coup, on pourra stocker moins d'écran à l'avance, mais ça permettra au moins de rafraichir plusieurs fois le même écran si y'a besoin.
+
+Je ferais ça plus tard. Dans la version 2.0! hahaha!!!
+
+
+
+
+stockage de la dernière image zoomée, pour chaque imagezoomable. ça permet de la ressortir tout de suite. Si jamais on doit afficher plusieurs fois la même image zoomé pendant un même période de temps.
+Et le zoom faut le faire avec les fonctions toutes faites chopées sur internet. Ce sera certainement mieux que mon zoom pouillave.
+
+
+
+
+
+la classe configinfos elle est pourrie.
+Y'a plein de set et de get.
+Faut faire rien qu'un seul set, et qu'un seul get. et on passe en paramètre la valeur qu'on veut modifier. (en utilisant des constantes pour dire quelle variable on veut modifier)

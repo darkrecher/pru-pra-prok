@@ -1,0 +1,829 @@
+**************************************************************
+**************************************************************
+
+
+fichier dataloader.cpp
+procedure ReadSequence
+
+code pour ajouter directement des événements dans la liste d'événements,
+pour voir si ça marche bien. (Avant de faire les ajouts en lisant dans le fichier WML de film.
+(02 mars 2005)
+
+**************************************************************
+**************************************************************
+
+
+/*
+    SE_Sprite *sprite;
+    Uint32 transpColor;
+    int imgToShow;
+
+    //hop, et là c'est le troisième événement. C'est un son qui se joue :
+
+    Mix_Chunk *soundToPlay = chainListOfSound->GetElement("mouche_qui_pete");
+    newMovieEvent = new ME_PlaySound(2000, soundToPlay, 0, 1);
+    chainListOfMovieEvent->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_SOUND);
+
+    //événement pour re-changer l'image de la tête du prof
+
+    chainListOfSprite->SetCursor("tete_profs");
+    sprite = chainListOfSprite->GetCurrentElement();    
+    imgToShow = chainListOfSprite->GetIndexOfImgOfCurrentElement("profilG");
+    newMovieEvent = new ME_Sprite_SetCurImg(1500, sprite, imgToShow);
+    chainListOfMovieEvent->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_IMAGE);
+*/
+    //et je quite la balise scene!
+    /////////////////////////////////////////////////////////////////////////////
+    //nouvelle scène
+    /////////////////////////////////////////////////////////////////////////////    
+
+//    time += 4000;
+/*  TCHAC!!!!!
+    //je met le breakpoint
+    newMovieEvent = (MovieEvent *) new ME_BreakPoint(time, 5, 1, 0);
+    chainListOfMovieEvent->AddElement(newMovieEvent,ChainListOfMovieEvent::ME_TYPE_BREAKPOINT);
+    
+    chainListOfSprite->SetCursor("labo_couloir_SPR");
+    sprite = chainListOfSprite->GetCurrentElement();
+    sceneEltsSortedList[0] = (SceneElt *) sprite;
+        
+    transpColor = SDL_MapRGB(mainScreen->format, 100, 150, 100);
+    newMovieEvent = (MovieEvent *) new ME_Scene_SetAllInfos(time, scene, 640, 480, 
+                                          sceneEltsSortedList, 1, NULL, 1024, 1, transpColor);
+                                          
+    chainListOfMovieEvent->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_IMAGE);
+
+    //hop, euh.. et là le second, enfin à peu près.
+    //hop, événement pour la définition des trucs du 1er sprite    
+    
+    SetRectXY(&pos, 20, 40);
+    chainListOfSprite->SetCursor("labo_couloir_SPR");
+    sprite = chainListOfSprite->GetCurrentElement();
+    imgToShow = chainListOfSprite->GetIndexOfImgOfCurrentElement("labo_couloir_I");
+    newMovieEvent = (MovieEvent *) new ME_Sprite_SetAllInfos(time, sprite, 
+                                                             imgToShow, &pos, NULL, 1024);
+    chainListOfMovieEvent->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_IMAGE);
+
+    //jouage de son, juste pour le fun
+       
+    soundToPlay = chainListOfSound->GetElement("oui_plein_oui");
+    newMovieEvent = new ME_PlaySound(5000, soundToPlay, 0, 1);
+    chainListOfMovieEvent->AddElement(newMovieEvent, ChainListOfMovieEvent::ME_TYPE_SOUND);
+*/
+    
+    //et là je quitte la balise Film
+    
+
+
+
+**************************************************************
+**************************************************************
+
+fichier dataloader.cpp
+procédure ReadImgSoundDatas()
+
+code pour tester si le DataLoader peut créer correctement des listes de sprites et d'images.
+(21 février 2005)
+
+**************************************************************
+**************************************************************
+
+
+    //////////////////////////////////////
+    //et voilà une autre balise LoadImgList!!!!!
+/* TCHAC!!!!!
+    sourceImgName = "labo_couloir";
+    imgListName = "labo_couloir_IL";
+    
+    newListOfImg = new ChainListOfImg();
+    
+    //hop, une balise Img
+    
+    SetRectXY(&hotPoint, 0, 0);
+    img = new ImageZoomable(chainListOfSDLSurface->GetElement(sourceImgName),
+                            NULL, &hotPoint, 0, 0, 
+                            theConfigInfos->GetSurfaceTypeOfImages(),
+                            theConfigInfos->GetSurfaceTypeOfZoomedImages());
+    imgName = "labo_couloir_I";
+    newListOfImg->AddElement(img, imgName);
+    
+    //fin de la balise IMG, et y'en a pas d'autres.
+    
+    listOfImg = new ListOfImg(newListOfImg->GetQtyOfElement());
+    listOfImgNames = new string[newListOfImg->GetQtyOfElement()];
+    newListOfImg->ExtractListOfImg(listOfImg, listOfImgNames);
+    
+    chainListOf_ListOfImg->AddElement(listOfImg, listOfImgNames, imgListName);    
+
+    //fin de la balise LoadImgList
+*/
+    
+    //tout ça, ça marche aussi
+    //chainListOf_ListOfImg->SetCursor("TruieViolette");
+    //ImageZoomable *test;
+    //test = chainListOf_ListOfImg->GetCurrentListOfImg()->GetZmImg(0);
+    //cout << chainListOf_ListOfImg->GetCurrentListOfImgNames()[0] << endl;
+    //SDL_BlitSurface(test->GetImage(), NULL, mainScreen, NULL);
+
+    
+
+    //et voici une autre balise sprite
+    /*  TCHAC!!!!!
+    listofimgofspritename = "labo_couloir_IL";
+    spriteName = "labo_couloir_SPR";
+    chainListOf_ListOfImg->SetCursor(listofimgofspritename);
+    imgQty = chainListOf_ListOfImg->GetCurrentListOfImg()->GetImgQty();
+    newSprite = new SE_Sprite(chainListOf_ListOfImg->GetCurrentListOfImg());
+    chainListOfSprite->AddElement(newSprite, chainListOf_ListOfImg->GetCurrentListOfImgNames(),
+                                  imgQty, spriteName);
+*/
+    //et la balise sprite est finie
+
+    
+    //ça, ça marche aussi
+//    chainListOfSprite->SetCursor("SpriteTruieViolette");
+//    SE_Sprite *test = chainListOfSprite->GetCurrentElement();
+//    int imgToShow = chainListOfSprite->GetIndexOfImgOfCurrentElement("TruieViolette_1");
+//    SDL_Rect position;
+//    SetRectXY(&position, 50, 40);
+//    test->SetAllInfos(&position, imgToShow, NULL, 1024);
+//    test->DrawOnScene(mainScreen);
+
+
+
+**************************************************************
+**************************************************************
+
+
+
+**************************************************************
+**************************************************************
+
+fichier ImageSprite.cpp
+
+les 2 fonctions de zoom : GetZoomedImage et BlitOnScreenZoom
+changement du code à cause des erreurs de décalage à la con
+(lundi 25 octobre 2004)
+
+**************************************************************
+**************************************************************
+
+
+/*SDL_Surface *ImageSprite::GetZoomedImage(SDL_Rect *sourceRect, float zoomFactor) 
+{
+
+    SDL_Rect sourceRect2;
+    
+    if (sourceRect == NULL) {
+    
+        sourceRect2.x = 0;
+        sourceRect2.y = 0;
+        sourceRect2.w = theImage->w;
+        sourceRect2.h = theImage->h;
+
+    } else {
+    
+        if (sourceRect->x < 0) {
+            sourceRect2.x = 0;
+        } else {
+            sourceRect2.x = sourceRect->x;
+        }
+        if (sourceRect->x+sourceRect->w > theImage->w) {
+            sourceRect2.w = theImage->w - sourceRect->x;
+        } else {
+            sourceRect2.w = sourceRect->w;
+        }
+        if (sourceRect->y < 0) {
+            sourceRect2.y = 0;
+        } else {
+            sourceRect2.y = sourceRect->y;
+        }
+        if (sourceRect->y+sourceRect->h > theImage->h) {
+            sourceRect2.h = theImage->h - sourceRect->y;
+        } else {
+            sourceRect2.h = sourceRect->h;
+        }
+        
+    }
+
+    float vectorLength = 1 / zoomFactor;
+//    Sint16 vectorIntPart = (Sint16) vectorLength;
+//    Sint16 vectorDecimalPart = (Sint16) (1000.0 * (vectorLength-vectorIntPart));
+//    vectorLength = vectorIntPart + (vectorDecimalPart/1000.0);
+
+//--    
+    float vectorPosX;
+    float vectorPosY;
+    Uint16 machin;
+//--    
+        
+    Uint16 destCursorX = 0;
+    Uint16 destCursorY = 0;
+    Uint16 destWidth = (Uint16) (sourceRect2.w / vectorLength);
+    Uint16 destHeight = (Uint16) (sourceRect2.h / vectorLength);
+    
+    Sint16 sourceDecimalX;
+    Sint16 sourceCursorY = sourceRect2.y;
+    Sint16 sourceDecimalY = 0;
+ 
+    SDL_Surface* zoomedImage = SDL_CreateRGBSurface(SDL_SWSURFACE,destWidth,destHeight,32,0,0,0,0);
+          
+    Uint16 sourcePitch = theImage->pitch;
+    Uint16 destPitch = zoomedImage->pitch;
+    Uint8 *sourceP;
+    Uint8 *destP;
+    Uint32 pixelColor;
+    
+    SDL_LockSurface(theImage);
+    SDL_LockSurface(zoomedImage);
+
+//---
+    vectorPosY = sourceCursorY;
+//--
+
+    for ( destCursorY=0 ; destCursorY<destHeight ; destCursorY++ ) { 
+    
+        sourceP = (Uint8 *) theImage->pixels + sourceCursorY*sourcePitch + sourceRect2.x*4;
+        destP = (Uint8 *) zoomedImage->pixels + destCursorY*destPitch;
+        sourceDecimalX = 0;
+        
+        //---
+        vectorPosX = 0;
+        //--
+        
+        for ( destCursorX=0 ; destCursorX<destWidth ; destCursorX++ ) {
+        
+                pixelColor = *(Uint32 *)sourceP;
+                *(Uint32 *)destP = pixelColor;
+                
+             //   sourceP += vectorIntPart * 4;
+             //   sourceDecimalX += vectorDecimalPart;
+             //   if (sourceDecimalX>=1000) {
+             //       sourceP += 4;
+             //       sourceDecimalX -= 1000;
+             //   }
+                
+                //--
+                vectorPosX += vectorLength;
+                sourceP = (Uint8 *) theImage->pixels + sourceCursorY*sourcePitch + sourceRect2.x*4;
+                machin = (Uint16) vectorPosX;
+                machin *= 4;
+                sourceP += machin;
+                //--
+                
+                destP += 4;
+                
+        }
+        
+     //   sourceCursorY += vectorIntPart;
+     //   sourceDecimalY += vectorDecimalPart;
+     //   if (sourceDecimalY>=1000) {
+     //       sourceCursorY += 1;
+     //       sourceDecimalY -= 1000;
+     //   }
+        //--
+        vectorPosY += vectorLength;
+        sourceCursorY = (Sint16) vectorPosY;
+        //--
+        
+    }
+
+    SDL_UnlockSurface(theImage);
+    SDL_UnlockSurface(zoomedImage);
+      
+    if (isKeyTransparent) { SDL_SetColorKey(zoomedImage, SDL_SRCCOLORKEY, transpColor); }
+      
+    return zoomedImage;
+
+}
+
+
+void ImageSprite::BlitOnScreenZoom(SDL_Rect *sourceRect, 
+                                   SDL_Surface *mainScreen, SDL_Rect *destRect, 
+                                   float zoomFactor)
+{
+
+    SDL_Rect sourceRect2;
+    SDL_Rect destRect2 = *destRect;
+    
+    if (sourceRect == NULL) {
+        sourceRect2.x = 0;
+        sourceRect2.y = 0;
+        sourceRect2.w = theImage->w;
+        sourceRect2.h = theImage->h;
+    } else {
+        sourceRect2 = *sourceRect;
+    } 
+
+    float vectorLength = 1 / zoomFactor;
+//    Sint16 vectorIntPart = (Sint16) vectorLength;
+//    Sint16 vectorDecimalPart = (Sint16) (1000.0 * (vectorLength-vectorIntPart));
+//    vectorLength = vectorIntPart + (vectorDecimalPart/1000.0);
+        
+    Sint16 screenLeft = (Sint16) (destRect2.x - hotPoint.x/vectorLength);
+    Sint16 screenRight = (Sint16) (destRect2.x + (sourceRect2.w-hotPoint.x)/vectorLength);
+    Sint16 screenUp = (Sint16) (destRect2.y - hotPoint.y/vectorLength);
+    Sint16 screenDown = (Sint16) (destRect2.y + (sourceRect2.h-hotPoint.y)/vectorLength);
+    
+    if (screenLeft < 0) {
+        sourceRect2.x -= (Uint16) (screenLeft * vectorLength);
+        sourceRect2.w += (Uint16) (screenLeft * vectorLength) + 1;
+        screenLeft = 0;
+    }
+    if (screenRight > SCREEN_INDEX_X) {
+        sourceRect2.w -= (Uint16) ((screenRight-SCREEN_INDEX_X) * vectorLength) - 1;
+        //screenRight = SCREEN_INDEX_X;
+    }
+    
+    if (screenUp < 0) {
+        sourceRect2.y -= (Sint16) (screenUp * vectorLength);
+        sourceRect2.h += (Sint16) (screenUp * vectorLength) + 1;
+        screenUp = 0;
+    }
+    if (screenDown > SCREEN_INDEX_Y) {
+        sourceRect2.h -= (Uint16) ((screenDown-SCREEN_INDEX_Y) * vectorLength) - 1;
+        //screenDown = SCREEN_INDEX_Y;
+    }
+    
+    SDL_Surface* zoomedImage = GetZoomedImage(&sourceRect2, zoomFactor);
+    
+    destRect2.x = screenLeft;
+    destRect2.y = screenUp;
+    SDL_BlitSurface(zoomedImage, NULL, mainScreen, &destRect2);
+    SDL_FreeSurface(zoomedImage);
+
+};*/
+
+
+
+
+
+**************************************************************
+**************************************************************
+
+fichier MoviePlayer.cpp
+
+2 fonctions : LoadData et Play
+code-poubelle utilisé pour tester les fonctions au fur et à mesure.
+(lundi 25 octobre 2004)
+
+**************************************************************
+**************************************************************
+
+
+void MoviePlayer::LoadData(char *scriptFileName)
+{
+    SDL_Surface *cartmann = SDL_LoadBMP("cartman1.bmp");
+    
+    SDL_Rect cartmannHotPoint;
+    cartmannHotPoint.x = 25;
+    cartmannHotPoint.y = 30;
+    
+    SDL_Rect cartmannBounds;
+    cartmannBounds.x = 0;
+    cartmannBounds.y = 0;
+    cartmannBounds.w = 200;
+    cartmannBounds.h = 200;
+        
+    Uint32 TranspColor = SDL_MapRGB(cartmann->format, 255, 0, 255);
+        
+    connerie = new ImageSprite(cartmann, cartmannBounds, cartmannHotPoint, TranspColor, 1);
+    
+    SDL_FreeSurface(cartmann);
+    
+    
+    
+    
+    cartmanns = new ListOfImg(3);
+    
+    SDL_Surface *buffer = SDL_LoadBMP("cartmanns.bmp");
+    
+    cartmannHotPoint.x = 96;
+    cartmannHotPoint.y = 166;
+    cartmannBounds.x = 0;
+    cartmannBounds.y = 0;
+    cartmannBounds.w = 191;
+    cartmannBounds.h = 175;
+    cartmanns->SetImg(new ImageSprite(buffer, cartmannBounds, cartmannHotPoint, TranspColor, 1), 0);
+    
+    cartmannHotPoint.x = 139;
+    cartmannHotPoint.y = 169;
+    cartmannBounds.x = 196;
+    cartmannBounds.y = 3;
+    cartmannBounds.w = 230;
+    cartmannBounds.h = 173;
+    cartmanns->SetImg(new ImageSprite(buffer, cartmannBounds, cartmannHotPoint, TranspColor, 1), 1);
+    
+    cartmannHotPoint.x = 149;
+    cartmannHotPoint.y = 194;
+    cartmannBounds.x = 430;
+    cartmannBounds.y = 2;
+    cartmannBounds.w = 240;
+    cartmannBounds.h = 196;
+    cartmanns->SetImg(new ImageSprite(buffer, cartmannBounds, cartmannHotPoint, TranspColor, 1), 2);
+        
+    SDL_FreeSurface(buffer);
+
+/* ------------------------------------------------ */
+
+    SDL_Rect squarePos;
+    squarePos.x = 420;
+    squarePos.y = 430;
+    Uint32 squareColor = SDL_MapRGB(cartmann->format, 55, 200, 155);
+    stupidSquare = new SE_Square(&squarePos, squareColor, 30, 50);
+
+    
+    squarePos.x = 210;
+    squarePos.y = 320;
+    
+    oneCartmann = new SE_Sprite(&squarePos, cartmanns);
+    oneCartmann->SetAllInfos(0, NULL, 1);
+    
+    SDL_Rect hotPoint;
+    SDL_Rect imgRect;
+    hotPoint.x = 0;
+    hotPoint.y = 0;
+    imgRect.x = 0;
+    imgRect.y = 0;
+    imgRect.w = 640;
+    imgRect.h = 480;
+    backgroundImg = new ListOfImg(1);
+    buffer = SDL_LoadBMP("decor.bmp");
+    backgroundImg->SetImg(new ImageSprite(buffer, imgRect, hotPoint, 0, 0), 0);
+    background = new SE_Sprite(&hotPoint, backgroundImg);
+    SDL_FreeSurface(buffer);
+        
+}
+
+
+void MoviePlayer::Play()
+{
+    int quit = 0;
+    SDL_Event event;
+
+    float zoomFactor = 1;
+
+    SDL_Rect destPos;
+    destPos.x = 200;
+    destPos.y = 200;
+    
+    SDL_Rect sourceRect;
+    sourceRect.x = 0;
+    sourceRect.y = 0;
+    sourceRect.w = 190;
+    sourceRect.h = 100;
+      
+    SDL_Flip(mainScreen);
+    
+    SDL_Surface *testZoomImg;
+    
+    Uint32 backgroundColor = SDL_MapRGB(mainScreen->format, 255, 255, 0);
+    
+    int currentImg = 0;
+    SDL_FillRect(mainScreen, NULL, backgroundColor);
+    cartmanns->GetImg(currentImg)->BlitOnScreen(NULL, mainScreen, &destPos);
+    
+    connerie->BlitOnScreen(NULL, mainScreen, &destPos);
+    
+    Uint32 otherColor = SDL_MapRGB(mainScreen->format, 150, 20, 150);
+    
+    SDL_FillRect(mainScreen, stupidSquare->GetOccupiedSpace(1.5), otherColor);
+    
+    SDL_FillRect(mainScreen, NULL, 0);
+    
+    //stupidSquare->Draw(mainScreen,1.2);
+    
+    oneCartmann->SetAllInfos(1, NULL, 0.83);
+    
+    background->Draw(mainScreen,zoomFactor);
+    
+    oneCartmann->Draw(mainScreen, zoomFactor);
+    
+    while (!quit) {
+    
+        while (SDL_PollEvent (&event)) {
+            switch (event.type) {
+                case SDL_KEYDOWN:
+                    
+    //                SDL_FillRect(mainScreen, NULL, backgroundColor);
+                    
+/*                    currentImg++;
+                    if ( currentImg == 3) { currentImg = 0; }
+                    cartmanns->GetImg(currentImg)->BlitOnScreen(NULL, mainScreen, &destPos);
+  */                  
+                    background->Draw(mainScreen,zoomFactor); 
+                    oneCartmann->Draw(mainScreen, zoomFactor);
+                    
+//                    connerie->BlitOnScreenZoom(NULL, mainScreen, &destPos, zoomFactor);
+/*                    testZoomImg = connerie->GetZoomedImage(sourceRect,0.8);
+                    SDL_BlitSurface(testZoomImg, NULL, mainScreen, NULL);
+                    SDL_FreeSurface(testZoomImg);
+  */                  
+                    SDL_Flip(mainScreen);
+                    
+    
+                    
+                    zoomFactor += 0.1;
+                    
+                    if(event.key.state==SDL_PRESSED) { 
+                        if(event.key.keysym.sym==SDLK_ESCAPE) {
+                            quit = 1;
+                        }
+                    }
+
+                break;
+                /* Evenement de fermeture d'application, on sort la boucle */
+                case SDL_QUIT:
+                    quit = 1;
+                break;
+            }
+        }
+        
+    }
+}
+
+
+**************************************************************
+**************************************************************
+
+encre du code poubelle, pour charger les images de tests.
+(samedi 30 octobre 2004)
+
+**************************************************************
+**************************************************************
+
+
+void MoviePlayer::LoadData(char *scriptFileName)
+{
+    
+    /*SDL_Rect hotPoint;
+    SDL_Rect rectInFile;
+    Uint32 TranspColor = SDL_MapRGB(mainScreen->format, 255, 0, 255);
+    
+    cartmanns = new ListOfImg(3);    
+    SDL_Surface *buffer = SDL_LoadBMP("cartmanns.bmp");
+    
+    hotPoint.x = 96;
+    hotPoint.y = 166;
+    rectInFile.x = 0;
+    rectInFile.y = 0;
+    rectInFile.w = 191;
+    rectInFile.h = 175;
+    cartmanns->SetZmImg(buffer, &rectInFile, &hotPoint, TranspColor, 1, 0);
+    
+    hotPoint.x = 139;
+    hotPoint.y = 169;
+    rectInFile.x = 196;
+    rectInFile.y = 3;
+    rectInFile.w = 230;
+    rectInFile.h = 173;
+    cartmanns->SetZmImg(buffer, &rectInFile, &hotPoint, TranspColor, 1, 1);
+    
+    hotPoint.x = 149;
+    hotPoint.y = 194;
+    rectInFile.x = 430;
+    rectInFile.y = 2;
+    rectInFile.w = 240;
+    rectInFile.h = 196;
+    cartmanns->SetZmImg(buffer, &rectInFile, &hotPoint, TranspColor, 1, 2);
+    oneCartmann = new SE_Sprite(cartmanns);
+        
+    SDL_FreeSurface(buffer);
+    
+    anotherCartmann = new SE_Sprite(cartmanns);
+
+  //----------------------------------//
+*/
+  /*  backgroundImg = new ListOfImg(1);
+    buffer = SDL_LoadBMP("decor.bmp");
+    
+    hotPoint.x = 0;
+    hotPoint.y = 0;
+    rectInFile.x = 0;
+    rectInFile.y = 0;
+    rectInFile.w = 640;
+    rectInFile.h = 480;
+    backgroundImg->SetZmImg(buffer, NULL, NULL, 0, 0, 0);
+    background = new SE_Sprite(backgroundImg);
+    
+    SDL_FreeSurface(buffer);
+*/
+  //----------------------------------//
+/*
+
+
+***********************************************************************
+***********************************************************************
+
+    fichier ImageZoomable.cpp
+    code des deux fonctions qui font le zoom, mais en virgule flottante.
+
+    jeudi 4 novemnbre 2004
+
+***********************************************************************
+***********************************************************************
+
+
+
+
+SDL_Surface *ImageZoomable::GetZoomedImage(SDL_Rect *sourceRect, float zoomFactor, 
+                                           SDL_Rect *imgResultLimits = NULL) 
+{
+
+    SDL_Rect sourceRect2;
+    
+    if (sourceRect == NULL) {
+        SetRect(&sourceRect2, 0, 0, theImage->w, theImage->h);
+    } else {
+        if (sourceRect->x < 0) {
+            sourceRect2.x = 0;
+        } else {
+            sourceRect2.x = sourceRect->x;
+        }
+        if (sourceRect->x+sourceRect->w > theImage->w) {
+            sourceRect2.w = theImage->w - sourceRect->x;
+        } else {
+            sourceRect2.w = sourceRect->w;
+        }
+        if (sourceRect->y < 0) {
+            sourceRect2.y = 0;
+        } else {
+            sourceRect2.y = sourceRect->y;
+        }
+        if (sourceRect->y+sourceRect->h > theImage->h) {
+            sourceRect2.h = theImage->h - sourceRect->y;
+        } else {
+            sourceRect2.h = sourceRect->h;
+        }
+    }
+    
+    float sourceXOffset = 0;
+    float sourceYOffset = 0;
+    
+    SDL_Rect imgResultLimits2;
+    if (imgResultLimits == NULL) {
+        SetRect(&imgResultLimits2, 0, 0, (Uint16) (sourceRect2.w*zoomFactor), 
+                                         (Uint16) (sourceRect2.h*zoomFactor));
+    } else {
+        imgResultLimits2 = *imgResultLimits;
+        if (imgResultLimits2.x+imgResultLimits2.w > sourceRect2.w*zoomFactor) {
+            imgResultLimits2.w = (Uint16) (sourceRect2.w*zoomFactor - imgResultLimits2.x);
+        }
+        if (imgResultLimits2.y+imgResultLimits2.h > sourceRect2.h*zoomFactor) {
+            imgResultLimits2.h = (Uint16) (sourceRect2.h*zoomFactor - imgResultLimits2.y);
+        }
+        sourceXOffset = imgResultLimits2.x;
+        sourceYOffset = imgResultLimits2.y;
+        while ((sourceXOffset >= zoomFactor) && (sourceRect2.w > 0)) {
+            sourceXOffset -= zoomFactor;
+            sourceRect2.x++;
+            sourceRect2.w--;
+        }
+        if (sourceRect2.w == 0) { return NULL; }
+        while ((sourceYOffset >= zoomFactor) && (sourceRect2.h > 0)) {
+            sourceYOffset -= zoomFactor;
+            sourceRect2.y++;
+            sourceRect2.h--;
+        }
+        if (sourceRect2.h == 0) { return NULL; }
+    }
+    
+    SDL_Surface* zoomedImage = SDL_CreateRGBSurface(SDL_HWSURFACE, imgResultLimits2.w, 
+                                                    imgResultLimits2.h, 32, 0, 0, 0, 0);
+    
+    Uint16 sourcePitch = theImage->pitch;
+    Uint16 destPitch = zoomedImage->pitch;
+    Uint8 *sourceP;
+    Uint8 *destP;
+    Uint32 pixelColor;
+    Sint16 sourceCursorY = sourceRect2.y;
+    Uint16 destCursorX;
+    Uint16 destCursorY;
+    float stepSourceX;
+    float stepSourceY = sourceYOffset;
+    
+    SDL_LockSurface(theImage);
+    SDL_LockSurface(zoomedImage);
+
+    for ( destCursorY=0 ; destCursorY<imgResultLimits2.h ; destCursorY++ ) { 
+    
+        sourceP = (Uint8 *) theImage->pixels + sourceCursorY*sourcePitch + sourceRect2.x*4;
+        destP = (Uint8 *) zoomedImage->pixels + destCursorY*destPitch;
+        stepSourceX = sourceXOffset;
+        
+        for ( destCursorX=0 ; destCursorX<imgResultLimits2.w ; destCursorX++ ) {
+                pixelColor = *(Uint32 *)sourceP;
+                *(Uint32 *)destP = pixelColor;
+                stepSourceX +=1;
+                while (stepSourceX >= zoomFactor) {
+                    stepSourceX -= zoomFactor;
+                    sourceP += 4;
+                }
+                destP += 4;
+        }
+
+        stepSourceY +=1;
+        while (stepSourceY >= zoomFactor) {
+            stepSourceY -= zoomFactor;
+            sourceCursorY += 1;
+        }
+
+    }
+
+    SDL_UnlockSurface(theImage);
+    SDL_UnlockSurface(zoomedImage);
+    if (isKeyTransparent) { SDL_SetColorKey(zoomedImage, SDL_SRCCOLORKEY, transpColor); }
+    return zoomedImage;
+
+}
+
+
+void ImageZoomable::ZoomAndBlit(SDL_Rect *sourceRect, 
+                                   SDL_Surface *dest, SDL_Rect *destRect, 
+                                   float zoomFactor, SDL_Rect *destLimits = NULL)
+{
+
+    SDL_Rect sourceRect2;
+    if (sourceRect == NULL) {
+        SetRect(&sourceRect2, 0, 0, theImage->w, theImage->h);
+    } else {
+        sourceRect2 = *sourceRect;
+    } 
+
+    SDL_Rect destRect2;
+    if (destRect == NULL) { 
+        SetRectXY(&destRect2, 0, 0); 
+    } else { 
+        SetRectXY(&destRect2, destRect->x, destRect->y);
+    } 
+    
+    Sint16 destLimitLeft;
+    Sint16 destLimitRight;
+    Sint16 destLimitUp;
+    Sint16 destLimitDown;
+    if (destLimits == NULL) {
+        destLimitLeft = 0;
+        destLimitUp = 0;
+        destLimitRight = dest->w;
+        destLimitDown = dest->h;
+    } else {
+        destLimitLeft = destLimits->x;
+        destLimitUp = destLimits->y;
+        destLimitRight = destLimits->x + destLimits->w;
+        destLimitDown = destLimits->y + destLimits->h;
+    } 
+    
+    Sint16 destLeft = (Sint16) (destRect2.x - hotPoint.x*zoomFactor);
+    Sint16 destRight = (Sint16) (destRect2.x + (sourceRect2.w-hotPoint.x)*zoomFactor);
+    Sint16 destUp = (Sint16) (destRect2.y - hotPoint.y*zoomFactor);
+    Sint16 destDown = (Sint16) (destRect2.y + (sourceRect2.h-hotPoint.y)*zoomFactor);
+
+    if ((destLeft > destLimitRight) || (destRight < destLimitLeft) || 
+    (destUp > destLimitDown) || (destDown < destLimitUp)) {
+        return;
+    }
+    
+    SDL_Rect imgResultLimits;
+    SDL_Rect cornerUpLeft;
+       
+    if (destLeft < destLimitLeft) {
+        imgResultLimits.x = destLimitLeft - destLeft;
+        cornerUpLeft.x = destLimitLeft;
+        if (destRight > destLimitRight) {
+            imgResultLimits.w = destLimitRight - destLimitLeft;
+        } else {
+            imgResultLimits.w = destRight - destLimitLeft;
+        }
+    } else {
+        imgResultLimits.x = 0;
+        cornerUpLeft.x = destLeft;
+        if (destRight > destLimitRight) {
+            imgResultLimits.w = destLimitRight - destLeft;
+        } else {
+            imgResultLimits.w = destRight - destLeft;
+        }
+    }
+        
+    if (destUp < destLimitUp) {
+        imgResultLimits.y = destLimitUp - destUp;
+        cornerUpLeft.y = destLimitUp;
+        if (destDown > destLimitDown) {
+            imgResultLimits.h = destLimitDown - destLimitUp;
+        } else {
+            imgResultLimits.h = destDown - destLimitUp;
+        }
+    } else {
+        imgResultLimits.y = 0;
+        cornerUpLeft.y = destUp;
+        if (destDown > destLimitDown) {
+            imgResultLimits.h = destLimitDown - destUp;
+        } else {
+            imgResultLimits.h = destDown - destUp;
+        }
+    }
+
+    SDL_Surface* zoomedImage = GetZoomedImage(&sourceRect2, zoomFactor, &imgResultLimits);          
+    SDL_BlitSurface(zoomedImage, NULL, dest, &cornerUpLeft);
+    SDL_FreeSurface(zoomedImage);
+
+};

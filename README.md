@@ -79,8 +79,8 @@ Le dépliant promotionnel de "Gerontalia", un parc d'attractions pour personnes 
  X ajouter les bonus, avec mini-texte d'explications (Gerontalia, les dessins)
  X le film pru-pra-prok au format lisible
  X chercher et terminer les TODO dans le code et la doc
+ X vérifier si je n'ai pas oublié des choses sur mon disque et sur la version SourceForge.
 
- - vérifier si je n'ai pas oublié des choses sur mon disque et sur la version SourceForge.
  - finir le README avec tous les liens.
 
 
