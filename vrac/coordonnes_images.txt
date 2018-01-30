@@ -1,0 +1,310 @@
+*******************************
+prof_tete_profil.bmp :
+*******************************
+
+
+bouches de profil
+
+10, 144, 9, 1	droite, fermée
+2, 0
+
+9, 135, 7, 6	un peu ouverte
+3, 3
+
+20, 135, 11, 11	grande ouverte
+5, 5
+
+32, 135, 15, 9	sourire
+2, 5
+
+12, 147, 14, 6	peu content
+2, 3
+
+35, 148, 6, 2	un peu ouverte
+2, 0
+
+7, 154, 15, 9	ouverte avec dents. léger sourire
+2, 6
+
+23, 154, 11, 6	avec dents, sans expression
+2, 3
+
+yeux, de profil, normaux
+
+57, 128, 26, 31
+0, 19
+
+
+tête, de profil
+
+100, 88, 97, 111 
+48, 107
+
+écart tête -> oeil (en hotpoint) : -56, -36
+écart tête -> bouche (en hotpoint) : -67, -73
+
+*******************************
+profcorps_appelle3.bmp :
+*******************************
+
+le corps, de base (sans les bras)
+22, 106, 78, 188
+37, 187
+
+bras gauche, le long du corps
+98, 108, 16, 104
+0, 12
+
+bras droit, le long du corps
+7, 108, 16, 104
+
+bras droit, appelle 1
+57, 14, 72, 34
+71, 11
+
+bras droit, appelle 2
+139, 78, 52, 50
+51, 27
+
+bras gauche, sur la table
+14, 10, 27, 86
+11, 10
+
+bras gauche, touche le microscope
+128, 144, 36, 70
+20, 10
+
+bras droit, sur la table
+205, 81, 27, 86
+15, 10
+
+
+écart corps -> bras gauche (en hotpoint) : +61, -68
+écart corps -> bras droit (en hotpoint) : -15, -68
+
+
+*******************************
+mouths.bmp
+*******************************
+
+je les ai déjà
+
+
+
+*******************************
+tete_yeux_profs
+*******************************
+
+bouche rigole beaucoup
+90, 1, 25, 16
+12, 7
+
+sourire, orienté /
+187, 95, 27, 13
+13, 7
+
+sourire, orienté \
+85, 94, 28, 15
+12, 9
+
+crispé, dent serrée
+2, 100, 21, 7
+10, 2
+
+**********
+
+tête, de base, de face :
+0, 0, 99, 112
+49, 101
+
+écart tête -> bouche : 0, -14
+écart tête -> yeux : 0, -45
+
+**********
+
+tête de face, incliné /
+100, 0, 99, 114
+42, 102
+
+écart tête -> bouche : +2, -13
+écart tête -> yeux : +7, -44
+
+**********
+
+tête de face, incliné \
+201, 0, 99, 113
+56, 101
+écart tête -> bouche : -2, -13
+écart tête -> yeux : -7, -44
+
+**********
+
+yeux de face, regarde devant
+0, 114, 60, 32
+30, 22
+
+yeux de face, grand ouvert, regarde devant
+0, 147, 63, 40
+31, 29
+
+yeux de face, regarde en bas
+61, 114, 61, 32
+30, 22
+
+yeux de face, crispé
+63, 148, 61, 30
+30, 21
+
+yeux de face, regarde à gauche
+124, 152,61, 32
+30, 22
+
+yeux de face, regarde devant, incliné /
+122, 114, 62, 38
+31, 24
+
+yeux de face, regarde devant, incliné \
+184, 114, 62, 37
+30, 23
+
+
+*******************************
+miss.bmp
+*******************************
+
+bouche de profil, vers la droite.
+
+grand sourire, sans les dents
+108, 62, 15, 9
+12, 5
+
+grande ouverte
+124, 62, 11, 11
+5, 5
+
+un peu ouverte
+145, 67, 8, 6
+4, 3
+
+droite, fermée
+136, 71, 9, 1
+6, 0
+
+fermée, petit sourire
+114, 75, 6, 2
+3, 0
+
+grande ouverte, pas content
+129, 74, 14, 6
+11, 3
+
+ouverte, avec dents
+121, 81, 11, 6
+8, 3
+
+ouverte, dents, sourire
+133, 81, 15, 9
+12, 6
+
+
+***************
+
+corps, de face, normal
+0, 97, 87, 171
+44, 170
+
+corps -> tete : 0, -168
+
+*****
+
+corps de face, bras croisé
+87, 97, 80, 171
+40, 170
+
+corps -> tete : 0, -168
+
+*****
+
+corps de face, bras croisé, incliné \ 25°
+167, 97, 90, 172
+56, 171
+
+corps -> tete : -32, -161
+
+*****
+
+corps de face, bras croisé, incliné \ 17°
+257, 97, 81, 172
+49, 171
+
+corps -> tete : -21, -165
+
+*****
+
+*****
+
+corps de profil, normal
+351, 98, 38, 171
+14, 170
+
+corps -> tete : +4, -168
+
+
+*******************************
+miss_tete.bmp
+*******************************
+
+de face, regard à droite
+0,0, 90, 104
+44, 99
+
+tête -> bouche : 0, -14
+
+*****
+
+de face, yeux fermés
+90, 0, 89, 103
+44, 99
+
+tête -> bouche : 0, -14
+
+*****
+
+de face, incliné : \ 35°
+180, 0, 95, 101
+77, 93
+
+tête -> bouche : -8, -11
+
+*****
+
+de face, incliné : \ 20°
+276, 0, 96, 106
+66, 99
+
+tête -> bouche : -5, -12
+
+*****
+
+de profil, vers la droite.
+372, 0, 108, 186
+57, 101
+
+tête -> bouche : +26, -11
+
+
+
+bouches : 
+
+sourire
+80, 86, 18, 12
+9, 5
+
+sourire, incliné \25°
+174, 80, 20, 18
+11, 11
+
+
+sourire, incliné \17°
+266, 2, 18, 18
+10, 9

@@ -1,0 +1,43 @@
+C:\MinGW\bin\libgcc_s_dw2-1.dll
+C:\MinGW\bin\libstdc++-6.dll
+
+
+C:\Recher\projets\git\pru-pra-prok\code\libs_includes\SDL-devel-1.2.15-mingw32\SDL-1.2.15\bin
+
+C:\Recher\projets\git\pru-pra-prok\code\libs_includes\SDL_mixer-devel-1.2.12-VC\SDL_mixer-1.2.12\lib\x86
+
+C:\Recher\projets\git\pru-pra-prok\code\libs_includes\SDL_image-devel-1.2.12-VC\SDL_image-1.2.12\lib\x86
+
+
+
+
+
+C:\repo_git\pru-pra-prok\code\libs_includes\SDL-devel-1.2.15-mingw32\SDL-1.2.15\bin
+C:\repo_git\pru-pra-prok\code\libs_includes\SDL_mixer-devel-1.2.12-VC\SDL_mixer-1.2.12\lib\x86
+C:\repo_git\pru-pra-prok\code\libs_includes\SDL_image-devel-1.2.12-VC\SDL_image-1.2.12\lib\x86
+
+
+ajout du dossier FilmData
+Extraction depuis le fichier : data1.cul
+     Extraction de Collines.png   taille : 2551   OK.
+     Extraction de Poisson.png   taille : 477   OK.
+     Extraction de Piaf.png   taille : 411   OK.
+     Extraction de Croa.wav   taille : 11832   OK.
+
+Extraction correcte de tous les fichiers d'images et et de sons.
+Ils sont dans le dossier FilmData
+
+Appuyez sur une touche pour continuer...
+
+
+
+
+
+Fin de la conversion. Fichier source OK.
+Appuyez sur une touche pour continuer...
+
+
+
+<!--
+-->
+

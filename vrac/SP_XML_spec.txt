@@ -1,0 +1,499 @@
+Pfouuu! y'a des trucs à changer dans ce fichier!
+On fera ça plus tard.
+
+
+SPLASH : South Park : L'Abominable Script à Histoires
+
+c'est du XML.
+Enfin ça essaye d'en être.
+
+
+<Splash>
+
+	<Configuration>
+	</Configuration>
+
+	<LoadData>
+	</LoadData>
+
+	<Procedures>
+	</Procedures>
+
+	<Film>
+	</Film>
+
+</Splash>
+
+
+
+
+*********************************************
+***   dans la balise Configuration :      ***
+*********************************************
+
+
+Valeur par défaut de la couleur transparente, dans les images.
+
+<DefaultKeyTransparency>
+	<Red> VALEUR DE 0 A 255 </Red>
+	<Green> VALEUR DE 0 A 255 </Green>
+	<Blue> VALEUR DE 0 A 255 </Blue>
+</DefaultKeyTransparency>
+
+Une erreur est signalée si cette balise n'est pas présente.
+
+
+****************
+
+Configuration du son.
+
+<SoundConfig>
+
+	<ChannelQuantity> NOMBRE DE SORTIE SONS </ChannelQuantity>  (nombre de sons qui pourront être joué en même temps. Valeur par défaut = 3.)
+
+	<Frequency> VALEUR NUMERIQUE </Frequency> on peut mettre 22050 ou 44100, et peut être d'autres choses. Valeur par défaut : 22050.
+
+	<StereoMono> écrire 1 ou 2 </StereoMono> 1 = mono. 2 = Stereo. valeur par défaut : 2. Je sais pas si ça a une grande influence.
+
+	<SoundPartSize> VALEUR NUMERIQUE</SoundPartSize> On peut mettre 1024, 2048, 4096 et peut être d'autre chose. C'est la taille des morceaux de sons qui sont envoyés à la sortie. Quel que soit la taille donnée, on peut jouer tous les sons qu'on veut, de la longueur qu'on veut. C'est juste que chaque son, au moment d'être joué, est découpé en morceaux, et les morceaux sont envoyés au fur et à mesure à la sortie. Par défaut : 1024
+
+
+</SoundConfig>
+
+
+****************
+
+<VideoConfig>
+	Pour les 4 balises suivantes, faut mettre Hardware ou Software à l'intérieur. Ca permet d'indiquer à quel endroit de la mémoire seront sotckée les images correspondante.
+
+	<MainScreen> </MainScreen>
+	l'écran principal, qui est affiché. par défaut : Hardware.
+
+	<BufferScreens> </BufferScreens>
+	les écrans calculés à l'avance par le programme. par défaut : Hardware.
+
+	<Images> </Images>
+	les images de sprites. par défaut : Software.
+
+	<ZoomedImages> </ZoomedImages>
+	les images de sprite ou de scène qui ont été zoomées. par défaut : Hardware.
+
+	<BufferScreenQuantity> VALEUR NUMERIQUE </BufferScreenQuantity>
+	Nombre d'écrans qui peuvent être stocké à l'avance. Valeur par défaut : 10. Plus il y en a, moins y'a de risques de ralentissement ou de sautage d'images. Mais ça prend plus de mémoire, et ça fait attendre plus au début.
+
+</VideoConfig>
+
+
+*********************************************
+***        dans la balise LoadData :      ***
+*********************************************
+
+
+donne les noms d'un fichiers zip dans lequels trouver les images et les sons (faut mettre tous les fichiers dès le début).
+
+<ZipFile> (NOM DU FICHIER ZIP) </ZipFile>
+
+
+****************
+
+chargement d'un son.
+
+<LoadSound>
+	<FromZipFile> (NOM DU FICHIER ZIP) </FromZipFile>
+	<File> (NOM DU FICHIER .WAV DANS LE ZIP) </File>
+	<Name> NOM DU SON </Name>
+	<Numéro> NUMERO D INDEX DANS LES TABLEAUX DE DONNEES </Numéro>
+</LoadSound>
+
+la balise FromZipFile est optionnelle. Si on la met pas, le parser va chercher dans tous les fichiers zip un par un, et prendre le premier nom de fichier qu'il trouve.
+La balise Numéro sera enlevée après. C'est juste pour faire le premier film au tout début. (La démo pourrie avec le sketch des nuls).
+
+on va pas faire comme ça, mais comme ça :
+
+	<CompressedFile>
+		<ImageFile>machin</ImageFile>
+		<Sound>bidule></Sound>
+	</CompressedFile>
+
+pour les fichiers qui seront dans des trucs compressés. (et faudra faire gaffe à l'ordre)
+
+et :
+	<ImageFile>machin</ImageFile>
+	<Sound>bidule></Sound>
+
+pour les fichiers qui sont pas dans des trucs compressés.
+
+
+****************
+
+définition d'une liste d'image, pour l'utiliser dans des sprite par la suite.
+
+*<LoadImgList>
+
+*	<Name> NOM DE LA LISTE D IMAGES </Name>
+//	<Numéro> NUMERO D INDEX DANS LES TABLEAUX DE DONNEES </Numéro>
+
+*	<Img>
+*		<Name> NOM DE L IMAGE </Name>
+//		<Numéro> NUMERO D INDEX DANS LES TABLEAUX DE DONNEES </Numéro>
+//		<FromZipFile> (NOM DU FICHIER ZIP) </FromZipFile>
+//		<File> (NOM DU FICHIER .PNG DANS LE ZIP) </File>
+*		<ImageSource> nom de l'image </ImageSource>
+*		<SquareSource>
+*			<X1> </X1>
+*			<Y1> </Y1>
+*			<X2> </X2>
+*			<Y2> </Y2>
+*		</SquareSource>
+*		<SquareSourceAllImage/>
+*		<HotPoint>
+*			<X> </X>
+*			<Y> </Y>
+*		</HotPoint>
+*		<KeyTransparency>
+*			<Red> VALEUR DE 0 A 255 </Red>
+*			<Green> VALEUR DE 0 A 255 </Green>
+*			<Blue> VALEUR DE 0 A 255 </Blue>
+*		</KeyTransparency>
+*		<NotKeyTransparent/>
+*		<DefaultKeyTransparent/> (valeur par défaut)
+*	</Img>
+
+	Après, y'a plein d'autres balises <Img>, autant qu'on veut. Une pour chaque image de la liste.
+
+*</LoadImgList>
+
+	La balise FromZipFile est optionnelle (pareil que pour les sons). Les balises numéros seront aussi enlevées après.
+	Les coordonnées X1, Y1, X2, Y2 donnent le coin supérieur gauche et inférieur droit du carré à prendre dans le fichier image source. Si il manque l'une des valeurs, une erreur est renvoyée, l'image n'est pas créée. (mais le reste des images, si.
+	La balise HotPoint est optionnelle. Si on la met pas, le hotpoint de l'image sera au 0,0.
+	La balise KeyTransparency est optionnelle. Si elle y est pas, c'est la valeur par défaut qui est prise.
+	Si deux images ont le même nom, une erreur est signalée, et la deuxième image n'est pas enregistrée. Pareil si y'a deux fois le même numéro. Pareil si deux listes d'images ont le même nom.
+	Si on crée une liste d'image sans image dedans, une erreur est signalée, et la liste n'est pas créée. Il faut au moins une image dans une liste d'images.
+
+	Pour la transparence : on doit mettre, soit la balise <Transparency>, soit la balise <NotTransparent>. Si on met Transparency, on n'est pas obligé de spécifier les couleurs RGB (dans ce cas, c'est les couleurs par défaut qui sont prises).
+	Si aucune des deux balises n'est mis, l'image est transparente avec la couleur par défaut.
+	Si les deux balises sont mises, c'est la première qui compte, et une erreur est signalée.
+
+
+****************
+
+Définition d'un sprite.
+
+*<SpriteDefinition>
+*	<Name> NOM DU SPRITE </Name>
+//	<Numéro> NUMERO D INDEX DANS LES TABLEAUX DE DONNEES </Numéro>
+*	<ImgList> NOM DE LA LISTE D IMAGES UTILISE POUR LE SPRITE </ImgList>
+*</SpriteDefinition>
+
+	Le sprite n'est pas créé (et donc sera pas affiché dans le film) si on donne un nom de liste d'images qui existe pas.
+	Le numéro sera enlevé après, comme d'hab'.
+	Si deux sprites ont le même nom, une erreur est signalée, et le deuxième sprite n'est pas enregistré. Pareil si y'a deux fois le même numéro.
+
+	On peut avoir plusieurs sprite qui utilise la même liste d'images. Ca permet d'avoir des clones.
+
+
+
+****************
+
+Définition d'un ensemble de sprite.
+
+
+<SpriteGroupDefinition>
+
+	<Name> NOM DU GROUPE </Name>
+
+	<Sprite> NOM DU SPRITE </Sprite>
+
+	Autant de balise Sprite qu'on veut.
+
+</SpriteGroupDefinition>
+
+	Permet de définir un groupe de sprite (par exemple, tout les éléments d'un même personnage). Le groupe est pas défini si l'un des sprite a un nom inexistant.
+	Si deux groupes ont le même nom, une erreur est signalée, et le deuxième groupe n'est pas enregistré.
+	Les groupes permettent de bouger tout un ensemble de sprite en même temps. (Mais c'est tout ce qu'on peut faire avec).
+
+*********************************************
+*** dans la balise Procedure :            ***
+*********************************************
+
+Cette balise est optionnelle.
+voir plus loin.
+
+
+*********************************************
+***    dans la balise Film :              ***
+*********************************************
+
+
+Définition d'une nouvelle scène :
+
+	<Scene>
+
+(nan, ça on jarte. C'est pouillave. On met juste des sceneInit et puis c'est tout.)
+
+Immédiatement après, il faut obligatoirement mettre la balise <SceneInit>, qui permet de définir tout plein de trucs (les sprites qui la contiennent, où est la caméra, ...)
+
+
+<SceneInit>
+
+      Pour positionner la caméra et son zoom :
+
+	<Camera>
+		<SetPos>
+			<X> VALEUR NUMERIQUE </X> (par défaut : 320)
+			<Y> VALEUR NUMERIQUE </Y> (par défaut : 240)
+			Les valeurs par défaut mettent la caméra au milieu de la scène.
+		</SetPos>
+		<SetZoom> VALEUR NUMERIQUE </SetZoom> (par défaut : 1)
+	</Camera>
+
+	Pour le zoom, on peut mettre une valeur décimale, mais après, c'est converti en valeur à virgule pas-flottante, c'est à dire qu'on ne peut compter que en 1024ème de zoom.
+	Comme toute les infos ont des valeurs par défaut, la balise Camera est entièrement optionnelle, ainsi que les autres balises internes.
+
+*******
+
+	Définition du rafaichissement de la scène, entre une image et une autre.
+
+	<NoRefresh/>
+
+	Il n'y a aucune info à mettre pour cette balise. Cela signifie que la scène n'est pas effacée entre chaque image. C'est ce qu'il faut mettre quand on a une image de fond qui recouvre tout l'écran. Comme tout est réaffiché à chaque fois, ce sera pas la peine d'effacer la scène.
+
+	<RefreshColor>
+		<Red> VALEUR DE 0 A 255 </Red>
+		<Green> VALEUR DE 0 A 255 </Green>
+		<Blue> VALEUR DE 0 A 255 </Blue>
+	</RefreshColor>
+
+	Indique qu'il faut tout effacer entre deux images, et donne la couleur de fond pour effacer. Par défaut, c'est red = 0, green = 0, blue = 0. Ce qui donne la couleur noire.
+
+	Si aucune des deux balises <NoRefresh> et <RefreshColor> n'est présente, la valeur par défaut est NoRefresh. Si les deux sont présentes, c'est la première indiquée qui est prise en compte. (mais une erreur est signalée).
+
+*******
+
+	Définition des sprite présent sur la scène. L'ordre est important. Le premier sera affiché en premier (donc en arrière-plan), et les suivants sont affichés dans l'ordre indiqué. (Donc le dernier sprite est en premier plan).
+
+	On ne peut pas ajouter ou enlever un sprite après que la scène ait été définie. Donc si on veut avoir un sprite qui ne sera pas tout le temps présent dans la scène, il faut utiliser les actions Show et Hide (voir plus loin).
+
+	<Sprite>
+
+		<Name> METTRE LE NOM DU SPRITE </Name>
+
+		<Hide/>
+		<Show/>
+		Mettre l'une ou l'autre de ces balises vides pour préciser si le sprite sera caché ou affiché au début de la scène. Si aucune des deux balises n'est indiqué, le sprite est affiché. Si y'a les deux, c'est la première qui est prise en compte, et une erreur est signalée.
+
+		<SetPos>
+			<X></X> (par défaut : 0)
+			<Y></Y> (par défaut : 0)
+		</SetPos>
+		C'est la position du hotpoint qui est donnée.
+
+		<SetZoom> </SetZoom> par défaut : 1. (Ca marche pareil que pour le zoom de caméra. C'est converti en 1024ème de zoom.
+
+		<Image> METTRE LE NOM D UNE IMAGE CONTENUE DANS LA LISTE DU SPRITE </Image>
+		Cette balise est obligatoire. Si elle n'est pas mise, où si le nom n'existe pas, une erreur est signalée, et c'est la première image de la liste qui sera utilisée.
+
+		<PortionSquare>
+			<X1> </X1>
+			<Y1> </Y1>
+			<X2> </X2>
+			<Y2> </Y2>
+		</PortionSquare>
+		Permet de préciser qu'on ne veut afficher qu'une certaine portion (carrée) du sprite. Si on ne met pas la balise, le sprite entier est affiché. Les coordonnées sont données en fonction du coin supérieur gauche de l'image à afficher. Si l'une des valeurs n'est pas présente, (x1, y1, etc...), le sprite est considéré comme caché, et une erreur est signalée.
+
+	</Sprite>
+
+
+</SceneInit>
+
+****************
+
+	Après avoir initialisé la scène, on peut mettre les balises suivantes, dans l'ordre qu'on veut. Ca va décrire le déroulement de la scène.
+
+****************
+
+Indication d'attente :
+
+	<Wait> VALEUR NUMERIQUE </Wait>
+
+Temps à attendre, en milisecondes.
+
+
+****************
+
+
+	<Sprite>
+
+		<Name> NOM DU SPRITE QUI VA ETRE AFFECTE </Name>
+
+		Si on met un nom inexistant, ou un nom de sprite qui n'est pas dans la scène, une erreur est renvoyé, et on ne tient pas compte du contenu de la balise sprite.
+
+		Ensuite, on peut mettre les mêmes balises que vu plus haut. : <Hide>, <Show>, <SetPos>, <SetZoom>, <Image>, <PortionSquare>. Ainsi que les deux suivantes :
+
+		<AddZoom> VALEUR DECIMALE </AddZoom>
+		Pour ajouter une valeur au zoom. On peut mettre une valeur négative. Si c'est une valeur décimale, c'est converti en 1024ème de zoom.
+
+		<Move>
+			<X> </X> (par défaut : 0)
+			<Y> </Y> (par défaut : 0)
+		</Move>
+		Permet de bouger le sprite, par rapport à sa position actuelle. (On peut mettre des valeurs négatives).
+
+	</Sprite>
+
+****************
+
+	<Camera>
+
+		On peut utiliser les balises SetPos, SetZoom, AddZoom et Move, de la même manière que expliqué précédemment.
+
+	</Camera>
+
+****************
+
+	<PlanSwap>
+		<Sprite> NOM DU SPRITE <Sprite>
+		<Sprite> NOM DU SPRITE <Sprite>
+
+		Permet d'échanger deux sprites dans l'ordre d'affichage. Si on met des noms inexistants, ou de sprite pas en scène, une erreur est générée.
+
+	</PlanSwap>
+
+****************
+
+	<PlanRedef>
+		<Sprite> NOM DU SPRITE <Sprite>
+		<Sprite> NOM DU SPRITE <Sprite>
+		<Sprite> NOM DU SPRITE <Sprite>
+		...
+
+		Redéfinit l'ordre dans lequel sont affichés les sprites. (le premier en arrière-plan, et ainsi de suite).
+		Si l'une des balises contient un nom inexistant ou de sprite pas en scène, erreur renvoyée, et balise <PlanRedef> non prise en compte (mais la balise <Sprite> n'est pas annulée pour autant.)
+
+		A la fin, si on a oublié de mettre un ou plusieurs sprite, ceux-ci seront rajoutés en arrière-plan, dans le même ordre qu'ils étaient avant. Mais une erreur est signalée.
+
+	</PlanRedef>
+
+****************
+
+	<PlaySound>
+		<Name> NOM DU SON <Name>
+		<Channel> NUMERO DE LA VOIE <Channel> (par défaut : 0)
+	</PlaySound>
+
+	Joue un son. Si le nom est pas bon, une erreur est renvoyée. Si le numéro de channel est plus grand que le nombre demandé au départ, c'est la channel 0 qui est prise, et une erreur est renvoyée.
+
+****************
+
+	<SpriteGroup>
+		<Name> NOM DU GROUPE </Name>
+
+		Là on ne peut mettre qu'une seule balise : <Move>. C'est tout ce qu'on peut faire avec un groupe de sprite.
+
+	</SpriteGroup>
+
+****************
+
+	Définit sur quel élément on fait les actions si on ne précise pas.
+
+	<DefaultTarget>
+
+		On peut alors mettre l'un des trois balises suivantes :
+		<Sprite> NOM DE SPRITE </Sprite>
+		<Camera/>
+		<SpriteGroup> NOM DU GROUPE <SpriteGroup>
+
+	</DefaultTarget>
+
+	Ensuite, on peut mettre les balises Move, Show, ... qu'on veut, en les incluant directement dans la scène. Et c'est la cible par défaut qui sera sélectionné. Si on essaie de faire des trucs interdits (genre une balise <Image> sur la caméra), une erreur est renvoyée.
+
+	Si le nom de sprite ou de groupe est inexistant, une erreur est renvoyée, et toute les actions par défaut ne seront pas prises en compte.
+	La cible par défaut s'enlève quand on passe d'une scène à l'autre.
+
+****************
+
+	Appeler une procédure prédéfinie.
+
+	<EXECUTE>
+      	<Name> NOM DE LA PROCEDURE </Name>
+		<Duration> TEMPS EN MILLISECONDES </Duration> (cette balise est optionnelle)
+	</EXECUTE>
+
+	(voir plus loin, juste après)
+
+****************
+
+Quand on a finit avec la scène, on la termine avec </Scene>
+
+On ne peut pas mettre de balise <Scene> dans une autre balise <Scene>.
+
+
+
+
+
+****************
+Les procédures :
+****************
+
+Elles se déclarent dans la balise <Procedures>
+
+Y'en a deux types : les procédures de scène, et les mini-procédures.
+
+balise : <SceneProcedure>, et <MiniProcedure>
+
+Dans une procédures de scène, on peut mettre les événements qu'on veut, mais il faut obligatoirement commencer par la déclaration d'une scène. Et finir par la fin d'une scène. (Mais on peut avoir autant de scène qu'on veut dans la procédure).
+
+Dans une mini-procédure, on ne peut pas créer de scène (ni en terminer). Si on définit une DefaultTarget dans une mini-procédure, celle-ci est annulée après la fin de la procédure.
+
+
+Ensuite, il faut respecter les règles suivantes :
+
+	On peut exécuter une procédure de scène entre deux scènes, mais seulement à ce moment là.
+
+	On peut exécuter une mini-procédure directement dans une scène du film, ou dans une procédure de scène, ou dans une autre mini-procédure.
+
+	La définition d'une procédure (quel que soit son type) doit se faire dans le film, mais pas dans une scène.
+
+	Il faut avoir défini une procédure avant de pouvoir l'appeler. (Ca évite des conneries genre des procédures qui s'appellent en boucle).
+	Et on ne peut pas appeler de procédure dans elle-même (pas de récursivité!!!!).
+
+
+	Le parser contrôlera, pour chaque mini-procédures, quels sont les sprites utilisées, et enverra des erreurs si jamais une mini procédure est placée dans une scène qui ne comporte pas tous les sprites utilisés.
+
+	On peut exécuter plusieurs mini-procédures en même temps. En fait elle vont se "mélanger". (Bon c'est pas compliqué à comprendre.)
+
+	Quand on exécute une mini-procédure, on peut décider de ne pas l'exécuter jusqu'au bout, dans ce cas, il faut mettre la balise <Duration>. On ne peut pas mettre de balise <Duration> pour une procédure de scène (sinon ça risque de la couper avant la fin de la scène).
+
+
+
+Voilà, c'est tout pour l'instant.
+
+
+
+
+*********************************************
+***    Les trucs à la con :               ***
+*********************************************
+
+
+<Debug> blablabla <Debug>
+
+	écrit le texte donné dans la sortie d'erreur, au moment où le parser arrive dessus. Ca peut permettre de savoir exactement où se situe une erreur.
+	On peut mettre cette balise n'importe où.
+
+
+<!--     -->
+commentaires dans le script. (on ne peut pas écrire de -- dans les commentaires.
+
+
+
+Si on trouve une erreur de syntaxe dans le fichier XML (pas bien formé). On signale l'erreur et on arrête tout.
+Si on trouve une balise incompréhensible, à l'endroit où on est, pareil. Erreur signalée, et stop. (genre une balise <Scene> alors qu'on est dans les balises <LoadData>
+
+Pour toutes les autres erreurs, ce n'est pas nécessaire d'arrêter le traitement, car elles sont moins graves.
+
+
+message d'erreur à l'écran :
+
+impossible de jouer le film
+Consultez le fichier stderr.txt, dans le répertoire du film, pour le détails des messages d'erreur.

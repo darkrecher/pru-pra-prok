@@ -1,0 +1,191 @@
+
+FDroite
+FBeurkMoyDents 
+FYoupiMoyDents 
+FNeutreGrdeDents 
+FNeutreGrdeDents2
+FYoupiGrdeDents 
+FBeurkGrdeDents 
+FBeurkMoyDents2 
+FYoupiTriangDents 
+FNeutreMoyRond 
+FNeutrePetitRond 
+FYoupiGeant
+FYoupiFerme
+FGeant
+
+PGNeutreGrdeDents 
+PGSourireMoy
+PGSourireGrdeDents 
+PGBeurkMoy 
+PGDroite 
+PGSourireGrde 
+PGNeutreGrde 
+PGNeutreMoy 
+PGSourireMoy2 
+PGBeurkMoy2 
+
+PDNeutreGrdeDents 
+PDSourireMoy
+PDSourireGrdeDents 
+PDBeurkMoy 
+PDDroite 
+PDSourireGrde 
+PDNeutreGrde 
+PDNeutreMoy 
+PDSourireMoy2 
+PDBeurkMoy2 
+
+FSourireRougeInclineP30
+
+
+procédure de blabla déjà faites : 
+
+PersoSec_1_ParleF_2
+PersoSec_1_ParlePD_1
+PersoSec_1_ParleF_1
+PersoSec_1_ParleFYoupi_1
+
+StanParleF_2
+StanParleF_1
+StanParlePG_1 
+StanParlePD_1
+
+AlttabParleF_1
+AlttabParlePG_Enerve
+AlttabParlePD_Enerve
+AlttabParlePD_1
+
+ColeParleF_1
+ColeParlePG_1
+
+JerryParleF_1
+
+****** Robin (Corps) ************
+ProfilGauche  <!--tête:+5,-220-->
+Face  <!--tête:0,-220-->
+ProfilDroit  <!--tête:-4,-220-->
+ParlePortable <!--portable:-37,-217-->
+TripotePortable <!--portable:-37,-141  main droite:-18,-154-->
+PorteBiere  <!--tête:0,-220 biere:0,-150-->
+FBoitBiere <!--tête:0,-220 biere:0+7,-150-80 ????-->
+PDAssis  <!--tête:-59,-195  biere : +14,-126??-->
+
+****** Robin, alttab et Jerry (Tete) ************
+Face  <!--bouche:0,-10 yeux:0,-50--> 
+ProfilGauche  <!--bouche:-29,-10 yeux:-48,-50-->
+ProfilDroit  <!--bouche:+29,-10 yeux:+48,-50-->
+
+
+************* AlttabCorps **************
+Face <!-- tete:0,-229 biere: --> 
+FMainGauchePoitrineCouped <!-- tete:0,-229 biere:-9,-158 --> 
+FMainGaucheBouche <!-- tete:0,-229 biere:-9+25,-158-75 --> 
+ProfilDroit <!-- tete:+8,-229 biere: --> 
+ProfilGauche <!-- tete:-8,-229 biere: --> 
+PDAssis <!-- tete:-30,-190 biere:+70,-115 --> 
+
+******** cole corps *********************
+
+ProfilGauche  <!--tête:+5,-220-->
+Face  <!--tête:0,-220-->
+ProfilDroit  <!--tête:-4,-220-->
+PGAssisBiereBouche   <!--tête:+56,-194  biere: +20,-185???-->
+PGAssisBiereTable   <!--tête:+60,-194  biere: -9,-126-->
+PGAssis <!--tête:+60,-198-->
+Dos   <!--tête:0,-220-->
+FPorteBiere  <!--tête:0,-220 biere:-17,-155-->
+BoitBiere   <!--tête:0,-220 biere:???-->
+
+*********** ColeTete *************
+Face <!--bouche:0,-10 yeux:0,-50--> 
+ProfilGauche   <!--bouche:-28,-10 yeux:-46,-50-->
+ProfilDroit  <!--bouche:+28,-10 yeux:+46,-50-->
+
+****** Jerry   corps ***********
+Face  <!--tête:0,-209???  bras droit : -27, -199 (largeur = 16)  bras gauche : +26,-199-->
+ProfilDroit <!--tête:-6,-209???-->
+ProfilGauche  <!--tête:+6,-209???-->
+
+
+
+********barwoman (tete) ***********
+face : bouche:0,-12  yeux:0,-48 brasD:-30,-78 brasG:+30,-78
+corps->tete : 0,-87
+
+brastelephoneHaut portable : +20,-20
+brastelephoneBas portable : +18,-6
+
+
+
+
+<!-- modèle pour faire les procédures de balbalblbal hahaha : 
+
+<Procedure> <Name> PersoSec_1_ParlePD_1 </Name>  
+	<Sprite><Name> PersoSec_1_Bouche </Name>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+		<Time>100</Time>
+		<SetImg></SetImg>
+	</Sprite>
+</Procedure>
+
+
+-->
+
+
+
+
+fichiers de code dans lesquels j'ai déjà mis des conneries : 
+
+BufferScreens.cpp
+BufferScreens.hpp
+ConfigInfos.cpp
+main.cpp
+Scene.cpp
+ChainListOfMovieEvent.cpp
+ME_Sprite_childrens.cpp
+ChainListOfImg.cpp
+FileLoader.cpp
+ChainListOfSound.cpp
+ChainListOfSound.hpp
+DataLoader.cpp
+DataLoader.hpp
+ConfigXMLParser.hpp
+MoviePlayer.cpp
+ScreenConst.hpp
