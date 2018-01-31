@@ -1,8 +1,8 @@
 # Pru-pra-prok
 
-Pour ceux qui connaissent déjà, y'aura rien de plus que ce que j'avais fait à l'époque. C'est juste que je le met sur github.
+Un moteur de dessin animé écrit en C++, avec un dessin animé d'exemple de 20 minutes, inspiré de South Park. Il s'agit de l'épisode 2, (l'épisode 1 n'existe pas).
 
-Pour ceux qui ne connaissent pas : c'est en cours. Et c'est de très bon goût. Il y a un épisode 2, mais pas d'épisode 1.
+Pour ceux qui connaissent déjà, il n'y a rien de plus que ce que j'avais fait à l'époque. C'est juste que je le met sur github.
 
 Ce bidule à plus de 10 ans, quand même...
 
@@ -31,7 +31,7 @@ Touches de fonction :
  - Echap : quitter
  - F1 : copie d'écran dans un fichier "screenshot.bmp" (on ne peut en faire qu'une seule à la fois).
 
-Si ça ne fonctionne pas bien, essayez de modifier le fichier [movies/pru-pra-prok_episode_2/config.txt](movies/pru-pra-prok_episode_2/config.txt). Les explications sont directement dedans, sous forme de commentaires. Résultat non garanti, si ça ne fonctionne pas, il est fort possible qu'il n'y ait pas de solution.
+Si ça ne fonctionne pas bien, essayez de modifier le fichier [movies/pru-pra-prok_episode_2/config.txt](movies/pru-pra-prok_episode_2/config.txt). Les explications sont directement dedans, sous forme de commentaires. Résultat non garanti, si ça ne fonctionne pas, il est fort possible que changer la config n'ait aucun effet.
 
 
 ## Récupération des images et des sons
@@ -61,27 +61,9 @@ Voir : [doc/reconstruction_projet.md](doc/reconstruction_projet.md)
 
 ## Dessins bonus
 
-La cavale de Monsieur Christiansen et de Monsieur Schizy. Images : [1](dessin_bonus/histoire_1.jpg) [2](dessin_bonus/histoire_2.jpg) [3](dessin_bonus/histoire_3.jpg) [4](dessin_bonus/histoire_4.jpg).
+Monsieur Christiansen et Monsieur Schizy en cavale. Images : [1](dessin_bonus/histoire_1.jpg) [2](dessin_bonus/histoire_2.jpg) [3](dessin_bonus/histoire_3.jpg) [4](dessin_bonus/histoire_4.jpg).
 
-Le dépliant promotionnel de "Gerontalia", un parc d'attractions pour personnes âgés. Images : [1](dessin_bonus/depliant_1.jpg) [2](dessin_bonus/depliant_2.jpg).
-
-
-## TODO :
-
- X comment jouer le film, les touches du player, ajouter les .bat
- X comment extraire les images et les sons
- X doc rapide pour expliquer comment créer ses propres dessins animés
- X fichier de référence des XML
- X doc un peu plus détaillé pour `concat_files`, `extract_files`, `xml_optimizer`
- X relire `reconstruction_projet.md` et les autres docs.
- X les sommaires.
- X gif animé du film d'exemple
- X ajouter les bonus, avec mini-texte d'explications (Gerontalia, les dessins)
- X le film pru-pra-prok au format lisible
- X chercher et terminer les TODO dans le code et la doc
- X vérifier si je n'ai pas oublié des choses sur mon disque et sur la version SourceForge.
-
- - finir le README avec tous les liens.
+Dépliant promotionnel de "Gerontalia", un parc d'attractions pour personnes âgés. Images : [1](dessin_bonus/depliant_1.jpg) [2](dessin_bonus/depliant_2.jpg).
 
 
 ## Crédits
