@@ -2,6 +2,8 @@
 
 Un moteur de dessin animé écrit en C++, avec un dessin animé d'exemple de 20 minutes, inspiré de South Park. Il s'agit de l'épisode 2, (l'épisode 1 n'existe pas).
 
+![extraits du dessin animé](doc/trailer.gif)
+
 Pour ceux qui connaissent déjà, il n'y a rien de plus que ce que j'avais fait à l'époque. C'est juste que je le met sur github.
 
 Ce bidule à plus de 10 ans, quand même...
